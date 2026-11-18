@@ -1,0 +1,3890 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Howard Liao, Ph.D. (廖倫豪 博士) — Executive Portfolio & Leadership Dossier</title>
+  <meta name="description" content="廖倫豪 博士 (Howard Liao, Ph.D.) 27 年 IT 歷練：資訊長 (CIO) / 集團資安長 (Group CISO) / 技術副總。專長 SAP S/4HANA Clean Core、多雲高可用 (Zero Outage)、FinOps (-30% TCO)、Edge AIoT (+15% 良率)、ISO 27001 / 42001 雙重治理與 Agentic AI。">
+  <meta name="author" content="Howard Liao Ph.D.">
+  <meta name="keywords" content="Howard Liao, 廖倫豪, CIO, CISO, CDAIO, AI 平台負責人, SAP S/4HANA, Clean Core, GKE, MongoDB Atlas, FinOps, ISO 27001, ISO 42001, Zero Trust">
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="profile">
+  <meta property="og:title" content="Howard Liao, Ph.D. (廖倫豪 博士) — Executive Portfolio & Leadership Dossier">
+  <meta property="og:description" content="27 年跨國高科技製造、網路平台與企業系統治理歷練。米蘭風格高階數位履歷與架構戰情中心。">
+  <meta property="og:image" content="assets/og_howard_liao.jpg">
+  <meta property="og:url" content="https://howardliao.github.io/Portfolio01/">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
+  <link rel="apple-touch-icon" href="assets/icon-512.png">
+
+  <style>
+    /* ==========================================================================
+       MILAN EDITORIAL & WARM AMBER DESIGN SYSTEM TOKENS
+       ========================================================================== */
+    :root {
+      --bg-base: #FDFBF7;
+      --bg-canvas: #FBF8F2;
+      --bg-card: #FFFFFF;
+      --bg-card-subtle: #FFFBEB;
+      --bg-card-muted: #F8FAFC;
+      
+      --border-main: #EFE9DE;
+      --border-subtle: #E8E2D9;
+      --border-accent: #DE5814;
+      --border-gold: #C8A96A;
+      
+      --text-primary: #2D3748;
+      --text-secondary: #4A5568;
+      --text-muted: #718096;
+      --text-light: #94A3B8;
+      
+      --accent-rust: #A83212;
+      --accent-orange: #DE5814;
+      --accent-amber: #D97706;
+      --accent-citrus: #EA580C;
+      --accent-gold: #F59E0B;
+      --accent-forest: #2F4538;
+      --accent-blue: #0284C7;
+      
+      --shadow-sm: 0 2px 8px rgba(168, 50, 18, 0.04);
+      --shadow-md: 0 8px 24px rgba(168, 50, 18, 0.08);
+      --shadow-lg: 0 16px 36px rgba(168, 50, 18, 0.12);
+      
+      --font-sans: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --font-mono: "SF Mono", "Roboto Mono", Menlo, Consolas, "Courier New", monospace;
+      
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      line-height: 1.7;
+      background: var(--bg-base);
+      color: var(--text-primary);
+      padding-bottom: 96px; /* Mobile Dock clearance */
+      position: relative;
+      overflow-x: hidden;
+      width: 100%;
+      max-width: 100vw;
+      box-sizing: border-box;
+    }
+
+    /* High-density micro watermark */
+    .watermark-overlay {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100vw !important;
+      height: 100vh !important;
+      pointer-events: none !important;
+      z-index: 999999 !important;
+      opacity: 0.048 !important;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='140' viewBox='0 0 260 140'%3E%3Ctext x='20' y='75' fill='%231C1917' font-family='-apple-system, BlinkMacSystemFont, Arial, sans-serif' font-weight='700' font-size='13' transform='rotate(-22 130 75)' letter-spacing='2'%3EHoward Liao Ph.D.%3C/text%3E%3C/svg%3E") !important;
+    }
+
+    /* Accessibility Skip Link */
+    .skip-link {
+      position: absolute;
+      top: -60px;
+      left: 16px;
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      padding: 10px 18px;
+      z-index: 2147483647;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      font-weight: 700;
+      transition: top 0.2s ease;
+    }
+    .skip-link:focus {
+      top: 16px;
+    }
+
+    :focus-visible {
+      outline: 3px solid var(--accent-orange) !important;
+      outline-offset: 3px !important;
+    }
+
+    /* ==========================================================================
+       CONTAINER & GRID UTILITIES
+       ========================================================================== */
+    .container {
+      width: 100%;
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 24px;
+      box-sizing: border-box;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        padding: 0 12px;
+      }
+    }
+
+    /* Alignment Rule */
+    .text-center { text-align: center; }
+    .text-right { text-align: right; }
+    .text-left { text-align: left; }
+    .font-mono { font-family: var(--font-mono); }
+
+    /* Number Highlighting */
+    .stat-number {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      text-align: right;
+    }
+
+    /* Section Typography */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-rust);
+      background: rgba(168, 50, 18, 0.08);
+      padding: 4px 14px;
+      border-radius: var(--radius-full);
+      margin-bottom: 12px;
+      border: 1px solid rgba(168, 50, 18, 0.15);
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 12px;
+      position: relative;
+      display: inline-block;
+      line-height: 1.3;
+    }
+
+    .section-title::after {
+      content: "";
+      display: block;
+      width: 68px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-rust), var(--accent-orange));
+      margin: 10px auto 0;
+      border-radius: var(--radius-full);
+    }
+
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 820px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* ==========================================================================
+       MASTHEAD NAVIGATION (DESKTOP & TABLET)
+       ========================================================================== */
+    .masthead {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(253, 251, 247, 0.94);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid var(--border-main);
+      transition: all 0.25s ease;
+    }
+
+    .masthead-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      gap: 16px;
+    }
+
+    .masthead-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      border: 2px solid var(--accent-orange);
+      box-shadow: 0 2px 8px rgba(168, 50, 18, 0.15);
+    }
+
+    .brand-meta {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-name {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      line-height: 1.2;
+    }
+
+    .brand-title {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Desktop Navigation Pills */
+    .masthead-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 233, 222, 0.6);
+      padding: 4px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 14px;
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-pill:hover {
+      color: var(--accent-rust);
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    .nav-pill.active {
+      color: #FFFFFF;
+      background: var(--accent-rust);
+      box-shadow: 0 2px 8px rgba(168, 50, 18, 0.25);
+    }
+
+    .masthead-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .btn-action-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--accent-rust), var(--accent-orange));
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(168, 50, 18, 0.25);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .btn-action-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 16px rgba(168, 50, 18, 0.35);
+    }
+
+    .btn-text-mobile {
+      display: none;
+    }
+
+    .btn-nav-trigger {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      border: none;
+      padding: 7px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.86rem;
+      font-weight: 800;
+      cursor: pointer;
+      min-height: 38px;
+      box-shadow: 0 2px 8px rgba(168, 50, 18, 0.25);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 1080px) {
+      .masthead-nav {
+        display: none;
+      }
+      .btn-nav-trigger {
+        display: inline-flex !important;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .masthead-inner {
+        height: 60px;
+        gap: 6px;
+      }
+      .brand-avatar {
+        width: 36px;
+        height: 36px;
+      }
+      .brand-name {
+        font-size: 0.96rem;
+      }
+      .brand-title {
+        display: none !important;
+      }
+      .btn-text-full {
+        display: none !important;
+      }
+      .btn-text-mobile {
+        display: inline !important;
+      }
+      .btn-action-primary {
+        padding: 5px 9px;
+        font-size: 0.76rem;
+      }
+      .btn-nav-trigger {
+        padding: 5px 10px;
+        font-size: 0.78rem;
+        min-height: 32px;
+      }
+    }
+
+    /* ==========================================================================
+       HERO SECTION (MILAN TWO-COLUMN BENTO)
+       ========================================================================== */
+    .hero-section {
+      padding: 40px 0 32px;
+    }
+
+    .hero-bento {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 42px 48px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bento::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, var(--accent-rust) 0%, var(--accent-orange) 50%, var(--accent-gold) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 48px;
+      align-items: center;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+        text-align: center;
+      }
+      .hero-bento {
+        padding: 32px 20px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-name {
+        font-size: 2.1rem !important;
+      }
+      .hero-name-en {
+        font-size: 1.15rem !important;
+      }
+      .hero-roles {
+        font-size: 0.95rem !important;
+      }
+      .hero-bento {
+        padding: 24px 14px;
+      }
+    }
+
+    .hero-badge-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-badge-group {
+        justify-content: center;
+      }
+    }
+
+    .badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.74rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      white-space: normal;
+      text-align: center;
+      line-height: 1.35;
+    }
+
+    .badge-pill.rust {
+      background: #FFF1EE;
+      color: var(--accent-rust);
+      border: 1px solid rgba(168, 50, 18, 0.2);
+    }
+
+    .badge-pill.amber {
+      background: #FFFBEB;
+      color: var(--accent-amber);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+    }
+
+    .badge-pill.forest {
+      background: #ECFDF5;
+      color: var(--accent-forest);
+      border: 1px solid rgba(47, 69, 56, 0.25);
+    }
+
+    .hero-name {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--accent-rust);
+      line-height: 1.15;
+      margin-bottom: 8px;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-name-en {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      margin-bottom: 16px;
+      font-family: var(--font-sans);
+    }
+
+    .hero-roles {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .hero-lead-text {
+      font-size: 1.02rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .hero-lead-highlight {
+      font-weight: 700;
+      color: var(--accent-rust);
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-cta-group {
+        justify-content: center;
+      }
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.92rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.18s ease;
+      cursor: pointer;
+    }
+
+    .btn-hero-primary {
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(168, 50, 18, 0.28);
+      border: 1px solid var(--accent-rust);
+    }
+    .btn-hero-primary:hover {
+      background: #87250B;
+      transform: translateY(-2px);
+    }
+
+    .btn-hero-secondary {
+      background: var(--bg-card-subtle);
+      color: var(--accent-rust);
+      border: 1px solid rgba(168, 50, 18, 0.25);
+    }
+    .btn-hero-secondary:hover {
+      background: #FEE7D8;
+    }
+
+    .hero-contact-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      border-top: 1px dashed var(--border-main);
+      padding-top: 18px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-contact-list {
+        justify-content: center;
+      }
+    }
+
+    .hero-contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .hero-contact-item:hover {
+      color: var(--accent-orange);
+    }
+
+    /* Hero Portrait Card */
+    .hero-portrait-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .portrait-wrapper {
+      position: relative;
+      width: 240px;
+      height: 240px;
+      border-radius: var(--radius-full);
+      padding: 6px;
+      background: linear-gradient(135deg, var(--accent-rust), var(--accent-orange), var(--accent-gold));
+      box-shadow: var(--shadow-lg);
+      margin-bottom: 16px;
+    }
+
+    .portrait-img {
+      width: 100%;
+      height: 100%;
+      border-radius: var(--radius-full);
+      object-fit: cover;
+      background: #FFFFFF;
+      border: 3px solid #FFFFFF;
+      display: block;
+    }
+
+    .portrait-badge-verified {
+      position: absolute;
+      bottom: 8px;
+      right: 12px;
+      background: #FFFFFF;
+      color: var(--accent-forest);
+      padding: 4px 10px;
+      border-radius: var(--radius-full);
+      font-size: 0.72rem;
+      font-weight: 800;
+      border: 1px solid rgba(47, 69, 56, 0.25);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .portrait-caption {
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+    }
+
+    .portrait-subcaption {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       FOUR C-LEVEL BENTO METRICS GRID (HUNTER BENTO)
+       ========================================================================== */
+    .metrics-section {
+      padding: 32px 0 48px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 992px) {
+      .metrics-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .metrics-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .metric-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      border-bottom: 4px solid var(--accent-orange);
+    }
+
+    .metric-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .metric-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .metric-icon {
+      font-size: 1.5rem;
+    }
+
+    .metric-tag {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      background: #FFF1EE;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.05em;
+    }
+
+    .metric-val-wrap {
+      margin-bottom: 8px;
+      text-align: right;
+    }
+
+    .metric-val {
+      font-size: 2.6rem;
+      font-weight: 900;
+      line-height: 1.05;
+      color: var(--accent-rust);
+      font-family: var(--font-mono);
+    }
+
+    .metric-val.amber {
+      color: var(--accent-amber);
+    }
+    .metric-val.forest {
+      color: var(--accent-forest);
+    }
+    .metric-val.blue {
+      color: var(--accent-blue);
+    }
+
+    .metric-title {
+      font-size: 1.02rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      text-align: center;
+    }
+
+    .metric-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    /* Sub-metrics Strip */
+    .submetrics-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      background: #FAF7F0;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 18px 24px;
+    }
+
+    @media (max-width: 768px) {
+      .submetrics-strip {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        padding: 16px;
+      }
+    }
+
+    .submetric-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 12px;
+      background: #FFFFFF;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-main);
+    }
+
+    .submetric-label {
+      font-size: 0.86rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+    }
+
+    .submetric-val {
+      font-size: 1.25rem;
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--accent-rust);
+      text-align: right;
+    }
+
+    /* ==========================================================================
+       THREE STRATEGIC PILLARS (BOARD VALUE PROPOSITIONS)
+       ========================================================================== */
+    .pillars-section {
+      padding: 48px 0;
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-main);
+      border-bottom: 1px solid var(--border-main);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 960px) {
+      .pillars-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .pillar-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 32px 28px;
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      border-top: 4px solid var(--accent-rust);
+    }
+
+    .pillar-num {
+      display: inline-block;
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      color: var(--accent-orange);
+      background: #FFF1EE;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      margin-bottom: 14px;
+    }
+
+    .pillar-heading {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 12px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .pillar-body {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 18px;
+      text-align: center;
+    }
+
+    .pillar-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      border-top: 1px dashed var(--border-main);
+      padding-top: 14px;
+    }
+
+    .pillar-list-item {
+      font-size: 0.85rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      line-height: 1.5;
+    }
+
+    .pillar-list-item::before {
+      content: "✓";
+      color: var(--accent-forest);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    /* ==========================================================================
+       PI-LEADER STRATEGIC STEPPER (CAREER EVOLUTION)
+       ========================================================================== */
+    .stepper-section {
+      padding: 56px 0;
+    }
+
+    .stepper-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 32px;
+      overflow-x: auto;
+      white-space: nowrap;
+      padding: 4px;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .stepper-tab {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .stepper-tab:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-rust);
+    }
+
+    .stepper-tab.active {
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      border-color: var(--accent-rust);
+      box-shadow: 0 4px 12px rgba(168, 50, 18, 0.25);
+    }
+
+    .stepper-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 36px 40px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .stepper-card {
+        padding: 24px 18px;
+      }
+    }
+
+    .step-content {
+      display: none;
+    }
+    .step-content.active {
+      display: block;
+      animation: fadeIn 0.3s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .step-header {
+      border-bottom: 2px solid var(--border-main);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .step-tagline {
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: var(--accent-orange);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+
+    .step-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 8px;
+    }
+
+    .step-body-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .step-body-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+    }
+
+    .step-box {
+      background: var(--bg-card-subtle);
+      border: 1px solid rgba(217, 119, 6, 0.25);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+
+    .step-box-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--accent-amber);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .step-box-text {
+      font-size: 0.88rem;
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    .step-takeaway {
+      background: #F0FDF4;
+      border: 1px solid rgba(47, 69, 56, 0.3);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       FOUR CORE ARCHITECTURE HUBS & INSPECTOR
+       ========================================================================== */
+    .arch-section {
+      padding: 56px 0;
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-main);
+      border-bottom: 1px solid var(--border-main);
+    }
+
+    .hubs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    @media (max-width: 960px) {
+      .hubs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .hubs-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
+    .hub-card {
+      background: #FFFFFF;
+      border: 2px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 22px 18px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+      text-align: center;
+    }
+
+    .hub-card:hover {
+      border-color: var(--accent-orange);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hub-card.active {
+      border-color: var(--accent-rust);
+      background: #FFFBF9;
+      box-shadow: 0 0 0 3px rgba(168, 50, 18, 0.15);
+    }
+
+    .hub-icon {
+      font-size: 2rem;
+      margin-bottom: 8px;
+    }
+
+    .hub-name {
+      font-size: 1.08rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 4px;
+    }
+
+    .hub-role-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      background: #FFF1EE;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .hub-summary {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* On-demand Inspector Panel */
+    .inspector-panel {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-lg);
+      padding: 32px 36px;
+      box-shadow: var(--shadow-md);
+      border-left: 6px solid var(--accent-rust);
+    }
+
+    @media (max-width: 768px) {
+      .inspector-panel {
+        padding: 22px 18px;
+      }
+    }
+
+    .inspector-title {
+      font-size: 1.4rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .inspector-subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .inspector-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .inspector-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .inspect-box {
+      background: var(--bg-card-muted);
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-sm);
+      padding: 16px 18px;
+    }
+
+    .inspect-box-title {
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .inspect-box-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.84rem;
+      color: var(--text-primary);
+    }
+
+    .inspect-box-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+    }
+    .inspect-box-list li::before {
+      content: "•";
+      color: var(--accent-orange);
+      font-weight: 900;
+    }
+
+    /* ==========================================================================
+       CAREER TIMELINE (27 YEARS EXECUTIVE HISTORY)
+       ========================================================================== */
+    .timeline-section {
+      padding: 56px 0;
+    }
+
+    .timeline-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 32px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      padding: 14px 20px;
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .timeline-filters {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      padding-bottom: 2px;
+      -webkit-overflow-scrolling: touch;
+      max-width: 100%;
+    }
+
+    .filter-chip {
+      background: var(--bg-card-muted);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .filter-chip:hover {
+      border-color: var(--accent-orange);
+      color: var(--accent-rust);
+    }
+
+    .filter-chip.active {
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      border-color: var(--accent-rust);
+    }
+
+    .timeline-search-wrap {
+      position: relative;
+      min-width: 240px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .timeline-search-wrap {
+        width: 100%;
+      }
+    }
+
+    .timeline-search-input {
+      width: 100%;
+      padding: 8px 14px 8px 34px;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-size: 0.86rem;
+      color: var(--text-primary);
+      background: #FAF7F0;
+      outline: none;
+    }
+
+    .timeline-search-input:focus {
+      border-color: var(--accent-orange);
+      background: #FFFFFF;
+    }
+
+    .timeline-search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+
+    /* Timeline Items */
+    .timeline-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: relative;
+    }
+
+    .timeline-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.2s ease;
+      border-left: 5px solid var(--accent-orange);
+      position: relative;
+    }
+
+    .timeline-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateX(3px);
+    }
+
+    .timeline-meta-bar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .timeline-dates {
+      font-family: var(--font-mono);
+      font-size: 0.86rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      background: #FFF1EE;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .timeline-location-tag {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .timeline-card-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+
+    .timeline-company {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--accent-rust);
+      margin-bottom: 12px;
+    }
+
+    .timeline-bullets {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .timeline-bullets li::before {
+      content: "•";
+      color: var(--accent-orange);
+      font-size: 1.2rem;
+      line-height: 1.2;
+      flex-shrink: 0;
+    }
+
+    .timeline-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-top: 1px dashed var(--border-main);
+      padding-top: 12px;
+    }
+
+    .tag-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      background: var(--bg-card-muted);
+      border: 1px solid var(--border-subtle);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+    }
+
+    /* ==========================================================================
+       FLAGSHIP CASE STUDIES (STAR FRAMEWORK)
+       ========================================================================== */
+    .cases-section {
+      padding: 56px 0;
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-main);
+      border-bottom: 1px solid var(--border-main);
+    }
+
+    .cases-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    @media (max-width: 860px) {
+      .cases-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .case-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-top: 4px solid var(--accent-rust);
+    }
+
+    .case-eyebrow {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .case-cat {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      background: #FFF1EE;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .case-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 14px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .star-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .star-row {
+      background: var(--bg-card-muted);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      font-size: 0.84rem;
+      line-height: 1.5;
+    }
+
+    .star-label {
+      font-weight: 800;
+      color: var(--accent-rust);
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .case-impact-box {
+      background: #FFFBEB;
+      border: 1px solid rgba(217, 119, 6, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .impact-title {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-amber);
+    }
+
+    .impact-stat {
+      font-size: 1.3rem;
+      font-weight: 900;
+      font-family: var(--font-mono);
+      color: var(--accent-rust);
+      text-align: right;
+    }
+
+    .case-evidence-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--accent-rust);
+      text-decoration: none;
+      align-self: flex-start;
+    }
+    .case-evidence-link:hover {
+      color: var(--accent-orange);
+      text-decoration: underline;
+    }
+
+    /* ==========================================================================
+       EXTERNAL EVIDENCE & MEDIA TILES
+       ========================================================================== */
+    .evidence-section {
+      padding: 56px 0;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    @media (max-width: 960px) {
+      .evidence-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .evidence-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .evidence-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .evidence-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .evidence-thumb-wrap {
+      width: 100%;
+      height: 180px;
+      background: #F0EDE6;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .evidence-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .evidence-card:hover .evidence-thumb {
+      transform: scale(1.04);
+    }
+
+    .evidence-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      flex-grow: 1;
+    }
+
+    .evidence-type-badge {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      background: #FFF1EE;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 8px;
+    }
+
+    .evidence-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      line-height: 1.4;
+      text-align: center;
+    }
+
+    .evidence-desc {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    .evidence-btn-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px dashed var(--border-main);
+      padding-top: 12px;
+    }
+
+    .btn-evidence-view {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-rust);
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .btn-evidence-view:hover {
+      color: var(--accent-orange);
+    }
+
+    /* ==========================================================================
+       EDUCATION, SCI PAPERS & CREDENTIALS
+       ========================================================================== */
+    .edu-section {
+      padding: 56px 0;
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-main);
+      border-bottom: 1px solid var(--border-main);
+    }
+
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    @media (max-width: 860px) {
+      .edu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .edu-column-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .edu-column-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border-main);
+      padding-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .edu-item {
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px dashed var(--border-main);
+    }
+    .edu-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .edu-degree {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+    }
+
+    .edu-school {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--accent-orange);
+      margin-bottom: 6px;
+    }
+
+    .edu-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Table Scroll Wrap */
+    .table-scroll-wrap {
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 16px 0;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-sm);
+      background: #FFFFFF;
+    }
+
+    .milan-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.86rem;
+    }
+
+    .milan-table th {
+      background: #FAF7F0;
+      color: var(--accent-rust);
+      font-weight: 800;
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 2px solid var(--border-main);
+      white-space: nowrap;
+    }
+
+    .milan-table td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border-main);
+      color: var(--text-primary);
+    }
+
+    .milan-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* ==========================================================================
+       EXECUTIVE DIALOGUE & BOARD FAQ ACCORDION
+       ========================================================================== */
+    .faq-section {
+      padding: 56px 0;
+    }
+
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 860px) {
+      .faq-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .faq-column-header {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent-orange);
+      text-align: center;
+    }
+
+    .faq-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    .faq-card.active {
+      border-color: var(--accent-rust);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .faq-question {
+      padding: 14px 18px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #FFFDFB;
+      gap: 10px;
+    }
+
+    .faq-toggle-icon {
+      font-size: 1rem;
+      transition: transform 0.2s ease;
+      color: var(--accent-orange);
+    }
+
+    .faq-card.active .faq-toggle-icon {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 14px 18px;
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      border-top: 1px dashed var(--border-main);
+      background: #FFFFFF;
+    }
+
+    .faq-card.active .faq-answer {
+      display: block;
+    }
+
+    /* ==========================================================================
+       FIRST 180 DAYS BLUEPRINT
+       ========================================================================== */
+    .plan-section {
+      padding: 56px 0;
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-main);
+      border-bottom: 1px solid var(--border-main);
+    }
+
+    .plan-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    @media (max-width: 960px) {
+      .plan-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .plan-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .plan-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid var(--accent-orange);
+    }
+
+    .plan-day-tag {
+      font-size: 0.82rem;
+      font-weight: 900;
+      color: var(--accent-rust);
+      background: #FFF1EE;
+      padding: 3px 10px;
+      border-radius: var(--radius-full);
+      display: inline-block;
+      margin-bottom: 10px;
+    }
+
+    .plan-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .plan-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+      margin-bottom: 14px;
+    }
+
+    .plan-list li::before {
+      content: "•";
+      color: var(--accent-orange);
+      font-weight: 900;
+      margin-right: 6px;
+    }
+
+    .plan-deliverable {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: var(--accent-forest);
+      background: #ECFDF5;
+      padding: 6px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(47, 69, 56, 0.2);
+      text-align: center;
+    }
+
+    /* ==========================================================================
+       FOOTER & EXECUTIVE SIGN-OFF
+       ========================================================================== */
+    .site-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-main);
+      padding: 48px 0 32px;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+
+    .footer-avatar {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-full);
+      border: 2px solid var(--accent-orange);
+      margin-bottom: 12px;
+    }
+
+    .footer-name {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+      margin-bottom: 4px;
+    }
+
+    .footer-roles {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 18px;
+      font-size: 0.88rem;
+      margin-bottom: 24px;
+    }
+
+    .footer-link {
+      color: var(--accent-rust);
+      text-decoration: none;
+      font-weight: 700;
+    }
+    .footer-link:hover {
+      color: var(--accent-orange);
+      text-decoration: underline;
+    }
+
+    .footer-copy {
+      font-size: 0.76rem;
+      color: var(--text-muted);
+      border-top: 1px dashed var(--border-main);
+      padding-top: 18px;
+    }
+
+    /* ==========================================================================
+       MOBILE ERGONOMICS: FIXED BOTTOM DOCK & SLIDE-UP DRAWER
+       ========================================================================== */
+    .mobile-bottom-dock {
+      display: none;
+      position: fixed !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      height: 64px;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid var(--border-main);
+      z-index: 2147483647 !important;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 4px;
+      box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 900px) {
+      .mobile-bottom-dock {
+        display: flex !important;
+      }
+    }
+
+    .dock-tab {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: var(--text-muted);
+      font-size: 0.65rem;
+      font-weight: 700;
+      gap: 2px;
+      flex: 1 1 0;
+      min-width: 0;
+      height: 48px;
+      border-radius: var(--radius-sm);
+      transition: color 0.15s ease;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    .dock-tab.active, .dock-tab:hover {
+      color: var(--accent-rust);
+    }
+
+    .dock-tab-icon {
+      font-size: 1.18rem;
+      line-height: 1;
+    }
+
+    .dock-tab.drawer-btn {
+      color: var(--accent-rust);
+      background: #FFF1EE;
+      border-radius: var(--radius-sm);
+      font-weight: 800;
+    }
+
+    /* Navigation Drawer */
+    .nav-drawer-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 2147483646;
+      backdrop-filter: blur(4px);
+    }
+
+    .nav-drawer {
+      position: fixed;
+      bottom: -100%;
+      left: 0;
+      right: 0;
+      background: #FFFFFF;
+      border-top-left-radius: var(--radius-lg);
+      border-top-right-radius: var(--radius-lg);
+      padding: 24px 20px 40px;
+      z-index: 2147483647;
+      transition: bottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 85vh;
+      overflow-y: auto;
+      box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.2);
+    }
+
+    .nav-drawer.open {
+      bottom: 0;
+    }
+
+    .drawer-handle {
+      width: 44px;
+      height: 5px;
+      background: var(--border-subtle);
+      border-radius: var(--radius-full);
+      margin: 0 auto 18px;
+    }
+
+    .drawer-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--border-main);
+      padding-bottom: 12px;
+    }
+
+    .drawer-title {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+    }
+
+    .drawer-close {
+      background: var(--bg-card-muted);
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-full);
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      color: var(--text-secondary);
+    }
+
+    .drawer-links-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .drawer-nav-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: #FAF7F0;
+      border: 1px solid var(--border-main);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    .drawer-nav-item:hover {
+      background: #FFF1EE;
+      color: var(--accent-rust);
+      border-color: var(--accent-rust);
+    }
+
+    /* ==========================================================================
+       IMAGE & PDF PREVIEW MODAL
+       ========================================================================== */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(15, 23, 42, 0.8);
+      z-index: 2147483647;
+      backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal-overlay.open {
+      display: flex;
+    }
+
+    .modal-container {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 900px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      background: #FAF7F0;
+      border-bottom: 1px solid var(--border-main);
+    }
+
+    .modal-title {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent-rust);
+    }
+
+    .modal-close-btn {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-full);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-secondary);
+    }
+
+    .modal-body {
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-image {
+      max-width: 100%;
+      max-height: 70vh;
+      object-fit: contain;
+      border-radius: var(--radius-sm);
+    }
+
+    /* Toast Notification */
+    .toast-msg {
+      position: fixed;
+      bottom: 84px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      font-size: 0.88rem;
+      font-weight: 700;
+      box-shadow: 0 8px 24px rgba(168, 50, 18, 0.35);
+      z-index: 2147483647;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.25s ease;
+    }
+
+    .toast-msg.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* Print Specifics */
+    @media print {
+      body {
+        padding-bottom: 0 !important;
+        background: #FFFFFF !important;
+      }
+      .masthead, .mobile-bottom-dock, .nav-drawer-overlay, .btn-hero, .btn-action-primary, .btn-nav-trigger {
+        display: none !important;
+      }
+      .watermark-overlay {
+        position: fixed !important;
+        opacity: 0.06 !important;
+      }
+      .hero-bento, .metric-card, .pillar-card, .stepper-card, .hub-card, .timeline-card, .case-card {
+        box-shadow: none !important;
+        border: 1px solid #CCCCCC !important;
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Micro Watermark -->
+  <div class="watermark-overlay" aria-hidden="true"></div>
+
+  <!-- Accessibility Skip Link -->
+  <a href="#main-content" class="skip-link">跳至主要內容區 (Skip to Main Content)</a>
+
+  <!-- MASTHEAD HEADER -->
+  <header class="masthead" role="banner">
+    <div class="container masthead-inner">
+      <a href="#hero" class="masthead-brand" aria-label="Howard Liao Ph.D. 首頁">
+        <img src="assets/howard-liao-avatar-256.png" alt="Howard Liao Ph.D." class="brand-avatar" onerror="this.src='assets/howard_portrait.jpg'">
+        <div class="brand-meta">
+          <span class="brand-name">廖倫豪 博士</span>
+          <span class="brand-title">Howard Liao, Ph.D.</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Pills -->
+      <nav class="masthead-nav" role="navigation" aria-label="主要選單">
+        <a href="#hero" class="nav-pill active">高管概況</a>
+        <a href="#metrics" class="nav-pill">四大指標</a>
+        <a href="#pillars" class="nav-pill">戰略支柱</a>
+        <a href="#stepper" class="nav-pill">π型演進</a>
+        <a href="#architecture" class="nav-pill">四大中樞</a>
+        <a href="#timeline" class="nav-pill">27年歷練</a>
+        <a href="#cases" class="nav-pill">旗艦案例</a>
+        <a href="#evidence" class="nav-pill">實證出處</a>
+        <a href="#faq" class="nav-pill">預期問答</a>
+      </nav>
+
+      <!-- Masthead Action Bar -->
+      <div class="masthead-actions">
+        <a href="Howard_Liao_PhD_CV.pdf" class="btn-action-primary" target="_blank" rel="noopener">
+          <span class="btn-text-full">📥 履歷下載 (PDF)</span>
+          <span class="btn-text-mobile">📥 履歷</span>
+        </a>
+        <button class="btn-nav-trigger" onclick="toggleNavDrawer()" aria-label="展開導覽選單">
+          <span>🧭 導覽</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT AREA -->
+  <main id="main-content" role="main">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero-section" aria-label="高管簡介">
+      <div class="container">
+        <div class="hero-bento">
+          <div class="hero-grid">
+            <!-- Left Info -->
+            <div>
+              <div class="hero-badge-group">
+                <span class="badge-pill rust">🎓 資訊科技管理博士・朝陽科大</span>
+                <span class="badge-pill amber">🛡️ ISO 27001／42001 雙重治理</span>
+                <span class="badge-pill forest">⚡ PMP & CSM 國際認證</span>
+                <span class="badge-pill rust">💼 27 年 IT 領導歷練</span>
+              </div>
+
+              <h1 class="hero-name">廖倫豪 博士</h1>
+              <div class="hero-name-en">Howard Liao, Ph.D.</div>
+
+              <div class="hero-roles">
+                資訊長（CIO）／集團資安長（Group CISO）／技術副總（VP of Technology）<br>
+                <span style="font-size:0.95rem; font-weight:600; color:var(--accent-orange);">企業級 AI 雙中樞架構師 ｜ 全球應用治理與高可用雲原生轉型</span>
+              </div>
+
+              <p class="hero-lead-text">
+                現任跨國高科技娛樂與網路平台集團技術部副總，統籌高雄、台北、上海研發中心直報 Global CIO。27 年 IT 領導歷練橫跨高科技電子製造、百萬高併發網路平台、美商企業軟體與系統整合。兼具 <span class="hero-lead-highlight">ISO 27001 資安與 ISO 42001 AI 管理系統標準</span>，專精於 <span class="hero-lead-highlight">SAP S/4HANA Clean Core</span>、雲原生容器架構（GKE / MongoDB Atlas）、DevSecOps 軟體供應鏈安全與 Edge AIoT 智慧製造。創下 24+ 個月 100% Zero Outage 零重大停機、多雲持有成本降低 30%（Google Cloud APAC 客戶成功案例）與產品良率提升 15% 之量化實績。
+              </p>
+
+              <div class="hero-cta-group">
+                <a href="#cases" class="btn-hero btn-hero-primary">🏆 檢視旗艦案例</a>
+                <a href="#architecture" class="btn-hero btn-hero-secondary">⚙️ 探索企業 AI 雙中樞</a>
+                <button onclick="copyContactInfo()" class="btn-hero btn-hero-secondary">📋 複製高管名片</button>
+              </div>
+
+              <div class="hero-contact-list">
+                <a href="mailto:Liao.Howard@gmail.com" class="hero-contact-item">✉️ Liao.Howard@gmail.com</a>
+                <a href="tel:+886975323161" class="hero-contact-item">📞 +886 975 323 161</a>
+                <span class="hero-contact-item">💬 LINE: howardliao</span>
+                <a href="https://www.linkedin.com/in/howardliao78/" target="_blank" rel="noopener" class="hero-contact-item">🌐 LinkedIn</a>
+                <a href="https://github.com/HowardLiao" target="_blank" rel="noopener" class="hero-contact-item">💻 GitHub</a>
+                <a href="https://howardliao.github.io/portfolio/" target="_blank" rel="noopener" class="hero-contact-item">📁 主作品集</a>
+              </div>
+            </div>
+
+            <!-- Right Portrait -->
+            <div class="hero-portrait-card">
+              <div class="portrait-wrapper">
+                <img src="assets/20260712_韓系證照.png" alt="廖倫豪 博士 Howard Liao, Ph.D. 肖像" class="portrait-img" onerror="this.src='assets/howard_portrait.jpg'">
+                <div class="portrait-badge-verified">✓ 韓系證照</div>
+              </div>
+              <div class="portrait-caption">Howard Liao, Ph.D.</div>
+              <div class="portrait-subcaption">執行負責人 ｜ 資訊科技管理博士</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUR C-LEVEL BENTO METRICS -->
+    <section id="metrics" class="metrics-section" aria-label="核心量化戰情指標">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Quantified Board Metrics</div>
+          <h2 class="section-title">四大 C-Level 量化戰情指標</h2>
+          <p class="section-subtitle">客觀量化實證（STAR/PAR）敘事，經董事會、跨國稽核與原廠成功案例嚴格驗證之真實成果。</p>
+        </div>
+
+        <div class="metrics-grid">
+          <!-- Metric 1 -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-icon">🏛️</span>
+              <span class="metric-tag">CAPEX / OPEX</span>
+            </div>
+            <div class="metric-val-wrap">
+              <div class="metric-val" data-target="10" data-prefix="$" data-suffix="M+">$10M+</div>
+            </div>
+            <div class="metric-title">全球 IT 資本治理規模</div>
+            <p class="metric-desc">跨國 IT、SAP S/4HANA 與外包 SI 顧問年度預算治理（歷史峰值最高達 $14M+）</p>
+          </div>
+
+          <!-- Metric 2 -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-icon">⚡</span>
+              <span class="metric-tag">ZERO OUTAGE</span>
+            </div>
+            <div class="metric-val-wrap">
+              <div class="metric-val amber" data-target="100" data-suffix="%">100%</div>
+            </div>
+            <div class="metric-title">核心服務零重大中斷</div>
+            <p class="metric-desc">連續 24+ 個月百萬高併發零停機，GKE 多雲容器與 MongoDB Atlas 跨區高可用</p>
+          </div>
+
+          <!-- Metric 3 -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-icon">📉</span>
+              <span class="metric-tag">FINOPS TCO</span>
+            </div>
+            <div class="metric-val-wrap">
+              <div class="metric-val forest" data-target="30" data-prefix="-" data-suffix="%" style="text-align:right;">-30%</div>
+            </div>
+            <div class="metric-title">跨國多雲持有成本</div>
+            <p class="metric-desc">落實 FinOps 多雲資源精準治理與動態容量縮放，年省 30% 基礎設施持有成本</p>
+          </div>
+
+          <!-- Metric 4 -->
+          <div class="metric-card">
+            <div class="metric-header">
+              <span class="metric-icon">🏭</span>
+              <span class="metric-tag">SMART FACTORY</span>
+            </div>
+            <div class="metric-val-wrap">
+              <div class="metric-val blue" data-target="15" data-prefix="+" data-suffix="%" style="text-align:right;">+15%</div>
+            </div>
+            <div class="metric-title">智慧製造關鍵良率提升</div>
+            <p class="metric-desc">Edge AIoT 千台 SMT 機台串接與機器學習不良預測模型，同時帶動 OEE 提升 18%</p>
+          </div>
+        </div>
+
+        <!-- Submetrics Strip -->
+        <div class="submetrics-strip">
+          <div class="submetric-item">
+            <span class="submetric-label">🚀 軟體交付 Lead Time</span>
+            <span class="submetric-val">-40%</span>
+          </div>
+          <div class="submetric-item">
+            <span class="submetric-label">🤖 Agentic AI 流程自動化</span>
+            <span class="submetric-val">+55%</span>
+          </div>
+          <div class="submetric-item">
+            <span class="submetric-label">🛡️ 重大資安事故與 MTTR</span>
+            <span class="submetric-val">-30%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THREE STRATEGIC PILLARS -->
+    <section id="pillars" class="pillars-section" aria-label="三大董事會戰略價值支柱">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Strategic Value Pillars</div>
+          <h2 class="section-title">三大董事會戰略價值支柱</h2>
+          <p class="section-subtitle">將高階經營戰略轉譯為可量化之科技執行架構，兼顧創新速度、營運韌性與財務紀律。</p>
+        </div>
+
+        <div class="pillars-grid">
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <span class="pillar-num">PILLAR 01</span>
+            <h3 class="pillar-heading">商業驅動的數位韌性<br>(Business Resilience)</h3>
+            <p class="pillar-body">
+              超越傳統單點 IT 災防，建構具備極限容錯的高可用架構。將零信任（Zero Trust）與 IEC 62443 工控安全深度融入業務流程，確保全球百萬用戶交易與跨國廠區斷網不停線。
+            </p>
+            <ul class="pillar-list">
+              <li class="pillar-list-item">連續 24+ 個月 99.99% 關鍵服務 SLA 零重大停機</li>
+              <li class="pillar-list-item">IT/OT 網路實體與邏輯隔離，阻斷勒索病毒橫向滲透</li>
+              <li class="pillar-list-item">多廠區邊緣斷線本地暫存佇列（斷網自癒機制）</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card">
+            <span class="pillar-num">PILLAR 02</span>
+            <h3 class="pillar-heading">雲原生與 AI 雙軌治理<br>(Cloud & AI Governance)</h3>
+            <p class="pillar-body">
+              「先串資料、再談 AI」。不動 SAP S/4HANA 核心，透過 API 閘道與 CDC 事件流構建資料湖倉；自研企業級模型網關與 Agent 應用中樞，全面對齊 ISO/IEC 42001 人工智慧治理標準。
+            </p>
+            <ul class="pillar-list">
+              <li class="pillar-list-item">SAP Clean Core 客製代碼減少 35%，標準覆蓋率 90%+</li>
+              <li class="pillar-list-item">HowardRoute 模型網關統一治理 250+ 模型，防商業圖紙外洩</li>
+              <li class="pillar-list-item">Human-in-the-Loop 關鍵決策人機複核安全閉環</li>
+            </ul>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <span class="pillar-num">PILLAR 03</span>
+            <h3 class="pillar-heading">資本效益與全球規模化<br>(Capital Efficiency)</h3>
+            <p class="pillar-body">
+              以 EBITDA、TCO 與 ROIC 為衡量語言，將龐大科技投資轉化為具體經營現金流。導入嚴謹 FinOps 多雲資源治理與跨國 SI 廠商績效卡，實現一次建置、全球多廠標準化複製。
+            </p>
+            <ul class="pillar-list">
+              <li class="pillar-list-item">跨公有雲與容器架構持有成本（TCO）降低 30%</li>
+              <li class="pillar-list-item">年度 $10M+ IT 預算實施 Run / Grow / Transform 框架</li>
+              <li class="pillar-list-item">新工廠與海外研發中心 4 週內快速完成範本複製上線</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PI-LEADER STRATEGIC STEPPER -->
+    <section id="stepper" class="stepper-section" aria-label="核心戰略躍升軌跡">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Strategic Evolution</div>
+          <h2 class="section-title">π 型複合演進：核心戰略躍升軌跡</h2>
+          <p class="section-subtitle">製造現場實戰 × 全球極限高可用雲端 × 企業級 AI 雙中樞模型網關之主動式戰略跨越。</p>
+        </div>
+
+        <!-- Stepper Navigation Tabs -->
+        <div class="stepper-nav" role="tablist">
+          <button class="stepper-tab active" onclick="switchStep(0)" role="tab" id="stepTab0">
+            <span>01 轉折一：製造 ➜ 雲原生高可用</span>
+          </button>
+          <button class="stepper-tab" onclick="switchStep(1)" role="tab" id="stepTab1">
+            <span>02 轉折二：高可用 ➜ AI 雙中樞網關</span>
+          </button>
+          <button class="stepper-tab" onclick="switchStep(2)" role="tab" id="stepTab2">
+            <span>03 轉折三：三位一體 ➜ 終極交會</span>
+          </button>
+        </div>
+
+        <div class="stepper-card">
+          <!-- Step 0 -->
+          <div class="step-content active" id="stepContent0">
+            <div class="step-header">
+              <div class="step-tagline">Transformation Phase I</div>
+              <h3 class="step-title">【泓晏科技 / 鴻海中央資訊】➜【隆中網絡 6542】</h3>
+              <p style="color:var(--text-muted); font-size:0.9rem;">由地端封閉製造巨石單體，躍升至全球百萬高併發彈性多雲原生架構</p>
+            </div>
+            <div class="step-body-grid">
+              <div class="step-box">
+                <div class="step-box-title">🔍 痛點洞察 (Pain Point)</div>
+                <p class="step-box-text">
+                  在泓晏科技主導 Edge AIoT（良率 +15%）與在鴻海中央資訊負責頂層架構後，體會到傳統製造 IT 系統偏向封閉笨重的地端單體（Monolith）。未來的智慧工廠與企業數據中台，必須建立在極度敏捷、全球彈性擴展與秒級容災的雲原生技術體系之上。
+                </p>
+              </div>
+              <div class="step-box">
+                <div class="step-box-title">⚡ 戰略決策與成果 (Outcome)</div>
+                <p class="step-box-text">
+                  主導核心交易與遊戲服務自虛擬機全面遷移至 Google Kubernetes Engine (GKE) 容器化與 MongoDB Atlas 跨區叢集。創下<strong>連續 24+ 個月 100% Zero Outage 零重大停機</strong>，推動 FinOps 多雲持有成本（TCO）年省 30%，獲 Google Cloud 官方選為 APAC 全球客戶成功案例。
+                </p>
+              </div>
+            </div>
+            <div class="step-takeaway">
+              💡 核心收穫：為大型製造與科技集團注入極限雲端架構韌性、百萬級高併發防護與嚴謹的 FinOps 財務紀律。
+            </div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="step-content" id="stepContent1">
+            <div class="step-header">
+              <div class="step-tagline">Transformation Phase II</div>
+              <h3 class="step-title">【隆中網絡】➜【跨國網絡科技與娛樂平台集團】</h3>
+              <p style="color:var(--text-muted); font-size:0.9rem;">自雲端架構運維，升維至企業專屬生成式 AI 雙中樞與模型網關合規治理</p>
+            </div>
+            <div class="step-body-grid">
+              <div class="step-box">
+                <div class="step-box-title">🔍 痛點洞察 (Pain Point)</div>
+                <p class="step-box-text">
+                  生成式 AI 爆發，多數企業陷入公有 API 呼叫 Token 費用失控、商業機敏圖紙外洩、以及演算法黑箱無審計軌跡的「影子 AI」危機。企業未來的決勝關鍵在於「專有模型網關調度、IP 智財隔離與國際合規標準」。
+                </p>
+              </div>
+              <div class="step-box">
+                <div class="step-box-title">⚡ 戰略決策與成果 (Outcome)</div>
+                <p class="step-box-text">
+                  直報 Global CIO，自研 HowardRoute 智能模型網關（聚合 250+ 模型、動態 Token 路由降本 20~40%）、HowardAGent 應用代理（端到端流程自動化 +55%）、建立 IP Clean Room 智財隔離室。領先業界依據 <strong>ISO/IEC 42001 (AIMS)</strong> 建立人工智慧管理體系，實證 AI 具體轉化為 EBITDA 效益。
+                </p>
+              </div>
+            </div>
+            <div class="step-takeaway">
+              💡 核心收穫：成功打破技術孤島，建立從算力排程、多模型調度、資料隱私防護到人機核可的企業級 AI 護城河。
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="step-content" id="stepContent2">
+            <div class="step-header">
+              <div class="step-tagline">Transformation Phase III</div>
+              <h3 class="step-title">【三大極限洗禮】➜【全球高科技與製造集團】</h3>
+              <p style="color:var(--text-muted); font-size:0.9rem;">製造 × 雲端 × AI 治理 終極交會，為全球 50 週年或大型跨國轉型所準備的最佳領航者</p>
+            </div>
+            <div class="step-body-grid">
+              <div class="step-box">
+                <div class="step-box-title">🔍 戰略契機 (Strategic Nexus)</div>
+                <p class="step-box-text">
+                  面對 AI 伺服器電源、液冷散熱模組與 SAP S/4HANA Clean Core 全球上線挑戰。企業需要的不是純理論學者或單一領域工程師，而是必須兼備：① 懂製造機台與 MES/SAP 現場數據；② 懂全球百萬高併發零停機與 FinOps 降本；③ 懂多模型網關調度與 ISO 42001 合規的複合型領袖。
+                </p>
+              </div>
+              <div class="step-box">
+                <div class="step-box-title">⚡ 總結承諾 (Commitment)</div>
+                <p class="step-box-text">
+                  以「先串資料、再談 AI、不動核心」為鐵律，90 天內提出具備財務假設的 AI 價值地圖；以蜂巢計畫（Project Hive）打通全廠 API 與資料湖倉；讓新廠與新用例按範本快速複製，將每一分 IT 投資精確兌現為毛利與營運資本釋放。
+                </p>
+              </div>
+            </div>
+            <div class="step-takeaway">
+              💡 核心結論：27 年 IT 職涯深度沉澱，專為大型跨國企業頂層科技架構與 AI 平台落地打造的 π 型全能人選！
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOUR CORE ARCHITECTURE HUBS & INSPECTOR -->
+    <section id="architecture" class="arch-section" aria-label="企業級 AI 雙中樞與蜂巢資料架構">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Enterprise AI Stack</div>
+          <h2 class="section-title">四大核心架構中樞與蜂巢資料底座</h2>
+          <p class="section-subtitle">不動 SAP 核心、不重造 MES/PLM。站在三大巨石系統旁邊讀取資料、智慧預測，以 API 與事件流提供共用能力。</p>
+        </div>
+
+        <!-- 4 Hubs Grid -->
+        <div class="hubs-grid">
+          <div class="hub-card active" onclick="inspectHub(0)" id="hubCard0">
+            <div class="hub-icon">🤖</div>
+            <div class="hub-name">HowardAGent</div>
+            <span class="hub-role-badge">企業應用中樞</span>
+            <p class="hub-summary">MCP 工具中樞、Agentic RAG 規範檢索、Human-in-the-Loop 關鍵人機複核</p>
+          </div>
+
+          <div class="hub-card" onclick="inspectHub(1)" id="hubCard1">
+            <div class="hub-icon">🔀</div>
+            <div class="hub-name">HowardRoute</div>
+            <span class="hub-role-badge">智能模型網關</span>
+            <p class="hub-summary">LiteLLM 相容、Smart Routing、Token 級 FinOps 成本治理、毫秒級自動備援</p>
+          </div>
+
+          <div class="hub-card" onclick="inspectHub(2)" id="hubCard2">
+            <div class="hub-icon">⚡</div>
+            <div class="hub-name">HowardAIDC</div>
+            <span class="hub-role-badge">算力推論中心</span>
+            <p class="hub-summary">K8s GPU Operator、MIG 虛擬切片、vLLM PagedAttention、私有模型特化微調</p>
+          </div>
+
+          <div class="hub-card" onclick="inspectHub(3)" id="hubCard3">
+            <div class="hub-icon">🏭</div>
+            <div class="hub-name">HowardPro</div>
+            <span class="hub-role-badge">製造預測核心</span>
+            <p class="hub-summary">Clean Core 攻堅、替代料智能選用、工單齊套料即時預警、AutoML 設備保養</p>
+          </div>
+        </div>
+
+        <!-- Dynamic On-demand Inspector Panel -->
+        <div class="inspector-panel" id="inspectorPanel">
+          <div class="inspector-title" id="inspectTitle">
+            <span>🤖 HowardAGent 企業應用代理中樞 (Application & MCP Agent Hub)</span>
+          </div>
+          <div class="inspector-subtitle" id="inspectSubtitle">
+            跨部門自動化與企業系統受控工具調度核心 ｜ 流程效率提升 +55%
+          </div>
+
+          <div class="inspector-grid">
+            <div class="inspect-box">
+              <div class="inspect-box-title">📋 主要工程職責與架構規格</div>
+              <ul class="inspect-box-list" id="inspectSpecs">
+                <li>基於 MCP (Model Context Protocol) 將 S/4HANA、MES、PLM 封裝為標準唯讀工具。</li>
+                <li>Agentic RAG：檢索 IATF 16949 規範、SOP、客戶合約，強制輸出版本號與法規依據。</li>
+                <li>跨部門協同 Agent：HR 履歷初篩、財務帳單對帳、採購多方詢比價。</li>
+                <li>品質 Copilot：SPC 異常原因分析、NCR 初稿與 8D 矯正報告自動編撰。</li>
+              </ul>
+            </div>
+
+            <div class="inspect-box">
+              <div class="inspect-box-title">🛡️ 資安防禦機制與國際標準對照</div>
+              <ul class="inspect-box-list" id="inspectSec">
+                <li><strong>ISO 42001 (AIMS)：</strong>上線前進行防幻覺、偏差與提示注入（Prompt Injection）評測。</li>
+                <li><strong>Human-in-the-Loop：</strong>AI 產出嚴格定義為「建議」，寫回 ERP/MES 必須工程師電子簽核。</li>
+                <li><strong>資料最小化：</strong>敏感欄位自動脫敏與動態遮罩，機密商業圖面絕不送未授權外部模型。</li>
+                <li><strong>ALCOA+ 稽核軌跡：</strong>每一次 Agent 呼叫、推理鏈與審核紀錄永久保存。</li>
+              </ul>
+            </div>
+          </div>
+
+          <div style="background:var(--bg-card-subtle); border:1px solid rgba(217,119,6,0.3); border-radius:var(--radius-sm); padding:14px 18px;">
+            <div style="font-size:0.86rem; font-weight:800; color:var(--accent-amber); margin-bottom:6px;">⚡ 生產環境配置與 SLA 承諾</div>
+            <div style="font-size:0.82rem; font-family:var(--font-mono); color:var(--text-primary); line-height:1.6;" id="inspectConfig">
+              SLA 可用性：99.95% ｜ 延遲：P95 &lt; 850ms ｜ 併發支持：&gt; 2,000 TPS ｜ 配置：--airs-mode strict --require-human-sign true
+            </div>
+          </div>
+        </div>
+
+        <!-- Project Hive Box -->
+        <div style="margin-top:28px; background:#FFFFFF; border:1px solid var(--border-main); border-radius:var(--radius-md); padding:24px 28px;">
+          <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+            <span style="font-size:1.4rem;">🐝</span>
+            <h3 style="font-size:1.2rem; font-weight:800; color:var(--accent-rust);">蜂巢計畫 (Project Hive)：API 整合平台與資料湖倉實施底座</h3>
+          </div>
+          <p style="font-size:0.88rem; color:var(--text-secondary); line-height:1.7; margin-bottom:14px;">
+            在 SAP S/4HANA Clean Core 之外，接通 MES、PLM、QMS、APS 與現場機台資料，作為全集團 BI 戰情室、批號正反向追溯與 AI 應用的共同底座。
+          </p>
+          <div class="table-scroll-wrap">
+            <table class="milan-table">
+              <thead>
+                <tr>
+                  <th>湖倉分層</th>
+                  <th>資料來源</th>
+                  <th>傳輸節奏</th>
+                  <th>關鍵職能與商業價值</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Bronze 原始層</strong></td>
+                  <td>S/4HANA、MES、PLM、機台</td>
+                  <td>近即時 (分鐘級)</td>
+                  <td>不可篡改之原始異動資料，唯一只增不改，作為法規稽核 ALCOA+ 唯一憑證。</td>
+                </tr>
+                <tr>
+                  <td><strong>Silver 清洗層</strong></td>
+                  <td>Kafka CDC / MQTT 匯流排</td>
+                  <td>1~5 分鐘</td>
+                  <td>去重、時間戳統一、料號與批號對齊，防範料號錯置與跨廠規格混淆。</td>
+                </tr>
+                <tr>
+                  <td><strong>Gold 主題層</strong></td>
+                  <td>資料契約與主資料中樞</td>
+                  <td>每日 02:00 結算</td>
+                  <td>每日營運結算表、批號/序號全生命週期正反追溯表、良率/OEE 與 SPC 管制圖。</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:0.82rem; color:var(--accent-forest); font-weight:700; text-align:right;">
+            👈 左右滑動檢視完整資料湖倉規格 👉
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER TIMELINE (27 YEARS) -->
+    <section id="timeline" class="timeline-section" aria-label="完整 27 年職涯經歷">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Professional History</div>
+          <h2 class="section-title">27 年 IT 領導歷練與任職紀錄</h2>
+          <p class="section-subtitle">深耕高科技製造、上市櫃數位娛樂、大型電商、外商軟體與系統整合之實戰職涯。</p>
+        </div>
+
+        <!-- Controls: Filters & Search -->
+        <div class="timeline-controls">
+          <div class="timeline-filters" role="tablist">
+            <button class="filter-chip active" onclick="filterTimeline('all', this)" role="tab">🌟 全部歷練 (9)</button>
+            <button class="filter-chip" onclick="filterTimeline('clevel', this)" role="tab">👔 C-Level 高管 (4)</button>
+            <button class="filter-chip" onclick="filterTimeline('cloud', this)" role="tab">☁️ 雲原生高可用 (2)</button>
+            <button class="filter-chip" onclick="filterTimeline('mfg', this)" role="tab">🏭 智慧製造與 OT/IT (2)</button>
+            <button class="filter-chip" onclick="filterTimeline('almsi', this)" role="tab">💼 外商顧問與 SI (2)</button>
+          </div>
+
+          <div class="timeline-search-wrap">
+            <span class="timeline-search-icon">🔍</span>
+            <input type="text" id="timelineSearch" class="timeline-search-input" placeholder="搜尋職務、公司或關鍵字..." oninput="searchTimeline(this.value)">
+          </div>
+        </div>
+
+        <!-- Timeline Cards List -->
+        <div class="timeline-list" id="timelineList">
+
+          <!-- Item 1 -->
+          <div class="timeline-card" data-cat="clevel cloud">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">2025.05 – Present</span>
+              <span class="timeline-location-tag">📍 高雄 / 台北 / 上海</span>
+            </div>
+            <h3 class="timeline-card-title">副總 暨 IT Director（直報 Global CIO）— 全球應用治理與交付</h3>
+            <div class="timeline-company">跨國網絡科技與娛樂平台集團</div>
+            <ul class="timeline-bullets">
+              <li>統籌集團高雄、台北、上海三地研發中心之全球企業應用治理與產品交付，帶領 30 人以上跨職能團隊。</li>
+              <li>制定集團 3 年企業應用地圖，全權治理年度 IT 預算最高 1,000 萬美元（CAPEX/OPEX）與跨國 SI/顧問供應商。</li>
+              <li>主導推動 SAP S/4HANA Clean Core，客製程式碼減少 35%，核心業務標準流程覆蓋率提升至 90% 以上。</li>
+              <li>親自主持架構審查委員會（ARB），訂定 Java／Spring Boot API-first 與 Kafka／EDI／IDoc 跨國整合標準。</li>
+              <li>導入 DevSecOps 品質關卡（SAST/DAST/SBOM）與 AI 輔助程式碼審查，交付 Lead Time 縮短 40%、缺陷逃逸率降低 35%。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">全球應用治理</span>
+              <span class="tag-badge">SAP S/4HANA Clean Core</span>
+              <span class="tag-badge">ARB 架構審查</span>
+              <span class="tag-badge">DevSecOps</span>
+              <span class="tag-badge">ISO 27001 / 42001</span>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="timeline-card" data-cat="clevel cloud">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">2022.01 – 2025.04</span>
+              <span class="timeline-location-tag">📍 台北 / 台中 / 成都 / 上海 / 馬爾他</span>
+            </div>
+            <h3 class="timeline-card-title">IT Director（資訊、資安與資料平台主管）</h3>
+            <div class="timeline-company">隆中網絡 GameSparcs（6542.TWO 上櫃數位科技平台集團）</div>
+            <ul class="timeline-bullets">
+              <li>負責集團多雲基礎設施、資訊安全防護與巨量即時資料平台，領導橫跨台灣、中國與海外之技術維運團隊。</li>
+              <li>主導核心服務自傳統虛擬機遷移至 Google Kubernetes Engine (GKE) 容器化與 CI/CD 自動化，發布週期縮短 50%。</li>
+              <li>將核心交易與高併發遊戲資料遷移至 MongoDB Atlas 跨區雙活叢集，支撐海外百萬級玩家即時在線，任內創下<strong>連續 24+ 個月 100% Zero Outage 零重大停機</strong>。</li>
+              <li>推行嚴謹 FinOps 成本治理，多雲總持有成本（TCO）大幅降低 30%，<strong>本專案獲 Google Cloud 官方選為 APAC 全球客戶成功案例並拍攝影音專訪</strong>。</li>
+              <li>依 NIST CSF 2.0 建立 ISO 27001 資訊安全管理系統與零信任架構，重大資安事故與 MTTR 降低 30%。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">GKE 容器化</span>
+              <span class="tag-badge">MongoDB Atlas</span>
+              <span class="tag-badge">Zero Outage</span>
+              <span class="tag-badge">FinOps 治理 (-30% TCO)</span>
+              <span class="tag-badge">Google Cloud 官方案例</span>
+            </div>
+          </div>
+
+          <!-- Item 3: Foxconn (Privacy Compliant) -->
+          <div class="timeline-card" data-cat="clevel mfg">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">歷任中央資訊高階主管</span>
+              <span class="timeline-location-tag">📍 新北土城總部（統籌跨國多廠區）</span>
+            </div>
+            <h3 class="timeline-card-title">中央資訊 技術處長（系統營運統籌）</h3>
+            <div class="timeline-company">鴻海科技集團（Foxconn 全球高科技製造服務龍頭）</div>
+            <ul class="timeline-bullets">
+              <li>直報集團中央資訊高階主管，專責全集團架構解決方案選項決策與 SWOT 差距分析。</li>
+              <li>在「業務戰略轉化為技術戰略」方面發揮關鍵樞紐作用，並定義支持戰略落地的端到端技術架構。</li>
+              <li>依據集團全球營運模式與內部業務實況，制定集團數位轉型推動藍圖與進程計畫。</li>
+              <li>統籌跨廠區企業應用與系統架構評審委員會，建立製造 IT 標準化治理範本。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">企業架構決策</span>
+              <span class="tag-badge">SWOT 差距分析</span>
+              <span class="tag-badge">商業戰略轉譯</span>
+              <span class="tag-badge">數位轉型計畫</span>
+              <span class="tag-badge">多廠跨國治理</span>
+            </div>
+          </div>
+
+          <!-- Item 4: PChome -->
+          <div class="timeline-card" data-cat="cloud">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">歷任技術研發高階主管</span>
+              <span class="timeline-location-tag">📍 台北總部</span>
+            </div>
+            <h3 class="timeline-card-title">技術／大數據／人工智能部 資深總監（職等 13）</h3>
+            <div class="timeline-company">網路家庭（PChome Online 大型高併發電商平台）</div>
+            <ul class="timeline-bullets">
+              <li>主導巨量交易大型電商平台之微服務解耦工程，由傳統單體成功過渡至分散式高可用架構。</li>
+              <li>規劃即時巨量交易數據中樞，支撐雙 11 與大型促銷檔期數十萬 QPS 瞬間峰值流量。</li>
+              <li>落實資料治理與大數據風控邊界，建立內部風控與高可用交易審計日誌。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">高併發微服務</span>
+              <span class="tag-badge">巨量交易數據中樞</span>
+              <span class="tag-badge">大數據風控</span>
+              <span class="tag-badge">職等 13 研發主管</span>
+            </div>
+          </div>
+
+          <!-- Item 5: Hongyan / Electronics Mfg -->
+          <div class="timeline-card" data-cat="clevel mfg">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">2018.05 – 2021.12</span>
+              <span class="timeline-location-tag">📍 深圳 / 新竹 / 台中 / 杭州 / 成都多廠區</span>
+            </div>
+            <h3 class="timeline-card-title">資訊長 暨 資安長 (CIO / CISO)</h3>
+            <div class="timeline-company">泓晏科技 ｜ 國際高科技電子製造集團</div>
+            <ul class="timeline-bullets">
+              <li>主導集團多廠區 SAP S/4HANA 導入，堅持以標準功能優先、杜絕過度客製，緊密串接 MES、PLM、APS 打通自訂單到現場工單全流程數據鏈。</li>
+              <li>建置 Edge AIoT 數據中台，涵蓋上千台 SMT 與組裝設備；導入機器學習不良預測與預防保養模型，<strong>關鍵產品良率提升 15%、整體設備效率 (OEE) 提升 18%</strong>。</li>
+              <li>依 IEC 62443 與 ISO 27001 規劃 OT/IT 網路分段與身分存取控制，杜絕勒索病毒橫向擴散。</li>
+              <li>建立與國際一線品牌客戶的 B2B EDI 供應鏈自動化對接體系。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">SAP S/4HANA</span>
+              <span class="tag-badge">MES/PLM/APS 串接</span>
+              <span class="tag-badge">Edge AIoT (+15% 良率)</span>
+              <span class="tag-badge">IEC 62443 OT資安</span>
+              <span class="tag-badge">B2B EDI</span>
+            </div>
+          </div>
+
+          <!-- Item 6: Lingnet -->
+          <div class="timeline-card" data-cat="clevel">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">2014.10 – 2018.04</span>
+              <span class="timeline-location-tag">📍 台北 / 新竹 / 台中 / 北京</span>
+            </div>
+            <h3 class="timeline-card-title">資訊科技副總 暨 數位轉型總監</h3>
+            <div class="timeline-company">凌網科技（5212.TWO 上市櫃數位科技集團）</div>
+            <ul class="timeline-bullets">
+              <li>掌管軟體研發中心、巨量資料應用與數位轉型業務，帶領 50 人以上跨職能敏捷團隊。</li>
+              <li>主導核心系統由傳統單體重構為 Java／Spring Cloud 微服務與 API-first 架構。</li>
+              <li>建立 TDD 測試驅動、SonarQube 靜態分析與 CI/CD 標準管線，新產品交付 Lead Time 縮短 40% 以上。</li>
+              <li>主持大型 B2B 客戶數位平台之架構審查與非功能需求驗收，SLA 維持 99.95% 以上，榮獲國家優秀 IT 經理人案例。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">微服務架構 (Spring Cloud)</span>
+              <span class="tag-badge">TDD & CI/CD</span>
+              <span class="tag-badge">BPR 流程再造</span>
+              <span class="tag-badge">SLA 99.95%</span>
+            </div>
+          </div>
+
+          <!-- Item 7: Borland / Sybase -->
+          <div class="timeline-card" data-cat="almsi">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">2008.03 – 2014.09</span>
+              <span class="timeline-location-tag">📍 台北 / 上海 / 北京</span>
+            </div>
+            <h3 class="timeline-card-title">大中華區資深技術經理 / 產品服務負責人</h3>
+            <div class="timeline-company">美商 Borland（併入 Micro Focus）／美商 Sybase（併入 SAP）</div>
+            <ul class="timeline-bullets">
+              <li>負責 Borland 與 Sybase 在大中華區之應用生命週期管理（ALM）與企業資料庫解決方案顧問交付。</li>
+              <li>深入兩岸三地大型金融機構（核心帳務、證券交易）、電信龍頭與高科技製造客戶，主持高併發交易效能調校與 HA/DR 災備架構。</li>
+              <li>主持 30 餘個大型企業系統改造專案，多次受邀擔任大中華區技術年會講師。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">ALM 生命週期</span>
+              <span class="tag-badge">Sybase / SAP 資料庫</span>
+              <span class="tag-badge">金融高併發調校</span>
+              <span class="tag-badge">跨國外商顧問</span>
+            </div>
+          </div>
+
+          <!-- Item 8: SI -->
+          <div class="timeline-card" data-cat="almsi">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">1999.07 – 2008.02</span>
+              <span class="timeline-location-tag">📍 台北 / 台中</span>
+            </div>
+            <h3 class="timeline-card-title">資深系統架構師 / 專案經理 (PMP)</h3>
+            <div class="timeline-company">台灣知名系統整合 (SI) 與網路科技公司</div>
+            <ul class="timeline-bullets">
+              <li>擔任核心系統架構師與專案經理，承接政府部會、國營事業與金融機構之 J2EE/Java 分散式交易系統與大型入口網站。</li>
+              <li>嚴格依 PMBOK 管理專案範疇、時程、預算與交付風險，帶領 20 人以上跨職能研發團隊，系統可用性達 99.9%。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">PMP 專案管理</span>
+              <span class="tag-badge">J2EE 分散式架構</span>
+              <span class="tag-badge">政府大型專案</span>
+              <span class="tag-badge">可用性 99.9%</span>
+            </div>
+          </div>
+
+          <!-- Item 9: Foundation -->
+          <div class="timeline-card" data-cat="clevel">
+            <div class="timeline-meta-bar">
+              <span class="timeline-dates">2022 – Present</span>
+              <span class="timeline-location-tag">📍 台中總部</span>
+            </div>
+            <h3 class="timeline-card-title">董事 兼 資訊長 (CIO) 數位公益與 ESG 實踐</h3>
+            <div class="timeline-company">財團法人康善基金會（醫療健康非營利組織）</div>
+            <ul class="timeline-bullets">
+              <li>以企業級雲端技術、資安架構與 AI 專業回饋社會，協助基金會建立「便當童話劇」兒童飲食健康宣導系統。</li>
+              <li>規劃建置公益捐款安全防護網與醫療資訊串接，具體落實企業社會責任（CSR）與 ESG 永續精神。</li>
+            </ul>
+            <div class="timeline-tags">
+              <span class="tag-badge">ESG 永續</span>
+              <span class="tag-badge">CSR 社會責任</span>
+              <span class="tag-badge">醫療健康公益</span>
+              <span class="tag-badge">資安防護網</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAGSHIP CASE STUDIES (STAR) -->
+    <section id="cases" class="cases-section" aria-label="旗艦架構與資安案例庫">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Flagship Case Studies</div>
+          <h2 class="section-title">六大旗艦架構與資安實戰案例</h2>
+          <p class="section-subtitle">STAR 架構深度剖析：面對極端商業情境、關鍵架構抉擇、可量化商業成果與第三方實體佐證。</p>
+        </div>
+
+        <div class="cases-grid">
+          <!-- Case 1 -->
+          <div class="case-card">
+            <div>
+              <div class="case-eyebrow">
+                <span class="case-cat">雲原生高可用 ｜ 平台遷移</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CASE 01</span>
+              </div>
+              <h3 class="case-title">跨國百萬高併發手遊平台 GKE 遷移與 Zero Outage</h3>
+              <div class="star-grid">
+                <div class="star-row">
+                  <span class="star-label">[情境]</span> 海外多區百萬玩家即時對弈，原地端與傳統 VM 擴展緩慢、維運負擔沉重。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[決策]</span> 遷移至 GKE 容器化與 MongoDB Atlas 跨區雙活，導入 Terraform IaC 與 GitOps 自動化發布管線。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[成果]</span> 創下連續 24+ 個月 100% 零重大停機、發布週期縮短 50%，獲 Google Cloud 官方全球客戶成功案例。
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="case-impact-box">
+                <span class="impact-title">關鍵商業影響</span>
+                <span class="impact-stat">100% 零停機</span>
+              </div>
+              <a href="https://youtu.be/_kTZSZ_0lNE?si=CT2lo8c4IF0zI1Ki" target="_blank" rel="noopener" class="case-evidence-link">
+                🌐 Google Cloud APAC 客戶專訪影音 ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Case 2 -->
+          <div class="case-card">
+            <div>
+              <div class="case-eyebrow">
+                <span class="case-cat">智慧製造 ｜ AIoT 數據中台</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CASE 02</span>
+              </div>
+              <h3 class="case-title">高科技電子製造 Edge AIoT 與不良預測大數據平台</h3>
+              <div class="star-grid">
+                <div class="star-row">
+                  <span class="star-label">[情境]</span> 台中與深圳多廠區上千台 SMT 機台參數離散，不良品多於後段品檢才發現，重工成本高昂。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[決策]</span> 部署邊緣閘道採集 OPC UA/SECS-GEM 參數，結合 S/4HANA 與 MES，訓練實時不良預測與預防保養模型。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[成果]</span> 關鍵產品良率直接提升 15%、整體設備效率 (OEE) 提升 18%，年省數千萬元報廢與維運成本。
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="case-impact-box">
+                <span class="impact-title">關鍵商業影響</span>
+                <span class="impact-stat">+15% 良率 / +18% OEE</span>
+              </div>
+              <span class="case-evidence-link">📜 泓晏科技集團實體驗收稽核報告</span>
+            </div>
+          </div>
+
+          <!-- Case 3 -->
+          <div class="case-card">
+            <div>
+              <div class="case-eyebrow">
+                <span class="case-cat">多雲 FinOps ｜ 資本效益</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CASE 03</span>
+              </div>
+              <h3 class="case-title">跨國多雲 FinOps 治理與總持有成本縮減 30%</h3>
+              <div class="star-grid">
+                <div class="star-row">
+                  <span class="star-label">[情境]</span> 多雲（GCP/AWS/Azure）資源無序蔓延，測試與閒置資源吃掉大量研發預算。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[決策]</span> 建立部門級標籤（Tagging）、配額隔離（Quota）與用量分攤（Chargeback），採 Spot/預留實例與自動排程。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[成果]</span> 雲端基礎設施年度總持有成本（TCO）直接降低 30%，受邀於 CIO Taiwan 價值學院向數百位企業領袖分享。
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="case-impact-box">
+                <span class="impact-title">關鍵商業影響</span>
+                <span class="impact-stat">-30% 雲端 TCO</span>
+              </div>
+              <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">
+                🌐 CIO Taiwan 雜誌專訪報導 ↗
+              </a>
+            </div>
+          </div>
+
+          <!-- Case 4 -->
+          <div class="case-card">
+            <div>
+              <div class="case-eyebrow">
+                <span class="case-cat">AI 治理 ｜ ISO 42001 合規</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CASE 04</span>
+              </div>
+              <h3 class="case-title">企業專有模型網關與 ISO/IEC 42001 (AIMS) 體系</h3>
+              <div class="star-grid">
+                <div class="star-row">
+                  <span class="star-label">[情境]</span> 同仁自發使用外部公有 AI 工具，機密設計圖面與報價面臨外洩風險與授權黑洞。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[決策]</span> 部署 HowardRoute 統一 OpenAI 相容網關，內建脫敏、Token 隔離與 IP Clean Room，依 ISO 42001 訂定規範。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[成果]</span> 達成 100% 官方受控調度、Token 費用減少 30%+，關鍵機密圖面零外洩，通過 BSI 認證考核。
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="case-impact-box">
+                <span class="impact-title">關鍵商業影響</span>
+                <span class="impact-stat">100% 受控 / 0 外洩</span>
+              </div>
+              <span class="case-evidence-link">🛡️ BSI ISO 42001 / ISO 27001 稽核合格</span>
+            </div>
+          </div>
+
+          <!-- Case 5 -->
+          <div class="case-card">
+            <div>
+              <div class="case-eyebrow">
+                <span class="case-cat">企業 ERP ｜ 流程再造</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CASE 05</span>
+              </div>
+              <h3 class="case-title">SAP S/4HANA Clean Core 轉型與客製代碼瘦身</h3>
+              <div class="star-grid">
+                <div class="star-row">
+                  <span class="star-label">[情境]</span> 歷史累積龐大 Z-Program 客製程式，造成 ERP 升級困難、跨廠維運成本失控。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[決策]</span> 堅持 Clean Core 原則，將非核心延伸功能抽取至外部 API 平台與 Kafka 事件匯流排，標準流程優先。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[成果]</span> 遺留客製代碼大幅縮減 35%，標準流程覆蓋率高達 90% 以上，順利銜接全球同步上線節奏。
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="case-impact-box">
+                <span class="impact-title">關鍵商業影響</span>
+                <span class="impact-stat">-35% 客製代碼</span>
+              </div>
+              <span class="case-evidence-link">📊 ARB 企業應用地圖與架構評審表</span>
+            </div>
+          </div>
+
+          <!-- Case 6 -->
+          <div class="case-card">
+            <div>
+              <div class="case-eyebrow">
+                <span class="case-cat">DevSecOps ｜ AI 程式審查</span>
+                <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">CASE 06</span>
+              </div>
+              <h3 class="case-title">DevSecOps 軟體供應鏈安全與 AI 程式碼審查</h3>
+              <div class="star-grid">
+                <div class="star-row">
+                  <span class="star-label">[情境]</span> SI 供應商與多地研發中心交付品質參差不齊，上線後缺陷修復耗費龐大人力。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[決策]</span> 建立自動化 CI/CD 品質門禁（SAST/DAST/SBOM），結合 AI 輔助代碼審查與風格校正。
+                </div>
+                <div class="star-row">
+                  <span class="star-label">[成果]</span> 新功能交付 Lead Time 縮短 40%、上線缺陷逃逸率降低 35%，實踐軟體供應鏈全鏈條安全防禦。
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="case-impact-box">
+                <span class="impact-title">關鍵商業影響</span>
+                <span class="impact-stat">-40% Lead Time</span>
+              </div>
+              <span class="case-evidence-link">⚡ SonarQube & GitOps 門禁驗收報告</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXTERNAL EVIDENCE & THOUGHT LEADERSHIP -->
+    <section id="evidence" class="evidence-section" aria-label="外部實證與媒體報導">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">External Verification</div>
+          <h2 class="section-title">媒體專訪、原廠案例與演講出處</h2>
+          <p class="section-subtitle">公開報導、原廠大會 Keynote、公部門數位課程與權威學術期刊之實體佐證鏈。</p>
+        </div>
+
+        <div class="evidence-grid">
+          <!-- Item 1 -->
+          <div class="evidence-card">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/2024_CIO報導.png', 'CIO Taiwan 雜誌專訪：善用公有雲服務 搶攻全球遊戲商機')">
+              <img src="assets/2024_CIO報導.png" alt="CIO Taiwan 雜誌封面報導" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">主流科技媒體</span>
+                <h3 class="evidence-title">CIO Taiwan 雜誌專訪</h3>
+                <p class="evidence-desc">專訪報導隆中網絡 IT Director 廖倫豪博士善用公有雲與多雲網路 MCN 強化全球發行競爭力。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_CIO報導.png', 'CIO Taiwan 雜誌專訪')">👁️ 檢視原圖</button>
+                <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="evidence-card">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/IThome_MangoDB.png', 'iThome 專題企劃：運用 MongoDB Atlas 建構遊戲資料管理平台')">
+              <img src="assets/IThome_MangoDB.png" alt="iThome 報導" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">主流科技媒體</span>
+                <h3 class="evidence-title">iThome 電腦報專題企劃</h3>
+                <p class="evidence-desc">深入解析隆中網絡以 MongoDB Atlas 全託管架構支撐全球跨區即時對弈的高併發讀寫選型策略。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/IThome_MangoDB.png', 'iThome 報導')">👁️ 檢視原圖</button>
+                <a href="https://www.ithome.com.tw/pr/163534" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="evidence-card">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/e等公務園__洞見機遇-雲端管理與實務01.png', '行政院人事行政總處 e等公務園+ 大師講座數位課程')">
+              <img src="assets/e等公務園__洞見機遇-雲端管理與實務01.png" alt="e等公務園課程" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">政府數位學習平台</span>
+                <h3 class="evidence-title">行政院 e等公務園+ 大師講座</h3>
+                <p class="evidence-desc">受邀錄製《洞見機遇-雲端管理與實務》大師講座數位課程，向全體公務同仁推廣現代化資訊治理。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/e等公務園__洞見機遇-雲端管理與實務01.png', 'e等公務園數位課程')">👁️ 檢視原圖</button>
+                <a href="https://elearn.hrd.gov.tw/info/10042804" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="evidence-card">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/2024_IT經理人.png', 'CIO IT 經理人 2024 年 5 月號專訪')">
+              <img src="assets/2024_IT經理人.png" alt="CIO IT經理人" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際高管雜誌</span>
+                <h3 class="evidence-title">CIO IT 經理人專題報導</h3>
+                <p class="evidence-desc">談跨公有雲與邊緣運算的統一管理，以及兼顧研發敏捷與財務紀律的雲端運維團隊建立。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_IT經理人.png', 'CIO IT 經理人')">👁️ 檢視原圖</button>
+                <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 5: Oracle -->
+          <div class="evidence-card">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 官方講師與專業證照')">
+              <img src="assets/Oracle_認照01.png" alt="Oracle 認證" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際原廠認證</span>
+                <h3 class="evidence-title">Oracle 官方認證與講師授權</h3>
+                <p class="evidence-desc">持有 Oracle OCP、官方認證講師資歷與 Oracle EBS R12 供應鏈模組受訓認證。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 認證')">👁️ 檢視原圖</button>
+                <span style="font-size:0.75rem; color:var(--text-muted);">Oracle University</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Item 6: WBSA -->
+          <div class="evidence-card">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 行銷企劃師國際證照')">
+              <img src="assets/WBSA證照.png" alt="WBSA證照" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">商務戰略認證</span>
+                <h3 class="evidence-title">WBSA 行銷企劃師 ＆ GS1 條碼</h3>
+                <p class="evidence-desc">具備國際行銷企劃師、GS1 供應鏈條碼管理師與台灣金融研訓院金融科技認證。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 國際證照')">👁️ 檢視原圖</button>
+                <span style="font-size:0.75rem; color:var(--text-muted);">WBSA / GS1</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ACADEMICS, SCI PAPERS & CREDENTIALS -->
+    <section class="edu-section" aria-label="學歷與學術發表">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Academic Research</div>
+          <h2 class="section-title">學歷、國際期刊論文與專利</h2>
+          <p class="section-subtitle">嚴謹學術訓練與深厚科研底蘊，將演算法與 IT 治理理論落實於大規模企業實務。</p>
+        </div>
+
+        <div class="edu-grid">
+          <!-- Column 1: Academic Degrees -->
+          <div class="edu-column-card">
+            <h3 class="edu-column-title">🎓 學歷與論文典藏</h3>
+
+            <div class="edu-item">
+              <div class="edu-degree">資訊科技管理博士 (Ph.D. in IT Management)</div>
+              <div class="edu-school">朝陽科技大學 資訊科技管理研究所 ｜ 2010.09 – 2014.10</div>
+              <p class="edu-desc">
+                博士論文《整合系統的商業自助式入口網站植基於調適性服務導向架構資訊科技治理之研究》，結合 ITIL V3 與 SOA 建立企業入口網站 IT 治理模型，獲國家圖書館臺灣博碩士論文知識加值系統永久典藏。
+              </p>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-degree">資訊科技管理碩士 (Master in IT Management)</div>
+              <div class="edu-school">國立中興大學 資訊科技管理研究所 ｜ 2004.09 – 2006.06</div>
+              <p class="edu-desc">
+                主修巨量資料探勘（Data Mining）、決策支援系統（DSS）與密碼學。期間擔任衛生署台中醫院「醫療雲端照護」產學合作計畫協同主持人。
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 2: SCI & International Publications -->
+          <div class="edu-column-card">
+            <h3 class="edu-column-title">📚 國際權威學術論文</h3>
+
+            <div class="edu-item">
+              <div class="edu-degree">SCI 期刊論文（共同作者）</div>
+              <div class="edu-school">Springer《Multimedia Tools and Applications》Vol. 70, 2014</div>
+              <p class="edu-desc">
+                論文名稱：<em>Reversible secret-image sharing with high visual quality</em> (DOI: 10.1007/s11042-012-1190-1)。提出具備高視覺品質之可逆秘密影像分享演算法，深獲密碼學與資安界引用。
+              </p>
+            </div>
+
+            <div class="edu-item">
+              <div class="edu-degree">國際學術期刊論文發表（第一作者）</div>
+              <div class="edu-school">Applied Science and Management Research (Vol. 2, May 2015)</div>
+              <p class="edu-desc">
+                論文名稱：<em>Utilizing GIS and GPS in Designing a Trilingual Tourist APP</em>。結合地理資訊系統 (GIS) 與全球定位系統 (GPS)，設計具備三語 (ZH/EN/JP) 支援之行動導覽服務架構。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXECUTIVE DIALOGUE & BOARD FAQ -->
+    <section id="faq" class="faq-section" aria-label="董事會與高階主管預期問答">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">Executive Dialogue</div>
+          <h2 class="section-title">高階面試與董事會預期問答 (FAQ)</h2>
+          <p class="section-subtitle">針對 CIO、CISO、人資長與董事長關切之核心戰略議題，給予直擊痛點的精闢解答。</p>
+        </div>
+
+        <div class="faq-grid">
+          <!-- Column 1: CIO & Technical Panel -->
+          <div>
+            <h3 class="faq-column-header">第一關 ｜ CIO、技術顧問、人資長</h3>
+
+            <div class="faq-card active">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: AI 平台推進如何確保不干擾 SAP S/4HANA 全球上線？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 嚴格落實「切換期不碰核心」鐵律。</strong><br>
+                在 S/4HANA 上線切換凍結期（Freeze Period）前，AI 平台只做不涉及 SAP 核心寫入的用例（如研發知識庫、IATF 規範檢索、SPC 預警）。介面一律走外部 API 閘道與 CDC 異動捕獲，杜絕在核心內客製。待 S/4HANA 正式穩定後，直接對接標準 Clean Core API。
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 企業導入 AI 往往陷入「PoC 做不完、無法上線」困境，如何解？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 堅守「開案即定義財務損益與 PO」原則。</strong><br>
+                任何 AI 用例開始前，必須具備事業群主管（BU PO）簽核、明確的驗收 KPI 與財務科目假設；設立季度 AI 投資委員會，每季嚴格檢視進度，未達商業回報門檻之用例果斷熔斷退場。
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 平台該自建（Build）還是採購（Buy）？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 基礎元件可以採購，資料產品與業務知識必須自持。</strong><br>
+                模型閘道（如 LiteLLM）、推論引擎（vLLM）與資料湖倉可採用成熟開源或商用方案以加速上線；但涉及企業核心的資料契約、替代料推演模型與提示工程，必須由內部團隊掌握，確保自主掌控權與最低 TCO。
+              </div>
+            </div>
+          </div>
+
+          <!-- Column 2: Chairman & CEO Panel -->
+          <div>
+            <h3 class="faq-column-header">第二關 ｜ 董事長、總裁與經管會</h3>
+
+            <div class="faq-card active">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: AI 平台究竟能為集團創造多少實質商業價值？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 從存貨周轉、產品良率與維運成本三大損益科目著手。</strong><br>
+                依過往實績：智慧製造不良預測帶動良率提升 15%、多雲 FinOps 降低 30% 基礎設施費用、工單齊套料預警釋放數億元呆滯營運資金。到任 90 天內提出經財務長覆核確認的詳細財務模型。
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 三年後，集團的科技與 AI 治理長什麼樣？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 組織具備原生 AI 協同能力與高度架構自癒韌性。</strong><br>
+                各事業群均有自主維護的資料產品；海外新廠一上線即自帶預測與追溯能力；員工將 AI 視為標準日常協同工具；全集團在 ISO 27001 與 42001 標準下穩健運轉，兼顧創新速度與法規安全。
+              </div>
+            </div>
+
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 為什麼廖倫豪博士是當前階段的最佳人選？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 27 年 IT 洗禮鍛造出的 π 型全能複合領袖。</strong><br>
+                我兼具製造現場實戰（泓晏/鴻海）、全球極限高可用雲端零停機（隆中/Google Cloud 案例）與企業專有模型網關合規落地（ISO 42001）。能親手寫架構、也能用董事會聽得懂的 EBITDA 經營指標對話。
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FIRST 180 DAYS BLUEPRINT -->
+    <section class="plan-section" aria-label="到任 180 天落地藍圖">
+      <div class="container">
+        <div class="text-center">
+          <div class="section-eyebrow">First 180 Days</div>
+          <h2 class="section-title">到任 180 天落實藍圖與到任指標</h2>
+          <p class="section-subtitle">傾聽、定向、首批交付到全面擴展，嚴格對齊 ERP 切換與海外新廠投產節奏。</p>
+        </div>
+
+        <div class="plan-grid">
+          <div class="plan-card">
+            <span class="plan-day-tag">第 01–30 天</span>
+            <h3 class="plan-title">傾聽與現況盤點</h3>
+            <ul class="plan-list">
+              <li>訪談 CIO、財務長與事業群高階主管</li>
+              <li>清查影子 AI、既有資料庫與機台連網現況</li>
+              <li>確認 S/4HANA 切換時程與介接點</li>
+            </ul>
+            <div class="plan-deliverable">交付：AI 資產地圖與現況診斷報告</div>
+          </div>
+
+          <div class="plan-card">
+            <span class="plan-day-tag">第 31–60 天</span>
+            <h3 class="plan-title">定向與架構選型</h3>
+            <ul class="plan-list">
+              <li>以效益 × 可行性 × 可重用評估用例組合</li>
+              <li>比較原生/雲端/地端三路線 TCO 成本</li>
+              <li>組建跨職能 AI 組織與人才梯隊</li>
+            </ul>
+            <div class="plan-deliverable">交付：前 5 大用例財務假設與平台藍圖</div>
+          </div>
+
+          <div class="plan-card">
+            <span class="plan-day-tag">第 61–90 天</span>
+            <h3 class="plan-title">首批成果與 MVP</h3>
+            <ul class="plan-list">
+              <li>啟動蜂巢資料底座與模型網關 MVP</li>
+              <li>上線 2 個快速勝利用例（知識庫/OCR）</li>
+              <li>發布集團 AI 使用規範與資料分級</li>
+            </ul>
+            <div class="plan-deliverable">交付：可展示 MVP 與第一次季報</div>
+          </div>
+
+          <div class="plan-card">
+            <span class="plan-day-tag">第 91–180 天</span>
+            <h3 class="plan-title">全面擴展與複製</h3>
+            <ul class="plan-list">
+              <li>平台對齊 S/4HANA 標準 API 正式投產</li>
+              <li>A 級製造預測用例進駐示範廠試點</li>
+              <li>開設 PO 學院第一梯次（培育 30 位 PO）</li>
+            </ul>
+            <div class="plan-deliverable">交付：新用例上線時間縮短為「週」</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-brand">
+        <img src="assets/howard-liao-avatar-256.png" alt="Howard Liao Ph.D." class="footer-avatar" onerror="this.src='assets/howard_portrait.jpg'">
+        <div class="footer-name">廖倫豪 博士 ｜ Howard Liao, Ph.D.</div>
+        <div class="footer-roles">
+          資訊長（CIO）／集團資安長（Group CISO）／技術副總 ｜ 27 年跨國 IT 治理歷練
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="mailto:Liao.Howard@gmail.com" class="footer-link">✉️ Liao.Howard@gmail.com</a>
+        <a href="tel:+886975323161" class="footer-link">📞 +886 975 323 161</a>
+        <span class="footer-link" style="color:var(--text-muted);">💬 LINE: howardliao</span>
+        <a href="https://www.linkedin.com/in/howardliao78/" target="_blank" rel="noopener" class="footer-link">🌐 LinkedIn</a>
+        <a href="https://github.com/HowardLiao" target="_blank" rel="noopener" class="footer-link">💻 GitHub</a>
+        <a href="https://howardliao.github.io/portfolio/" target="_blank" rel="noopener" class="footer-link">📁 主作品集</a>
+        <a href="Howard_Liao_PhD_CV.pdf" target="_blank" rel="noopener" class="footer-link">📥 完整履歷 PDF</a>
+      </div>
+
+      <p class="footer-copy">
+        執行負責人：Howard Liao Ph.D.（廖倫豪 博士） ｜ 本站採用米蘭編排與暖琥珀高階設計系統 (Milan Editorial & Warm Amber System) 構建<br>
+        嚴格遵循 ISO 27001 隱私保護與商業去識別化規範 ｜ © 2026 Howard Liao, Ph.D. All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <!-- MOBILE FIXED BOTTOM DOCK (MOBILE ERGONOMICS) -->
+  <nav class="mobile-bottom-dock" id="mobileBottomDock" role="navigation" aria-label="手機端常駐導覽列">
+    <a href="#hero" class="dock-tab active">
+      <span class="dock-tab-icon">👤</span>
+      <span>高管</span>
+    </a>
+    <a href="#metrics" class="dock-tab">
+      <span class="dock-tab-icon">🏛️</span>
+      <span>指標</span>
+    </a>
+    <a href="#stepper" class="dock-tab">
+      <span class="dock-tab-icon">🧭</span>
+      <span>軌跡</span>
+    </a>
+    <a href="#architecture" class="dock-tab">
+      <span class="dock-tab-icon">⚙️</span>
+      <span>中樞</span>
+    </a>
+    <a href="#timeline" class="dock-tab">
+      <span class="dock-tab-icon">🏢</span>
+      <span>歷練</span>
+    </a>
+    <button class="dock-tab drawer-btn" onclick="toggleNavDrawer()" aria-label="展開完整章節目錄">
+      <span class="dock-tab-icon">🧭</span>
+      <span>導覽</span>
+    </button>
+  </nav>
+
+  <!-- SLIDE-UP NAVIGATION DRAWER (MOBILE) -->
+  <div class="nav-drawer-overlay" id="drawerOverlay" onclick="toggleNavDrawer()"></div>
+  <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="全域章節目錄">
+    <div class="drawer-handle"></div>
+    <div class="drawer-header">
+      <div class="drawer-title">🧭 全域章節目錄</div>
+      <button class="drawer-close" onclick="toggleNavDrawer()" aria-label="關閉目錄">✕</button>
+    </div>
+    <div class="drawer-links-grid">
+      <a href="#hero" class="drawer-nav-item" onclick="toggleNavDrawer()">👤 高管總覽自述</a>
+      <a href="#metrics" class="drawer-nav-item" onclick="toggleNavDrawer()">🏛️ 四大 C-Level 指標</a>
+      <a href="#pillars" class="drawer-nav-item" onclick="toggleNavDrawer()">🛡️ 董事會戰略支柱</a>
+      <a href="#stepper" class="drawer-nav-item" onclick="toggleNavDrawer()">🧭 π 型戰略躍升軌跡</a>
+      <a href="#architecture" class="drawer-nav-item" onclick="toggleNavDrawer()">⚙️ 四大核心架構中樞</a>
+      <a href="#timeline" class="drawer-nav-item" onclick="toggleNavDrawer()">🏢 27 年完整職涯經歷</a>
+      <a href="#cases" class="drawer-nav-item" onclick="toggleNavDrawer()">🏆 六大旗艦實戰案例</a>
+      <a href="#evidence" class="drawer-nav-item" onclick="toggleNavDrawer()">📜 媒體報導與原廠出處</a>
+      <a href="#faq" class="drawer-nav-item" onclick="toggleNavDrawer()">💬 預期面試問答 FAQ</a>
+      <a href="Howard_Liao_PhD_CV.pdf" class="drawer-nav-item" style="background:#FFF1EE; color:var(--accent-rust); border-color:var(--accent-rust);" target="_blank" rel="noopener">📥 下載履歷 (PDF)</a>
+    </div>
+    <button onclick="copyContactInfo()" class="btn-action-primary" style="width:100%; justify-content:center; padding:12px;">
+      📋 一鍵複製高管名片聯絡資訊
+    </button>
+  </div>
+
+  <!-- IMAGE & DOCUMENT PREVIEW MODAL -->
+  <div class="modal-overlay" id="previewModal" role="dialog" aria-modal="true" aria-label="實體出處檢視視窗">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div class="modal-title" id="modalTitle">實體出處預覽</div>
+        <button class="modal-close-btn" onclick="closeImageModal()" aria-label="關閉視窗">✕</button>
+      </div>
+      <div class="modal-body">
+        <img src="" alt="預覽影像" id="modalImg" class="modal-image">
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast-msg" id="toastMsg">✓ 已複製高管名片聯絡資訊至剪貼簿</div>
+
+  <!-- INTERACTIVE SCRIPTS -->
+  <script>
+    // 1. Mobile Drawer Toggle
+    function toggleNavDrawer() {
+      const drawer = document.getElementById('navDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const isOpen = drawer.classList.contains('open');
+      if (isOpen) {
+        drawer.classList.remove('open');
+        overlay.style.display = 'none';
+        document.body.style.overflow = '';
+      } else {
+        drawer.classList.add('open');
+        overlay.style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    // 2. Stepper Switcher
+    const stepContents = [
+      document.getElementById('stepContent0'),
+      document.getElementById('stepContent1'),
+      document.getElementById('stepContent2')
+    ];
+    const stepTabs = [
+      document.getElementById('stepTab0'),
+      document.getElementById('stepTab1'),
+      document.getElementById('stepTab2')
+    ];
+
+    function switchStep(index) {
+      stepTabs.forEach((tab, i) => {
+        if (i === index) {
+          tab.classList.add('active');
+        } else {
+          tab.classList.remove('active');
+        }
+      });
+      stepContents.forEach((content, i) => {
+        if (i === index) {
+          content.classList.add('active');
+        } else {
+          content.classList.remove('active');
+        }
+      });
+    }
+
+    // 3. Four Hubs On-Demand Inspector
+    const hubsData = [
+      {
+        title: "🤖 HowardAGent 企業應用代理中樞 (Application & MCP Agent Hub)",
+        subtitle: "跨部門自動化與企業系統受控工具調度核心 ｜ 流程效率提升 +55%",
+        specs: [
+          "基於 MCP (Model Context Protocol) 將 S/4HANA、MES、PLM 封裝為標準唯讀工具。",
+          "Agentic RAG：檢索 IATF 16949 規範、SOP、客戶合約，強制輸出版本號與法規依據。",
+          "跨部門協同 Agent：HR 履歷初篩、財務帳單對帳、採購多方詢比價自動化。",
+          "品質 Copilot：SPC 異常原因分析、NCR 初稿與 8D 矯正報告自動編撰。"
+        ],
+        sec: [
+          "ISO 42001 (AIMS)：上線前進行防幻覺、偏差與提示注入（Prompt Injection）評測。",
+          "Human-in-the-Loop：AI 產出嚴格定義為「建議」，寫回 ERP/MES 必須工程師電子簽核。",
+          "資料最小化：敏感欄位自動脫敏與動態遮罩，機密商業圖面絕不送未授權外部模型。",
+          "ALCOA+ 稽核軌跡：每一次 Agent 呼叫、推理鏈與審核紀錄永久保存。"
+        ],
+        config: "SLA 可用性：99.95% ｜ 延遲：P95 < 850ms ｜ 併發支持：> 2,000 TPS ｜ 配置：--airs-mode strict --require-human-sign true"
+      },
+      {
+        title: "🔀 HowardRoute 企業智能模型網關 (LiteLLM Compatible Gateway)",
+        subtitle: "統一 OpenAI 相容網關、Smart Routing 與 Token FinOps 成本治理 ｜ 成本縮減 30%+",
+        specs: [
+          "提供統一標準 OpenAI 規格 API 端點，無縫聚合 250+ 雲端商業大模型與地端私有開源模型。",
+          "Smart Routing 智能分流：日常對話走 8B/14B 小模型，高難度代碼與多步推理走高階大模型。",
+          "毫秒級自動備援（Fallback）：主供應商異常時零秒無感切換次要端點。",
+          "Token 級 FinOps：即時用量儀表板、事業群配額隔離與精準成本分攤 (Chargeback)。"
+        ],
+        sec: [
+          "零資料保留 (Zero Data Retention)：客戶設計圖紙與報價只走地端專屬模型，確保資料主權。",
+          "即時流量鏡像與異常行為防禦：防範惡意頻率爆發 (Rate Limiting) 與未授權越權讀取。",
+          "嚴格列級與欄位權限控制，全面阻斷非授權跨客戶資料調閱。"
+        ],
+        config: "SLA 可用性：99.99% ｜ 延遲：內部路由轉發 < 12ms ｜ 配置：--smart-routing true --token-budget-enforced true"
+      },
+      {
+        title: "⚡ HowardAIDC 算力推論中心 (vLLM & Private Inference Cluster)",
+        subtitle: "專有地端高吞吐推論服務叢集 ｜ 延遲降低 35%、兼顧極致效能與資料主權",
+        specs: [
+          "地端推論中樞完美契合高規格 800V DC、Power Shelf 與機架式液冷散熱模組 (CDU)。",
+          "Kubernetes GPU 資源動態調度：NVIDIA GPU Operator、MIG (Multi-Instance GPU) 虛擬切片。",
+          "高吞吐推論叢集：部署 vLLM（PagedAttention、Continuous Batching），推論延遲降低 35%。",
+          "專屬模型微調：針對 Llama 3 / Qwen / Mistral 進行領域特定 LoRA / QLoRA 微調。"
+        ],
+        sec: [
+          "符合 IEC 62443 工業安全標準，地端伺服器與公有雲完全實體隔絕。",
+          "機敏研發資料本地閉環運算，所有權重與快取檔案落實 KMS 加密存儲。"
+        ],
+        config: "推論吞吐：> 1,500 Tokens/sec ｜ GPU 使用率：> 92% ｜ 配置：--gpu-memory-utilization 0.92 --max-model-len 8192"
+      },
+      {
+        title: "🏭 HowardPro 製造預測核心 (Shopfloor Industrial AI Brain)",
+        subtitle: "攻堅 Clean Core 痛點、替代料智能選用與設備預防保養 ｜ 良率 +15%、OEE +18%",
+        specs: [
+          "攻堅 Clean Core 痛點：替代料智能選用推演、工單齊套料即時預警與動態排程。",
+          "AutoML 製程參數最佳化：置件機吸嘴磨耗、回焊爐溫區預測性保養與故障提前預警。",
+          "虛擬量測與 SPC／AOI 異常預警：在超規格前主動提醒製程工程師介入處置。",
+          "Domain Twin：將資深資深工程師的排故檢驗經驗結構化為向量知識庫。"
+        ],
+        sec: [
+          "OT/IT 工業 DMZ 隔離：機台不直連外部網路，數據僅經由單向工業網關安全匯流。",
+          "所有參數建議經由 MES 系統與工程師雙重覆核後始能下達機台執行。"
+        ],
+        config: "預測準確度：> 94.6% ｜ 機台數據採集頻率：100ms 級 ｜ 配置：--industrial-dmz true --auto-retrain weekly"
+      }
+    ];
+
+    function inspectHub(index) {
+      document.querySelectorAll('.hub-card').forEach((card, i) => {
+        if (i === index) {
+          card.classList.add('active');
+        } else {
+          card.classList.remove('active');
+        }
+      });
+
+      const data = hubsData[index];
+      document.getElementById('inspectTitle').innerHTML = `<span>${data.title}</span>`;
+      document.getElementById('inspectSubtitle').textContent = data.subtitle;
+
+      const specsUl = document.getElementById('inspectSpecs');
+      specsUl.innerHTML = data.specs.map(item => `<li>${item}</li>`).join('');
+
+      const secUl = document.getElementById('inspectSec');
+      secUl.innerHTML = data.sec.map(item => `<li>${item}</li>`).join('');
+
+      document.getElementById('inspectConfig').textContent = data.config;
+    }
+
+    // 4. Timeline Filter & Search
+    function filterTimeline(category, btn) {
+      if (btn) {
+        document.querySelectorAll('.filter-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } else {
+        document.querySelectorAll('.filter-chip').forEach(b => {
+          if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + category + "'")) {
+            b.classList.add('active');
+          } else {
+            b.classList.remove('active');
+          }
+        });
+      }
+
+      const cards = document.querySelectorAll('.timeline-card');
+      cards.forEach(card => {
+        const cats = card.getAttribute('data-cat') || '';
+        if (category === 'all' || cats.includes(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchTimeline(keyword) {
+      const kw = keyword.toLowerCase().trim();
+      const cards = document.querySelectorAll('.timeline-card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!kw || text.includes(kw)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 5. FAQ Accordion Toggle
+    function toggleFaq(el) {
+      const card = el.parentElement;
+      card.classList.toggle('active');
+    }
+
+    // 6. Image & Proof Modal
+    function openImageModal(imgSrc, title) {
+      const modal = document.getElementById('previewModal');
+      document.getElementById('modalImg').src = imgSrc;
+      document.getElementById('modalTitle').textContent = title || '實體出處預覽';
+      modal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeImageModal() {
+      const modal = document.getElementById('previewModal');
+      modal.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // 7. Copy Contact Info with Toast & Haptics
+    function copyContactInfo() {
+      const textToCopy = `廖倫豪 博士 (Howard Liao, Ph.D.)\n職稱：資訊長 (CIO) / 集團資安長 (Group CISO) / 技術副總\n信箱：Liao.Howard@gmail.com\n電話：+886 975 323 161\nLINE：howardliao\n作品集：https://howardliao.github.io/portfolio/`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          showToast("✓ 已成功複製廖倫豪博士高管聯絡資訊！");
+        }).catch(() => {
+          fallbackCopy(textToCopy);
+        });
+      } else {
+        fallbackCopy(textToCopy);
+      }
+      if (navigator.vibrate) {
+        navigator.vibrate([40, 60, 40]);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showToast("✓ 已成功複製高管聯絡資訊！");
+    }
+
+    function showToast(msg) {
+      const toast = document.getElementById('toastMsg');
+      toast.textContent = msg;
+      toast.classList.add('show');
+      setTimeout(() => {
+        toast.classList.remove('show');
+      }, 2500);
+    }
+
+    // 8. Count-Up Animation
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.2
+    };
+
+    const countUpObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-target'), 10);
+          const prefix = el.getAttribute('data-prefix') || '';
+          const suffix = el.getAttribute('data-suffix') || '';
+          if (!isNaN(target)) {
+            let start = 0;
+            const duration = 1200;
+            const startTime = performance.now();
+
+            function updateCount(now) {
+              const elapsed = now - startTime;
+              const progress = Math.min(elapsed / duration, 1);
+              const easeProgress = 1 - Math.pow(1 - progress, 3);
+              const current = Math.floor(easeProgress * target);
+              el.textContent = `${prefix}${current}${suffix}`;
+              if (progress < 1) {
+                requestAnimationFrame(updateCount);
+              } else {
+                el.textContent = `${prefix}${target}${suffix}`;
+              }
+            }
+            requestAnimationFrame(updateCount);
+          }
+          observer.unobserve(el);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.metric-val[data-target]').forEach(el => {
+      countUpObserver.observe(el);
+    });
+
+    // 9. ScrollSpy for Navigation Highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.masthead-nav .nav-pill');
+    const dockTabs = document.querySelectorAll('.mobile-bottom-dock .dock-tab:not(.drawer-btn)');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      const scrollPos = window.pageYOffset + 120;
+      sections.forEach(section => {
+        const top = section.offsetTop;
+        const height = section.offsetHeight;
+        if (scrollPos >= top && scrollPos < top + height) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('active');
+        }
+      });
+
+      dockTabs.forEach(tab => {
+        tab.classList.remove('active');
+        if (tab.getAttribute('href') === `#${current}`) {
+          tab.classList.add('active');
+        }
+      });
+    }, { passive: true });
+  </script>
+</body>
+</html>
