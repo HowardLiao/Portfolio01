@@ -3514,11 +3514,10 @@ html_content = """<!DOCTYPE html>
         <a href="tel:+886975323161" class="footer-link">📞 +886 975 323 161</a>
         <span class="footer-link" style="color:var(--text-muted);">💬 LINE: howardliao</span>
         <a href="https://www.linkedin.com/in/howardliao78/" target="_blank" rel="noopener" class="footer-link">🌐 LinkedIn</a>
-        <a href="Howard_Liao_PhD_CV.pdf" target="_blank" rel="noopener" class="footer-link">📥 完整履歷 PDF</a>
       </div>
 
       <p class="footer-copy">
-        執行負責人：Howard Liao Ph.D.（廖倫豪 博士） ｜ 本站採用米蘭編排與暖琥珀高階設計系統 (Milan Editorial & Warm Amber System) 構建<br>
+        執行負責人：Howard Liao Ph.D.（廖倫豪 博士）<br>
         嚴格遵循 ISO 27001 隱私保護與商業去識別化規範 ｜ © 2026 Howard Liao, Ph.D. All Rights Reserved.
       </p>
     </div>
