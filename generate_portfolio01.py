@@ -3180,114 +3180,404 @@ html_content = """<!DOCTYPE html>
         <div class="text-center">
           <div class="section-eyebrow">External Verification</div>
           <h2 class="section-title">媒體專訪、原廠案例與演講出處</h2>
-          <p class="section-subtitle">公開報導、原廠大會 Keynote、公部門數位課程與權威學術期刊之實體佐證鏈。</p>
+          <p class="section-subtitle">公開報導、原廠大會 Keynote、公部門數位課程、國際專業證照與權威學術期刊之完整實體佐證鏈 (共 20 筆公開資料)。</p>
         </div>
 
-        <div class="evidence-grid">
-          <!-- Item 1 -->
-          <div class="evidence-card">
+        <!-- Controls: Filters & Search -->
+        <div class="timeline-controls" style="margin-bottom: 24px;">
+          <div class="timeline-filters" role="tablist" id="evidenceFilters">
+            <button class="filter-chip active" onclick="filterEvidence('all', this)" role="tab">🌟 全部實證 (20)</button>
+            <button class="filter-chip" onclick="filterEvidence('media', this)" role="tab">📰 主流科技媒體 (5)</button>
+            <button class="filter-chip" onclick="filterEvidence('keynote', this)" role="tab">🎤 主題演講 (2)</button>
+            <button class="filter-chip" onclick="filterEvidence('cloud', this)" role="tab">☁️ 雲端大廠 (1)</button>
+            <button class="filter-chip" onclick="filterEvidence('cert', this)" role="tab">📜 國際證照 (7)</button>
+            <button class="filter-chip" onclick="filterEvidence('academic', this)" role="tab">🎓 學術論文與公部門 (4)</button>
+            <button class="filter-chip" onclick="filterEvidence('csr', this)" role="tab">🤝 公益組織 (1)</button>
+          </div>
+
+          <div class="timeline-search-wrap">
+            <span class="timeline-search-icon">🔍</span>
+            <input type="text" id="evidenceSearch" class="timeline-search-input" placeholder="搜尋報導、演講或出處..." oninput="searchEvidence(this.value)">
+          </div>
+        </div>
+
+        <div class="evidence-grid" id="evidenceGrid">
+          <!-- Evidence Item 1 -->
+          <div class="evidence-card" data-cat="cloud">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/20260424_Howard.png', 'Google Cloud 官方全球客戶成功案例：隆中網絡顛覆全球玩家遊戲體驗')">
+              <img src="assets/20260424_Howard.png" alt="Google Cloud 官方全球客戶成功案例：隆中網絡顛覆全球玩家遊戲體驗" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">雲端大廠官方技術影音案例</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">Google Cloud (Official YouTube)</div>
+                <h3 class="evidence-title">Google Cloud 官方全球客戶成功案例：隆中網絡顛覆全球玩家遊戲體驗</h3>
+                <p class="evidence-desc">隆中網絡運用 GKE 和 Cloud Load Balancing 升級遊戲體驗。全球遊戲平台運營企業隆中網絡 (GameSparcs) 專注於為玩家帶來創新遊戲體驗，透過 Google Cloud 實現全球玩家高併發低延遲連線與 100% Zero Outage。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/20260424_Howard.png', 'Google Cloud 官方全球客戶成功案例：隆中網絡顛覆全球玩家遊戲體驗')">👁️ 檢視原圖</button>
+                <a href="https://youtu.be/_kTZSZ_0lNE?si=CT2lo8c4IF0zI1Ki" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 2 -->
+          <div class="evidence-card" data-cat="media">
             <div class="evidence-thumb-wrap" onclick="openImageModal('assets/2024_CIO報導.png', 'CIO Taiwan 雜誌專訪：善用公有雲服務 搶攻全球遊戲商機')">
-              <img src="assets/2024_CIO報導.png" alt="CIO Taiwan 雜誌封面報導" class="evidence-thumb">
+              <img src="assets/2024_CIO報導.png" alt="CIO Taiwan 雜誌專訪：善用公有雲服務 搶攻全球遊戲商機" class="evidence-thumb">
             </div>
             <div class="evidence-content">
               <div>
                 <span class="evidence-type-badge">主流科技媒體</span>
-                <h3 class="evidence-title">CIO Taiwan 雜誌專訪</h3>
-                <p class="evidence-desc">專訪報導隆中網絡 IT Director 廖倫豪博士善用公有雲與多雲網路 MCN 強化全球發行競爭力。</p>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">CIO Taiwan 雜誌 (採訪／施鑫澤‧文／林裕洋‧刊期／2024.05)</div>
+                <h3 class="evidence-title">CIO Taiwan 雜誌專訪：善用公有雲服務 搶攻全球遊戲商機</h3>
+                <p class="evidence-desc">專訪報導隆中網絡 IT Director 廖倫豪博士指出，遊戲產業使用雲端服務可帶來降低成本、提高效率、擴大發行範圍與提升玩家體驗四大好處，並建議採用多雲網路 (MCN) 與 Kubernetes 原生架構橫跨公有雲與邊緣運算。</p>
               </div>
               <div class="evidence-btn-wrap">
-                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_CIO報導.png', 'CIO Taiwan 雜誌專訪')">👁️ 檢視原圖</button>
-                <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_CIO報導.png', 'CIO Taiwan 雜誌專訪：善用公有雲服務 搶攻全球遊戲商機')">👁️ 檢視原圖</button>
+                <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- Item 2 -->
-          <div class="evidence-card">
+          <!-- Evidence Item 3 -->
+          <div class="evidence-card" data-cat="media">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/2024_IT經理人.png', '《CIO IT 經理人》封面專題：跨公有雲與邊緣的統一管理實務')">
+              <img src="assets/2024_IT經理人.png" alt="《CIO IT 經理人》封面專題：跨公有雲與邊緣的統一管理實務" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際高管專刊</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">CIO IT 經理人月刊 (2024 年 5 月號)</div>
+                <h3 class="evidence-title">《CIO IT 經理人》封面專題：跨公有雲與邊緣的統一管理實務</h3>
+                <p class="evidence-desc">深入報導廖倫豪博士如何統籌多雲架構、實施 FinOps 雲端成本監控與治理，以及帶領跨國團隊構建極限高可用（HA）架構的心法。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_IT經理人.png', '《CIO IT 經理人》封面專題：跨公有雲與邊緣的統一管理實務')">👁️ 檢視原圖</button>
+                <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 4 -->
+          <div class="evidence-card" data-cat="media">
             <div class="evidence-thumb-wrap" onclick="openImageModal('assets/IThome_MangoDB.png', 'iThome 專題企劃：運用 MongoDB Atlas 建構遊戲資料管理平台')">
-              <img src="assets/IThome_MangoDB.png" alt="iThome 報導" class="evidence-thumb">
+              <img src="assets/IThome_MangoDB.png" alt="iThome 專題企劃：運用 MongoDB Atlas 建構遊戲資料管理平台" class="evidence-thumb">
             </div>
             <div class="evidence-content">
               <div>
                 <span class="evidence-type-badge">主流科技媒體</span>
-                <h3 class="evidence-title">iThome 電腦報專題企劃</h3>
-                <p class="evidence-desc">深入解析隆中網絡以 MongoDB Atlas 全託管架構支撐全球跨區即時對弈的高併發讀寫選型策略。</p>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">iThome 電腦報 (專題企劃 | 2024-09-02)</div>
+                <h3 class="evidence-title">iThome 專題企劃：運用 MongoDB Atlas 建構遊戲資料管理平台</h3>
+                <p class="evidence-desc">文／iThome 專題企劃：隆中網絡 IT Director 廖倫豪博士指出，引進 MongoDB Atlas 全託管雲端資料庫平台，兼具高擴展性與 99.995% 高可用性，成功支撐全球跨區高併發讀寫需求，奠定長期競爭力。</p>
               </div>
               <div class="evidence-btn-wrap">
-                <button class="btn-evidence-view" onclick="openImageModal('assets/IThome_MangoDB.png', 'iThome 報導')">👁️ 檢視原圖</button>
-                <a href="https://www.ithome.com.tw/pr/163534" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/IThome_MangoDB.png', 'iThome 專題企劃：運用 MongoDB Atlas 建構遊戲資料管理平台')">👁️ 檢視原圖</button>
+                <a href="https://www.ithome.com.tw/pr/163534" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- Item 3 -->
-          <div class="evidence-card">
-            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/e等公務園__洞見機遇-雲端管理與實務01.png', '行政院人事行政總處 e等公務園+ 大師講座數位課程')">
-              <img src="assets/e等公務園__洞見機遇-雲端管理與實務01.png" alt="e等公務園課程" class="evidence-thumb">
+          <!-- Evidence Item 5 -->
+          <div class="evidence-card" data-cat="keynote">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/2024_MongoDB02.jpg', 'MongoDB.local Taipei Keynote 大會主講《運用 MongoDB Atlas 建構全球規模遊戲資料管理平台》')">
+              <img src="assets/2024_MongoDB02.jpg" alt="MongoDB.local Taipei Keynote 大會主講《運用 MongoDB Atlas 建構全球規模遊戲資料管理平台》" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">原廠旗艦大會 Keynote</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">MongoDB 原廠年度大會 (Taipei Marriott)</div>
+                <h3 class="evidence-title">MongoDB.local Taipei Keynote 大會主講《運用 MongoDB Atlas 建構全球規模遊戲資料管理平台》</h3>
+                <p class="evidence-desc">受邀擔任 MongoDB.local 年度旗艦大會 Keynote 演講嘉賓，於台北萬豪酒店大會主舞台發表專題演講，現場獲得逾 500 位企業 IT 領袖與架構師熱烈迴響。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_MongoDB02.jpg', 'MongoDB.local Taipei Keynote 大會主講《運用 MongoDB Atlas 建構全球規模遊戲資料管理平台》')">👁️ 檢視原圖</button>
+                <a href="https://www.ithome.com.tw/pr/163534" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 6 -->
+          <div class="evidence-card" data-cat="keynote">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/202404_Howard.png', 'CIO Taiwan 價值學院第十七屆大會 Keynote 演講《洞見機遇-雲端管理與實務》')">
+              <img src="assets/202404_Howard.png" alt="CIO Taiwan 價值學院第十七屆大會 Keynote 演講《洞見機遇-雲端管理與實務》" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">CIO 領袖高峰會 Keynote</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">CIO Taiwan 價值學院 (第十七屆大會)</div>
+                <h3 class="evidence-title">CIO Taiwan 價值學院第十七屆大會 Keynote 演講《洞見機遇-雲端管理與實務》</h3>
+                <p class="evidence-desc">廖倫豪博士受邀擔任 Keynote 主講人，向與會上市櫃企業 CIO 與 CISO 分享多雲資源治理、安全合規與 FinOps 實務落地心法，現場反應熱烈。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/202404_Howard.png', 'CIO Taiwan 價值學院第十七屆大會 Keynote 演講《洞見機遇-雲端管理與實務》')">👁️ 檢視原圖</button>
+                <a href="https://www.cio.com.tw/events/value-index-2/" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 7 -->
+          <div class="evidence-card" data-cat="academic">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/e等公務園__洞見機遇-雲端管理與實務01.png', '行政院人事行政總處 e等公務園+《洞見機遇-雲端管理與實務》大師講座數位課程')">
+              <img src="assets/e等公務園__洞見機遇-雲端管理與實務01.png" alt="行政院人事行政總處 e等公務園+《洞見機遇-雲端管理與實務》大師講座數位課程" class="evidence-thumb">
             </div>
             <div class="evidence-content">
               <div>
                 <span class="evidence-type-badge">政府數位學習平台</span>
-                <h3 class="evidence-title">行政院 e等公務園+ 大師講座</h3>
-                <p class="evidence-desc">受邀錄製《洞見機遇-雲端管理與實務》大師講座數位課程，向全體公務同仁推廣現代化資訊治理。</p>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">行政院人事行政總處 e等公務園+學習平臺</div>
+                <h3 class="evidence-title">行政院人事行政總處 e等公務園+《洞見機遇-雲端管理與實務》大師講座數位課程</h3>
+                <p class="evidence-desc">廖倫豪博士受邀擔任行政院大師講座講師，錄製《洞見機遇-雲端管理與實務》數位課程，列入公部門數位學習資源共享平台，推廣公部門雲端轉型與現代化資訊治理思維。</p>
               </div>
               <div class="evidence-btn-wrap">
-                <button class="btn-evidence-view" onclick="openImageModal('assets/e等公務園__洞見機遇-雲端管理與實務01.png', 'e等公務園數位課程')">👁️ 檢視原圖</button>
-                <a href="https://elearn.hrd.gov.tw/info/10042804" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/e等公務園__洞見機遇-雲端管理與實務01.png', '行政院人事行政總處 e等公務園+《洞見機遇-雲端管理與實務》大師講座數位課程')">👁️ 檢視原圖</button>
+                <a href="https://elearn.hrd.gov.tw/info/10042804" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- Item 4 -->
-          <div class="evidence-card">
-            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/2024_IT經理人.png', 'CIO IT 經理人 2024 年 5 月號專訪')">
-              <img src="assets/2024_IT經理人.png" alt="CIO IT經理人" class="evidence-thumb">
+          <!-- Evidence Item 8 -->
+          <div class="evidence-card" data-cat="media">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/20260519_Cloud_Howard.png', 'DIGITIMES 科技網報導：MongoDB 8.0 問世，助企業接軌生成式 AI (隆中網絡等企業案例)')">
+              <img src="assets/20260519_Cloud_Howard.png" alt="DIGITIMES 科技網報導：MongoDB 8.0 問世，助企業接軌生成式 AI (隆中網絡等企業案例)" class="evidence-thumb">
             </div>
             <div class="evidence-content">
               <div>
-                <span class="evidence-type-badge">國際高管雜誌</span>
-                <h3 class="evidence-title">CIO IT 經理人專題報導</h3>
-                <p class="evidence-desc">談跨公有雲與邊緣運算的統一管理，以及兼顧研發敏捷與財務紀律的雲端運維團隊建立。</p>
+                <span class="evidence-type-badge">主流科技媒體</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">DIGITIMES 科技網 (2024-09-15)</div>
+                <h3 class="evidence-title">DIGITIMES 科技網報導：MongoDB 8.0 問世，助企業接軌生成式 AI (隆中網絡等企業案例)</h3>
+                <p class="evidence-desc">DIGITIMES 科技網深度報導 MongoDB 8.0 發表會，提及隆中網絡等企業成功應用案例與演講重點，剖析多模型時代資料庫中台的架構躍遷。</p>
               </div>
               <div class="evidence-btn-wrap">
-                <button class="btn-evidence-view" onclick="openImageModal('assets/2024_IT經理人.png', 'CIO IT 經理人')">👁️ 檢視原圖</button>
-                <a href="https://www.cio.com.tw/interview-howard-liao-online-gamesparcs-it-director/" target="_blank" rel="noopener" class="case-evidence-link">開啟連結 ↗</a>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/20260519_Cloud_Howard.png', 'DIGITIMES 科技網報導：MongoDB 8.0 問世，助企業接軌生成式 AI (隆中網絡等企業案例)')">👁️ 檢視原圖</button>
+                <a href="https://www.digitimes.com.tw/tech/dt/n/shwnws.asp?id=0000704377_KI14VVDK6CQ8TB8OXC3GJ" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- Item 5: Oracle -->
-          <div class="evidence-card">
-            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 官方講師與專業證照')">
-              <img src="assets/Oracle_認照01.png" alt="Oracle 認證" class="evidence-thumb">
+          <!-- Evidence Item 9 -->
+          <div class="evidence-card" data-cat="media">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/ACE-Howard.png', 'ACE 專案專訪：高可用多雲架構與全球高併發連線營運的極限挑戰')">
+              <img src="assets/ACE-Howard.png" alt="ACE 專案專訪：高可用多雲架構與全球高併發連線營運的極限挑戰" class="evidence-thumb">
             </div>
             <div class="evidence-content">
               <div>
-                <span class="evidence-type-badge">國際原廠認證</span>
-                <h3 class="evidence-title">Oracle 官方認證與講師授權</h3>
-                <p class="evidence-desc">持有 Oracle OCP、官方認證講師資歷與 Oracle EBS R12 供應鏈模組受訓認證。</p>
+                <span class="evidence-type-badge">國際產業媒體</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">ACE 產業科技專刊</div>
+                <h3 class="evidence-title">ACE 專案專訪：高可用多雲架構與全球高併發連線營運的極限挑戰</h3>
+                <p class="evidence-desc">深入探討分散式雲原生架構、跨多區域負載均衡技術與創下連續 24+ 個月 100% Zero Outage 零重大中斷之關鍵工程架構。</p>
               </div>
               <div class="evidence-btn-wrap">
-                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 認證')">👁️ 檢視原圖</button>
-                <span style="font-size:0.75rem; color:var(--text-muted);">Oracle University</span>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/ACE-Howard.png', 'ACE 專案專訪：高可用多雲架構與全球高併發連線營運的極限挑戰')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/ACE-Howard.png', 'ACE 專案專訪：高可用多雲架構與全球高併發連線營運的極限挑戰')">👁️ 檢視專訪圖 🔍</button>
               </div>
             </div>
           </div>
 
-          <!-- Item 6: WBSA -->
-          <div class="evidence-card">
-            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 行銷企劃師國際證照')">
-              <img src="assets/WBSA證照.png" alt="WBSA證照" class="evidence-thumb">
+          <!-- Evidence Item 10 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/howard-liao-portrait-square.jpg', 'BSI 英國標準協會：ISO 27001 資訊安全 & ISO 42001 (AIMS) 人工智慧管理體系')">
+              <img src="assets/howard-liao-portrait-square.jpg" alt="BSI 英國標準協會：ISO 27001 資訊安全 & ISO 42001 (AIMS) 人工智慧管理體系" class="evidence-thumb">
             </div>
             <div class="evidence-content">
               <div>
-                <span class="evidence-type-badge">商務戰略認證</span>
-                <h3 class="evidence-title">WBSA 行銷企劃師 ＆ GS1 條碼</h3>
-                <p class="evidence-desc">具備國際行銷企劃師、GS1 供應鏈條碼管理師與台灣金融研訓院金融科技認證。</p>
+                <span class="evidence-type-badge">國際資安與 AI 治理標準</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">BSI 英國標準協會 (British Standards Institution)</div>
+                <h3 class="evidence-title">BSI 英國標準協會：ISO 27001 資訊安全 & ISO 42001 (AIMS) 人工智慧管理體系</h3>
+                <p class="evidence-desc">通過 ISO/IEC 27001 資訊安全管理系統與最新 ISO/IEC 42001 人工智慧管理系統（AIMS）專業訓練考試合格，持有人姓名：廖倫豪，具備國際標準雙重治理背書。</p>
               </div>
               <div class="evidence-btn-wrap">
-                <button class="btn-evidence-view" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 國際證照')">👁️ 檢視原圖</button>
-                <span style="font-size:0.75rem; color:var(--text-muted);">WBSA / GS1</span>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/howard-liao-portrait-square.jpg', 'BSI 英國標準協會：ISO 27001 資訊安全 & ISO 42001 (AIMS) 人工智慧管理體系')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/howard-liao-portrait-square.jpg', 'BSI 英國標準協會：ISO 27001 資訊安全 & ISO 42001 (AIMS) 人工智慧管理體系')">🖼️ 檢視認證資料 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 11 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 官方認證與官方認證講師 (OCP & AI Summit Specialist)')">
+              <img src="assets/Oracle_認照01.png" alt="Oracle 官方認證與官方認證講師 (OCP & AI Summit Specialist)" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際原廠專家認證</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">Oracle University (甲骨文大學)</div>
+                <h3 class="evidence-title">Oracle 官方認證與官方認證講師 (OCP & AI Summit Specialist)</h3>
+                <p class="evidence-desc">持有 Oracle OCP 專業技術證照與 Oracle 官方認證講師授權資格，受邀出席 Oracle AI 高峰會擔任企業大數據與高可用架構專家。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 官方認證與官方認證講師 (OCP & AI Summit Specialist)')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_認照01.png', 'Oracle 官方認證與官方認證講師 (OCP & AI Summit Specialist)')">🖼️ 檢視證照原件 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 12 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/Oracle_認照02.png', 'Oracle E-Business Suite R12 供應鏈與製造執行模組官方結業認證')">
+              <img src="assets/Oracle_認照02.png" alt="Oracle E-Business Suite R12 供應鏈與製造執行模組官方結業認證" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">企業 ERP 原廠結業</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">Oracle University (甲骨文大學)</div>
+                <h3 class="evidence-title">Oracle E-Business Suite R12 供應鏈與製造執行模組官方結業認證</h3>
+                <p class="evidence-desc">完成 Oracle 原廠 EBS R12 供應鏈管理（SCM）、製造執行與跨系統整合架構之官方高階培訓考核認證。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_認照02.png', 'Oracle E-Business Suite R12 供應鏈與製造執行模組官方結業認證')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_認照02.png', 'Oracle E-Business Suite R12 供應鏈與製造執行模組官方結業認證')">🖼️ 檢視結業證書 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 13 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/Oracle_AI_講師_02.png', 'Oracle AI 技術論壇專題技術講師授權紀錄')">
+              <img src="assets/Oracle_AI_講師_02.png" alt="Oracle AI 技術論壇專題技術講師授權紀錄" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">原廠技術年會講師</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">Oracle 官方技術年會講堂</div>
+                <h3 class="evidence-title">Oracle AI 技術論壇專題技術講師授權紀錄</h3>
+                <p class="evidence-desc">受邀擔任 Oracle 官方技術講堂年度講師，向企業界分享大型企業資料庫高併發效能調校、HA/DR 災難復原與 AI 資料庫融合應用架構。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_AI_講師_02.png', 'Oracle AI 技術論壇專題技術講師授權紀錄')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/Oracle_AI_講師_02.png', 'Oracle AI 技術論壇專題技術講師授權紀錄')">🖼️ 檢視聘任紀錄 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 14 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/GS1證照.png', 'GS1 國際供應鏈條碼管理師專業認證')">
+              <img src="assets/GS1證照.png" alt="GS1 國際供應鏈條碼管理師專業認證" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際供應鏈標準</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">GS1 Taiwan 國際組織</div>
+                <h3 class="evidence-title">GS1 國際供應鏈條碼管理師專業認證</h3>
+                <p class="evidence-desc">具備 GS1 國際條碼標準管理師資格，深諳全球供應鏈物流、追溯機制、製造工單批號管制與全球零售 B2B 串接標準規範。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/GS1證照.png', 'GS1 國際供應鏈條碼管理師專業認證')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/GS1證照.png', 'GS1 國際供應鏈條碼管理師專業認證')">🖼️ 檢視證照原件 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 15 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 行銷企劃師國際專業認證')">
+              <img src="assets/WBSA證照.png" alt="WBSA 行銷企劃師國際專業認證" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際商務戰略認證</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">WBSA 世界商務策劃師聯合會</div>
+                <h3 class="evidence-title">WBSA 行銷企劃師國際專業認證</h3>
+                <p class="evidence-desc">通過 WBSA 國際商務企劃認證，具備高管商業戰略轉譯、市場競爭分析、SWOT 策略差距推演與產品生命週期全面治理能力。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 行銷企劃師國際專業認證')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/WBSA證照.png', 'WBSA 行銷企劃師國際專業認證')">🖼️ 檢視證照原件 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 16 -->
+          <div class="evidence-card" data-cat="cert">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/台灣金融研訓院考照.png', '台灣金融研訓院 金融科技力 (FinTech) 專業能力認證')">
+              <img src="assets/台灣金融研訓院考照.png" alt="台灣金融研訓院 金融科技力 (FinTech) 專業能力認證" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">金融科技監理標準</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">台灣金融研訓院 (TABF)</div>
+                <h3 class="evidence-title">台灣金融研訓院 金融科技力 (FinTech) 專業能力認證</h3>
+                <p class="evidence-desc">通過金融研訓院金融科技力專業測驗認證，涵蓋分散式帳本架構、高併發交易結算、金流安全風控防護與金融法遵監理科技。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/台灣金融研訓院考照.png', '台灣金融研訓院 金融科技力 (FinTech) 專業能力認證')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/台灣金融研訓院考照.png', '台灣金融研訓院 金融科技力 (FinTech) 專業能力認證')">🖼️ 檢視證照原件 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 17 -->
+          <div class="evidence-card" data-cat="academic">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/20260424_Howard.png', 'SCI 期刊論文（共同作者）：Reversible secret-image sharing with high visual quality')">
+              <img src="assets/20260424_Howard.png" alt="SCI 期刊論文（共同作者）：Reversible secret-image sharing with high visual quality" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際學術期刊 (SCI)</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">Springer《Multimedia Tools and Applications》Vol. 70, pp. 1729–1747 (2014)</div>
+                <h3 class="evidence-title">SCI 期刊論文（共同作者）：Reversible secret-image sharing with high visual quality</h3>
+                <p class="evidence-desc">發表於 Springer SCI 國際權威期刊，提出具備高視覺品質之可逆秘密影像分享演算法。作者：Ching-Chiuan Lin, Lun-Hao Liao (廖倫豪), Kuo-Feng Hwang, Shih-Chieh Chen。DOI: 10.1007/s11042-012-1190-1。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/20260424_Howard.png', 'SCI 期刊論文（共同作者）：Reversible secret-image sharing with high visual quality')">👁️ 檢視原圖</button>
+                <a href="https://link.springer.com/article/10.1007/s11042-012-1190-1" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟原始連結 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 18 -->
+          <div class="evidence-card" data-cat="academic">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/20260519_Cloud_Howard.png', '國際學術期刊論文（第一作者）：Utilizing GIS and GPS in Designing a Trilingual Tourist APP')">
+              <img src="assets/20260519_Cloud_Howard.png" alt="國際學術期刊論文（第一作者）：Utilizing GIS and GPS in Designing a Trilingual Tourist APP" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國際學術期刊</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">Applied Science and Management Research (Vol. 2, May 2015)</div>
+                <h3 class="evidence-title">國際學術期刊論文（第一作者）：Utilizing GIS and GPS in Designing a Trilingual Tourist APP</h3>
+                <p class="evidence-desc">論文結合地理資訊系統 (GIS) 與全球定位系統 (GPS)，設計具備繁中/英文/日文三語支援之高可用行動服務架構，實踐空間資訊與行動端極限整合。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/20260519_Cloud_Howard.png', '國際學術期刊論文（第一作者）：Utilizing GIS and GPS in Designing a Trilingual Tourist APP')">👁️ 檢視原圖</button>
+                <button class="btn-evidence-view" onclick="openImageModal('assets/20260519_Cloud_Howard.png', '國際學術期刊論文（第一作者）：Utilizing GIS and GPS in Designing a Trilingual Tourist APP')">👁️ 檢視發表資料 🔍</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 19 -->
+          <div class="evidence-card" data-cat="academic">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/howard-liao-portrait-circle.png', '國家圖書館博碩士學位論文典藏《整合系統的商業自助式入口網站植基於調適性服務導向架構資訊科技治理之研究》')">
+              <img src="assets/howard-liao-portrait-circle.png" alt="國家圖書館博碩士學位論文典藏《整合系統的商業自助式入口網站植基於調適性服務導向架構資訊科技治理之研究》" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">國家圖書館法定典藏</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">臺灣博碩士論文知識加值系統 (國家圖書館全文資料庫)</div>
+                <h3 class="evidence-title">國家圖書館博碩士學位論文典藏《整合系統的商業自助式入口網站植基於調適性服務導向架構資訊科技治理之研究》</h3>
+                <p class="evidence-desc">朝陽科技大學 資訊科技管理研究所 博士學位論文，研究生：廖倫豪 (Howard Liao)。結合 ITIL V3 與 SOA 服務導向架構建立企業級入口網站 IT 治理模型，典藏代碼 106IKTC0183002。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/howard-liao-portrait-circle.png', '國家圖書館博碩士學位論文典藏《整合系統的商業自助式入口網站植基於調適性服務導向架構資訊科技治理之研究》')">👁️ 檢視原圖</button>
+                <a href="https://ndltd.ncl.edu.tw/" target="_blank" rel="noopener" class="case-evidence-link">🌐 國圖典藏檢索 ↗</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Evidence Item 20 -->
+          <div class="evidence-card" data-cat="csr">
+            <div class="evidence-thumb-wrap" onclick="openImageModal('assets/howard_portrait.jpg', '財團法人康善基金會 董事兼資訊長 (CIO) 數位公益、便當童話劇與 CSR 永續專案')">
+              <img src="assets/howard_portrait.jpg" alt="財團法人康善基金會 董事兼資訊長 (CIO) 數位公益、便當童話劇與 CSR 永續專案" class="evidence-thumb">
+            </div>
+            <div class="evidence-content">
+              <div>
+                <span class="evidence-type-badge">專業社群 / 公益 CSR</span>
+                <div style="font-size:0.78rem; font-weight:700; color:var(--text-muted); margin-bottom:4px;">財團法人康善基金會 (Cancer NoNo Foundation)</div>
+                <h3 class="evidence-title">財團法人康善基金會 董事兼資訊長 (CIO) 數位公益、便當童話劇與 CSR 永續專案</h3>
+                <p class="evidence-desc">廖倫豪博士擔任財團法人康善基金會董事兼資訊長 (CIO)，將企業級雲端技術、資安架構與 AI 專長導入醫療健康公益，建置兒童飲食宣導與公益防護網，落實 ESG 永續精神。</p>
+              </div>
+              <div class="evidence-btn-wrap">
+                <button class="btn-evidence-view" onclick="openImageModal('assets/howard_portrait.jpg', '財團法人康善基金會 董事兼資訊長 (CIO) 數位公益、便當童話劇與 CSR 永續專案')">👁️ 檢視原圖</button>
+                <a href="https://www.cancer-nono.org.tw/web/about/page.php?lang=zh_tw&scid=7&sid=5" target="_blank" rel="noopener" class="case-evidence-link">🌐 開啟官方網站 ↗</a>
               </div>
             </div>
           </div>
@@ -3761,6 +4051,45 @@ html_content = """<!DOCTYPE html>
         const text = card.textContent.toLowerCase();
         if (!kw || text.includes(kw)) {
           card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // 4.1 Evidence Filter & Search
+    function filterEvidence(category, btn) {
+      if (btn) {
+        document.querySelectorAll('#evidenceFilters .filter-chip').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      } else {
+        document.querySelectorAll('#evidenceFilters .filter-chip').forEach(b => {
+          if (b.getAttribute('onclick') && b.getAttribute('onclick').includes("'" + category + "'")) {
+            b.classList.add('active');
+          } else {
+            b.classList.remove('active');
+          }
+        });
+      }
+
+      const cards = document.querySelectorAll('#evidenceGrid .evidence-card');
+      cards.forEach(card => {
+        const cat = card.getAttribute('data-cat') || '';
+        if (category === 'all' || cat === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    function searchEvidence(keyword) {
+      const kw = keyword.toLowerCase().trim();
+      const cards = document.querySelectorAll('#evidenceGrid .evidence-card');
+      cards.forEach(card => {
+        const text = card.textContent.toLowerCase();
+        if (!kw || text.includes(kw)) {
+          card.style.display = 'flex';
         } else {
           card.style.display = 'none';
         }
