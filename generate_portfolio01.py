@@ -2370,8 +2370,6 @@ html_content = """<!DOCTYPE html>
                 <a href="tel:+886975323161" class="hero-contact-item">📞 +886 975 323 161</a>
                 <span class="hero-contact-item">💬 LINE: howardliao</span>
                 <a href="https://www.linkedin.com/in/howardliao78/" target="_blank" rel="noopener" class="hero-contact-item">🌐 LinkedIn</a>
-                <a href="https://github.com/HowardLiao" target="_blank" rel="noopener" class="hero-contact-item">💻 GitHub</a>
-                <a href="https://howardliao.github.io/portfolio/" target="_blank" rel="noopener" class="hero-contact-item">📁 主作品集</a>
               </div>
             </div>
 
@@ -3517,8 +3515,6 @@ html_content = """<!DOCTYPE html>
         <a href="tel:+886975323161" class="footer-link">📞 +886 975 323 161</a>
         <span class="footer-link" style="color:var(--text-muted);">💬 LINE: howardliao</span>
         <a href="https://www.linkedin.com/in/howardliao78/" target="_blank" rel="noopener" class="footer-link">🌐 LinkedIn</a>
-        <a href="https://github.com/HowardLiao" target="_blank" rel="noopener" class="footer-link">💻 GitHub</a>
-        <a href="https://howardliao.github.io/portfolio/" target="_blank" rel="noopener" class="footer-link">📁 主作品集</a>
         <a href="Howard_Liao_PhD_CV.pdf" target="_blank" rel="noopener" class="footer-link">📥 完整履歷 PDF</a>
       </div>
 
@@ -3796,7 +3792,7 @@ html_content = """<!DOCTYPE html>
 
     // 7. Copy Contact Info with Toast & Haptics
     function copyContactInfo() {
-      const textToCopy = `廖倫豪 博士 (Howard Liao, Ph.D.)\\n職稱：資訊長 (CIO) / 集團資安長 (Group CISO) / 技術副總\\n信箱：Liao.Howard@gmail.com\\n電話：+886 975 323 161\\nLINE：howardliao\\n作品集：https://howardliao.github.io/portfolio/`;
+      const textToCopy = `廖倫豪 博士 (Howard Liao, Ph.D.)\\n職稱：資訊長 (CIO) / 集團資安長 (Group CISO) / 技術副總\\n信箱：Liao.Howard@gmail.com\\n電話：+886 975 323 161\\nLINE：howardliao`;
       if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(textToCopy).then(() => {
           showToast("✓ 已成功複製廖倫豪博士高管聯絡資訊！");
