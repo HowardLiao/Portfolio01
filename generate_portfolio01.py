@@ -2377,7 +2377,6 @@ html_content = """<!DOCTYPE html>
             <div class="hero-portrait-card">
               <div class="portrait-wrapper">
                 <img src="assets/20260712_韓系證照.png" alt="廖倫豪 博士 Howard Liao, Ph.D. 肖像" class="portrait-img" onerror="this.src='assets/howard_portrait.jpg'">
-                <div class="portrait-badge-verified">✓ 韓系證照</div>
               </div>
               <div class="portrait-caption">Howard Liao, Ph.D.</div>
               <div class="portrait-subcaption">執行負責人 ｜ 資訊科技管理博士</div>
