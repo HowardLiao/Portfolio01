@@ -2341,7 +2341,7 @@ html_content = """<!DOCTYPE html>
             <!-- Left Info -->
             <div>
               <div class="hero-badge-group">
-                <span class="badge-pill rust">🎓 資訊科技管理博士・朝陽科大</span>
+                <span class="badge-pill rust">🎓 資訊科技管理博士</span>
                 <span class="badge-pill amber">🛡️ ISO 27001／42001 雙重治理</span>
                 <span class="badge-pill forest">⚡ PMP & CSM 國際認證</span>
                 <span class="badge-pill rust">💼 27 年 IT 領導歷練</span>
