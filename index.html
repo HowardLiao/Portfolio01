@@ -295,6 +295,79 @@
       box-shadow: 0 2px 8px rgba(168, 50, 18, 0.25);
     }
 
+    /* Language Switcher Pills */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(239, 233, 222, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      padding: 3px;
+      gap: 2px;
+      flex-shrink: 0;
+    }
+
+    .lang-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all 0.18s ease;
+      white-space: nowrap;
+      line-height: 1;
+    }
+
+    .lang-btn:hover {
+      color: var(--accent-rust);
+    }
+
+    .lang-btn.active {
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      box-shadow: 0 2px 6px rgba(168, 50, 18, 0.25);
+    }
+
+    @media (max-width: 560px) {
+      .lang-btn {
+        padding: 4px 8px;
+        font-size: 0.74rem;
+      }
+    }
+
+    .drawer-lang-group {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding: 4px;
+      background: #FAF7F0;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-main);
+    }
+
+    .drawer-lang-btn {
+      flex: 1;
+      padding: 10px 6px;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-secondary);
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .drawer-lang-btn.active {
+      background: var(--accent-rust);
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(168, 50, 18, 0.25);
+    }
+
     .masthead-actions {
       display: flex;
       align-items: center;
@@ -2282,32 +2355,33 @@
       <a href="#hero" class="masthead-brand" aria-label="Howard Liao Ph.D. 首頁">
         <img src="assets/howard-liao-avatar-256.png" alt="Howard Liao Ph.D." class="brand-avatar" onerror="this.src='assets/howard_portrait.jpg'">
         <div class="brand-meta">
-          <span class="brand-name">廖倫豪 博士</span>
+          <span class="brand-name" data-i18n="brand_name">廖倫豪 博士</span>
           <span class="brand-title">Howard Liao, Ph.D.</span>
         </div>
       </a>
 
       <!-- Desktop Nav Pills -->
       <nav class="masthead-nav" role="navigation" aria-label="主要選單">
-        <a href="#hero" class="nav-pill active">高管概況</a>
-        <a href="#metrics" class="nav-pill">四大指標</a>
-        <a href="#pillars" class="nav-pill">戰略支柱</a>
-        <a href="#stepper" class="nav-pill">π型演進</a>
-        <a href="#architecture" class="nav-pill">四大中樞</a>
-        <a href="#timeline" class="nav-pill">27年歷練</a>
-        <a href="#cases" class="nav-pill">旗艦案例</a>
-        <a href="#evidence" class="nav-pill">實證出處</a>
-        <a href="#faq" class="nav-pill">預期問答</a>
+        <a href="#hero" class="nav-pill active" data-i18n="nav_hero">高管概況</a>
+        <a href="#metrics" class="nav-pill" data-i18n="nav_metrics">四大指標</a>
+        <a href="#pillars" class="nav-pill" data-i18n="nav_pillars">戰略支柱</a>
+        <a href="#stepper" class="nav-pill" data-i18n="nav_stepper">π型演進</a>
+        <a href="#architecture" class="nav-pill" data-i18n="nav_arch">四大中樞</a>
+        <a href="#timeline" class="nav-pill" data-i18n="nav_timeline">27年歷練</a>
+        <a href="#cases" class="nav-pill" data-i18n="nav_cases">旗艦案例</a>
+        <a href="#evidence" class="nav-pill" data-i18n="nav_evidence">實證出處</a>
+        <a href="#faq" class="nav-pill" data-i18n="nav_faq">預期問答</a>
       </nav>
 
-      <!-- Masthead Action Bar -->
+      <!-- Masthead Action Bar (Language Switcher & Nav) -->
       <div class="masthead-actions">
-        <a href="Howard_Liao_PhD_CV.pdf" class="btn-action-primary" target="_blank" rel="noopener">
-          <span class="btn-text-full">📥 履歷下載 (PDF)</span>
-          <span class="btn-text-mobile">📥 履歷</span>
-        </a>
+        <div class="lang-switcher" role="group" aria-label="語言切換 Language Switcher">
+          <button class="lang-btn active" id="btn-lang-zh" onclick="setLanguage('zh')">繁中</button>
+          <button class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')">EN</button>
+          <button class="lang-btn" id="btn-lang-ja" onclick="setLanguage('ja')">日本語</button>
+        </div>
         <button class="btn-nav-trigger" onclick="toggleNavDrawer()" aria-label="展開導覽選單">
-          <span>🧭 導覽</span>
+          <span data-i18n="nav_trigger">🧭 導覽</span>
         </button>
       </div>
     </div>
@@ -2324,13 +2398,13 @@
             <!-- Left Info -->
             <div>
               <div class="hero-badge-group">
-                <span class="badge-pill rust">🎓 資訊科技管理博士</span>
-                <span class="badge-pill amber">🛡️ ISO 27001／42001 雙重治理</span>
-                <span class="badge-pill forest">⚡ PMP & CSM 國際認證</span>
-                <span class="badge-pill rust">💼 27 年 IT 領導歷練</span>
+                <span class="badge-pill rust" data-i18n="badge_phd">🎓 資訊科技管理博士</span>
+                <span class="badge-pill amber" data-i18n="badge_iso">🛡️ ISO 27001／42001 雙重治理</span>
+                <span class="badge-pill forest" data-i18n="badge_pmp">⚡ PMP & CSM 國際認證</span>
+                <span class="badge-pill rust" data-i18n="badge_years">💼 27 年 IT 領導歷練</span>
               </div>
 
-              <h1 class="hero-name">廖倫豪 博士</h1>
+              <h1 class="hero-name" data-i18n="hero_name">廖倫豪 博士</h1>
               <div class="hero-name-en">Howard Liao, Ph.D.</div>
 
               <div class="hero-roles">
@@ -2343,9 +2417,9 @@
               </p>
 
               <div class="hero-cta-group">
-                <a href="#cases" class="btn-hero btn-hero-primary">🏆 檢視旗艦案例</a>
-                <a href="#architecture" class="btn-hero btn-hero-secondary">⚙️ 探索企業 AI 雙中樞</a>
-                <button onclick="copyContactInfo()" class="btn-hero btn-hero-secondary">📋 複製高管名片</button>
+                <a href="#cases" class="btn-hero btn-hero-primary" data-i18n="btn_cases">🏆 檢視旗艦案例</a>
+                <a href="#architecture" class="btn-hero btn-hero-secondary" data-i18n="btn_arch">⚙️ 探索企業 AI 雙中樞</a>
+                <button onclick="copyContactInfo()" class="btn-hero btn-hero-secondary" data-i18n="btn_copy_card">📋 複製高管名片</button>
               </div>
 
               <div class="hero-contact-list">
@@ -2362,7 +2436,7 @@
                 <img src="assets/20260712_韓系證照.png" alt="廖倫豪 博士 Howard Liao, Ph.D. 肖像" class="portrait-img" onerror="this.src='assets/howard_portrait.jpg'">
               </div>
               <div class="portrait-caption">Howard Liao, Ph.D.</div>
-              <div class="portrait-subcaption">執行負責人 ｜ 資訊科技管理博士</div>
+              <div class="portrait-subcaption" data-i18n="portrait_sub">執行負責人 ｜ 資訊科技管理博士</div>
             </div>
           </div>
         </div>
@@ -2388,7 +2462,7 @@
             <div class="metric-val-wrap">
               <div class="metric-val" data-target="10" data-prefix="$" data-suffix="M+">$10M+</div>
             </div>
-            <div class="metric-title">全球 IT 資本治理規模</div>
+            <div class="metric-title" data-i18n="metric1_title">全球 IT 資本治理規模</div>
             <p class="metric-desc">跨國 IT、SAP S/4HANA 與外包 SI 顧問年度預算治理（歷史峰值最高達 $14M+）</p>
           </div>
 
@@ -2401,7 +2475,7 @@
             <div class="metric-val-wrap">
               <div class="metric-val amber" data-target="100" data-suffix="%">100%</div>
             </div>
-            <div class="metric-title">核心服務零重大中斷</div>
+            <div class="metric-title" data-i18n="metric2_title">核心服務零重大中斷</div>
             <p class="metric-desc">連續 24+ 個月百萬高併發零停機，GKE 多雲容器與 MongoDB Atlas 跨區高可用</p>
           </div>
 
@@ -2414,7 +2488,7 @@
             <div class="metric-val-wrap">
               <div class="metric-val forest" data-target="30" data-prefix="-" data-suffix="%" style="text-align:right;">-30%</div>
             </div>
-            <div class="metric-title">跨國多雲持有成本</div>
+            <div class="metric-title" data-i18n="metric3_title">跨國多雲持有成本</div>
             <p class="metric-desc">落實 FinOps 多雲資源精準治理與動態容量縮放，年省 30% 基礎設施持有成本</p>
           </div>
 
@@ -2427,7 +2501,7 @@
             <div class="metric-val-wrap">
               <div class="metric-val blue" data-target="15" data-prefix="+" data-suffix="%" style="text-align:right;">+15%</div>
             </div>
-            <div class="metric-title">智慧製造關鍵良率提升</div>
+            <div class="metric-title" data-i18n="metric4_title">智慧製造關鍵良率提升</div>
             <p class="metric-desc">Edge AIoT 千台 SMT 機台串接與機器學習不良預測模型，同時帶動 OEE 提升 18%</p>
           </div>
         </div>
@@ -3829,23 +3903,31 @@
   <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="全域章節目錄">
     <div class="drawer-handle"></div>
     <div class="drawer-header">
-      <div class="drawer-title">🧭 全域章節目錄</div>
+      <div class="drawer-title" data-i18n="drawer_title">🧭 全域章節目錄</div>
       <button class="drawer-close" onclick="toggleNavDrawer()" aria-label="關閉目錄">✕</button>
     </div>
+
+    <!-- Drawer Language Switcher -->
+    <div class="drawer-lang-group">
+      <button class="drawer-lang-btn active" id="drawer-lang-zh" onclick="setLanguage('zh'); toggleNavDrawer();">🇹🇼 繁體中文</button>
+      <button class="drawer-lang-btn" id="drawer-lang-en" onclick="setLanguage('en'); toggleNavDrawer();">🇬🇧 English</button>
+      <button class="drawer-lang-btn" id="drawer-lang-ja" onclick="setLanguage('ja'); toggleNavDrawer();">🇯🇵 日本語</button>
+    </div>
+
     <div class="drawer-links-grid">
-      <a href="#hero" class="drawer-nav-item" onclick="toggleNavDrawer()">👤 高管總覽自述</a>
-      <a href="#metrics" class="drawer-nav-item" onclick="toggleNavDrawer()">🏛️ 四大 C-Level 指標</a>
-      <a href="#pillars" class="drawer-nav-item" onclick="toggleNavDrawer()">🛡️ 董事會戰略支柱</a>
-      <a href="#stepper" class="drawer-nav-item" onclick="toggleNavDrawer()">🧭 π 型戰略躍升軌跡</a>
-      <a href="#architecture" class="drawer-nav-item" onclick="toggleNavDrawer()">⚙️ 四大核心架構中樞</a>
-      <a href="#timeline" class="drawer-nav-item" onclick="toggleNavDrawer()">🏢 27 年完整職涯經歷</a>
-      <a href="#cases" class="drawer-nav-item" onclick="toggleNavDrawer()">🏆 六大旗艦實戰案例</a>
-      <a href="#evidence" class="drawer-nav-item" onclick="toggleNavDrawer()">📜 媒體報導與原廠出處</a>
-      <a href="#faq" class="drawer-nav-item" onclick="toggleNavDrawer()">💬 預期面試問答 FAQ</a>
-      <a href="Howard_Liao_PhD_CV.pdf" class="drawer-nav-item" style="background:#FFF1EE; color:var(--accent-rust); border-color:var(--accent-rust);" target="_blank" rel="noopener">📥 下載履歷 (PDF)</a>
+      <a href="#hero" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_hero">👤 高管總覽自述</a>
+      <a href="#metrics" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_metrics">🏛️ 四大 C-Level 指標</a>
+      <a href="#pillars" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_pillars">🛡️ 董事會戰略支柱</a>
+      <a href="#stepper" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_stepper">🧭 π 型戰略躍升軌跡</a>
+      <a href="#architecture" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_arch">⚙️ 四大核心架構中樞</a>
+      <a href="#timeline" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_timeline">🏢 27 年完整職涯經歷</a>
+      <a href="#cases" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_cases">🏆 六大旗艦實戰案例</a>
+      <a href="#evidence" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_evidence">📜 媒體專訪與實證出處</a>
+      <a href="#faq" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_faq">💬 預期面試問答 FAQ</a>
+      <a href="#hero" class="drawer-nav-item" onclick="toggleNavDrawer()" data-i18n="drawer_contact">📞 高管直接聯繫</a>
     </div>
     <button onclick="copyContactInfo()" class="btn-action-primary" style="width:100%; justify-content:center; padding:12px;">
-      📋 一鍵複製高管名片聯絡資訊
+      <span data-i18n="btn_copy_card">📋 複製高管名片聯絡資訊</span>
     </button>
   </div>
 
@@ -3867,6 +3949,168 @@
 
   <!-- INTERACTIVE SCRIPTS -->
   <script>
+
+    // ==========================================
+    // TRILINGUAL i18n ENGINE (zh / en / ja)
+    // ==========================================
+    const i18n = {
+      zh: {
+        doc_title: "Howard Liao, Ph.D. (廖倫豪 博士) — Executive Portfolio & Leadership Dossier",
+        brand_name: "廖倫豪 博士",
+        nav_hero: "高管概況",
+        nav_metrics: "四大指標",
+        nav_pillars: "戰略支柱",
+        nav_stepper: "π型演進",
+        nav_arch: "四大中樞",
+        nav_timeline: "27年歷練",
+        nav_cases: "旗艦案例",
+        nav_evidence: "實證出處",
+        nav_faq: "預期問答",
+        nav_trigger: "🧭 導覽",
+        badge_phd: "🎓 資訊科技管理博士",
+        badge_iso: "🛡️ ISO 27001／42001 雙重治理",
+        badge_pmp: "⚡ PMP & CSM 國際認證",
+        badge_years: "💼 27 年 IT 領導歷練",
+        hero_name: "廖倫豪 博士",
+        btn_cases: "🏆 檢視旗艦案例",
+        btn_arch: "⚙️ 探索企業 AI 雙中樞",
+        btn_copy_card: "📋 複製高管名片",
+        portrait_sub: "執行負責人 ｜ 資訊科技管理博士",
+        metric1_title: "全球 IT 資本治理規模",
+        metric2_title: "核心服務零重大中斷",
+        metric3_title: "跨國多雲持有成本",
+        metric4_title: "智慧製造關鍵良率提升",
+        drawer_title: "🧭 全域章節目錄",
+        drawer_hero: "👤 高管總覽自述",
+        drawer_metrics: "🏛️ 四大 C-Level 指標",
+        drawer_pillars: "🛡️ 董事會戰略支柱",
+        drawer_stepper: "🧭 π 型戰略躍升軌跡",
+        drawer_arch: "⚙️ 四大核心架構中樞",
+        drawer_timeline: "🏢 27 年完整職涯經歷",
+        drawer_cases: "🏆 六大旗艦實戰案例",
+        drawer_evidence: "📜 媒體專訪與實證出處",
+        drawer_faq: "💬 預期面試問答 FAQ",
+        drawer_contact: "📞 高管直接聯繫"
+      },
+      en: {
+        doc_title: "Howard Liao, Ph.D. — Executive Portfolio & Leadership Dossier",
+        brand_name: "Howard Liao, Ph.D.",
+        nav_hero: "Overview",
+        nav_metrics: "Metrics",
+        nav_pillars: "Pillars",
+        nav_stepper: "Evolution",
+        nav_arch: "AI Stack",
+        nav_timeline: "Career",
+        nav_cases: "Cases",
+        nav_evidence: "Evidence",
+        nav_faq: "FAQ",
+        nav_trigger: "🧭 Nav",
+        badge_phd: "🎓 Ph.D. in IT Management",
+        badge_iso: "🛡️ ISO 27001 / 42001 Governance",
+        badge_pmp: "⚡ PMP & CSM Certified",
+        badge_years: "💼 27 Years IT Leadership",
+        hero_name: "Howard Liao, Ph.D.",
+        btn_cases: "🏆 View Case Studies",
+        btn_arch: "⚙️ Explore Enterprise AI",
+        btn_copy_card: "📋 Copy Contact Card",
+        portrait_sub: "Lead Executive | Ph.D. in IT Management",
+        metric1_title: "Global IT Capital Governance",
+        metric2_title: "Zero Major Outage Record",
+        metric3_title: "Multi-Cloud TCO Reduction",
+        metric4_title: "Smart Manufacturing Yield AI",
+        drawer_title: "🧭 Navigation Menu",
+        drawer_hero: "👤 Executive Overview",
+        drawer_metrics: "🏛️ Four C-Level Metrics",
+        drawer_pillars: "🛡️ Board Value Pillars",
+        drawer_stepper: "🧭 Strategic Evolution",
+        drawer_arch: "⚙️ Enterprise AI Stack",
+        drawer_timeline: "🏢 27-Year Career History",
+        drawer_cases: "🏆 Flagship Case Studies",
+        drawer_evidence: "📜 Media & Verified Evidence",
+        drawer_faq: "💬 Executive Interview FAQ",
+        drawer_contact: "📞 Direct Contact"
+      },
+      ja: {
+        doc_title: "Howard Liao, Ph.D. (廖倫豪 博士) — エグゼクティブ・ポートフォリオ",
+        brand_name: "廖倫豪 博士 (Ph.D.)",
+        nav_hero: "概要",
+        nav_metrics: "主要指標",
+        nav_pillars: "戦略の柱",
+        nav_stepper: "戦略進化",
+        nav_arch: "中枢基盤",
+        nav_timeline: "27年の経歴",
+        nav_cases: "主要事例",
+        nav_evidence: "実証・出処",
+        nav_faq: "想定Q&A",
+        nav_trigger: "🧭 案内",
+        badge_phd: "🎓 情報技術管理博士",
+        badge_iso: "🛡️ ISO 27001 / 42001 統治",
+        badge_pmp: "⚡ PMP & CSM 国際認定",
+        badge_years: "💼 27年のIT統括経験",
+        hero_name: "廖倫豪 博士 (Howard Liao)",
+        btn_cases: "🏆 主要事例を見る",
+        btn_arch: "⚙️ 企業向けAI中枢を探索",
+        btn_copy_card: "📋 連絡先をコピー",
+        portrait_sub: "統括責任者 ｜ 情報技術管理博士",
+        metric1_title: "グローバルIT資本統治規模",
+        metric2_title: "コアサービス無停止実績",
+        metric3_title: "マルチクラウドTCO削減",
+        metric4_title: "スマート製造歩留まり向上",
+        drawer_title: "🧭 全体ナビゲーション",
+        drawer_hero: "👤 エグゼクティブ概要",
+        drawer_metrics: "🏛️ 4大C-Level指標",
+        drawer_pillars: "🛡️ 取締役会向け戦略の柱",
+        drawer_stepper: "🧭 戦略的キャリア軌跡",
+        drawer_arch: "⚙️ 4大エンタープライズAI中枢",
+        drawer_timeline: "🏢 27年間の職務経歴",
+        drawer_cases: "🏆 フラッグシップ事例",
+        drawer_evidence: "📜 取材報道・公式出処",
+        drawer_faq: "💬 想定面接Q&A",
+        drawer_contact: "📞 直接お問い合わせ"
+      }
+    };
+
+    let currentLanguage = 'zh';
+
+    function setLanguage(lang) {
+      if (!['zh', 'en', 'ja'].includes(lang)) lang = 'zh';
+      currentLanguage = lang;
+
+      // Update button highlights
+      ['zh', 'en', 'ja'].forEach(l => {
+        const topBtn = document.getElementById(`btn-lang-${l}`);
+        if (topBtn) topBtn.classList.toggle('active', l === lang);
+        const drawerBtn = document.getElementById(`drawer-lang-${l}`);
+        if (drawerBtn) drawerBtn.classList.toggle('active', l === lang);
+      });
+
+      // Update document title and html lang attribute
+      document.title = i18n[lang].doc_title;
+      document.documentElement.lang = (lang === 'zh') ? 'zh-Hant' : lang;
+
+      // Translate all DOM elements with data-i18n
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang] && i18n[lang][key]) {
+          el.textContent = i18n[lang][key];
+        }
+      });
+
+      try {
+        localStorage.setItem('hl_lang', lang);
+      } catch(e) {}
+    }
+
+    // Auto load stored language
+    window.addEventListener('DOMContentLoaded', () => {
+      try {
+        const stored = localStorage.getItem('hl_lang');
+        if (stored && ['zh', 'en', 'ja'].includes(stored)) {
+          setLanguage(stored);
+        }
+      } catch(e) {}
+    });
+
     // 1. Mobile Drawer Toggle
     function toggleNavDrawer() {
       const drawer = document.getElementById('navDrawer');
