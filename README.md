@@ -9,7 +9,7 @@
 ## 🏛️ 專案簡介 (Overview)
 
 本專案 `Portfolio01` 整合消化了廖倫豪博士的三大代表性高階站點與戰略藍圖：
-1. **光寶科技 2301 IT AI 平台負責人藍圖** (`https://howardliao.github.io/2301/`)
+1. **全球科技智造集團 IT AI 平台負責人藍圖**
 2. **跨領域資訊長與技術副總主作品集** (`https://howardliao.github.io/portfolio/`)
 3. **集團資安長 Group CISO 數位韌性檔案** (`https://howardliao.github.io/Howard_CISO/`)
 

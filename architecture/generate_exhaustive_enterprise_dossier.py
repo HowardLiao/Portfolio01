@@ -3,7 +3,7 @@
 """
 generate_exhaustive_enterprise_dossier.py
 Builds an interactive, publication-grade enterprise architecture dossier and HTML portal
-STRICTLY HARMONIZED WITH LITEON MAIN SITE (Milan Warm Amber / Egyptian Pharaoh Style):
+STRICTLY HARMONIZED WITH Enterprise MAIN SITE (Milan Warm Amber / Egyptian Pharaoh Style):
 - 100% interactive diagrams and cards: Click to inspect details (點圖出現說明).
 - Dual interactive top cards:
   1. 7 Core Mandates (interactive stack)
@@ -46,7 +46,7 @@ def build_dossier():
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
 <meta name="robots" content="noindex, nofollow">
 <title>企業級 AI 平台 ＆ Howard 資安前瞻戰略全域工程白皮書｜廖倫豪 博士</title>
-<meta name="description" content="致光寶科技董事長暨資訊長：企業級 AI 平台架構師 ＆ Howard 資安前瞻戰略全域工程白皮書，包含 5 大高解析向量互動架構圖、參數字典與合規矩陣。">
+<meta name="description" content="致集團董事長暨資訊長：企業級 AI 平台架構師 ＆ Howard 資安前瞻戰略全域工程白皮書，包含 5 大高解析向量互動架構圖、參數字典與合規矩陣。">
 <meta name="theme-color" content="#2F4538">
 <style>
   :root {{
@@ -1039,15 +1039,15 @@ def build_dossier():
 <!-- Harmonized Sticky Header matching index.html -->
 <header class="nav">
   <div class="in">
-    <a href="index.html" class="brand">廖倫豪 博士<small>× LITEON</small></a>
+    <a href="index.html" class="brand">廖倫豪 博士<small>× Enterprise AI</small></a>
     <nav class="links" id="links">
       <div class="nav-item">
         <a href="index.html#hero" class="nav-link">首頁</a>
       </div>
       <div class="nav-item has-drop">
-        <a href="index.html#context" class="nav-link">光寶與職能 <span class="arr">▾</span></a>
+        <a href="index.html#context" class="nav-link">企業策略與職能 <span class="arr">▾</span></a>
         <div class="nav-drop">
-          <a href="index.html#context">光寶現況</a>
+          <a href="index.html#context">智造現況</a>
           <a href="index.html#duties">六項職責</a>
           <a href="index.html#fit">職能對照</a>
         </div>
@@ -1088,7 +1088,7 @@ def build_dossier():
     </nav>
     <div class="langs">
       <a href="architecture.html" class="on" hreflang="zh">繁中</a>
-      <a href="index.html" hreflang="zh">光寶門戶</a>
+      <a href="index.html" hreflang="zh">個人履歷首頁</a>
     </div>
     <button class="tbtn" id="theme" aria-label="Theme" onclick="toggleTheme()">◐</button>
   </div>
@@ -1098,10 +1098,10 @@ def build_dossier():
 
   <!-- Header Card in Milan Warm Amber style -->
   <div class="header-card">
-    <div class="eyebrow">Enterprise Strategic Technical Whitepaper · LITEON Special Edition</div>
+    <div class="eyebrow">Enterprise Strategic Technical Whitepaper · Enterprise Strategic Edition</div>
     <h1>企業級 AI 平台架構師 ＆ Howard 資安前瞻戰略全域工程白皮書</h1>
     <div class="meta-bar">
-      <span>呈報對象：<b>光寶科技 董事長、資訊長</b></span>
+      <span>呈報對象：<b>集團 董事長、資訊長</b></span>
       <span>應徵職能：<b>企業級 AI 架構師 / AI Platform Lead</b></span>
       <span>架構與策略總設計：<b>Howard Liao Ph.D.</b></span>
     </div>
@@ -1429,7 +1429,7 @@ def build_dossier():
 
 </main>
 
-<footer>© 2026 廖倫豪 博士　Howard Liao, Ph.D.　·　專為光寶科技董事長暨資訊長審閱製作</footer>
+<footer>© 2026 廖倫豪 博士　Howard Liao, Ph.D.　·　專為集團董事長暨資訊長審閱製作</footer>
 
 <script>
   // Initial render for top interactive decks
@@ -1442,8 +1442,8 @@ def build_dossier():
 </html>
 """
 
-    out_path1 = "/Users/howardliao/Desktop/Howard/2026_Howard/應徵/2301_repo/architecture.html"
-    out_path2 = "/Users/howardliao/Desktop/Howard/2026_Howard/應徵/2301_repo/architecture/index.html"
+    out_path1 = "/Users/howardliao/Desktop/Howard/2026_Howard/應徵/Portfolio01/architecture.html"
+    out_path2 = "/Users/howardliao/Desktop/Howard/2026_Howard/應徵/Portfolio01/architecture/index.html"
     out_path3 = "/Users/howardliao/Desktop/HermesAgent/Temp/Enterprise_AI_Architect_Howard_Security_Architecture_Preview.html"
     
     with open(out_path1, "w", encoding="utf-8") as f:
