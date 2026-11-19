@@ -11,7 +11,7 @@ echo "1. Pushing main branch..."
 git push -u origin main
 
 echo "2. Pushing gh-pages branch..."
-git push -u origin gh-pages
+git push origin main:gh-pages
 
 echo "========================================="
 echo " Successfully Deployed!"
