@@ -5031,76 +5031,192 @@
         <div class="faq-grid">
           <!-- Column 1: CIO & Technical Panel -->
           <div>
-            <h3 class="faq-column-header">第一關 ｜ CIO、技術顧問、人資長</h3>
+            <h3 class="faq-column-header">第一關 ｜ CIO、技術顧問、人資長 (技術深潛・架構解耦・製造落地)</h3>
 
+            <!-- Q1: S/4HANA vs AI Platform -->
             <div class="faq-card active">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Q: AI 平台推進如何確保不干擾 SAP S/4HANA 全球上線？</span>
+                <span>Q: AI 平台推進如何確保不干擾 SAP S/4HANA 全球上線與核心切換？</span>
                 <span class="faq-toggle-icon">▼</span>
               </div>
               <div class="faq-answer">
-                <strong>A: 嚴格落實「切換期不碰核心」鐵律。</strong><br>
-                在 S/4HANA 上線切換凍結期（Freeze Period）前，AI 平台只做不涉及 SAP 核心寫入的用例（如研發知識庫、IATF 規範檢索、SPC 預警）。介面一律走外部 API 閘道與 CDC 異動捕獲，杜絕在核心內客製。待 S/4HANA 正式穩定後，直接對接標準 Clean Core API。
+                <strong>A: 嚴格落實「切換期不碰核心」與「SAP Clean Core」鐵律。</strong><br>
+                在 S/4HANA 上線切換凍結期（Freeze Period）前，AI 平台嚴格聚焦於不碰 SAP 核心寫入的用例（如研發知識庫、IATF 16949 規範檢索、SPC 異常預警、發票單據 OCR）。所有資料介接一律走外部 API 閘道與 CDC（Debezium）異動捕獲，絕不在 SAP 核心內寫客製代碼。待 S/4HANA 正式穩定後，直接對接標準 Clean Core API。
               </div>
             </div>
 
+            <!-- Q2: Avoiding PoC Hell -->
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
                 <span>Q: 企業導入 AI 往往陷入「PoC 做不完、無法上線」困境，如何解？</span>
                 <span class="faq-toggle-icon">▼</span>
               </div>
               <div class="faq-answer">
-                <strong>A: 堅守「開案即定義財務損益與 PO」原則。</strong><br>
-                任何 AI 用例開始前，必須具備事業群主管（BU PO）簽核、明確的驗收 KPI 與財務科目假設；設立季度 AI 投資委員會，每季嚴格檢視進度，未達商業回報門檻之用例果斷熔斷退場。
+                <strong>A: 堅守「開案即定義財務損益與 PO」及「2 週敏捷迭代」原則。</strong><br>
+                任何 AI 用例開始前，必須具備事業群主管（BU PO）簽核、明確的驗收 KPI 與具體財務損益科目假設（如存貨周轉、報廢率、工時）；設立季度 AI 投資委員會，每季嚴格檢視進度，未達商業回報門檻之用例果斷熔斷退場。拒絕長達一年的巨石專案，堅持以 2 週迭代快速交付 MVP，並以標準化微服務資料產品規模化擴散。
               </div>
             </div>
 
+            <!-- Q3: Build vs Buy -->
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Q: 平台該自建（Build）還是採購（Buy）？</span>
+                <span>Q: 平台該自建（Build）還是採購（Buy）？如何取得架構自主與成本平衡？</span>
                 <span class="faq-toggle-icon">▼</span>
               </div>
               <div class="faq-answer">
-                <strong>A: 基礎元件可以採購，資料產品與業務知識必須自持。</strong><br>
-                模型閘道（如 LiteLLM）、推論引擎（vLLM）與資料湖倉可採用成熟開源或商用方案以加速上線；但涉及企業核心的資料契約、替代料推演模型與提示工程，必須由內部團隊掌握，確保自主掌控權與最低 TCO。
+                <strong>A: 基礎元件開源採購，資料產品與業務知識 100% 自主持有。</strong><br>
+                模型閘道（如 LiteLLM）、推論引擎（vLLM）與資料湖倉（Kafka / Delta Lake）可採用成熟開源或商用方案以加速上線與降低前期成本；但涉及企業核心競爭力的資料契約、替代料推演演算法、齊套料動態規劃與領域提示工程（Prompt Engineering），必須由內部團隊牢牢掌握，確保自主掌控權與最低 TCO。
+              </div>
+            </div>
+
+            <!-- Q4: Leading AI Tech Leads & Wartime Leadership -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 如何組建 AI 組織梯隊？如何帶領 AI 技術主管與工程師團隊？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 實施「雙軌人才階梯」與「戰時領導力」，主管穿上防彈衣為基層避震。</strong><br>
+                組建「AI 平台工程（網關/推論/MLOps）」與「業務嵌入式 AI 專家（各 BU 痛點攻堅）」雙軌梯隊；落實每季架構審查委員會（ARB），給予技術主管清晰的架構原則與決策權，並要求為每位主管建立接班人計畫；身為領軍者，在非成熟治理土壤中主動承受管理壓力，擔任戰略絕緣層與避震器，讓基層工程師在安全沙盒中專注攻堅，功成不必在我。
+              </div>
+            </div>
+
+            <!-- Q5: Shop-Floor AI: Alternative Parts, Kitting & Dispatching -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 傳統 ERP MRP 只看靜態料帳，AI 平台如何攻堅製造現場「替代料、齊套料與工單排程」痛點？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 跳脫記錄型系統（Record），以智慧型系統（Intelligence）實現三大製造閉環。</strong><br>
+                ① <strong>替代料智能選用：</strong>在物料短缺時秒級推演合格替代料件（BOM/AVL 相容性矩陣比對），防範產線停線；<br>
+                ② <strong>齊套料動態規劃：</strong>打破只看靜態料帳盲點，結合在製品（WIP）即時動態流與進料檢驗（IQC）待檢狀態，消除產線半套呆滯與換模損失；<br>
+                ③ <strong>工單智慧動態排程：</strong>透過運籌最佳化與邊緣 AIoT 數據，全自動平衡換模損耗、機台稼動率（OEE +18%）與交期優先級。
+              </div>
+            </div>
+
+            <!-- Q6: Project Hive Data Foundation & Zero-Load CDC -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 蜂巢計畫（Project Hive）如何構建全廠資料底座？如何做到對生產系統零負載？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 採用「外掛解耦、數據貫通」雙環 Data Bus 架構與三層湖倉。</strong><br>
+                ① <strong>零負載 CDC：</strong>透過 Debezium 非同步監聽底層 Transaction Log，毫秒級入 Kafka，不對 S/4HANA 與 MES 造成任何查詢壓力；<br>
+                ② <strong>湖倉三層結構：</strong>Bronze 原始層（ALCOA+ 唯一不可篡改審計憑證）、Silver 清洗層（去重、料號批號統一對齊）、Gold 主題層（每日營運結算、全生命週期正反向追溯、良率/SPC 管制圖）；<br>
+                ③ <strong>全球範本複製：</strong>一次標準化建置，全球 112 座工廠與新廠快速按範本對接複製。
+              </div>
+            </div>
+
+            <!-- Q7: Breaking Cultural Resistance & AI PO Academy -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 如何化解組織「開國老臣山頭防衛」與文化抗拒，推動內部 AI PO 學院與跨部門普及？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 將「資訊部要我用 AI」轉變為「我要用 AI 達成我的 KPI」，尊重新舊融合。</strong><br>
+                ① <strong>破除老臣防衛：</strong>以 ORID 焦點法化解地位/利益防衛，尊重現場資深師傅調機經驗，將其排障直覺結構化沉澱為數位知識庫，賦予其專家導師榮譽；<br>
+                ② <strong>內部 AI PO 學院：</strong>培育各業務單位 Product Owner，以露骨商業算盤對賭，無明確效益指標不立項；<br>
+                ③ <strong>四階漸進普及：</strong>主管先學、資訊部先試、以立竿見影成效（發票 OCR 審單節省 75% 工時、技術規章 RAG 問答解決率 +40%）建立信心，再向全集團各部門全面擴散。
               </div>
             </div>
           </div>
 
           <!-- Column 2: Chairman & CEO Panel -->
           <div>
-            <h3 class="faq-column-header">第二關 ｜ 董事長、總裁與經管會</h3>
+            <h3 class="faq-column-header">第二關 ｜ 董事長、總裁與經管會 (商業回報・資本效益・全球治理)</h3>
 
+            <!-- Q8: Business Value & ROI -->
             <div class="faq-card active">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Q: AI 平台究竟能為集團創造多少實質商業價值？</span>
+                <span>Q: AI 平台究竟能為集團創造多少實質商業價值？如何向董事會交代財務 ROI？</span>
                 <span class="faq-toggle-icon">▼</span>
               </div>
               <div class="faq-answer">
-                <strong>A: 從存貨周轉、產品良率與維運成本三大損益科目著手。</strong><br>
-                依過往實績：智慧製造不良預測帶動良率提升 15%、多雲 FinOps 降低 30% 基礎設施費用、工單齊套料預警釋放數億元呆滯營運資金。到任 90 天內提出經財務長覆核確認的詳細財務模型。
+                <strong>A: 從存貨周轉、產品良率與維運成本三大損益科目著手，以 EBITDA 經營指標對話。</strong><br>
+                依過往實績：智慧製造不良預測帶動良率提升 15%、多雲 FinOps 降低 30% 基礎設施費用、工單齊套料預警釋放數億元呆滯營運資金。到任 90 天內提出經財務長覆核確認的詳細財務模型，以 CEO Balanced Scorecard 與一頁式審查表定期呈報，杜絕算力黑洞，讓每一筆 AI 投資都有看得見的現金流回報。
               </div>
             </div>
 
+            <!-- Q9: 3-Year Vision -->
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Q: 三年後，集團的科技與 AI 治理長什麼樣？</span>
+                <span>Q: 三年後，集團的科技與 AI 治理長什麼樣？組織能具備什麼核心能力？</span>
                 <span class="faq-toggle-icon">▼</span>
               </div>
               <div class="faq-answer">
-                <strong>A: 組織具備原生 AI 協同能力與高度架構自癒韌性。</strong><br>
-                各事業群均有自主維護的資料產品；海外新廠一上線即自帶預測與追溯能力；員工將 AI 視為標準日常協同工具；全集團在 ISO 27001 與 42001 標準下穩健運轉，兼顧創新速度與法規安全。
+                <strong>A: 組織具備原生 AI 協同能力、多廠架構自癒韌性與全球合規護城河。</strong><br>
+                各事業群均有自主維護的資料產品；海外新工廠一上線即自帶預測、齊套與追溯能力；員工將 AI 視為標準日常協同工具；全集團在 ISO 27001 與 42001 標準下穩健運轉，兼顧創新速度、營運韌性與法規安全。
               </div>
             </div>
 
+            <!-- Q10: Why Howard Liao? -->
             <div class="faq-card">
               <div class="faq-question" onclick="toggleFaq(this)">
-                <span>Q: 為什麼廖倫豪博士是當前階段的最佳人選？</span>
+                <span>Q: 為什麼廖倫豪博士是當前階段帶領集團 AI 平台落地的最佳人選？</span>
                 <span class="faq-toggle-icon">▼</span>
               </div>
               <div class="faq-answer">
-                <strong>A: 27 年 IT 洗禮鍛造出的 π 型全能複合領袖。</strong><br>
-                我兼具製造現場實戰（泓晏/鴻海）、全球極限高可用雲端零停機（隆中/Google Cloud 案例）與企業專有模型網關合規落地（ISO 42001）。能親手寫架構、也能用董事會聽得懂的 EBITDA 經營指標對話。
+                <strong>A: 27 年 IT 職涯深度洗禮鍛造出的 π 型全能複合領袖。</strong><br>
+                我兼具高科技製造現場實戰（泓晏良率 +15%、鴻海中央資訊架構）、全球極限高可用雲端零停機（隆中連續 24+ 個月 100% Zero Outage、Google Cloud 官方案例）與企業專有模型網關合規落地（ISO 42001、Agentic 自動化 +55%）。能親手寫代碼與架構圖，也能用董事會聽得懂的商業損益語言對話。
+              </div>
+            </div>
+
+            <!-- Q11: FinOps, Shadow API & Smart Routing -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 全球多廠頻繁調用外部大模型，如何防止「影子 API」資安外洩與 Token 費用失控？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 部署自研 Enterprise Model Gateway，實現 Smart Routing 降本 20~40% 與語意快取。</strong><br>
+                ① <strong>難度分級動態路由（Smart Routing）：</strong>&lt;15ms 難度打分（Tau=0.65），常規業務問答與 SOP 初稿走輕量模型，複雜多步推理才調用旗艦大模型，直接降本 20~40%；<br>
+                ② <strong>高頻語意快取直通：</strong>Prompt Embedding 檢索向量快取（Cosine &gt; 0.95 直通），零延遲且零額外 API 費用；<br>
+                ③ <strong>影子資安閘道防禦：</strong>建立統一 API 入口與身分認證，機敏設計圖面與客戶規格不出廠（IP Clean Room 智財隔離），防止機密數據裸奔公網。
+              </div>
+            </div>
+
+            <!-- Q12: Global Cybersecurity & AI Compliance -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 全球資安與 AI 合規標準如何兼顧？如何從 ISO 27001 延伸至 ISO 42001 與工控安全？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 構築以 ISO 27001 為基底、ISO 42001 為頂層、IEC 62443 為邊界的縱深防禦。</strong><br>
+                ① <strong>資料四級分級：</strong>公開／內部／機密／客戶機密四級，嚴格限制可進模型的資料邊界；<br>
+                ② <strong>對抗防禦評測：</strong>上線前嚴格評測正確率、幻覺率（Agentic RAG &gt; 95%）、資料偏差與防範 Prompt Injection 提示注入；<br>
+                ③ <strong>工控 OT 隔離防護：</strong>遵循 IEC 62443 工業網路分區，AI 不直接越權控制設備，確保產線安全；<br>
+                ④ <strong>ALCOA+ 完整稽核軌跡：</strong>所有 Agent 呼叫、推理鏈與審查紀錄永久留存，符合國際客戶稽核與歐盟 AI Act 要求。
+              </div>
+            </div>
+
+            <!-- Q13: Human-in-the-Loop & Anti-Hallucination -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 如何防範生成式 AI 幻覺與自動化越權風險？如何設計關鍵決策審核閉環？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 嚴格落實「Human-in-the-Loop（關鍵人機複核）」與「資料最小化」。</strong><br>
+                AI 的角色嚴格定義為「智慧建議與輔助決策」，絕非最終裁決者。涉及 ERP 物料異動、MES 製程參數修改、採購發單等關鍵高風險動作，系統強制產出清晰推理鏈與法規/規範版本號依據，必須經具備權限之工程師或主管進行電子簽章後方可寫入核心系統，形成安全可追溯閉環。
+              </div>
+            </div>
+
+            <!-- Q14: 180-Day Onboarding Roadmap & Quick Wins -->
+            <div class="faq-card">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Q: 到任前 180 天與第一年的落地節奏為何？首週與首季如何展現立竿見影的 Quick Wins？</span>
+                <span class="faq-toggle-icon">▼</span>
+              </div>
+              <div class="faq-answer">
+                <strong>A: 嚴格對齊 ERP 切換時程，倒排工期、步步為營，首週上線四大 Quick Wins。</strong><br>
+                • <strong>第 01–30 天（傾聽）：</strong>訪談 CIO、財務長與事業群總經理，盤點既有影子 AI 與資料資產，交付現況診斷報告；<br>
+                • <strong>第 31–60 天（定向）：</strong>以「效益 × 可行性 × 可重用」評分前 5 大用例財務假設，確立平台架構選型；<br>
+                • <strong>第 61–90 天（首批成果）：</strong>啟動蜂巢底座與模型網關 MVP，上線 2 個快速勝利用例（單據 OCR、SOP 知識庫），發布集團 AI 使用規範；<br>
+                • <strong>第 91–180 天（全面擴展）：</strong>對齊 Clean Core 標準 API 正式投產，示範廠進駐 A 級製造預測（替代料/齊套料/SPC），開辦第一期 AI PO 學院，讓新用例上線縮短為「週」級。
               </div>
             </div>
           </div>
