@@ -11,7 +11,7 @@ Synthesized from:
 import os
 from pathlib import Path
 
-OUT_DIR = Path("/Users/howardliao/Desktop/HermesAgent/PortFilio/Portfolio01")
+OUT_DIR = Path(__file__).resolve().parent
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 INDEX_HTML = OUT_DIR / "index.html"
 
@@ -706,13 +706,14 @@ html_content = """<!DOCTYPE html>
 
     .portrait-wrapper {
       position: relative;
-      width: 240px;
-      height: 240px;
+      width: 210px;
+      height: 210px;
       border-radius: var(--radius-full);
-      padding: 6px;
+      padding: 5px;
       background: linear-gradient(135deg, var(--accent-rust), var(--accent-orange), var(--accent-gold));
       box-shadow: var(--shadow-lg);
       margin-bottom: 16px;
+      overflow: hidden;
     }
 
     .portrait-img {
@@ -720,7 +721,8 @@ html_content = """<!DOCTYPE html>
       height: 100%;
       border-radius: var(--radius-full);
       object-fit: cover;
-      background: #FFFFFF;
+      object-position: center center;
+      background: #E4EBEE;
       border: 3px solid #FFFFFF;
       display: block;
     }
@@ -3448,7 +3450,7 @@ html_content = """<!DOCTYPE html>
             <!-- Right Portrait -->
             <div class="hero-portrait-card">
               <div class="portrait-wrapper">
-                <img src="assets/20260712_韓系證照.png" alt="廖倫豪 博士 Howard Liao, Ph.D. 肖像" class="portrait-img" onerror="this.src='assets/howard_portrait.jpg'">
+                <img src="assets/howard-liao-avatar-hero.jpg" alt="廖倫豪 博士 Howard Liao, Ph.D. 肖像" class="portrait-img" onerror="this.src='assets/howard-liao-portrait-square.jpg'">
               </div>
               <div class="portrait-caption">Howard Liao, Ph.D.</div>
               <div class="portrait-subcaption" data-i18n="portrait_sub">執行負責人 ｜ 資訊科技管理博士</div>
