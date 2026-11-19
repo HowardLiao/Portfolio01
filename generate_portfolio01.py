@@ -3356,6 +3356,361 @@ html_content = """<!DOCTYPE html>
         page-break-inside: avoid;
       }
     }
+  
+
+    /* ==========================================================================
+       THEME VARIABLES EXTENSION & DROPDOWN NAVIGATION BAR
+       ========================================================================== */
+    :root {
+      --green: #1B2533;
+      --gold: #A66D24;
+      --brick: #A83212;
+      --label: #F0ECE3;
+      --line: #E2DAD0;
+      --card: #FFFFFF;
+      --ink: #1B2533;
+      --mute: #5A6A80;
+      --alt: #F4EFEB;
+      --c: #A83212;
+    }
+
+    .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
+    .liteon-section {
+      padding: 64px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-base);
+    }
+
+    .liteon-section:nth-of-type(even) {
+      background: var(--bg-surface);
+    }
+
+    .masthead-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(239, 233, 222, 0.7);
+      padding: 4px 8px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 6px 13px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-secondary);
+      text-decoration: none;
+      border-radius: var(--radius-full);
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      cursor: pointer;
+      background: transparent;
+      border: none;
+    }
+
+    .nav-pill .arr {
+      font-size: 9px;
+      opacity: 0.65;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+
+    .nav-item:hover .nav-pill .arr,
+    .nav-item:focus-within .nav-pill .arr {
+      transform: rotate(180deg);
+    }
+
+    .nav-pill:hover,
+    .nav-item:hover .nav-pill,
+    .nav-item:focus-within .nav-pill {
+      color: var(--accent-rust);
+      background: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 6px rgba(27, 37, 51, 0.05);
+    }
+
+    .nav-pill.active {
+      color: #FFFFFF !important;
+      background: var(--accent-rust) !important;
+      box-shadow: 0 2px 8px rgba(168, 50, 18, 0.25);
+    }
+
+    .nav-pill.liteon-pill {
+      color: #A83212;
+      background: rgba(168, 50, 18, 0.08);
+      border: 1px solid rgba(168, 50, 18, 0.2);
+      font-weight: 800;
+    }
+
+    .nav-item:hover .nav-pill.liteon-pill {
+      background: rgba(168, 50, 18, 0.16);
+      color: #A83212;
+    }
+
+    .nav-drop {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      box-shadow: 0 16px 36px rgba(27, 37, 51, 0.14), 0 2px 6px rgba(27, 37, 51, 0.04);
+      border-radius: var(--radius-md);
+      padding: 8px;
+      min-width: 220px;
+      z-index: 1000;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .nav-item:hover .nav-drop,
+    .nav-item:focus-within .nav-drop {
+      display: flex;
+      animation: navDropFade 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes navDropFade {
+      from { opacity: 0; transform: translateY(-4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .nav-drop a {
+      padding: 8px 12px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: var(--radius-sm);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .nav-drop a:hover {
+      background: var(--bg-card-warm);
+      color: var(--accent-rust);
+      transform: translateX(2px);
+    }
+
+    .brand-title small {
+      font-size: 0.72rem;
+      margin-left: 6px;
+      padding: 2px 6px;
+      background: rgba(168, 50, 18, 0.08);
+      border-radius: var(--radius-sm);
+    }
+
+
+    /* 2301 LiteOn Components CSS */
+.grid2>*,.grid3>*,.stack>* {min-width:0}
+.eyebrow {font-family:"Cormorant Garamond",serif;color:var(--gold);letter-spacing:.18em;font-size:15px;text-transform:uppercase;font-weight:600}
+h2+.sub {font-family:"Cormorant Garamond",serif;font-style:italic;color:var(--mute);font-size:20px;margin:0 0 22px}
+.kpis {display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:26px 0}
+.kpi {min-width:0;background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);padding:16px 14px;text-align:center}
+.kpi .v {font-family:"Cormorant Garamond",serif;font-size:40px;font-weight:600;color:var(--green);line-height:1.1}
+.kpi .l {font-weight:700;font-size:14px}
+.kpi .s {font-size:12px;color:var(--mute)}
+table {width:100%;border-collapse:collapse;font-size:15px;background:var(--card)}
+.tw {overflow-x:auto;margin:12px 0}
+.grid2 {display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3 {display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.tabs {display:flex;flex-wrap:wrap;gap:6px;margin:12px 0}
+.tab {border:1px solid var(--line);background:var(--card);color:var(--ink);padding:8px 14px;cursor:pointer;font:inherit;font-size:14px;border-radius:2px}
+.tab.on {background:var(--green);color:var(--bg);border-color:var(--green)}
+.panel {display:none}
+.panel.on {display:block}
+.duty {display:grid;grid-template-columns:90px 1fr;gap:18px}
+.duty .num {font-family:"Cormorant Garamond",serif;font-size:64px;color:var(--gold);line-height:1}
+.duty dl {display:grid;grid-template-columns:110px 1fr;gap:8px 14px;margin:12px 0 0}
+.duty dt {font-weight:700;color:var(--green)}
+.duty dd {margin:0}
+.bar {height:8px;background:var(--label);border-radius:4px;overflow:hidden}
+.bar i {display:block;height:100%;background:var(--green);width:0;transition:width .9s ease}
+.comp {display:grid;grid-template-columns:230px 1fr 60px;gap:6px 14px;align-items:center;padding:10px 0;border-bottom:1px solid var(--label)}
+.comp>* {min-width:0;overflow-wrap:anywhere}
+.comp .d {grid-column:1/-1;font-size:14px;color:var(--mute);margin-top:-2px}
+.stack {display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.layer {display:flex;gap:12px;align-items:center;width:100%;text-align:left;border:1px solid var(--line);background:var(--card);padding:12px 14px;margin-bottom:6px;cursor:pointer;font:inherit;color:var(--ink)}
+.layer b {font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--gold);width:44px}
+.layer.on {background:var(--green);color:var(--bg)}
+.layer.on b {color:var(--gold)}
+.matrix {background:var(--card);border:1px solid var(--line);padding:10px}
+.matrix svg {width:100%;height:auto;display:block}
+details {border:1px solid var(--line);background:var(--card);margin-bottom:8px}
+summary {cursor:pointer;padding:14px 16px;font-weight:500;color:var(--green)}
+details>div {padding:0 16px 14px}
+.phase {display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.phase .card {cursor:pointer;transition:background .2s}
+.phase .card.on {background:var(--green);color:var(--bg)}
+.phase .card.on h3 {color:var(--gold)}
+.phase .card.on .mute {color:var(--label)}
+.codes {display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.codes div {border:1px solid var(--line);padding:8px 10px;background:var(--card);font-size:13px}
+.codes b {color:var(--green);display:block}
+.kpi .v {font-size:30px}
+.hero,.grid2,.grid3,.stack,.phase {grid-template-columns:1fr}
+.kpis {grid-template-columns:repeat(2,1fr)}
+.codes {grid-template-columns:1fr 1fr}
+.comp {grid-template-columns:1fr 50px}
+.comp .bar {grid-column:1/-1;order:3}
+.duty {grid-template-columns:1fr}
+.duty .num {font-size:44px}
+.duty dl {grid-template-columns:1fr}
+.viewer .wm2 {position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='260'%3E%3Ctext x='210' y='140' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%23C8A96A' fill-opacity='0.30' transform='rotate(-28 210 130)'%3EHoward Liao Ph.D.%3C/text%3E%3C/svg%3E");background-repeat:repeat}
+.doc {display:flex;flex-direction:column;gap:6px;text-align:left;background:var(--card);border:1px solid var(--line);padding:14px;cursor:pointer;font:inherit;color:var(--ink)}
+.doc img {width:100%;height:220px;object-fit:contain;background:var(--alt);border:1px solid var(--label);pointer-events:none;user-select:none}
+.docw {display:flex;flex-direction:column;gap:8px}
+.doc:hover {border-color:var(--gold)}
+.viewer {position:fixed;inset:0;z-index:50;background:#1C211E;display:flex;flex-direction:column}
+.viewer[hidden] {display:none}
+.vbar {display:flex;align-items:center;gap:14px;padding:12px 16px;color:#FAF7F2}
+.vbar .mute {color:#B3AC9F}
+.vbar .langs {display:flex;gap:2px;border:1px solid var(--line);border-radius:999px;padding:2px}
+.vstage {flex:1;display:flex;align-items:center;justify-content:center;gap:10px;padding:0 10px 16px;min-height:0}
+.vimg {position:relative;max-width:100%;max-height:100%;display:flex}
+.vimg img {max-width:min(1400px,calc(100vw - 120px));max-height:calc(100vh - 90px);object-fit:contain;user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none;background:#FAF7F2}
+.vnav {background:transparent;border:1px solid #6B6459;color:#FAF7F2;font-size:30px;width:44px;height:64px;cursor:pointer}
+.vimg img {max-width:calc(100vw - 20px)}
+.vnav {position:absolute;bottom:18px;width:52px;height:44px}
+.pf-stats {display:flex;gap:28px;flex-wrap:wrap;margin:10px 0 22px}
+.pf-stats b {font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--green);line-height:1;display:block}
+.pf-stats span {font-size:13px;color:var(--mute)}
+.pf-diag {background:var(--alt);border:1px solid var(--label);padding:14px;overflow-x:auto;margin:10px 0 8px}
+.pf-diag svg {display:block;min-width:760px;width:100%;height:auto}
+.pf-mx {overflow-x:auto;margin:10px 0}
+.pf-mx table {min-width:820px;font-size:13.5px}
+.pf-mx th,.pf-mx td {text-align:center;padding:8px 8px}
+.pf-mx td:first-child,.pf-mx th:first-child {text-align:left}
+.pf-mx td:first-child small {display:block;color:var(--mute);font-weight:400}
+.pf-dot {display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--green)}
+.pf-dot.h {background:transparent;border:1.5px solid var(--green)}
+.pf-leg {font-size:13px;color:var(--mute);display:flex;gap:18px;flex-wrap:wrap}
+.pf-grid {display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px;margin-top:6px}
+.pf-card {background:var(--card);border:1px solid var(--line);border-top:3px solid var(--c);padding:16px 16px 14px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.pf-card .ct {font-size:12px;letter-spacing:.08em;color:var(--c);font-weight:700}
+.pf-card h3 {font-size:16.5px;line-height:1.45;margin:0}
+.pf-card .sb {font-size:13px;color:var(--mute);margin-top:-4px}
+.pf-card ul {margin:0;padding-left:1.1em;font-size:14px}
+.pf-card li {margin:2px 0}
+.pf-kp {display:flex;flex-wrap:wrap;gap:6px;margin-top:auto;padding-top:6px}
+.pf-kp span {font-size:12.5px;background:var(--alt);border:1px solid var(--label);padding:2px 8px}
+.pf-kp b {color:var(--brick)}
+.pf-card[hidden] {display:none}
+.pf-grid {grid-template-columns:1fr}
+.cd .kpis {margin:16px 0 4px}
+.la-ea {display:grid;grid-template-columns:1fr 150px;gap:10px;margin:10px 0}
+.la-ea>* {min-width:0}
+.la-row {display:grid;grid-template-columns:150px 1fr;border:1px solid var(--line);background:var(--card)}
+.la-row>b {background:var(--label);padding:10px 12px;font-size:14px;color:var(--green);display:flex;align-items:center}
+.la-row>div {display:flex;flex-wrap:wrap;gap:6px;padding:8px}
+.la-row span {font-size:13px;border:1px solid var(--line);background:var(--bg);padding:3px 9px}
+.la-row.k1 {border:2px solid var(--green)}
+.la-row.k1>b {background:var(--green);color:var(--bg)}
+.la-row.k1 span {border-color:var(--green)}
+.la-row.k2 {border:2px solid var(--gold)}
+.la-row.k2>b {background:var(--gold);color:var(--ink)}
+.la-gov {background:var(--brick);color:var(--bg);padding:10px;display:flex;flex-direction:column;gap:6px;font-size:13px}
+.la-gov b {font-size:14px}
+.la-gov span {border:1px solid rgba(255,255,255,.4);padding:3px 6px}
+.la-lay {display:grid;grid-template-columns:300px 1fr;gap:16px;margin-top:10px}
+.la-lay>* {min-width:0}
+.la-lay .lb2 {display:flex;flex-direction:column;gap:6px}
+.la-lay button {display:flex;gap:10px;align-items:center;text-align:left;border:1px solid var(--line);background:var(--card);color:var(--ink);padding:9px 11px;cursor:pointer;font:inherit;font-size:14px}
+.la-lay button .id {font-family:"Cormorant Garamond",serif;font-weight:700;font-size:18px;color:var(--gold);min-width:38px}
+.la-lay button small {display:block;color:var(--mute);font-size:12px}
+.la-lay button.gv {border-color:var(--brick)}
+.la-lay button.on {background:var(--green);color:var(--bg);border-color:var(--green)}
+.la-lay button.on small {color:var(--label)}
+.la-det {background:var(--card);border:1px solid var(--line);border-top:3px solid var(--green);padding:18px}
+.la-det h3 {margin:0 0 8px}
+.la-det .t {margin-top:10px;font-size:14px}
+.la-det .t b {color:var(--green)}
+.la-det .f {margin-top:8px;font-size:14px;color:var(--brick)}
+.la-3 {display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.la-3>*,.la-2>*,.la-4>* {min-width:0}
+.la-2 {display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.la-4 {display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.la-c {background:var(--card);border:1px solid var(--line);padding:16px}
+.la-c h4 {margin:0 0 8px;color:var(--green);font-size:16px}
+.la-c ul {margin:0;padding-left:18px;font-size:14px}
+.la-c .r {margin-top:10px;font-size:13px;color:var(--brick);font-weight:700}
+.la-c p {margin:0;font-size:14px}
+.la-um h4 {margin:18px 0 8px;font-size:15px;color:var(--green)}
+.la-ug {display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px}
+.la-ug figure {margin:0;background:var(--card);border:1px solid var(--line);cursor:zoom-in}
+.la-ug img {display:block;width:100%;aspect-ratio:1.59;object-fit:cover;object-position:top left;border-bottom:1px solid var(--label)}
+.la-ug figcaption {padding:8px 10px;font-size:12.5px;color:var(--mute)}
+.la-ug figcaption b {display:block;color:var(--ink);font-size:13.5px}
+.la-ug.big {grid-template-columns:1fr}
+.la-ug.big img {aspect-ratio:auto}
+.la-uc {display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px;margin-top:10px}
+.la-uc .la-c {position:relative}
+.la-uc .p {position:absolute;top:12px;right:12px;font-family:"Cormorant Garamond",serif;font-weight:700;font-size:22px;color:var(--gold)}
+.la-uc .v {font-size:12px;font-weight:700;color:var(--brick)}
+.la-uc .k {margin-top:8px;font-size:12.5px;color:var(--mute)}
+.la-uc .la-c[hidden] {display:none}
+.la-meta {display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13.5px;margin:10px 0 18px}
+.la-meta b {color:var(--green);margin-right:6px}
+.la-st {display:grid;grid-template-columns:repeat(6,1fr);gap:8px;counter-reset:st}
+.la-st>div {background:var(--card);border:1px solid var(--line);border-top:3px solid var(--green);padding:12px;min-width:0;font-size:13px}
+.la-st .n {font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:700;color:var(--gold);line-height:1}
+.la-st h4 {margin:4px 0 6px;font-size:15px}
+.la-st .w {margin-top:8px;font-size:12px;color:var(--mute)}
+.la-st .gt {display:inline-block;margin-top:6px;font-size:11.5px;background:var(--brick);color:var(--bg);padding:1px 7px}
+.la-gw {overflow-x:auto;border:1px solid var(--line);background:var(--card);margin-top:10px}
+.la-gg {display:grid;grid-template-columns:260px repeat(26,minmax(22px,1fr));min-width:900px;font-size:12px}
+.la-gg>div {border-bottom:1px solid var(--label);border-right:1px solid var(--label);min-height:24px;display:flex;align-items:center}
+.la-gg .h {background:var(--label);justify-content:center;font-weight:700;font-size:11px}
+.la-gg .lab {padding:0 8px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.la-gg .grp {font-weight:700;color:var(--green);background:var(--alt)}
+.la-gg .bar {display:block;width:100%;height:12px}
+.la-lg {display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;margin-top:8px}
+.la-lg i {display:inline-block;width:14px;height:10px;margin-right:5px;vertical-align:middle}
+.la-zn {display:grid;grid-template-columns:1fr;gap:6px;margin:10px 0}
+.la-zn div {display:grid;grid-template-columns:200px 1fr;border:1px solid var(--line)}
+.la-zn b {padding:9px 12px;color:var(--bg);font-size:14px}
+.la-zn span {padding:9px 12px;font-size:14px;background:var(--card)}
+.la-zn div:nth-child(1) b {background:var(--green)}
+.la-zn div:nth-child(2) b {background:var(--gold);color:var(--ink)}
+.la-zn div:nth-child(3) b {background:var(--brick)}
+.la-ap {display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 14px}
+.la-ap span {flex:1 1 150px;text-align:center;background:var(--green);color:var(--bg);padding:9px 6px;font-size:13.5px;position:relative}
+.la-ap span:nth-child(2n) {background:#5E7B68}
+.la-fl ol {margin:0;padding-left:20px;font-size:14px}
+.la-fl li {margin:3px 0}
+.la-ai .w {font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--gold);font-weight:700}
+.la-ea {grid-template-columns:1fr}
+.la-row {grid-template-columns:110px 1fr}
+.la-lay {grid-template-columns:1fr}
+.la-3,.la-4 {grid-template-columns:1fr 1fr}
+.la-st {grid-template-columns:1fr 1fr}
+.la-zn div {grid-template-columns:1fr}
+.la-3,.la-4,.la-2,.la-st {grid-template-columns:1fr}
+.la-lb {position:fixed;inset:0;background:rgba(20,22,20,.86);z-index:200;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+.la-lb[hidden] {display:none}
+.la-lb .in {position:relative;max-width:96vw;max-height:92vh;overflow:auto;background:#FAF7F2}
+.la-lb img {display:block;max-width:none;width:min(1800px,180vw)}
+.la-lb img.doc {max-width:92vw;max-height:86vh;width:auto;height:auto;margin:auto}
+.la-lb .wm3 {position:absolute;inset:0;pointer-events:none}
+.la-lb .x {position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(18px,env(safe-area-inset-right,0px));background:var(--bg);color:var(--ink);border:1px solid var(--line);font:inherit;font-size:15px;padding:6px 14px;cursor:pointer;z-index:201}
+.la-lb .cap {position:fixed;left:50%;transform:translateX(-50%);bottom:12px;background:var(--bg);color:var(--ink);padding:6px 14px;font-size:14px;z-index:201;max-width:90vw}
+header.nav,.btns,.tabs,.tbtn,.calc {display:none}
+.panel {display:block!important;margin-bottom:16px}
+
   </style>
 </head>
 <body>
@@ -3378,16 +3733,104 @@ html_content = """<!DOCTYPE html>
       </a>
 
       <!-- Desktop Nav Pills -->
-      <nav class="masthead-nav" role="navigation" aria-label="主要選單">
-        <a href="#hero" class="nav-pill active" data-i18n="nav_hero">高管概況</a>
-        <a href="#metrics" class="nav-pill" data-i18n="nav_metrics">四大指標</a>
-        <a href="#pillars" class="nav-pill" data-i18n="nav_pillars">戰略支柱</a>
-        <a href="#stepper" class="nav-pill" data-i18n="nav_stepper">π型演進</a>
-        <a href="#architecture" class="nav-pill" data-i18n="nav_arch">四大中樞</a>
-        <a href="#timeline" class="nav-pill" data-i18n="nav_timeline">27年歷練</a>
-        <a href="#cases" class="nav-pill" data-i18n="nav_cases">旗艦案例</a>
-        <a href="#evidence" class="nav-pill" data-i18n="nav_evidence">實證出處</a>
-        <a href="#faq" class="nav-pill" data-i18n="nav_faq">預期問答</a>
+      <!-- Desktop Dropdown Navigation Menu -->
+      <nav class="masthead-nav" role="navigation" aria-label="高階戰略導覽選單">
+        <!-- 1. 高管歷練 ▾ -->
+        <div class="nav-item has-drop">
+          <a href="#hero" class="nav-pill" data-group="hero,metrics,calculators,pillars,stepper,timeline,cases">
+            高管歷練 <span class="arr">▾</span>
+          </a>
+          <div class="nav-drop">
+            <a href="#hero">👤 高管自述與全貌</a>
+            <a href="#metrics">🏛️ 四大 C-Level 指標</a>
+            <a href="#calculators">🧮 互動戰情試算中心</a>
+            <a href="#pillars">🛡️ 三大董事會價值支柱</a>
+            <a href="#stepper">🧭 π型戰略躍升軌跡</a>
+            <a href="#timeline">🏢 27 年完整職涯歷練</a>
+            <a href="#cases">🏆 旗艦實戰案例庫</a>
+          </div>
+        </div>
+
+        <!-- 2. ★ 光寶 AI 策略 ▾ -->
+        <div class="nav-item has-drop">
+          <a href="#context" class="nav-pill liteon-pill" data-group="context,duties,fit,stack,arch,portfolio,hive,org,gov,works">
+            ★ 光寶 AI 策略 <span class="arr">▾</span>
+          </a>
+          <div class="nav-drop">
+            <a href="#context">📊 光寶現況與轉型脈絡</a>
+            <a href="#duties">🎯 職缺六項職責與做法</a>
+            <a href="#fit">⚖️ 技術與管理職能對照</a>
+            <a href="#stack">🧱 AI 平台互補藍圖 (L0–L5)</a>
+            <a href="#arch">🌐 企業架構全景與分工</a>
+            <a href="#portfolio">💡 價值鏈 AI 12大用例</a>
+            <a href="#hive">🐝 蜂巢計畫實施藍圖</a>
+            <a href="#org">👥 AI 組織與 PO 學院</a>
+            <a href="#gov">🛡️ AI 治理與合規體系</a>
+            <a href="#works">💻 AI 架構作品集</a>
+            <div style="border-top:1px solid var(--border-subtle);margin:4px 0"></div>
+            <a href="route/index.html" style="color:var(--accent-rust);font-weight:700">★ Howard Route 路由戰略 ↗</a>
+            <a href="architecture.html" style="color:var(--accent-rust);font-weight:700">📄 企業 AI 架構白皮書 ↗</a>
+          </div>
+        </div>
+
+        <!-- 3. 四大中樞 ▾ -->
+        <div class="nav-item has-drop">
+          <a href="#architecture" class="nav-pill" data-group="architecture,uml">
+            四大中樞 <span class="arr">▾</span>
+          </a>
+          <div class="nav-drop">
+            <a href="#architecture">⚙️ 企業級四大中樞全景</a>
+            <a href="#architecture" onclick="inspectHub(0)">🤖 HowardAGent 應用中樞</a>
+            <a href="#architecture" onclick="inspectHub(1)">🔀 HowardRoute 模型網關</a>
+            <a href="#architecture" onclick="inspectHub(2)">⚡ HowardAIDC 算力推論</a>
+            <a href="#architecture" onclick="inspectHub(3)">🏭 HowardPro 製造預測</a>
+            <a href="#uml">📐 UML 2.x 全 14 種圖資</a>
+          </div>
+        </div>
+
+        <!-- 4. 實證出處 ▾ -->
+        <div class="nav-item has-drop">
+          <a href="#evidence" class="nav-pill" data-group="evidence,gates">
+            實證出處 <span class="arr">▾</span>
+          </a>
+          <div class="nav-drop">
+            <a href="#evidence" onclick="filterEvidence('all')">📜 全部 20 筆佐證清單</a>
+            <a href="#evidence" onclick="filterEvidence('media')">📰 主流科技媒體專訪 (5)</a>
+            <a href="#evidence" onclick="filterEvidence('keynote')">🎤 主題大會 Keynote (2)</a>
+            <a href="#evidence" onclick="filterEvidence('cloud')">☁️ Google Cloud 官方案例 (1)</a>
+            <a href="#evidence" onclick="filterEvidence('cert')">🛡️ 國際權威專業證照 (7)</a>
+            <a href="#evidence" onclick="filterEvidence('paper')">🎓 學術論文與公部門 (4)</a>
+            <a href="#gates">🚪 4-Gate 產前門禁實體</a>
+          </div>
+        </div>
+
+        <!-- 5. 預期問答 ▾ -->
+        <div class="nav-item has-drop">
+          <a href="#faq" class="nav-pill" data-group="faq">
+            預期問答 <span class="arr">▾</span>
+          </a>
+          <div class="nav-drop">
+            <a href="#faq">💬 預期問答總覽 (14題)</a>
+            <a href="#faq">🔧 第一關：CIO 技術深潛 (7題)</a>
+            <a href="#faq">👑 第二關：董事長 戰略治理 (7題)</a>
+          </div>
+        </div>
+
+        <!-- 6. 文件報告 ▾ -->
+        <div class="nav-item has-drop">
+          <a href="#docs" class="nav-pill" data-group="docs">
+            文件報告 <span class="arr">▾</span>
+          </a>
+          <div class="nav-drop">
+            <a href="#docs">📑 文件線上預覽與下載</a>
+            <a href="pdf/廖倫豪博士_光寶AI平台策略_高階報告_40頁_繁中.pdf" download>📥 高階報告簡報 (40頁 PDF)</a>
+            <a href="pdf/廖倫豪博士_光寶IT_AI平台負責人_面試報告_29頁_繁中.pdf" download>📥 面試報告 (29頁 PDF)</a>
+            <a href="pdf/廖倫豪博士_個人簡歷_12頁_繁中.pdf" download>📥 個人簡歷 (12頁 PDF)</a>
+            <a href="pdf/光寶科技_個人簡介與顧問報告_米蘭風格_HowardLiao_繁中.pdf" download>📥 顧問報告 (27頁 PDF)</a>
+            <a href="pdf/光寶科技_附件投影片_米蘭風格_HowardLiao_繁中.pdf" download>📥 附件投影片 (14頁 PDF)</a>
+            <a href="Howard_Liao_PhD_CV.pdf" download>📥 廖倫豪博士 CV (PDF)</a>
+          </div>
+        </div>
       </nav>
 
       <!-- Masthead Action Bar (Language Switcher & Nav) -->
@@ -3876,6 +4319,213 @@ html_content = """<!DOCTYPE html>
         </div>
       </div>
     </section>
+
+    
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: CONTEXT
+         ========================================================================== -->
+    <section id="context" class="liteon-section reveal" aria-label="光寶 AI 專區 - context">
+      <div class="container">
+<div class="eyebrow">01 · Context</div>
+ <h2>光寶現況：AI 營收倍增，內部營運必須跟上</h2><p class="sub">LITEON at an inflection point</p>
+ <div class="kpis"><div class="kpi"><div class="v">574 億</div><div class="l">2026 Q3 營收</div><div class="s">年增 28%</div></div><div class="kpi"><div class="v">15.1%</div><div class="l">Q3 營業利益率</div><div class="s">營業利益年增 85%</div></div><div class="kpi"><div class="v">&gt;30%</div><div class="l">2026 AI 營收占比</div><div class="s">2027 估 40–50%</div></div><div class="kpi"><div class="v">197 億</div><div class="l">2026 資本支出</div><div class="s">上修自 180 億</div></div></div>
+ <div class="tw"><table><tr><th>面向</th><th>公開資訊重點</th><th>對 AI 平台的含義</th></tr><tr><td class="lb">規模</td><td>86 家子公司、112 座工廠、全球 20 多個據點</td><td>平台必須一次建置、多廠複製；資料口徑先統一</td></tr><tr><td class="lb">產能</td><td>越南新廠 2026.11 開幕；高雄二期 2026.12；美國德州 2027 Q2 營運</td><td>新廠是 AI 最佳試點：無歷史包袱</td></tr><tr><td class="lb">產品</td><td>8.5kW PSU、BBU 量產；110kW Power Shelf、800VDC Power Rack、120kW CDU</td><td>產品複雜度上升，研發與品質知識需 AI 輔助</td></tr><tr><td class="lb">ERP</td><td>SAP ECC → S/4HANA，2027.01.04 全球同步上線；16 項新功能、27 項流程優化</td><td>AI 須在 Clean Core 之外擴充，避免回頭客製</td></tr><tr><td class="lb">製造</td><td>MES 與 ERP 緊密結合：替代料、齊套料、工單排程</td><td>下一步是「預測、建議、主動判斷」——正是 Agent 的位置</td></tr><tr><td class="lb">財務</td><td>合併報表自動化後，數據串接效率提升 90% 以上</td><td>已有資料自動化基礎，可延伸至分析與預測</td></tr><tr><td class="lb">資安</td><td>以 ISO 27001 建立 IT/OT 資安治理框架</td><td>AI 治理可直接接軌 ISO 42001</td></tr></table></div>
+ <div class="note"><b>問題背後的問題。</b>缺料停線時，根因往往不在排程軟體，而在設計變更延遲、替代料規格未結構化、各廠資料口徑不一致。AI 平台要先處理這些結構問題，模型才會準。</div>
+ <p class="mute">資料來源：財經媒體專題報導、光寶 2026 Q3 法人說明會公開資訊；數字以公開資訊觀測站為準。</p>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: DUTIES
+         ========================================================================== -->
+    <section id="duties" class="liteon-section reveal" aria-label="光寶 AI 專區 - duties">
+      <div class="container">
+<div class="eyebrow">02 · Mandate</div>
+ <h2>職缺六項工作內容 × 我的做法與實績</h2><p class="sub">Six responsibilities, one operating model</p>
+ <div class="tabs" id="dtabs"><button class="tab on" data-i="0">01</button><button class="tab" data-i="1">02</button><button class="tab" data-i="2">03</button><button class="tab" data-i="3">04</button><button class="tab" data-i="4">05</button><button class="tab" data-i="5">06</button></div>
+ <div class="panel card on" data-p="0"><div class="duty"><div class="num">01</div><div><h3>與高階主管定義優先導入 AI 領域，規劃 AI 平台藍圖</h3><dl><dt>我的做法</dt><dd>以「經濟效益 × 可行性 × 可重用」三軸評分，與事業群主管共同排定投資組合；用一頁式決策表向經營層呈核。</dd><dt>做過的實績</dt><dd>曾為集團撰寫年度 IT 策略與投資計畫並呈報 CEO 與經管會，以策略支柱與 Run／Grow／Transform 預算框架落地。</dd><dt>到任指標</dt><dd><b>90 天內交出 AI 價值地圖與前 5 大用例財務假設</b></dd></dl></div></div></div><div class="panel card" data-p="1"><div class="duty"><div class="num">02</div><div><h3>把零散應用做成可重複使用的資料產品與平台</h3><dl><dt>我的做法</dt><dd>抽出模型閘道、知識庫、資料產品、Agent 編排與監控等共用元件；以黃金路徑讓新用例照範本上線。</dd><dt>做過的實績</dt><dd>隆中網絡（6542）把各專案自建環境改為平台提供標準元件，核心服務零停機、TCO −30%；設計多模型網關與企業任務中樞的參考架構。</dd><dt>到任指標</dt><dd><b>新用例上線時間由「月」縮短為「週」</b></dd></dl></div></div></div><div class="panel card" data-p="2"><div class="duty"><div class="num">03</div><div><h3>建立和 SAP、PLM、MES 互補的 AI stack</h3><dl><dt>我的做法</dt><dd>不動 SAP 核心、不重造 MES／PLM；以 API、CDC 與事件串流讀取資料，AI 產出「建議」回寫，經人員核可後執行。</dd><dt>做過的實績</dt><dd>泓晏科技以 SAP S/4HANA 串接 MES、PLM、APS，加上 Edge AIoT 與 AI 不良預測：良率 +15%、OEE +18%；規劃 PLM→SAP→MES 單一數據流的整合藍圖。</dd><dt>到任指標</dt><dd><b>S/4HANA 上線後 6 個月內首批供應鏈 AI 用例上線</b></dd></dl></div></div></div><div class="panel card" data-p="3"><div class="duty"><div class="num">04</div><div><h3>組建 AI 組織與人才梯隊，帶領 AI 技術主管與工程師</h3><dl><dt>我的做法</dt><dd>「中央平台＋事業群嵌入」雙軌組織；技術主管能力模型、九大技術發展路線與接班計畫。</dd><dt>做過的實績</dt><dd>跨國網路科技集團帶領高雄、台北、上海三地 30 人以上團隊；完成企劃、前端、後端與 DBA 從零到一的組織重整，建立職務說明與能力評核。</dd><dt>到任指標</dt><dd><b>每位技術主管至少一位可接手人選</b></dd></dl></div></div></div><div class="panel card" data-p="4"><div class="duty"><div class="num">05</div><div><h3>推動業務主導的平台團隊與企業內部 PO 培養，帶動 AI 原生的工作方式</h3><dl><dt>我的做法</dt><dd>PO 學院：業務主管學會寫用例財務假設與驗收標準；Champions 網絡；「主管先學、IT 先試、有成效再擴散」。</dd><dt>做過的實績</dt><dd>跨國網路科技集團開設主管 AI 工作流特訓，依 ISO 42001 建立使用規範；Agentic AI 工作流使流程自動化效率 +55%。</dd><dt>到任指標</dt><dd><b>第一年 30 位認證 PO</b></dd></dl></div></div></div><div class="panel card" data-p="5"><div class="duty"><div class="num">06</div><div><h3>定期向高階主管與事業單位主管報告成效</h3><dl><dt>我的做法</dt><dd>月度 AI 價值儀表板、季度 AI 投資委員會、半年向董事長報告；用 EBITDA、ROI、TCO 的語言。</dd><dt>做過的實績</dt><dd>直報董事會與 Global CIO 逾 10 年；以平衡計分卡與一頁式決策表每季報告里程碑。</dd><dt>到任指標</dt><dd><b>每季公開檢視效益，財務長確認金額</b></dd></dl></div></div></div>
+ <h3 style="margin-top:28px">必要條件與加分條件</h3>
+ <div class="tw"><table><tr><th>條件</th><th>我的證據</th><th>結果</th></tr>
+ <tr><td class="lb">學歷、產業背景不限</td><td>資訊科技管理博士；電子製造、外商軟體、上市櫃平台三種產業</td><td>符合</td></tr><tr><td class="lb">10 年以上帶領 AI／資料團隊</td><td>2014 起任資訊科技副總帶 50 人以上研發與大數據團隊；2018 起任資訊長暨資安長帶 AIoT 與 AI 良率團隊；2022 起帶資料平台；2025 起帶 Agentic AI 團隊，累計逾 12 年</td><td>符合</td></tr><tr><td class="lb">主導 AI 平台或產品上線並交出可量化成果</td><td>AI 不良預測：良率 +15%、OEE +18%；Agentic AI：自動化效率 +55%</td><td>符合</td></tr>
+ <tr><td class="lb">加分｜從零建立 AI／資料平台與團隊</td><td>泓晏科技 Edge AIoT 數據中台、跨國高科技企業 AI 治理與 Agent 平台，皆從零開始</td><td>符合</td></tr><tr><td class="lb">加分｜與 C-Level 或高階主管溝通</td><td>直報董事會與跨國高管；以 EBITDA、TCO、ROIC 報告</td><td>符合</td></tr><tr><td class="lb">加分｜CIO 或 IT 部門主管經驗</td><td>高階技術主管、資訊科技負責人、IT Director 與架構主管職涯逾 12 年</td><td>符合</td></tr><tr><td class="lb">加分｜國內大型企業數位轉型</td><td>多廠 S/4HANA 整併、全球核心服務遷移不停機、集團中央資訊架構</td><td>符合</td></tr>
+ </table></div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: FIT
+         ========================================================================== -->
+    <section id="fit" class="liteon-section reveal" aria-label="光寶 AI 專區 - fit">
+      <div class="container">
+<div class="eyebrow">03 · Fit</div>
+ <h2>技術職能與管理職能對照</h2><p class="sub">Technical &amp; managerial competency</p>
+ <div class="tabs" id="ftabs"><button class="tab on" data-i="0">技術職能</button><button class="tab" data-i="1">管理職能</button></div>
+ <div class="panel on" data-p="0"><div class="comp"><b>AI 平台架構（LLM 閘道／RAG／Agent）</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">企業 AI 平台三層架構：多 LLM 統一治理、Multi-Agent 編排、Human-in-the-Loop；AI 閘道＋Agentic RAG＋工作流引擎</div></div><div class="comp"><b>AI 落地上線（製造）</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">泓晏科技 Edge AIoT 平台涵蓋上千台設備；AI 不良預測與預測性維護：良率 +15%、OEE +18%</div></div><div class="comp"><b>AI 落地上線（營運）</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">跨國網路科技集團 Agentic AI 工作流 +55%；AI 程式審查 Lead Time −40%、缺陷逃逸 −35%</div></div><div class="comp"><b>資料平台與資料產品</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">隆中網絡（6542）全球資料管理平台；湖倉 Bronze／Silver／Gold 分層與資料契約</div></div><div class="comp"><b>SAP／PLM／MES 整合</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">SAP S/4HANA 串接 MES、PLM、APS；Clean Core 客製物件 −35%；Kafka／EDI／IDoc 整合標準</div></div><div class="comp"><b>雲原生與平台工程</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">GKE 容器化＋CI/CD、多雲零停機；Google Cloud APAC 官方客戶成功案例</div></div><div class="comp"><b>MLOps／LLMOps</b><div class="bar"><i data-w="66.66666666666666"></i></div><span style="color:var(--gold)">●●○</span><div class="d">DevSecOps 品質關卡（SAST／DAST／SBOM）；模型評測與漂移監控流程設計</div></div><div class="comp"><b>IT/OT 資安</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">IEC 62443 分區、零信任、ISO 27001；資安事故年減 30%</div></div><div class="comp"><b>AI 治理</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">ISO 42001；AI 使用規範與資料分級</div></div></div><div class="panel" data-p="1"><div class="comp"><b>定義 AI 優先領域</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">直報董事會；以 OGSM 對齊經營目標，主導 3 年應用地圖</div></div><div class="comp"><b>預算與投資治理</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">數百萬至千萬美元級 IT 預算；CAPEX／OPEX 配置；多雲 TCO −30%</div></div><div class="comp"><b>組建團隊與梯隊</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">跨台、中、歐團隊逾百人；建立接班與繼任計畫</div></div><div class="comp"><b>業務主導與 PO 培養</b><div class="bar"><i data-w="66.66666666666666"></i></div><span style="color:var(--gold)">●●○</span><div class="d">主管 AI 工作流特訓；三階段企業 AI 導入；Champions 網絡</div></div><div class="comp"><b>跨部門變革</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">多廠整併、BPR 流程再造、ISO 四階治理文件體系</div></div><div class="comp"><b>向經營層報告</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">以良率、OEE、TCO、Lead Time 每季報告；產業年會主講</div></div><div class="comp"><b>外部夥伴與 SI 管理</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">SI 合約、SLA、驗收門檻與 Vendor Scorecard</div></div><div class="comp"><b>大型企業轉型</b><div class="bar"><i data-w="100"></i></div><span style="color:var(--gold)">●●●</span><div class="d">集團中央資訊架構、多廠 ERP、全球平台遷移</div></div></div>
+ <div class="note warn"><b>坦白說明：</b>大型模型訓練與 GPU 叢集排程，我的角色是架構決策與資源治理，不是第一線調參。到任後將配置資深 ML 技術主管負責，我專注平台、資料與價值。</div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: STACK
+         ========================================================================== -->
+    <section id="stack" class="liteon-section reveal" aria-label="光寶 AI 專區 - stack">
+      <div class="container">
+<div class="eyebrow">04 · Platform</div>
+ <h2>光寶 AI 平台藍圖：與 SAP、PLM、MES 互補</h2><p class="sub">Don't touch the core — augment it</p>
+ <p>設計原則：<b>不動 SAP 核心、不重造 MES／PLM</b>。AI 平台站在三大系統旁邊，讀取資料、提出建議，在授權範圍內執行。點選各層看說明。</p>
+ <div class="stack">
+  <div><button class="layer" data-i="0"><b>L5</b><span><strong>使用者入口</strong></span></button><button class="layer" data-i="1"><b>L4</b><span><strong>AI 產品</strong></span></button><button class="layer" data-i="2"><b>L3</b><span><strong>Agent 編排</strong></span></button><button class="layer on" data-i="3"><b>L2</b><span><strong>模型與知識</strong></span></button><button class="layer" data-i="4"><b>L1</b><span><strong>資料產品</strong></span></button><button class="layer" data-i="5"><b>L0</b><span><strong>系統來源</strong></span></button><button class="layer" data-i="6"><b>橫向</b><span><strong>治理與安全</strong></span></button></div>
+  <div class="card ld" id="ldetail"></div>
+ </div>
+ <h3 style="margin-top:30px">與三大系統的分工</h3>
+ <div class="tw"><table><tr><th>系統</th><th>負責：記錄與交易</th><th>AI 平台負責：預測與建議</th></tr><tr><td class="lb">SAP S/4HANA</td><td>訂單、採購、庫存、財務過帳</td><td>需求預測、缺料預警、異常交易偵測、月結分析</td></tr><tr><td class="lb">PLM</td><td>BOM、ECN、圖面版本</td><td>設計知識檢索、替代料建議、ECN 影響分析</td></tr><tr><td class="lb">MES</td><td>工單執行、站點紀錄、追溯</td><td>排程最佳化建議、良率預測、設備預防保養</td></tr></table></div>
+ <p class="mute">平台選型以 SAP 原生、公有雲、開源地端三條路線比較 TCO 與資料主權後呈核，不預設單一供應商。</p>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: ARCH
+         ========================================================================== -->
+    <section id="arch" class="liteon-section reveal" aria-label="光寶 AI 專區 - arch">
+      <div class="container">
+<div class="eyebrow">05 · Architecture</div><h2>光寶 AI 平台架構：放進光寶的企業與資訊架構</h2><p class="sub">Enterprise architecture first, then AI</p>
+ <p class="lead">先串資料，再談 AI。AI 平台不是另一套系統，而是站在 S/4HANA、PLM、MES、QMS 旁邊的共用能力，建在「蜂巢計畫」的 API 平台與資料湖倉之上，一次建置、全球 112 座工廠按範本複製。</p>
+ <h3>光寶企業與資訊架構全景：AI 平台與資料底座的位置</h3><div class="la-ea"><div style="display:flex;flex-direction:column;gap:6px"><div class="la-row"><b>經營層</b><div><span>董事長</span><span>CIO</span><span>財務長</span><span>季度 AI 投資委員會</span><span>AI 價值儀表板</span></div></div><div class="la-row"><b>事業群</b><div><span>雲端及物聯網</span><span>資訊及消費性電子</span><span>光電</span></div></div><div class="la-row"><b>價值鏈</b><div><span>研發／NPI</span><span>採購</span><span>生產</span><span>品質</span><span>出貨</span><span>服務</span></div></div><div class="la-row"><b>應用系統</b><div><span>PLM</span><span>SAP S/4HANA（2027.01.04）</span><span>APS</span><span>MES</span><span>QMS</span><span>WMS</span></div></div><div class="la-row k1"><b>AI 平台 L2–L5</b><div><span>HowardAGent 應用中樞 (MCP)</span><span>HowardRoute 多模型網關 (LiteLLM)</span><span>HowardAIDC 算力推論中心 (vLLM)</span><span>HowardPro 製造預測核心</span><span>AI 產品與用例範本</span></div></div><div class="la-row k2"><b>資料底座 L0–L1</b><div><span>蜂巢計畫 API 平台</span><span>雙環資料匯流排（Kafka CDC＋MQTT 邊緣）</span><span>湖倉 Bronze／Silver／Gold</span><span>主資料與資料契約</span></div></div><div class="la-row"><b>基礎架構</b><div><span>內湖總部資料中心</span><span>地端 AIDC（800V DC 液冷、K8s GPU 叢集、MIG 切片）</span><span>SD-WAN</span><span>112 座工廠 OT 區（IEC 62443 離線自治）</span></div></div></div><div class="la-gov"><b>治理主軸</b><span>ISO 27001</span><span>ISO 42001</span><span>IEC 62443</span><span>資料分級</span><span>人員核可</span></div></div><p class="mute">粗框兩層是新增的部分：資料底座由蜂巢計畫建置，AI 平台在其上提供共用能力；其餘各層沿用光寶現有架構，不動 SAP 核心。</p>
+ <h3 style="margin-top:26px">光寶的 AI 問題，從資料、法規與規模開始</h3><div class="tw"><table class=""><tr><th>面向</th><th>光寶現況（公開資訊與盤點假設）</th><th>對 AI 架構的含義</th></tr><tr><td class="lb">產線</td><td>SMT、插件、組裝、Burn-in 與功能測試；電源、光電、雲端與物聯網產品線並行</td><td>機台參數、AOI 與測試資料是預測模型的主原料；機台不直接上網，資料只經工業 DMZ 上送</td></tr><tr><td class="lb">系統</td><td>SAP ECC 轉 S/4HANA，2027.01.04 全球同步上線；MES 已與 ERP 緊密結合（替代料、齊套料、排程）</td><td>AI 站在核心系統旁邊讀資料，不客製 S/4HANA 核心；切換期間不動核心</td></tr><tr><td class="lb">法規與客戶</td><td>以 ISO 27001 建立 IT/OT 資安治理；車用產品適用 IATF 16949；雲端客戶與品牌客戶定期稽核</td><td>AI 產出只能是「建議」，電子紀錄要有稽核軌跡、電子簽章與 ALCOA+</td></tr><tr><td class="lb">規模</td><td>86 家子公司、112 座工廠、全球 20 多個據點；越南新廠、高雄二期、美國德州廠陸續營運</td><td>平台一次建置、按範本複製；新廠無歷史包袱，是最佳試點；資料落地依 D06 決定</td></tr><tr><td class="lb">營運</td><td>產品複雜度上升（8.5kW PSU、BBU、Power Rack、CDU）；替代料與齊套料管理是日常重點</td><td>缺料與替代料預警、規格與報價知識檢索，是財務效益最快看得見的用例</td></tr><tr><td class="lb">成長</td><td>AI 相關營收占比超過 30%，2027 年估 40–50%</td><td>研發與品質知識需要 AI 輔助，AI 平台要跟得上新產品導入的速度</td></tr></table></div>
+ <h3 style="margin-top:26px">光寶 AI 平台：六層加一條治理主軸</h3><p class="mute">點選各層看組件、技術選項與光寶落地重點。</p><div class="la-lay"><div class="lb2" id="lalb"><button class="" data-i="0"><span class="id">L5</span><span>使用者入口<small>Teams／入口網站／產線看板／行動端</small></span></button><button class="" data-i="1"><span class="id">L4</span><span>AI 產品<small>可重複使用的用例範本</small></span></button><button class=" on" data-i="2"><span class="id">L3</span><span>HowardAGent 應用中樞<small>AI Agent：Agentic RAG＋工作流＋MCP Hub</small></span></button><button class="" data-i="3"><span class="id">L2</span><span>HowardRoute 網關＋HowardPro 預測核心<small>多模型路由＋AI 製造預測</small></span></button><button class="" data-i="4"><span class="id">L1</span><span>資料產品與湖倉<small>Bronze／Silver／Gold＋主資料</small></span></button><button class="" data-i="5"><span class="id">L0</span><span>系統來源與雙環資料匯流排<small>IT 環 Kafka＋OT 環 MQTT／OPC UA</small></span></button><button class="gv" data-i="6"><span class="id">GOV</span><span>治理與安全主軸<small>橫跨所有層</small></span></button></div><div class="la-det" id="ladet"></div></div>
+ <h3 style="margin-top:26px">四大多核心中樞：AI 算力、網關、預測與 Agent</h3><div class="la-4"><div class="la-c"><h4>HowardAGent 應用中樞</h4><ul><li>Agentic RAG：SOP、IATF 規範、客戶規格，Hybrid 檢索強制附版本來源</li><li>跨部門 Agent 工作流：HR 履歷篩選、財務對帳、採購詢比價</li><li>MCP Hub：將 S/4HANA、MES、PLM 封裝為標準受控工具，Text2SQL 嚴格唯讀</li><li>品質 Copilot、報價助理、NCR／8D 初稿生成</li></ul><div class="r">寫回 S/4HANA／MES 一律需人員核可 (Human-in-the-Loop)</div></div><div class="la-c"><h4>HowardRoute 企業模型網關</h4><ul><li>單一 OpenAI 相容網關（LiteLLM），串接雲端商業 API 與地端私有開源模型</li><li>Smart Routing：日常任務走 8B/14B 小模型，複雜推理走大模型，Token 成本省 30%+</li><li>毫秒級自動備援容錯（Fallback）與速率限制（Rate Limiting）</li><li>AI FinOps 成本治理：Token 級即時看板、部門配額隔離與用量分攤 (Chargeback)</li></ul><div class="r">客戶設計圖與報價只走地端模型，零資料保留</div></div><div class="la-c"><h4>HowardAIDC 算力推論中心</h4><ul><li>地端 AIDC 運算中樞：完美契合光寶 800V DC、Power Shelf 與液冷 CDU 架構</li><li>K8s GPU 資源調度：NVIDIA GPU Operator、MIG (Multi-Instance GPU) / vGPU 虛擬切片</li><li>高吞吐推論服務叢集：vLLM 叢集部署（PagedAttention、Continuous Batching），延遲降 35%</li><li>私有模型選型微調：Llama 3 / Qwen / Mistral 地端 LoRA/QLoRA 領域特化微調</li></ul><div class="r">敏感推論地端算力就近運算，兼顧極致效能與資料主權</div></div><div class="la-c"><h4>HowardPro 製造預測核心</h4><ul><li>攻堅 Clean Core 痛點：替代料智能選用推演、工單齊套料即時預警與排產</li><li>AutoML：製程參數建議、設備預防保養（置件機、回焊爐壽命預測）</li><li>虛擬量測與 SPC／AOI 異常預警、Domain Twin 傳承資深工程師經驗</li><li>AILM：模型版本、漂移監控與根因分析</li></ul><div class="r">產線敏感數據留在廠內與內湖，絕不上公有雲</div></div></div>
+ <h3 style="margin-top:26px">平台設計圖：架構總覽＋UML 2.x 全 14 種圖型</h3><p class="mute">以光寶品保情境（NCR／8D、SPC 預警、電子簽核、IEC 62443 分區）描述三個核心元件。點圖可放大檢視。</p><div class="la-um" id="laum"><h4>總覽</h4><div class="la-ug big"><figure data-src="assets/uml/zh/uml00.jpg" data-cap="00 架構總覽｜L0–L5 六層＋治理主軸，三核心位置一目了然"><img src="assets/uml/zh/t/uml00.jpg" alt="架構總覽" loading="lazy" draggable="false"><figcaption><b>00 架構總覽</b>L0–L5 六層＋治理主軸，三核心位置一目了然</figcaption></figure></div><h4>結構圖 Structure（7 種）</h4><div class="la-ug"><figure data-src="assets/uml/zh/uml02.jpg" data-cap="02 類別圖｜Agent 任務、工具、路由政策、模型供應商、預測模型的類別與關係"><img src="assets/uml/zh/t/uml02.jpg" alt="類別圖" loading="lazy" draggable="false"><figcaption><b>02 類別圖</b>Agent 任務、工具、路由政策、模型供應商、預測模型的類別與關係</figcaption></figure><figure data-src="assets/uml/zh/uml03.jpg" data-cap="03 物件圖｜NCR 初稿請求 t-2261 在 09:42 的執行快照"><img src="assets/uml/zh/t/uml03.jpg" alt="物件圖" loading="lazy" draggable="false"><figcaption><b>03 物件圖</b>NCR 初稿請求 t-2261 在 09:42 的執行快照</figcaption></figure><figure data-src="assets/uml/zh/uml04.jpg" data-cap="04 元件圖｜三核心與資料平台的提供與需求介面"><img src="assets/uml/zh/t/uml04.jpg" alt="元件圖" loading="lazy" draggable="false"><figcaption><b>04 元件圖</b>三核心與資料平台的提供與需求介面</figcaption></figure><figure data-src="assets/uml/zh/uml05.jpg" data-cap="05 組合結構圖｜HowardRoute 內部零件：遮罩、政策、路由、熔斷、計量、稽核"><img src="assets/uml/zh/t/uml05.jpg" alt="組合結構圖" loading="lazy" draggable="false"><figcaption><b>05 組合結構圖</b>HowardRoute 內部零件：遮罩、政策、路由、熔斷、計量、稽核</figcaption></figure><figure data-src="assets/uml/zh/uml06.jpg" data-cap="06 套件圖｜L0–L5 分層套件與治理套件的相依"><img src="assets/uml/zh/t/uml06.jpg" alt="套件圖" loading="lazy" draggable="false"><figcaption><b>06 套件圖</b>L0–L5 分層套件與治理套件的相依</figcaption></figure><figure data-src="assets/uml/zh/uml07.jpg" data-cap="07 部署圖｜內湖總部資料中心、地端 GPU、工業 DMZ、生產基地 OT 區、雲端 LLM"><img src="assets/uml/zh/t/uml07.jpg" alt="部署圖" loading="lazy" draggable="false"><figcaption><b>07 部署圖</b>內湖總部資料中心、地端 GPU、工業 DMZ、生產基地 OT 區、雲端 LLM</figcaption></figure><figure data-src="assets/uml/zh/uml08.jpg" data-cap="08 剖面圖｜LiteonAI 自訂構造型：«AIAgent»«ModelGateway»«PredictionCore»«OtZone»"><img src="assets/uml/zh/t/uml08.jpg" alt="剖面圖" loading="lazy" draggable="false"><figcaption><b>08 剖面圖</b>LiteonAI 自訂構造型：«AIAgent»«ModelGateway»«PredictionCore»«OtZone»</figcaption></figure></div><h4>行為圖 Behavior（3 種）</h4><div class="la-ug"><figure data-src="assets/uml/zh/uml01.jpg" data-cap="01 使用案例圖｜品保、製造、業務、主管、資訊五類角色與平台功能"><img src="assets/uml/zh/t/uml01.jpg" alt="使用案例圖" loading="lazy" draggable="false"><figcaption><b>01 使用案例圖</b>品保、製造、業務、主管、資訊五類角色與平台功能</figcaption></figure><figure data-src="assets/uml/zh/uml09.jpg" data-cap="09 活動圖｜NCR／8D 初稿產生、備援切換、核可與寫回泳道"><img src="assets/uml/zh/t/uml09.jpg" alt="活動圖" loading="lazy" draggable="false"><figcaption><b>09 活動圖</b>NCR／8D 初稿產生、備援切換、核可與寫回泳道</figcaption></figure><figure data-src="assets/uml/zh/uml10.jpg" data-cap="10 狀態機圖｜AgentTask 生命週期，寫回前必經人員核可"><img src="assets/uml/zh/t/uml10.jpg" alt="狀態機圖" loading="lazy" draggable="false"><figcaption><b>10 狀態機圖</b>AgentTask 生命週期，寫回前必經人員核可</figcaption></figure></div><h4>互動圖 Interaction（4 種）</h4><div class="la-ug"><figure data-src="assets/uml/zh/uml11.jpg" data-cap="11 循序圖｜NCR 初稿從提問、選路、生成到核可寫回"><img src="assets/uml/zh/t/uml11.jpg" alt="循序圖" loading="lazy" draggable="false"><figcaption><b>11 循序圖</b>NCR 初稿從提問、選路、生成到核可寫回</figcaption></figure><figure data-src="assets/uml/zh/uml12.jpg" data-cap="12 通訊圖｜同一情境的物件連結與訊息編號"><img src="assets/uml/zh/t/uml12.jpg" alt="通訊圖" loading="lazy" draggable="false"><figcaption><b>12 通訊圖</b>同一情境的物件連結與訊息編號</figcaption></figure><figure data-src="assets/uml/zh/uml13.jpg" data-cap="13 互動概觀圖｜SPC 預警後分流：NCR 或參數調整建議"><img src="assets/uml/zh/t/uml13.jpg" alt="互動概觀圖" loading="lazy" draggable="false"><figcaption><b>13 互動概觀圖</b>SPC 預警後分流：NCR 或參數調整建議</figcaption></figure><figure data-src="assets/uml/zh/uml14.jpg" data-cap="14 時序圖｜SPC 異常 → 預警 → 處置的時間約束（SLO）"><img src="assets/uml/zh/t/uml14.jpg" alt="時序圖" loading="lazy" draggable="false"><figcaption><b>14 時序圖</b>SPC 異常 → 預警 → 處置的時間約束（SLO）</figcaption></figure></div></div>
+ <h3 style="margin-top:26px">沿著光寶價值鏈排的 AI 場景</h3><p class="mute">以「經濟效益 × 可行性 × 可重用」三軸評分。A 為優先投入、B 為第二波、C 為數週內可見成果的快速勝利。</p><div class="tabs" id="laucf"><button class="tab on" data-u="all">全部</button><button class="tab" data-u="A">A 優先</button><button class="tab" data-u="B">B 第二波</button><button class="tab" data-u="C">C 快速勝利</button></div><div class="la-uc" id="lauc"><div class="la-c" data-p="A"><span class="p">A</span><div class="v">品質</div><h4 style="margin-top:6px">SPC／AOI 異常預警</h4><p>訂閱 MES、AOI 與測試站資料流，偵測趨勢偏移，在超規前提醒工程師。</p><div class="k">指標：不良率、重工與報廢成本、出貨放行時間</div></div><div class="la-c" data-p="A"><span class="p">A</span><div class="v">製造</div><h4 style="margin-top:6px">設備預防保養</h4><p>以置件機、回焊爐與測試機台的運轉資料預測保養時點，減少非計畫停機。</p><div class="k">指標：OEE、非計畫停機時數</div></div><div class="la-c" data-p="A"><span class="p">A</span><div class="v">供應鏈</div><h4 style="margin-top:6px">缺料、替代料與呆滯預警</h4><p>結合 S/4HANA 訂單、庫存、APS 與 PLM 變更，提早發現缺料、替代料機會與呆滯料。</p><div class="k">指標：存貨周轉天數、齊套率、呆滯金額</div></div><div class="la-c" data-p="A"><span class="p">A</span><div class="v">品質</div><h4 style="margin-top:6px">NCR／8D 初稿 Agent</h4><p>彙整檢驗紀錄、相似歷史案例與 SOP，產出 NCR 與 8D 初稿供品保核可。</p><div class="k">指標：結案天數、重複發生率</div></div><div class="la-c" data-p="B"><span class="p">B</span><div class="v">業務</div><h4 style="margin-top:6px">規格與報價知識檢索</h4><p>相似規格、歷史報價與工時檢索，縮短報價準備時間；客戶設計圖只走地端模型。</p><div class="k">指標：報價週期、報價命中率</div></div><div class="la-c" data-p="B"><span class="p">B</span><div class="v">研發／NPI</div><h4 style="margin-top:6px">ECN 影響分析</h4><p>PLM 設計變更自動列出受影響的 BOM、工單、庫存與檢驗計畫。</p><div class="k">指標：變更導致的錯料與重工</div></div><div class="la-c" data-p="B"><span class="p">B</span><div class="v">品質／客戶</div><h4 style="margin-top:6px">客戶稽核文件準備助理</h4><p>依 IATF 16949 與客戶稽核條文找出對應 SOP、紀錄與追溯資料，整理成稽核清單。</p><div class="k">指標：稽核準備人天、缺失數</div></div><div class="la-c" data-p="B"><span class="p">B</span><div class="v">製造</div><h4 style="margin-top:6px">虛擬量測與測試時間預測</h4><p>以製程參數預估關鍵特性與 Burn-in 結果，減少等待；正式放行仍以實測為準。</p><div class="k">指標：測試等待時間、抽檢比例</div></div><div class="la-c" data-p="C"><span class="p">C</span><div class="v">營運</div><h4 style="margin-top:6px">SOP／規範知識庫</h4><p>Agentic RAG 回答同仁的 SOP 與表單問題，答案附文件版本與來源。</p><div class="k">指標：新人上手時間、重複詢問數</div></div><div class="la-c" data-p="C"><span class="p">C</span><div class="v">財務</div><h4 style="margin-top:6px">單據 OCR 自動入帳</h4><p>發票與單據辨識後產生傳票草稿，會計確認後過帳。</p><div class="k">指標：每張單據處理時間</div></div><div class="la-c" data-p="C"><span class="p">C</span><div class="v">資訊</div><h4 style="margin-top:6px">S/4HANA 新流程問答</h4><p>把 16 項新功能與 27 項流程優化的教材與 SOP 做成知識庫，支援切換後的使用者。</p><div class="k">指標：切換後服務台工單數</div></div><div class="la-c" data-p="C"><span class="p">C</span><div class="v">資訊</div><h4 style="margin-top:6px">AI 程式審查</h4><p>內部開發與 SI 交付程式經 AI 審查與 DevSecOps 品質關卡。</p><div class="k">指標：Lead Time、缺陷逃逸率</div></div></div>
+ <h3 style="margin-top:26px">AI 治理：以 ISO 27001 為底，延伸到 ISO 42001 與客戶稽核</h3><div class="tw"><table class=""><tr><th>面向</th><th>機制</th><th>依據</th></tr><tr><td class="lb">資料分級</td><td>公開／內部／機密／客戶機密四級；客戶設計圖、報價與配方不送未核准的外部模型</td><td>ISO 27001、各國個資法</td></tr><tr><td class="lb">模型風險</td><td>上線前評測正確率、幻覺率；回答強制附來源；高風險用例人工複核</td><td>ISO 42001、NIST AI RMF</td></tr><tr><td class="lb">電子紀錄</td><td>AI 產出的建議與人員核可都留稽核軌跡；Bronze 層只增不改</td><td>IATF 16949、客戶稽核、ALCOA+</td></tr><tr><td class="lb">OT 安全</td><td>AI 不直接控制機台；參數建議經 MES 與工程師核可後執行</td><td>IEC 62443</td></tr><tr><td class="lb">權限稽核</td><td>模型網關統一身分驗證、遮罩、完整日誌；Token 依事業群分攤</td><td>零信任</td></tr><tr><td class="lb">供應商</td><td>合約明訂資料不得用於訓練、資料留存地點與刪除時限</td><td>ISO 27036</td></tr></table></div>
+ <div class="la-lb" id="lalbx" hidden role="dialog" aria-modal="true"><button class="x" id="lalbc">✕</button><div class="in" id="lalbi"><img id="lalbimg" alt="" draggable="false"><div class="wm3 wm2"></div></div><div class="cap" id="lalbcap"></div></div>
+ <script>(function(){var D=[{"id":"L5","t":"使用者入口","it":["員工助理：在 Teams 或入口網站直接問 SOP、規格、表單","產線看板：OEE、SPC、AOI 異常告警推播","主管戰情：良率、存貨周轉、交期與毛利，依事業群與廠別呈現"],"tech":"Power BI 或 Superset／Grafana；Teams Bot","f":"全球各廠同一套指標口徑，報表可依事業群切換"},{"id":"L4","t":"AI 產品","it":["品質 Copilot：NCR 初稿、8D 根因建議、客訴回覆草稿","報價助理：相似規格與歷史報價檢索","供應鏈預警：缺料、替代料、呆滯與交期風險"],"tech":"每個產品有事業群 PO、驗收標準與損益科目；新用例照黃金路徑上線","f":"每個 AI 產品指定事業群 PO，上線前先定驗收標準"},{"id":"L3","t":"HowardAGent 應用中樞","it":["Agentic RAG：SOP、IATF 16949 文件、客戶規範，Hybrid 向量檢索強制附版本來源","Model Context Protocol (MCP)：把 S/4HANA、MES、PLM、QMS 封裝為受控 Tool（Text2SQL 嚴格唯讀）","跨部門業務 Agent：HR 履歷初步篩選、財務對帳、採購詢價比價、產線品質 NCR／8D 初稿生成","Human-in-the-Loop：所有寫回 S/4HANA 與工單動作一律經主管人員線上審核核可"],"tech":"LangGraph / n8n 編排；MCP 協議；向量庫 Qdrant / pgvector","f":"回答必附文件版本與來源，寫回 S/4HANA 一律人員核可"},{"id":"L2","t":"HowardRoute 閘道＋HowardAIDC 算力＋HowardPro 預測核心","it":["HowardRoute（LiteLLM）：單一 OpenAI 相容網關、Smart Routing 智慧動態分流（小模型分流省 30%+ 成本）、毫秒級自動備援 Fallback、事業群 Token 配額與計費","HowardAIDC 算力中心：K8s GPU 資源調度、NVIDIA GPU Operator、MIG 虛擬切片、Volcano 排程、多租戶配額隔離、地端 AIDC 800V DC 液冷機櫃適配","推論服務叢集：vLLM 高吞吐叢集（PagedAttention、Continuous Batching、KV Cache 優化），延遲降 35%、吞吐量提升 3 倍","HowardPro 預測大腦：替代料智能比對選用、工單齊套料預測、設備預防保養、虛擬量測、Domain Twin 數位員工","AI FinOps 與全鏈路監控：Token 級即時看板、Langfuse/OTel 鏈路追蹤、漂移分析與異常熔斷"],"tech":"LiteLLM 閘道；vLLM 推論叢集；K8s GPU Operator＋Volcano；AutoML＋MLflow","f":"客戶機密與製造數據地端 vLLM 推論；替代料與齊套料主動預測不改動 SAP Clean Core"},{"id":"L1","t":"資料產品與湖倉","it":["Gold 主題：批號／序號追溯、良率與 OEE、存貨周轉、齊套料、SPC","主資料：料號、批號、客戶、機台一物一名","資料目錄與血緣：知道每個 AI 答案的資料從哪來","特徵庫：機台與製程特徵供各廠模型重用"],"tech":"依蜂巢 D04：SAP Datasphere／Fabric／MinIO＋Iceberg＋Trino；DataHub","f":"沿用蜂巢計畫資料湖倉，不另建資料孤島"},{"id":"L0","t":"系統來源與雙環資料匯流排（蜂巢計畫）","it":["IT 環：S/4HANA（Clean Core）、PLM、QMS、APS 經 CDC 異動捕捉與 API 實時進湖","OT 環：SMT、AOI、ICT、測試機台經 OPC UA／SECS-GEM、MQTT 由各廠邊緣閘道上送","斷線不停線：邊緣閘道本地佇列，網路中斷產線不停，復網後依時序自動補傳與去重","雙核心資料底座：總部 S/4HANA 為財務交易單一真理源，廠區邊緣節點離線自治"],"tech":"Kafka 或 Azure Service Bus；EMQX 邊緣閘道；Debezium CDC","f":"沿用蜂巢計畫 API 平台與各廠邊緣閘道，不碰 SAP 核心"},{"id":"GOV","t":"治理與安全主軸","it":["ISO 42001 AI 管理系統與使用規範","ISO 27001 資料分級、零信任身分","IEC 62443 IT／OT 分區","IATF 16949 與客戶稽核：電子紀錄與稽核軌跡"],"tech":"WAAP＋旁路 API 安全；模型網關統一日誌","f":"AI 規範納入光寶既有 ISO 27001 文件體系"}];var L={"t":"技術選項","f":"光寶重點","c":"："};
+ function h(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')}
+ var bs=document.querySelectorAll('#lalb button'),dt=document.getElementById('ladet');
+ function show(i){var x=D[i];[].forEach.call(bs,function(b){b.classList.toggle('on',+b.dataset.i===i)});dt.innerHTML='<div class="mute">'+x.id+'</div><h3>'+h(x.t)+'</h3><ul>'+x.it.map(function(s){return '<li>'+h(s)+'</li>'}).join('')+'</ul><div class="t"><b>'+h(L.t)+L.c+'</b>'+h(x.tech)+'</div><div class="f">'+h(L.f)+L.c+h(x.f)+'</div>'}
+ [].forEach.call(bs,function(b){b.onclick=function(){show(+b.dataset.i)}});show(2);
+ document.getElementById('laucf').addEventListener('click',function(ev){var b=ev.target.closest('.tab');if(!b)return;var f=b.dataset.u;[].forEach.call(this.querySelectorAll('.tab'),function(x){x.classList.toggle('on',x===b)});[].forEach.call(document.querySelectorAll('#lauc .la-c'),function(c){c.hidden=!(f==='all'||c.dataset.p===f)})});
+ var lb=document.getElementById('lalbx'),im=document.getElementById('lalbimg'),cp=document.getElementById('lalbcap');
+ document.addEventListener('click',function(ev){var f=ev.target.closest('figure[data-src], [data-proof-src]');if(!f)return;var isDoc=f.hasAttribute('data-proof-src');im.classList.toggle('doc',isDoc);im.src=isDoc?f.dataset.proofSrc:f.dataset.src;cp.textContent=f.dataset.cap;lb.hidden=false;document.getElementById('lalbc').focus()});
+ function cl(){lb.hidden=true;im.removeAttribute('src');im.classList.remove('doc')}
+ document.getElementById('lalbc').onclick=cl;lb.addEventListener('click',function(ev){if(ev.target===lb)cl()});document.addEventListener('keydown',function(ev){if(ev.key==='Escape'&&!lb.hidden)cl()});
+ })();</script>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: PORTFOLIO
+         ========================================================================== -->
+    <section id="portfolio" class="liteon-section reveal" aria-label="光寶 AI 專區 - portfolio">
+      <div class="container">
+<div class="eyebrow">06 · Portfolio</div>
+ <h2>AI 優先導入領域與用例組合</h2><p class="sub">Value × feasibility × reusability</p>
+ <div class="grid2">
+  <div class="matrix"><svg viewBox="0 0 520 380" id="mx" role="img" aria-label="用例價值與可行性矩陣"></svg></div>
+  <div>
+   <div class="tabs" id="ptabs"><button class="tab on" data-f="all">全部</button><button class="tab" data-f="A">A 優先</button><button class="tab" data-f="B">B</button><button class="tab" data-f="C">C 快速勝利</button></div>
+   <div class="tw"><table id="uct"></table></div>
+  </div>
+ </div>
+ <div class="card calc" style="margin-top:20px">
+  <h3>效益情境試算（示意）</h3>
+  <p class="mute">以下為說明決策邏輯的示意模型，數字非光寶實際資料；到任後以財務長確認的基準值取代。</p>
+  <div class="grid3">
+   <div><label>年營收規模（億元）<span id="v1"></span></label><input type="range" id="s1" min="500" max="3000" step="50" value="2000"></div>
+   <div><label>存貨占營收比例（%）<span id="v2"></span></label><input type="range" id="s2" min="5" max="25" step="1" value="12"></div>
+   <div><label>AI 缺料預警可降低存貨（%）<span id="v3"></span></label><input type="range" id="s3" min="1" max="10" step="0.5" value="3"></div>
+  </div>
+  <div class="grid2" style="margin-top:14px"><div><div class="mute">釋放營運資金（億元）</div><div class="out" id="o1"></div></div><div><div class="mute">以 6% 資金成本計，年化效益（億元）</div><div class="out" id="o2"></div></div></div>
+ </div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: HIVE
+         ========================================================================== -->
+    <section id="hive" class="liteon-section reveal" aria-label="光寶 AI 專區 - hive">
+      <div class="container">
+<div class="eyebrow">10 · Blueprint</div><h2>資料與整合底座實施藍圖（蜂巢計畫）</h2><p class="sub">Project Hive: one API platform, one lakehouse</p>
+ <p class="lead">把內湖總部、台灣與海外工廠（先以新廠為試點）串成一個 API 平台與一座資料湖倉。在 S/4HANA 的 Clean Core 之外，接通 MES、PLM、QMS、APS 與機台資料，作為 BI、KPI、批號追溯與 AI 應用的共同底座。</p>
+ <div class="la-meta"><span><b>版本</b>v1.0 到任前提案</span><span><b>起算</b>W1＝到任日</span><span><b>第一批裁示</b>D01 範圍、D02 窗口、D03 試點廠</span><span><b>規劃者</b>廖倫豪 博士</span></div>
+ <h3>範圍與治理原則</h3><div class="la-4"><div class="la-c"><h4>跨事業群資訊架構升級</h4><p>由 IT AI 平台負責人主導，依 RACI 推動基礎架構、應用系統、品保、事業群 PO、各廠 IT 與 SI／原廠落地。先串資料，再談 AI。</p></div><div class="la-c"><h4>平台負責人負責架構與統籌</h4><p>負責需求統整、架構規劃、選型審查與進度回報；開發、部署與維運由平台團隊、事業群嵌入團隊與 SI 承接。</p></div><div class="la-c"><h4>選型與預算依盤點定案</h4><p>SAP 原生、雲端、開源地端三條路線，依現況盤點、法規檢核與 TCO 比較後呈 CIO 核定。</p></div><div class="la-c"><h4>總部統一標準，各廠回饋校正</h4><p>需求三種來源：總部推動、事業群與各廠需求、經營層年度規劃。報表可依事業群與廠別呈現，背後的料號、批號與指標口徑必須一致。</p></div></div>
+ <div class="note" style="margin-top:14px">S/4HANA 於 2027.01.04 全球同步上線。蜂巢計畫的整合一律走 API 閘道與事件，不在切換期間改動核心；前 10 週只做盤點、知識類用例與資料平台準備。切換穩定後，介面直接對接 S/4HANA 的標準 API，不再做在舊核心上。</div>
+ <h3 style="margin-top:26px">六階段推進與決策閘門</h3><p class="mute">週數自到任日起算，標籤為進入下一階段前必須完成的裁示。階段 5 期程依選型結果另訂。</p><div class="la-st"><div><div class="n">1</div><h4>現況盤點</h4>清查各廠系統、資料庫、介面、機台連網與窗口名單；遺留客製報表與介面清單。<div class="w">W1–W4</div><span class="gt">D02</span></div><div><div class="n">2</div><h4>範圍確認</h4>核定首批 API、資料湖納入範圍與試點廠產線。<div class="w">W5–W6</div><span class="gt">D01・D03</span></div><div><div class="n">3</div><h4>平台選型</h4>比較三條路線，產出 TCO 與建議方案，完成資料落地與法規檢核。<div class="w">W7–W10</div><span class="gt">D04–D06</span></div><div><div class="n">4</div><h4>PoC 驗證</h4>依驗收標準驗證 S/4HANA↔MES 工單、PLM→S/4HANA BOM 與 BI 取數。<div class="w">W11–W18</div><span class="gt">驗收</span></div><div><div class="n">5</div><h4>建置與驗收</h4>正式環境部署、各廠分批上線、階段驗收。<div class="w">W19 起</div><span class="gt">分批</span></div><div><div class="n">6</div><h4>維運交接</h4>維運手冊、分工表生效、SLA 監控上線。<div class="w">上線後</div><span class="gt">SLA</span></div></div>
+ <h3 style="margin-top:26px">前 26 週 WBS 甘特圖</h3><p class="mute">排程為建議值，到任盤點後校正。手機請左右滑動。</p><div class="la-gw"><div class="la-gg"><div class="h lab" style="justify-content:flex-start">工作細項</div><div class="h">W1</div><div class="h">W2</div><div class="h">W3</div><div class="h">W4</div><div class="h">W5</div><div class="h">W6</div><div class="h">W7</div><div class="h">W8</div><div class="h">W9</div><div class="h">W10</div><div class="h">W11</div><div class="h">W12</div><div class="h">W13</div><div class="h">W14</div><div class="h">W15</div><div class="h">W16</div><div class="h">W17</div><div class="h">W18</div><div class="h">W19</div><div class="h">W20</div><div class="h">W21</div><div class="h">W22</div><div class="h">W23</div><div class="h">W24</div><div class="h">W25</div><div class="h">W26</div><div class="lab grp" title="1.0 專案治理">1.0 專案治理</div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="lab" title="1.1 範圍與窗口裁示（D01–D03）">1.1 範圍與窗口裁示（D01–D03）</div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="1.2 RACI 與代理人表">1.2 RACI 與代理人表</div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="1.3 KPI 指標定義">1.3 KPI 指標定義</div><div class=""></div><div class=""></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class="lab" title="1.4 每週例會與月報">1.4 每週例會與月報</div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class=""><span class="bar b-gov"></span></div><div class="lab grp" title="2.0 現況盤點">2.0 現況盤點</div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="lab" title="2.1 系統與資料庫清冊">2.1 系統與資料庫清冊</div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="2.2 介面與遺留客製盤點">2.2 介面與遺留客製盤點</div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="2.3 網路、OT 與資安盤點">2.3 網路、OT 與資安盤點</div><div class=""></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="2.4 機台連網現況">2.4 機台連網現況</div><div class=""></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="2.5 需求、風險與優先順序">2.5 需求、風險與優先順序</div><div class=""></div><div class=""></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""><span class="bar b-inv"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab grp" title="3.0 API 平台">3.0 API 平台</div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="lab" title="3.1 首批串接情境與範圍">3.1 首批串接情境與範圍</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="3.2 目標架構與 API 原則">3.2 目標架構與 API 原則</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="3.3 三路線選型與 TCO（D04）">3.3 三路線選型與 TCO（D04）</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="3.4 PoC 驗證">3.4 PoC 驗證</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="3.5 正式建置（依選型）">3.5 正式建置（依選型）</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class=""><span class="bar b-api"></span></div><div class="lab grp" title="4.0 資料湖倉">4.0 資料湖倉</div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="lab" title="4.1 資料來源與納入範圍">4.1 資料來源與納入範圍</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="4.2 分層設計與資料治理">4.2 分層設計與資料治理</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="4.3 每日結算與批號追溯規則">4.3 每日結算與批號追溯規則</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="4.4 資料落地與法規檢核（D06）">4.4 資料落地與法規檢核（D06）</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="4.5 PoC 驗證">4.5 PoC 驗證</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""><span class="bar b-lake"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab grp" title="5.0 AI 推進（與蜂巢同步）">5.0 AI 推進（與蜂巢同步）</div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="grp"></div><div class="lab" title="5.1 盤點與規範">5.1 盤點與規範</div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="5.2 快速勝利">5.2 快速勝利</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="5.3 品質與製造 PoC">5.3 品質與製造 PoC</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class="lab" title="5.4 平台化與複製">5.4 平台化與複製</div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class=""><span class="bar b-ai"></span></div><div class="lab" title="決策閘門 D02 · D01/D03 · D04–D06">決策閘門 D02 · D01/D03 · D04–D06</div><div class=""></div><div class=""><span class="bar b-gate"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-gate"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""><span class="bar b-gate"></span></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div><div class=""></div></div></div><div class="la-lg"><span><i class="b-gov"></i>專案治理</span><span><i class="b-inv"></i>盤點</span><span><i class="b-api"></i>API 平台</span><span><i class="b-lake"></i>資料湖倉</span><span><i class="b-ai"></i>AI 推進</span><span><i class="b-gate"></i>決策閘門</span></div>
+ <h3 style="margin-top:26px">與蜂巢計畫同步的 AI 推進節奏</h3><p class="mute">週數自到任日起算。前 10 週適逢 S/4HANA 切換，不碰核心，先做知識類與品質類用例，同時讓資料平台成熟。</p><div class="la-4 la-ai"><div class="la-c"><div class="w">W1–W4</div><h4>盤點與規範</h4><ul><li>盤點影子 AI 使用與既有工具</li><li>發布 AI 使用規範與資料分級</li><li>主管 AI 工作流特訓</li></ul></div><div class="la-c"><div class="w">W5–W10</div><h4>快速勝利</h4><ul><li>SOP／規範知識庫（附來源）</li><li>S/4HANA 新流程問答</li><li>單據 OCR</li></ul></div><div class="la-c"><div class="w">W11–W18</div><h4>品質與製造 PoC</h4><ul><li>SPC／AOI 異常預警（試點產線）</li><li>設備預防保養</li><li>NCR／8D 初稿 Agent</li></ul></div><div class="la-c"><div class="w">W19–W26</div><h4>平台化與複製</h4><ul><li>模型網關與 Agent 平台正式上線</li><li>複製到第二座工廠</li><li>月度 AI 價值儀表板</li></ul></div></div>
+ <h3 style="margin-top:26px">網路架構：IT／OT 分區與多廠互連</h3><p class="mute">依 IEC 62443 與 Purdue 模型分區。機台與量測設備留在 OT 區，資料經工業 DMZ 的邊緣閘道往上送；總部與各廠以 SD-WAN 雙線互連，雲端只走私有連線。</p><div class="la-zn"><div><b>L4–L5 企業 IT 區</b><span>S/4HANA・PLM・BI・AI 平台</span></div><div><b>L3.5 工業 DMZ</b><span>邊緣閘道・跳板主機</span></div><div><b>L0–L3 OT 區</b><span>SMT・AOI・ICT・測試站・MES 站點</span></div></div><div class="la-3"><div class="la-c"><h4>OT 設備不直接連外網</h4><p>機台資料只能經工業 DMZ 的邊緣閘道往上送，雲端與 IT 區不得反向直連機台。</p></div><div class="la-c"><h4>SD-WAN 雙線互連</h4><p>內湖總部與各廠以 SD-WAN 主線加備援線互連；量測各廠頻寬後設定機台資料與 ERP 流量的優先權。</p></div><div class="la-c"><h4>斷線不停線</h4><p>邊緣閘道在斷線時把工序與檢驗資料寫入本地佇列，產線照常作業；復網後依時序自動補傳，不重複入帳。</p></div></div>
+ <h3 style="margin-top:26px">API 平台：五層架構</h3><div class="la-ap"><span>呼叫端</span><span>邊界防護與網路</span><span>API 閘道與治理</span><span>廠區邊緣閘道</span><span>後端服務與資料湖倉</span></div><div class="la-3 la-fl"><div class="la-c"><h4>正常流程</h4><ol><li>MES 回報工序完工與良品數</li><li>邊緣閘道加密轉送</li><li>WAAP 白名單與限流檢查</li><li>API 閘道驗證身分與權限</li><li>寫入 S/4HANA 工單確認與資料湖</li><li>回傳成功，產線看板更新</li></ol></div><div class="la-c"><h4>斷線時</h4><ol><li>MES 照常回報</li><li>上傳逾時，邊緣閘道改寫本地佇列</li><li>回傳「已接收」，產線不停</li><li>品質資料同樣暫存，不遺失</li></ol></div><div class="la-c"><h4>復網後</h4><ol><li>邊緣閘道偵測復網</li><li>依時序批次補傳</li><li>S/4HANA 與資料湖依交易編號去重</li><li>清空佇列，發出補傳完成通知</li></ol></div></div>
+ <h3 style="margin-top:26px">資料湖倉：三層結構與傳輸節奏</h3><p class="mute">機台與工序資料近即時（分鐘級）上傳；S/4HANA 財務與庫存每日結算；海外據點依頻寬於離峰彙總。</p><div class="la-3"><div class="la-c"><h4>Bronze 原始層</h4><p>完整保留 S/4HANA、MES、PLM、QMS、機台的原始異動，只能新增、不可修改，作為稽核軌跡的來源。</p></div><div class="la-c"><h4>Silver 清洗層</h4><p>去重、時間戳統一、料號與批號對齊，關聯產品、機台、客戶主檔；檢查 BOM 版本是否一致。</p></div><div class="la-c"><h4>Gold 主題層</h4><p>每日結算表、批號／序號正反向追溯表、良率與 OEE、存貨周轉、齊套率、SPC 管制圖資料。</p></div></div>
+ <div style="margin-top:12px"><div class="tw"><table class=""><tr><th>資料類型</th><th>來源</th><th>傳輸節奏</th><th>用途</th></tr><tr><td class="lb">機台狀態、加工參數</td><td>SMT／AOI／ICT／測試機台（OPC UA、SECS/GEM）</td><td>每 1–5 分鐘</td><td>OEE、停機分析、預防保養</td></tr><tr><td class="lb">工序完工、良品與不良數</td><td>MES</td><td>即時（API）</td><td>S/4HANA 工單確認、良率</td></tr><tr><td class="lb">檢驗與測試結果</td><td>QMS、AOI、測試站</td><td>每批完成時</td><td>SPC、出貨放行、客戶稽核</td></tr><tr><td class="lb">設計與 BOM 變更</td><td>PLM</td><td>變更核准時</td><td>同步 S/4HANA 與 MES，避免用錯版本</td></tr><tr><td class="lb">訂單、庫存、成本</td><td>SAP S/4HANA</td><td>每日 02:00 結算</td><td>存貨周轉、毛利、經營看板</td></tr><tr><td class="lb">排程與齊套料</td><td>APS、MES</td><td>每班</td><td>工單排程建議、缺料預警</td></tr></table></div></div>
+ <h3 style="margin-top:26px">工具選型：三條路線對照</h3><p class="mute">路線 A 貼近 S/4HANA 與 SAP BTP；路線 B 適合已有 Microsoft 授權與 AD 的環境；路線 C 授權費最低但需要維運人力。最終依 D04 呈核。</p><div class="tw"><table class=""><tr><th>架構層級</th><th>A · SAP 原生</th><th>B · 雲端（Azure）</th><th>C · 開源地端</th></tr><tr><td class="lb">邊界防護</td><td>SAP BTP 內建防護＋前端 WAF</td><td>Front Door＋WAF、Private Link</td><td>Coraza WAF／NGINX、CrowdSec</td></tr><tr><td class="lb">API 閘道</td><td>SAP Integration Suite（API Management）</td><td>Azure API Management</td><td>Kong Gateway OSS／Apache APISIX</td></tr><tr><td class="lb">整合與轉換</td><td>Cloud Integration（CPI）、IDoc／OData</td><td>Logic Apps、Service Bus</td><td>Node-RED／自建服務</td></tr><tr><td class="lb">機台資料</td><td>SAP Digital Manufacturing（選配）</td><td>IoT Hub／IoT Operations</td><td>OPC UA 閘道＋MQTT（EMQX）</td></tr><tr><td class="lb">資料擷取</td><td>SAP Datasphere 複寫流程</td><td>Data Factory＋自託管整合執行階段</td><td>Debezium CDC／Airbyte</td></tr><tr><td class="lb">資料湖倉</td><td>SAP Datasphere</td><td>Fabric／ADLS Gen2（Delta Lake）</td><td>MinIO＋Apache Iceberg＋Trino</td></tr><tr><td class="lb">排程與對帳</td><td>Datasphere 任務鏈</td><td>Data Factory 管線</td><td>Apache Airflow</td></tr><tr><td class="lb">BI</td><td>SAP Analytics Cloud</td><td>Power BI</td><td>Apache Superset／Grafana</td></tr><tr><td class="lb">監控追蹤</td><td>SAP Cloud ALM</td><td>Azure Monitor</td><td>OpenTelemetry＋Prometheus＋Grafana</td></tr></table></div><p class="mute">遺留客製收斂：既有客製報表與點對點介面分為保留、移轉、淘汰三類，配合 S/4HANA Clean Core 逐步收斂到 API 平台與資料湖倉。</p>
+ <h3 style="margin-top:26px">資安與法遵</h3><div class="la-2"><div class="la-c"><h4>邊界 WAAP＋旁路 API 安全</h4><p>邊界 WAAP 在入口即時攔截已知攻擊；旁路 API 安全以流量鏡像分析行為，找出未列管 API 與越權讀取（例如換工單號偷看其他客戶的設計圖），再把封鎖規則回送 WAAP。</p></div><div class="la-c"><h4>IEC 62443 分區與管道</h4><p>機台 PC 不上網、USB 管控、遠端維護只經跳板主機並錄影；修補先在測試機驗證，避免影響產線。</p></div><div class="la-c"><h4>電子紀錄可稽核</h4><p>依 IATF 16949 與客戶稽核要求：電子紀錄要有稽核軌跡、電子簽章與保存期限，資料符合 ALCOA+（可歸屬、清楚、即時、原始、正確）。</p></div><div class="la-c"><h4>設計圖與客戶資料不外流</h4><p>依資料分級決定可上雲與可進 AI 的範圍；客戶設計圖與報價採列級權限與遮罩；海外據點依當地個資與資料在地化規定。</p></div></div>
+ <h3 style="margin-top:26px">第一階段 9 項任務</h3><div class="tw"><table class=""><tr><th>#</th><th>工作項目</th><th>主要工作內容</th><th>交付產出</th><th>階段</th></tr><tr><td class="lb">1</td><td>現況與需求盤點</td><td>各廠系統、資料庫、介面、機台連網與遺留客製</td><td>現況清單、需求清單、窗口名單</td><td>1</td></tr><tr><td class="lb">2</td><td>API 平台規劃與建置</td><td>盤點既有介面，確認首批串接（S/4HANA↔MES 工單、PLM→S/4HANA BOM）</td><td>API 清單、平台方案</td><td>2→5</td></tr><tr><td class="lb">3</td><td>資料湖倉規劃與建置</td><td>確認資料納入範圍、分層、保存期限與權限</td><td>資料來源清單、湖倉方案</td><td>2→5</td></tr><tr><td class="lb">4</td><td>平台選型與成本評估</td><td>比較 SAP 原生、雲端、開源地端三條路線</td><td>選型比較表、TCO、建議方案</td><td>3</td></tr><tr><td class="lb">5</td><td>機台與系統資料串接</td><td>試點產線機台連網、擷取方式與對來源系統的效能影響</td><td>串接規格、資料管線、測試結果</td><td>2→5</td></tr><tr><td class="lb">6</td><td>每日結算與批號追溯</td><td>S/4HANA 日結、對帳規則、批號／序號正反向追溯、失敗補跑</td><td>結算規則、追溯表規格</td><td>2→5</td></tr><tr><td class="lb">7</td><td>網路與資安配套</td><td>IT／OT 分區、SD-WAN、雲端連線、權限與稽核需求</td><td>網路架構、資安需求清單</td><td>3</td></tr><tr><td class="lb">8</td><td>PoC 與階段驗收</td><td>依驗收標準驗證首批串接、對帳與 BI 取數</td><td>PoC 報告、問題清單</td><td>4</td></tr><tr><td class="lb">9</td><td>執行與維運分工</td><td>確認平台團隊、各廠 IT、品保、製造與 SI 的建置與維運責任</td><td>分工表、交接清單</td><td>6</td></tr></table></div>
+ <h3 style="margin-top:26px">RACI 責任矩陣（初稿，待 CIO 確認）</h3><div class="tw"><table class=""><tr><th>任務</th><th>CIO（發起人）</th><th>AI 平台負責人</th><th>基礎架構／OT</th><th>應用系統（SAP／MES）</th><th>品保／法遵</th><th>事業群 PO／製造</th><th>SI／原廠</th></tr><tr><td class="lb">1 現況與需求盤點</td><td>A</td><td>R</td><td>C</td><td>C</td><td>C</td><td>C</td><td>—</td></tr><tr><td class="lb">2 API 平台規劃與建置</td><td>I</td><td>A</td><td>C</td><td>R</td><td>I</td><td>C</td><td>R</td></tr><tr><td class="lb">3 資料湖倉規劃與建置</td><td>I</td><td>A</td><td>C</td><td>R</td><td>C</td><td>I</td><td>R</td></tr><tr><td class="lb">4 平台選型與成本評估</td><td>A</td><td>R</td><td>C</td><td>C</td><td>C</td><td>I</td><td>C</td></tr><tr><td class="lb">5 機台與系統資料串接</td><td>I</td><td>C</td><td>R</td><td>A</td><td>I</td><td>R</td><td>R</td></tr><tr><td class="lb">6 每日結算與批號追溯</td><td>I</td><td>C</td><td>I</td><td>A</td><td>R</td><td>C</td><td>R</td></tr><tr><td class="lb">7 網路與資安配套</td><td>I</td><td>C</td><td>A</td><td>C</td><td>C</td><td>C</td><td>R</td></tr><tr><td class="lb">8 PoC 與階段驗收</td><td>A</td><td>R</td><td>C</td><td>R</td><td>C</td><td>C</td><td>C</td></tr><tr><td class="lb">9 執行與維運分工</td><td>A</td><td>R</td><td>C</td><td>C</td><td>I</td><td>C</td><td>I</td></tr></table></div><p class="mute">R 執行 · A 最終負責 · C 諮詢 · I 知會。每項任務只有一位 A。</p>
+ <h3 style="margin-top:26px">PoC 驗收標準</h3><div class="tw"><table class=""><tr><th>驗收項目</th><th>通過門檻（建議值，D01 時確認）</th><th>對應任務</th></tr><tr><td class="lb">S/4HANA↔MES 工單同步</td><td>試點產線工單下達與完工回報全部自動化，無人工轉檔</td><td>2、5</td></tr><tr><td class="lb">PLM→S/4HANA BOM 變更</td><td>設計變更核准後 1 小時內同步至 S/4HANA 與 MES，版本一致</td><td>2</td></tr><tr><td class="lb">批號／序號追溯</td><td>任一成品批號 5 分鐘內查出原料、機台、檢驗與出貨對象</td><td>6</td></tr><tr><td class="lb">每日結算對帳</td><td>連續 10 個工作日差異筆數為 0</td><td>6</td></tr><tr><td class="lb">斷線補傳</td><td>模擬廠區斷線 4 小時，恢復後自動補傳且無重複</td><td>5、7</td></tr><tr><td class="lb">來源系統影響</td><td>擷取期間 S/4HANA 與 MES 回應時間增加 ≤ 10%</td><td>5</td></tr><tr><td class="lb">BI 取數</td><td>既有報表可改由資料湖倉取數且數值一致</td><td>8</td></tr><tr><td class="lb">稽核軌跡</td><td>所有寫入 S/4HANA 的 API 交易可追溯操作者、時間與內容</td><td>2、7</td></tr></table></div>
+ <h3 style="margin-top:26px">主要風險與緩解</h3><div class="tw"><table class=""><tr><th>風險</th><th>影響</th><th>緩解措施</th></tr><tr><td class="lb">S/4HANA 切換期</td><td>整合做在切換中的核心上，需要重做</td><td>切換凍結期只做盤點與知識類用例；介面一律走 API 閘道，降低對核心版本的依賴</td></tr><tr><td class="lb">各廠機台品牌與年份不一</td><td>連網成本與時程膨脹</td><td>盤點控制器型號；首批只選一個試點廠的一條產線</td></tr><tr><td class="lb">客戶稽核與 IATF 16949</td><td>電子紀錄不符要求，影響客戶認證</td><td>品保參與 PoC；驗收納入稽核軌跡與電子簽章</td></tr><tr><td class="lb">遺留客製盤點不全</td><td>收斂後遺漏報表或介面</td><td>新舊並行一段時間，資料完整轉出後才下線</td></tr><tr><td class="lb">同仁兼任工作過量</td><td>日常支援與專案互相排擠</td><td>D02 明定窗口與每週投入時數；日常支援優先</td></tr><tr><td class="lb">維運承接未定</td><td>上線後無人負責</td><td>D05 在 PoC 前確定，承接者參與 PoC</td></tr></table></div>
+ <h3 style="margin-top:26px">待 CIO 裁示的 6 項決策</h3><div class="la-3"><div class="la-c"><div class="mute" style="font-weight:700;color:var(--brick)">D01</div><h4>第一階段優先範圍</h4><p>建議：只做底座（API＋資料湖倉＋首批串接），BI 優化放第二階段。卡住任務 2、3、5、6。</p></div><div class="la-c"><div class="mute" style="font-weight:700;color:var(--brick)">D02</div><h4>跨部門對接窗口</h4><p>建議：基礎架構、應用系統、品保、製造、財務與試點事業群各一位專責窗口。卡住任務 1。</p></div><div class="la-c"><div class="mute" style="font-weight:700;color:var(--brick)">D03</div><h4>試點廠與產線</h4><p>建議：以越南新廠或高雄二期的一條主力產線試點，無歷史包袱、法規與資料量具代表性。卡住任務 5、8。</p></div><div class="la-c"><div class="mute" style="font-weight:700;color:var(--brick)">D04</div><h4>預算範圍與路線</h4><p>建議：先核定 PoC 預算，正式建置預算於 PoC 後核定。卡住任務 8 及階段 5。</p></div><div class="la-c"><div class="mute" style="font-weight:700;color:var(--brick)">D05</div><h4>開發與維運承接</h4><p>選項：平台團隊、SI 廠商或混合。建議 PoC 前確定並讓承接者參與。卡住任務 8、9。</p></div><div class="la-c"><div class="mute" style="font-weight:700;color:var(--brick)">D06</div><h4>雲端主區與在地留存</h4><p>建議：先完成客戶合約、法規與各國資料在地化檢核，再決定台灣在地或區域雲端。卡住任務 3、4、7。</p></div></div>
+ <h3 style="margin-top:26px">第二階段應用</h3><p class="mute">進入條件：PoC 驗收通過，且試點產線連續 30 天每日結算無差異。第一階段只蒐集需求，不同步建置。</p><div class="tw"><table class=""><tr><th>#</th><th>工作項目</th><th>主要工作內容</th><th>依賴的資料底座</th></tr><tr><td class="lb">10</td><td>BI 戰情室</td><td>各事業群、各廠用同一套指標呈現庫存、良率與停機</td><td>Gold 主題層</td></tr><tr><td class="lb">11</td><td>KPI 系統化</td><td>統一指標定義、計算口徑、更新頻率與負責人</td><td>每日結算資料</td></tr><tr><td class="lb">12</td><td>品質與 SPC</td><td>製程能力（Cpk）、管制圖、不良根因分析</td><td>機台與量測資料</td></tr><tr><td class="lb">13</td><td>AI／RAG 製程知識庫</td><td>保存資深工程師經驗，問答時遵守資料分級與權限</td><td>文件知識庫＋權限模型</td></tr><tr><td class="lb">14</td><td>AI 主機與硬體評估</td><td>依應用需求評估地端推論主機或雲端服務</td><td>依 12、13 結果</td></tr><tr><td class="lb">15</td><td>遺留客製退場</td><td>最後一批客製報表與介面移轉或封存</td><td>移轉清單與封存區</td></tr></table></div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: ORG
+         ========================================================================== -->
+    <section id="org" class="liteon-section reveal" aria-label="光寶 AI 專區 - org">
+      <div class="container">
+<div class="eyebrow">07 · Organization</div>
+ <h2>AI 組織、人才梯隊與 PO 學院</h2><p class="sub">Central platform + embedded business teams</p>
+ <div class="tw"><table><tr><th>團隊</th><th>職責</th><th>關鍵角色</th><th>第一年人數（初估）</th></tr><tr><td class="lb">AI 平台工程</td><td>模型閘道、Agent 編排、MLOps／LLMOps、監控</td><td>平台技術主管、平台工程師、SRE</td><td>6–8</td></tr><tr><td class="lb">資料產品</td><td>湖倉、主資料、特徵庫、資料契約</td><td>資料技術主管、資料工程師、資料架構師</td><td>5–7</td></tr><tr><td class="lb">AI 應用與科學</td><td>模型開發、評測、RAG 調校</td><td>ML 技術主管、資料科學家、AI 工程師</td><td>5–7</td></tr><tr><td class="lb">AI 治理與資安</td><td>ISO 42001、模型風險、資料分級</td><td>治理經理（與資安處協作）</td><td>1–2</td></tr><tr><td class="lb">事業群嵌入</td><td>用例落地、流程再造</td><td>BU PO、業務分析師、Champions</td><td>由 BU 編制</td></tr></table></div>
+ <div class="grid3" style="margin-top:16px">
+  <div class="card"><h3>L1 素養與個人應用</h3><p>AI 使用規範、資料分級、驗證習慣；主管 AI 工作流特訓。</p><p class="mute">產出：人人會用、知道什麼不能做</p></div>
+  <div class="card"><h3>L2 部門流程與 Agent</h3><p>每部門挑 1–2 個流程，由業務擔任 PO、IT 提供平台。</p><p class="mute">產出：可量測的部門用例</p></div>
+  <div class="card"><h3>L3 跨部門再造與普及</h3><p>跨部門 Agent 串接、共用知識庫、Champions 網絡。</p><p class="mute">產出：組織層級的效益</p></div>
+ </div>
+ <div class="note"><b>PO 學院：</b>對象是事業群流程負責人，不是 IT 人員。完成課程並帶出一個上線用例才算結業；第一年目標 30 位認證 PO。</div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: GOV
+         ========================================================================== -->
+    <section id="gov" class="liteon-section reveal" aria-label="光寶 AI 專區 - gov">
+      <div class="container">
+<div class="eyebrow">08 · Governance</div>
+ <h2>AI 治理、資安與風險</h2><p class="sub">Build on ISO 27001, extend to ISO 42001</p>
+ <div class="grid2">
+  <div class="tw"><table><tr><th>面向</th><th>機制</th><th>標準</th></tr><tr><td class="lb">資料分級</td><td>公開／內部／機密／客戶機密四級；決定可上雲、可進模型的範圍</td><td>ISO 27001、個資法</td></tr><tr><td class="lb">模型風險</td><td>上線前評測正確率、幻覺率與偏差；高風險用例需人工複核</td><td>ISO 42001、NIST AI RMF</td></tr><tr><td class="lb">權限與稽核</td><td>模型閘道統一身分驗證、遮罩與完整日誌</td><td>零信任</td></tr><tr><td class="lb">OT 安全</td><td>AI 不直接控制設備；建議經 MES 與人員核可後執行</td><td>IEC 62443</td></tr><tr><td class="lb">供應商</td><td>合約明訂資料不得用於訓練、資料留存地點</td><td>ISO 27036</td></tr></table></div>
+  <div class="tw"><table><tr><th>主要風險</th><th>緩解措施</th></tr><tr><td class="lb">與 S/4HANA 上線搶資源</td><td>2027 Q1 前只做不碰 SAP 的用例（品質、研發知識）</td></tr><tr><td class="lb">資料品質不足</td><td>先做資料產品與口徑統一，再做模型</td></tr><tr><td class="lb">PoC 停在 PoC</td><td>開始前就定義上線條件、PO 與損益科目</td></tr><tr><td class="lb">影子 AI</td><td>提供好用的官方平台＋使用規範，而非只禁止</td></tr><tr><td class="lb">算力成本失控</td><td>Token／GPU 按 BU 分攤、配額與月報</td></tr></table></div>
+ </div>
+ <div class="note warn"><b>紅線：</b>AI 不得在無人核可下過帳、改單或下達設備指令；客戶圖面與報價不得送往未經核准的外部模型。</div>
+      </div>
+    </section>
+
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: WORKS
+         ========================================================================== -->
+    <section id="works" class="liteon-section reveal" aria-label="光寶 AI 專區 - works">
+      <div class="container">
+<div class="eyebrow">12 · Portfolio</div>
+ <h2>AI 架構作品集</h2><p class="sub">Architecture &amp; case library</p>
+ <p class="lead">上一節的 16 個 AI 架構與顧問專案，共用同一套架構骨幹；這套骨幹也是本頁光寶 AI 平台藍圖的來源。下圖整理骨幹分層，矩陣標出各專案用到哪些模式。</p>
+ <div class="pf-stats"><div><b>16</b><span>專案</span></div><div><b>7</b><span>領域</span></div><div><b>8</b><span>共用模式</span></div></div>
+ <h3>共用架構骨幹</h3>
+ <div class="pf-diag" role="img" aria-label="五層參考架構：應用層、AI 閘道與編排層、資料與預測層、既有核心系統，右側貫穿治理與資安"><svg viewBox="0 0 1000 400" xmlns="http://www.w3.org/2000/svg" font-size="13"><rect x="20" y="16" width="770" height="66" fill="var(--card)" stroke="var(--line)"/><text x="36" y="41" font-weight="700" fill="var(--green)">① 互動與應用層</text><text x="36" y="65" fill="var(--mute)" font-size="12.5">Agent 應用中樞 · Agentic 工作流 · Copilot · 臨床決策模擬 · 防詐情境模擬</text><rect x="20" y="92" width="770" height="66" fill="var(--card)" stroke="var(--line)"/><text x="36" y="117" font-weight="700" fill="var(--green)">② AI 閘道與編排層</text><text x="36" y="141" fill="var(--mute)" font-size="12.5">LiteLLM 企業模型閘道（Smart Routing、Fallback、Token 成本控管、FinOps）· vLLM 推論叢集 · MCP Hub · LLMOps</text><rect x="20" y="168" width="770" height="66" fill="var(--card)" stroke="var(--line)"/><text x="36" y="193" font-weight="700" fill="var(--green)">③ 資料與預測層</text><text x="36" y="217" fill="var(--mute)" font-size="12.5">雙環資料匯流（Kafka + MQTT）· 蜂巢資料湖倉 Bronze／Silver／Gold · AIDC GPU 算力調度（MIG 切片）· 邊緣推論</text><rect x="20" y="244" width="770" height="66" fill="var(--card)" stroke="var(--line)"/><text x="36" y="269" font-weight="700" fill="var(--green)">④ 既有核心系統（不動核心）</text><text x="36" y="293" fill="var(--mute)" font-size="12.5">SAP S/4HANA · MES · PLM · APS · Notes · 醫療 FHIR · 金流帳務</text><path d="M720 244 V234" stroke="var(--gold)" stroke-width="1.6"/><path d="M715 236 l5 -8 l5 8z" fill="var(--gold)"/><path d="M720 168 V158" stroke="var(--gold)" stroke-width="1.6"/><path d="M715 160 l5 -8 l5 8z" fill="var(--gold)"/><path d="M720 92 V82" stroke="var(--gold)" stroke-width="1.6"/><path d="M715 84 l5 -8 l5 8z" fill="var(--gold)"/><rect x="806" y="16" width="174" height="294" fill="var(--green)"/><g fill="var(--bg)"><text x="820" y="42" font-weight="700">⑤ 治理與資安</text><text x="820" y="74" font-size="12">ISO 42001 AI 治理</text><text x="820" y="98" font-size="12">ISO 27001 · NIST CSF 2.0</text><text x="820" y="122" font-size="12">零信任 · API 防護</text><text x="820" y="146" font-size="12">Human-in-the-Loop</text><text x="820" y="170" font-size="12">不可變稽核日誌</text><text x="820" y="194" font-size="12">金管會 GenAI 指引</text><text x="820" y="218" font-size="12">21 CFR Part 11 · GxP</text><text x="820" y="242" font-size="12">FinOps 成本分攤</text><text x="820" y="266" font-size="12">資料分級四級</text></g><rect x="20" y="326" width="960" height="58" fill="var(--label)"/><text x="36" y="350" font-weight="700" fill="var(--brick)">推進方法</text><text x="36" y="372" fill="var(--ink)" font-size="12.5">現況盤點 → 範圍確認 → 平台選型 → PoC 驗證 → 建置驗收 → 維運交接（六階段決策閘門 · 快速勝利場景先行）</text></svg></div>
+ <h3 style="margin-top:22px">架構模式 × 專案矩陣</h3>
+ <div class="pf-mx"><table><tr><th>架構模式</th><th>生醫 AI</th><th>服務代理</th><th>AI 平台規劃</th><th>大型零售 AI</th><th>成衣集團</th><th>醫材跨廠</th><th>多雲製造</th><th>在宅醫療</th><th>製藥資安</th><th>資安長</th><th>治理標準化</th></tr><tr><td class="lb">多模型閘道與 Agent 編排<small>Gateway &amp; orchestration</small></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td></td><td></td></tr><tr><td class="lb">資料匯流與湖倉<small>Data bus &amp; lakehouse</small></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td></td><td></td></tr><tr><td class="lb">階段閘門推進<small>Stage-gate delivery</small></td><td></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td><i class="pf-dot h" title="部分涵蓋"></i></td></tr><tr><td class="lb">人員核可<small>Human-in-the-Loop</small></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td></td></tr><tr><td class="lb">AI 治理與合規<small>ISO 42001 &amp; regulation</small></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot" title="核心設計"></i></td></tr><tr><td class="lb">資安與韌性<small>Zero trust &amp; resilience</small></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td></td></tr><tr><td class="lb">FinOps 與投資回收<small>Cost &amp; ROI</small></td><td></td><td></td><td></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td></td><td></td></tr><tr><td class="lb">AIDC 算力與推論叢集<small>AIDC &amp; vLLM cluster</small></td><td></td><td></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td><i class="pf-dot" title="核心設計"></i></td><td></td><td></td><td><i class="pf-dot h" title="部分涵蓋"></i></td><td></td><td></td><td></td><td></td></tr></table></div>
+ <div class="pf-leg"><span><i class="pf-dot"></i> 核心設計</span><span><i class="pf-dot h"></i> 部分涵蓋</span></div>
+ <div class="note" style="margin-top:20px">對光寶的意義：這套骨幹已在生醫、醫材、成衣、醫療與資安等不同產業驗證。到任後可直接沿用閘道、湖倉、人員核可與階段閘門的做法，縮短光寶 AI 平台從規劃到上線的時間。客戶名稱基於保密不具名，面談時可當面說明。</div>
+      </div>
+    </section>
+
 
     <!-- FOUR CORE ARCHITECTURE HUBS & INSPECTOR -->
     <section id="architecture" class="arch-section" aria-label="企業級 AI 雙中樞與蜂巢資料架構">
@@ -5241,6 +5891,26 @@ html_content = """<!DOCTYPE html>
       </div>
     </section>
 
+
+    <!-- ==========================================================================
+         LITEON 2301 STRATEGIC SECTION: DOCS
+         ========================================================================== -->
+    <section id="docs" class="liteon-section reveal" aria-label="光寶 AI 專區 - docs">
+      <div class="container">
+<div class="eyebrow">15 · Documents</div>
+ <h2>文件線上預覽與下載</h2><p class="sub">View online or download PDF</p>
+ <p class="mute">點選封面可線上翻頁預覽，或下載 PDF。</p>
+ <div class="grid3">
+  <div class="docw"><button class="doc" data-d="deck" data-n="40" data-t="高階報告簡報（40 頁）"><img src="assets/preview/zh/deck/01.jpg" alt="高階報告簡報封面" draggable="false" loading="lazy"><b>高階報告簡報</b><span class="mute">40 頁｜AI 策略、平台架構、到任計畫與白皮書</span></button><a class="btn p dl" href="pdf/%E5%BB%96%E5%80%AB%E8%B1%AA%E5%8D%9A%E5%A3%AB_%E5%85%89%E5%AF%B6AI%E5%B9%B3%E5%8F%B0%E7%AD%96%E7%95%A5_%E9%AB%98%E9%9A%8E%E5%A0%B1%E5%91%8A_40%E9%A0%81_%E7%B9%81%E4%B8%AD.pdf" download>下載 PDF</a></div>
+  <div class="docw"><button class="doc" data-d="report" data-n="29" data-t="面試報告（29 頁）"><img src="assets/preview/zh/report/01.jpg" alt="面試報告封面" draggable="false" loading="lazy"><b>面試報告</b><span class="mute">29 頁｜職能對照、案例、平台與蜂巢藍圖</span></button><a class="btn p dl" href="pdf/%E5%BB%96%E5%80%AB%E8%B1%AA%E5%8D%9A%E5%A3%AB_%E5%85%89%E5%AF%B6IT_AI%E5%B9%B3%E5%8F%B0%E8%B2%A0%E8%B2%AC%E4%BA%BA_%E9%9D%A2%E8%A9%A6%E5%A0%B1%E5%91%8A_29%E9%A0%81_%E7%B9%81%E4%B8%AD.pdf" download>下載 PDF</a></div>
+  <div class="docw"><button class="doc" data-d="cv" data-n="12" data-t="個人簡歷（12 頁）"><img src="assets/preview/zh/cv/01.jpg" alt="個人簡歷封面" draggable="false" loading="lazy"><b>個人簡歷</b><span class="mute">12 頁｜學經歷、認證與量化成果</span></button><a class="btn p dl" href="pdf/%E5%BB%96%E5%80%AB%E8%B1%AA%E5%8D%9A%E5%A3%AB_%E5%80%8B%E4%BA%BA%E7%B0%A1%E6%AD%B7_12%E9%A0%81_%E7%B9%81%E4%B8%AD.pdf" download>下載 PDF</a></div>
+  <div class="docw"><button class="doc" data-d="mag" data-n="27" data-t="個人簡介與顧問報告（27 頁）"><img src="assets/preview/zh/mag/01.jpg" alt="個人簡介與顧問報告" draggable="false" loading="lazy"><b>個人簡介與顧問報告</b><span class="mute">27 頁｜米蘭風格雜誌版｜給董事長、CIO 與人資長</span></button><a class="btn p dl" href="pdf/%E5%85%89%E5%AF%B6%E7%A7%91%E6%8A%80_%E5%80%8B%E4%BA%BA%E7%B0%A1%E4%BB%8B%E8%88%87%E9%A1%A7%E5%95%8F%E5%A0%B1%E5%91%8A_%E7%B1%B3%E8%98%AD%E9%A2%A8%E6%A0%BC_HowardLiao_%E7%B9%81%E4%B8%AD.pdf" download>下載 PDF</a></div>
+  <div class="docw"><button class="doc" data-d="magx" data-n="14" data-t="附件投影片（14 頁）"><img src="assets/preview/zh/magx/01.jpg" alt="附件投影片" draggable="false" loading="lazy"><b>附件投影片</b><span class="mute">14 頁｜案例總表、架構矩陣、UML、WBS、RACI、風險、KPI</span></button><a class="btn p dl" href="pdf/%E5%85%89%E5%AF%B6%E7%A7%91%E6%8A%80_%E9%99%84%E4%BB%B6%E6%8A%95%E5%BD%B1%E7%89%87_%E7%B1%B3%E8%98%AD%E9%A2%A8%E6%A0%BC_HowardLiao_%E7%B9%81%E4%B8%AD.pdf" download>下載 PDF</a></div>
+ </div>
+      </div>
+    </section>
+
+
     <!-- FIRST 180 DAYS BLUEPRINT -->
     <section class="plan-section" aria-label="到任 180 天落地藍圖">
       <div class="container">
@@ -5331,29 +6001,24 @@ html_content = """<!DOCTYPE html>
       <span class="dock-tab-icon">👤</span>
       <span>高管</span>
     </a>
-    <a href="#metrics" class="dock-tab">
-      <span class="dock-tab-icon">🏛️</span>
-      <span>指標</span>
-    </a>
-    <a href="#stepper" class="dock-tab">
-      <span class="dock-tab-icon">🧭</span>
-      <span>軌跡</span>
+    <a href="#context" class="dock-tab">
+      <span class="dock-tab-icon">⚡</span>
+      <span>光寶AI</span>
     </a>
     <a href="#architecture" class="dock-tab">
       <span class="dock-tab-icon">⚙️</span>
       <span>中樞</span>
     </a>
-    <a href="#timeline" class="dock-tab">
-      <span class="dock-tab-icon">🏢</span>
-      <span>歷練</span>
+    <a href="#cases" class="dock-tab">
+      <span class="dock-tab-icon">🏆</span>
+      <span>案例</span>
     </a>
-    <button class="dock-tab drawer-btn" onclick="toggleNavDrawer()" aria-label="展開完整章節目錄">
+    <button class="dock-tab drawer-btn" onclick="toggleNavDrawer()" aria-label="展開完整導覽清單">
       <span class="dock-tab-icon">🧭</span>
-      <span>導覽</span>
+      <span data-i18n="dock_nav">導覽</span>
     </button>
   </nav>
 
-  <!-- SLIDE-UP NAVIGATION DRAWER (MOBILE) -->
   <div class="nav-drawer-overlay" id="drawerOverlay" onclick="toggleNavDrawer()"></div>
   <div class="nav-drawer" id="navDrawer" role="dialog" aria-modal="true" aria-label="全域章節目錄">
     <div class="drawer-handle"></div>
@@ -5416,6 +6081,12 @@ html_content = """<!DOCTYPE html>
       </div>
     </div>
   </div>
+
+  <div id="viewer" class="viewer" hidden>
+ <div class="vbar"><b id="vt"></b><span id="vc" class="mute"></span><button class="tbtn" id="vx" aria-label="關閉">關閉 ✕</button></div>
+ <div class="vstage"><button class="vnav" id="vp" aria-label="上一頁">‹</button><div class="vimg"><img id="vi" alt="文件頁面" draggable="false"><div class="vshield wm2"></div></div>
+
+  <div class="la-lb" id="lalbx" hidden role="dialog" aria-modal="true"><button class="x" id="lalbc">✕</button><div class="in" id="lalbi"><img id="lalbimg" alt="" draggable="false"><div class="wm3 wm2"></div></div>
 
   <!-- TOAST NOTIFICATION -->
   <div class="toast-msg" id="toastMsg">✓ 已複製高管名片聯絡資訊至剪貼簿</div>
@@ -6051,14 +6722,14 @@ html_content = """<!DOCTYPE html>
       countUpObserver.observe(el);
     });
 
-    // 9. ScrollSpy for Navigation Highlight
+        // 9. ScrollSpy for Dropdown Navigation & Mobile Dock Highlight
     const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.masthead-nav .nav-pill');
+    const navPills = document.querySelectorAll('.masthead-nav .nav-pill');
     const dockTabs = document.querySelectorAll('.mobile-bottom-dock .dock-tab:not(.drawer-btn)');
 
     window.addEventListener('scroll', () => {
       let current = '';
-      const scrollPos = window.pageYOffset + 120;
+      const scrollPos = window.pageYOffset + 140;
       sections.forEach(section => {
         const top = section.offsetTop;
         const height = section.offsetHeight;
@@ -6067,20 +6738,226 @@ html_content = """<!DOCTYPE html>
         }
       });
 
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === `#${current}`) {
-          link.classList.add('active');
-        }
+      navPills.forEach(link => {
+        const group = (link.getAttribute('data-group') || '').split(',');
+        const href = (link.getAttribute('href') || '').replace('#', '');
+        const on = (href === current) || group.includes(current);
+        link.classList.toggle('active', on);
       });
 
       dockTabs.forEach(tab => {
-        tab.classList.remove('active');
-        if (tab.getAttribute('href') === `#${current}`) {
-          tab.classList.add('active');
-        }
+        const href = (tab.getAttribute('href') || '').replace('#', '');
+        tab.classList.toggle('active', href === current);
       });
     }, { passive: true });
+  
+    // ==========================================
+    // LITEON 2301 STRATEGIC SCRIPTS & INTERACTION
+    // ==========================================
+    // 1. Arch layers & lightbox
+    (function(){
+      var D=[
+        {"id":"L5","t":"使用者入口","it":["員工助理：在 Teams 或入口網站直接問 SOP、規格、表單","產線看板：OEE、SPC、AOI 異常告警推播","主管戰情：良率、存貨周轉、交期與毛利，依事業群與廠別呈現"],"tech":"Power BI 或 Superset／Grafana；Teams Bot","f":"全球各廠同一套指標口徑，報表可依事業群切換"},
+        {"id":"L4","t":"AI 產品","it":["品質 Copilot：NCR 初稿、8D 根因建議、客訴回覆草稿","報價助理：相似規格與歷史報價檢索","供應鏈預警：缺料、替代料、呆滯與交期風險"],"tech":"每個產品有事業群 PO、驗收標準與損益科目；新用例照黃金路徑上線","f":"每個 AI 產品指定事業群 PO，上線前先定驗收標準"},
+        {"id":"L3","t":"HowardAGent 應用中樞","it":["Agentic RAG：SOP、IATF 16949 文件、客戶規範，Hybrid 向量檢索強制附版本來源","Model Context Protocol（MCP）：以標準協定串接 S/4HANA、PLM、MES","Human-in-the-Loop：重大異動、簽核與高風險預測必須人工核可"],"tech":"LangGraph 或 CrewAI；自建 MCP Server；Milvus 或 pgvector","f":"Agentic RAG 強制附來源；MCP 協定隔離 SAP；高風險必留稽核軌跡"},
+        {"id":"L2","t":"HowardRoute 閘道 ＋ HowardAIDC 算力 ＋ HowardPro 預測核心","it":["HowardRoute：語意快取直通、難度分級路由、Token 成本與配額治理、IP Clean Room 隔離","HowardAIDC：自建地端推論叢集（vLLM）＋ 雲端模型備援；算力利用率治理與排程優先權","HowardPro：SPC／AOI 瑕疵影像分類、設備殘餘壽命（RUL）預測、排產優化演算法"],"tech":"LiteLLM 企業版；vLLM 推論叢集；K8s GPU Operator；MLflow 模型註冊庫；Triton Inference Server","f":"地端與雲端模型並用，依機敏等級路由；Token 成本分攤至各事業群；算力以 K8s GPU Operator 動態調配"},
+        {"id":"L1","t":"資料產品與湖倉（Project Hive 蜂巢計畫）","it":["Bronze：保留異動日誌與原始封包，不可竄改的審計憑證","Silver：跨系統清洗對齊（統一料號、工單、BOM、良率口徑）","Gold：以業務主題為中心的資料產品（品質湖、供應鏈特徵庫、設備健康特徵）"],"tech":"Delta Lake 或 Apache Iceberg；Trino 分散式查詢引擎；dbt 轉換與品質測試；Great Expectations","f":"資料產品必須定義 Data Contract（資料契約）與 SLA；以 CDC 取代定時整批傾倒，減輕來源系統負載"},
+        {"id":"L0","t":"系統來源與雙環資料匯流排","it":["IT 環：SAP S/4HANA、PLM、QMS、CRM、SRM 等營運系統","OT 環：MES、設備 PLC、AOI 檢驗機、測試站、環境感知器","雙環匯流排：IT 與 OT 網路實體或邏輯隔離（IEC 62443 工控分區）"],"tech":"Kafka 或 Redpanda（CDC 事件匯流排）；Debezium（無負載監聽日誌）；MQTT Broker（EMQX）／OPC UA 閘道","f":"嚴守「切換期不碰核心」，以唯讀方式抽取；邊緣推論節點本地緩存，斷線仍可持續判等"},
+        {"id":"GOV","t":"AI 治理與資安主軸（貫穿全層）","it":["ISO 42001（AIMS 人工智慧管理系統）＋ ISO 27001（ISMS）雙重架構","四級資料分類：公開、內部、機敏（工藝參數）、極機敏（客戶設計圖紙、報價）","完整稽核日誌：每一次 Prompt、回應、模型版本、呼叫者身分永久留存"],"tech":"Keycloak 或 Azure AD SSO；Open Policy Agent（OPA）；Presidio 機敏資料遮罩；Splunk／ELK 稽核日誌","f":"極機敏資料嚴禁出境或進入公開雲模型；定期執行紅隊演練與模型偏誤稽核；符合 EU AI Act 與供應鏈資安規範"}
+      ];
+      function show(i){
+        document.querySelectorAll('#lalb button').forEach(function(b,k){ b.classList.toggle('on', k===i); });
+        var d=D[i], h='<div class="la-lh"><b>'+d.id+' · '+d.t+'</b><span class="f">'+d.f+'</span></div><div class="la-li">';
+        d.it.forEach(function(x){ h+='<div>• '+x+'</div>'; });
+        h+='</div><div class="la-lt"><b>技術選項：</b>'+d.tech+'</div>';
+        var el = document.getElementById('ladet');
+        if (el) el.innerHTML=h;
+      }
+      document.querySelectorAll('#lalb button').forEach(function(b,i){ b.onclick=function(){ show(i); }; });
+      show(0);
+
+      // Lightbox
+      var lb=document.getElementById('lalbx'), lbi=document.getElementById('lalbxi'), lbc=document.getElementById('lalbxc');
+      function closeLb(){ if (lb) lb.hidden=true; document.body.style.overflow=''; }
+      if (lb) lb.onclick=function(e){ if(e.target===lb||e.target.id==='lalbx-close'||e.target.closest('#lalbx-close')) closeLb(); };
+      window.addEventListener('keydown',function(e){ if(lb && !lb.hidden && e.key==='Escape') closeLb(); });
+    })();
+
+    // 2. Stack Layers & Use Cases Matrix
+    const STACK=[
+      ["L5","使用者入口","企業通訊軟體、入口網站、AI 助理介面、主管儀表板","員工在既有工具中使用 AI，不需另學系統"],
+      ["L4","AI 產品","供應鏈規劃助理、品質異常 Agent、研發知識助理、財務分析助理","每個產品都有 PO、KPI 與版本"],
+      ["L3","Agent 編排","Multi-Agent 編排、工作流引擎、Human-in-the-Loop 核可","高風險動作必經人工複核"],
+      ["L2","模型與知識","LLM 閘道（多模型路由、配額、成本）、RAG 知識庫、ML 模型庫、評測","雲端與地端模型並用，依資料分級路由"],
+      ["L1","資料產品","湖倉（Bronze／Silver／Gold）、主資料、特徵庫、資料契約","料號、BOM、工單、良率口徑全球一致"],
+      ["L0","系統來源","SAP S/4HANA、PLM、MES、APS、QMS、測試站、IoT","以 API、CDC、事件串流讀取，不加重核心負載"],
+      ["橫向","治理與安全","身分權限、稽核日誌、模型監控、成本分攤、ISO 42001","平台內建，每個用例自動繼承"]
+    ];
+
+    const UC=[
+      ["供應鏈","缺料預警、齊套料與替代料建議、需求預測","存貨、缺料停線損失","A",9,7.2],
+      ["製造","工單排程建議、良率預測、設備預防保養","產能利用率、報廢","A",8.2,5.2],
+      ["品質","失效分析知識助理、客訴 8D 自動彙整","品質成本、客訴週期","A",7.4,8.6],
+      ["研發","規格與標準檢索、設計審查助理、測試報告分析","研發週期","B",6.2,6.3],
+      ["財務","月結異常分析、跨幣別預測、稽核抽樣","人力成本、決策速度","B",5.2,7.6],
+      ["業務","RFQ 與報價分析、合約條款比對","報價週期、毛利","B",4.6,9],
+      ["IT","AI 程式審查、測試生成、服務台 Agent","IT 成本、交付速度","C",3,9.4]
+    ];
+
+    // Generic tabs handler
+    function tabs(id, sec){
+      const box = document.querySelector(id);
+      if (!box || !sec) return;
+      box.addEventListener('click', ev => {
+        const b = ev.target.closest('.tab');
+        if (!b || b.dataset.i === undefined) return;
+        box.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === b));
+        sec.querySelectorAll('.panel').forEach(p => p.classList.toggle('on', p.dataset.p === b.dataset.i));
+        fill();
+      });
+    }
+
+    function fill(){
+      document.querySelectorAll('.panel.on .bar i').forEach(i => i.style.width = i.dataset.w + '%');
+    }
+
+    // Stack layer display
+    function showLayer(i){
+      document.querySelectorAll('.layer').forEach((b, k) => b.classList.toggle('on', k === i));
+      const l = STACK[i];
+      const el = document.getElementById('ldetail');
+      if (el && l) {
+        el.innerHTML = '<div class="eyebrow">' + l[0] + '</div><h3>' + l[1] + '</h3><p><b>元件：</b>' + l[2] + '</p><p><b>設計重點：</b>' + l[3] + '</p>';
+      }
+    }
+
+    // Matrix scatterplot
+    const colMap = { A: 'var(--green)', B: 'var(--gold)', C: 'var(--brick)' };
+    let F_filter = 'all';
+
+    function draw(){
+      const s = document.getElementById('mx');
+      if (!s) return;
+      let h = '<rect x="50" y="20" width="450" height="310" fill="none" stroke="var(--line)"/>';
+      h += '<line x1="275" y1="20" x2="275" y2="330" stroke="var(--line)" stroke-dasharray="4 4"/><line x1="50" y1="175" x2="500" y2="175" stroke="var(--line)" stroke-dasharray="4 4"/>';
+      h += '<text x="275" y="365" text-anchor="middle" font-size="13" fill="var(--mute)">可行性（資料就緒、流程負責人）→</text><text x="18" y="175" font-size="13" fill="var(--mute)" transform="rotate(-90 18 175)" text-anchor="middle">經濟效益 →</text>';
+      h += '<text x="490" y="40" text-anchor="end" font-size="12" fill="var(--gold)">優先投資</text>';
+      UC.forEach(u => {
+        const x = 50 + (u[5] / 10) * 450, y = 330 - (u[4] / 10) * 310, on = F_filter === 'all' || F_filter === u[3];
+        h += '<g opacity="' + (on ? 1 : 0.18) + '"><circle cx="' + x + '" cy="' + y + '" r="' + (u[3] === 'A' ? 22 : 16) + '" fill="' + colMap[u[3]] + '" fill-opacity=".85"/><text x="' + x + '" y="' + (y + 5) + '" text-anchor="middle" font-size="13" fill="#FAF7F2" font-weight="700">' + u[0] + '</text></g>';
+      });
+      s.innerHTML = h;
+      const uct = document.getElementById('uct');
+      if (uct) {
+        uct.innerHTML = '<tr><th>領域</th><th>代表用例</th><th>影響科目</th><th>優先</th></tr>' + UC.filter(u => F_filter === 'all' || F_filter === u[3]).map(u => '<tr><td class="lb">' + u[0] + '</td><td>' + u[1] + '</td><td>' + u[2] + '</td><td>' + u[3] + '</td></tr>').join('');
+      }
+    }
+
+    // Saving & Inventory calculator
+    function calcLiteon(){
+      const s1 = document.getElementById('s1'), s2 = document.getElementById('s2'), s3 = document.getElementById('s3');
+      if (!s1 || !s2 || !s3) return;
+      const a = +s1.value, b = +s2.value, c = +s3.value;
+      const v1 = document.getElementById('v1'), v2 = document.getElementById('v2'), v3 = document.getElementById('v3');
+      if (v1) v1.textContent = '：' + a;
+      if (v2) v2.textContent = '：' + b;
+      if (v3) v3.textContent = '：' + c;
+      const inv = a * b / 100, rel = inv * c / 100;
+      const o1 = document.getElementById('o1'), o2 = document.getElementById('o2');
+      if (o1) o1.textContent = rel.toFixed(1);
+      if (o2) o2.textContent = (rel * 0.06).toFixed(2);
+    }
+
+    // Document viewer: online preview only
+    let VD = '', VN = 0, VI = 1;
+    const V_viewer = document.getElementById('viewer');
+    function vshow(){
+      const vi = document.getElementById('vi');
+      const vc = document.getElementById('vc');
+      if (vi) vi.src = 'assets/preview/zh/' + VD + '/' + String(VI).padStart(2, '0') + '.jpg';
+      if (vc) vc.textContent = VI + ' / ' + VN;
+    }
+    document.querySelectorAll('.doc').forEach(b => {
+      b.onclick = () => {
+        VD = b.dataset.d;
+        VN = +b.dataset.n;
+        VI = 1;
+        const vt = document.getElementById('vt');
+        if (vt) vt.textContent = b.dataset.t;
+        if (V_viewer) {
+          V_viewer.hidden = false;
+          document.body.style.overflow = 'hidden';
+        }
+        vshow();
+      };
+    });
+    function vclose(){
+      if (V_viewer) {
+        V_viewer.hidden = true;
+        document.body.style.overflow = '';
+      }
+    }
+    const vxBtn = document.getElementById('vx');
+    const vpBtn = document.getElementById('vp');
+    const vnBtn = document.getElementById('vn');
+    if (vxBtn) vxBtn.onclick = vclose;
+    if (vpBtn) vpBtn.onclick = () => { if (VI > 1) { VI--; vshow(); } };
+    if (vnBtn) vnBtn.onclick = () => { if (VI < VN) { VI++; vshow(); } };
+    window.addEventListener('keydown', e => {
+      if (V_viewer && !V_viewer.hidden) {
+        if (e.key === 'Escape') vclose();
+        if (e.key === 'ArrowLeft' && vpBtn) vpBtn.click();
+        if (e.key === 'ArrowRight' && vnBtn) vnBtn.click();
+      }
+    });
+
+    // Touch support for viewer
+    let tx_pos = 0;
+    if (V_viewer) {
+      V_viewer.addEventListener('touchstart', e => tx_pos = e.touches[0].clientX, { passive: true });
+      V_viewer.addEventListener('touchend', e => {
+        const d = e.changedTouches[0].clientX - tx_pos;
+        if (d > 50 && vpBtn) vpBtn.click();
+        if (d < -50 && vnBtn) vnBtn.click();
+      });
+    }
+
+    // Init LiteOn Handlers on DOM Ready
+    document.addEventListener('DOMContentLoaded', () => {
+      tabs('#dtabs', document.getElementById('duties'));
+      tabs('#ftabs', document.getElementById('fit'));
+
+      const ptabs = document.getElementById('ptabs');
+      if (ptabs) {
+        ptabs.addEventListener('click', ev => {
+          const b = ev.target.closest('.tab');
+          if (!b) return;
+          F_filter = b.dataset.f;
+          ptabs.querySelectorAll('.tab').forEach(x => x.classList.toggle('on', x === b));
+          draw();
+        });
+        draw();
+      }
+
+      ['#s1', '#s2', '#s3'].forEach(i => {
+        const el = document.querySelector(i);
+        if (el) el.oninput = calcLiteon;
+      });
+      calcLiteon();
+
+      const phaseEl = document.getElementById('phase');
+      if (phaseEl) {
+        phaseEl.addEventListener('click', ev => {
+          const c = ev.target.closest('.card');
+          if (!c) return;
+          phaseEl.querySelectorAll('.card').forEach(x => x.classList.toggle('on', x === c));
+        });
+      }
+
+      document.querySelectorAll('.layer').forEach((b, i) => b.onclick = () => showLayer(i));
+      showLayer(3);
+    });
+
   </script>
 </body>
 </html>
