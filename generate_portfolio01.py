@@ -5276,7 +5276,7 @@ html_content = """<!DOCTYPE html>
         <button class="modal-close-btn" onclick="closeImageModal()" aria-label="關閉視窗">✕</button>
       </div>
       <div class="modal-body">
-        <img src="" alt="預覽影像" id="modalImg" class="modal-image">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E" alt="預覽影像" id="modalImg" class="modal-image" style="display:none;" onload="if(this.src && !this.src.startsWith('data:')) this.style.display='block';">
       </div>
     </div>
   </div>
@@ -5838,7 +5838,9 @@ html_content = """<!DOCTYPE html>
     // 6. Image & Proof Modal
     function openImageModal(imgSrc, title) {
       const modal = document.getElementById('previewModal');
-      document.getElementById('modalImg').src = imgSrc;
+      const img = document.getElementById('modalImg');
+      img.src = imgSrc;
+      img.style.display = 'block';
       document.getElementById('modalTitle').textContent = title || '實體出處預覽';
       modal.classList.add('open');
       document.body.style.overflow = 'hidden';
@@ -5846,7 +5848,10 @@ html_content = """<!DOCTYPE html>
 
     function closeImageModal() {
       const modal = document.getElementById('previewModal');
+      const img = document.getElementById('modalImg');
       modal.classList.remove('open');
+      img.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'/%3E";
+      img.style.display = 'none';
       document.body.style.overflow = '';
     }
 
