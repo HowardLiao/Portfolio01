@@ -12,8 +12,16 @@
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Howard Liao, Ph.D. (廖倫豪 博士) — Executive Portfolio & Leadership Dossier">
   <meta property="og:description" content="27 年跨國高科技製造、網路平台與企業系統治理歷練。米蘭風格高階數位履歷與架構戰情中心。">
-  <meta property="og:image" content="assets/og_howard_liao.jpg">
+  <meta property="og:image" content="https://howardliao.github.io/Portfolio01/assets/og_howard_liao.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://howardliao.github.io/Portfolio01/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Howard Liao, Ph.D. (廖倫豪 博士) — Executive Portfolio & Leadership Dossier">
+  <meta name="twitter:description" content="27 年跨國高科技製造、網路平台與企業系統治理歷練。米蘭風格高階數位履歷與架構戰情中心。">
+  <meta name="twitter:image" content="https://howardliao.github.io/Portfolio01/assets/og_howard_liao.jpg">
+  <meta name="theme-color" content="#A83212" id="metaThemeColor">
+  <link rel="manifest" href="manifest.json">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png">
@@ -3676,27 +3684,1206 @@ details>div {padding:0 16px 14px}
 .la-fl ol {margin:0;padding-left:20px;font-size:14px}
 .la-fl li {margin:3px 0}
 .la-ai .w {font-family:"Cormorant Garamond",serif;font-size:20px;color:var(--gold);font-weight:700}
-.la-ea {grid-template-columns:1fr}
-.la-row {grid-template-columns:110px 1fr}
-.la-lay {grid-template-columns:1fr}
-.la-3,.la-4 {grid-template-columns:1fr 1fr}
-.la-st {grid-template-columns:1fr 1fr}
-.la-zn div {grid-template-columns:1fr}
-.la-3,.la-4,.la-2,.la-st {grid-template-columns:1fr}
-.la-lb {position:fixed;inset:0;background:rgba(20,22,20,.86);z-index:200;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
+/* Fixed responsive media queries (previously stripped during merge) */
+@media (max-width: 1024px) {
+  .la-ea {grid-template-columns:1fr}
+  .la-lay {grid-template-columns:1fr}
+  .la-3,.la-4 {grid-template-columns:1fr 1fr}
+  .la-st {grid-template-columns:1fr 1fr}
+}
+@media (max-width: 720px) {
+  .la-row {grid-template-columns:1fr}
+  .la-zn div {grid-template-columns:1fr}
+  .la-3,.la-4,.la-2,.la-st {grid-template-columns:1fr}
+}
+.la-lb {position:fixed;inset:0;background:rgba(20,22,20,.86);z-index:20000;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 16px max(16px,env(safe-area-inset-left,0px))}
 .la-lb[hidden] {display:none}
 .la-lb .in {position:relative;max-width:96vw;max-height:92vh;overflow:auto;background:#FAF7F2}
 .la-lb img {display:block;max-width:none;width:min(1800px,180vw)}
 .la-lb img.doc {max-width:92vw;max-height:86vh;width:auto;height:auto;margin:auto}
 .la-lb .wm3 {position:absolute;inset:0;pointer-events:none}
-.la-lb .x {position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(18px,env(safe-area-inset-right,0px));background:var(--bg);color:var(--ink);border:1px solid var(--line);font:inherit;font-size:15px;padding:6px 14px;cursor:pointer;z-index:201}
-.la-lb .cap {position:fixed;left:50%;transform:translateX(-50%);bottom:12px;background:var(--bg);color:var(--ink);padding:6px 14px;font-size:14px;z-index:201;max-width:90vw}
-header.nav,.btns,.tabs,.tbtn,.calc {display:none}
-.panel {display:block!important;margin-bottom:16px}
+.la-lb .x {position:fixed;top:max(14px,env(safe-area-inset-top,0px));right:max(18px,env(safe-area-inset-right,0px));background:var(--bg);color:var(--ink);border:1px solid var(--line);font:inherit;font-size:15px;padding:6px 14px;cursor:pointer;z-index:20001}
+.la-lb .cap {position:fixed;left:50%;transform:translateX(-50%);bottom:12px;background:var(--bg);color:var(--ink);padding:6px 14px;font-size:14px;z-index:20001;max-width:90vw}
 
-  </style>
+@media print {
+  header.nav, header.masthead, .mobile-bottom-dock, .nav-drawer, .nav-drawer-backdrop,
+  .neon-chapter-rail, .neon-back-top, .neon-reading-progress, .neon-cmd-backdrop,
+  .neon-theme-popover, .btns, .tabs, .tbtn, .calc, .floating-fab, .toast {
+    display: none !important;
+  }
+  .panel { display: block !important; margin-bottom: 16px; }
+  body { background: #FFFFFF !important; color: #1A202C !important; padding-bottom: 0 !important; }
+  section, .card, .hero-bento, .metric-card, .case-card { break-inside: avoid; box-shadow: none !important; }
+}
+
+/* ==========================================================================
+   NEON EXECUTIVE REFINEMENT SUITE v2.0
+   - 6-Theme Executive Design System (Milan / Obsidian / Pharaoh / Klimt / Ninagawa / Miró)
+   - Strict Mobile/Tablet RWD Guardrails (Fixes 943px Zoom-Out & Nav Overflow)
+   - Reading Progress Bar, Command Palette (Cmd+K), Floating Chapter Rail, Back-to-Top
+   - Typography & Micro-Interaction Polish
+   ========================================================================== */
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+body {
+  overflow-x: clip;
+  max-width: 100vw;
+  transition: background-color 0.28s ease, color 0.28s ease;
+}
+h1, h2, h3, .section-title, .hero-name {
+  text-wrap: balance;
+}
+.metric-val, .metric-value, .kpi-num, td, .calc-res-val {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Refined museum-grade watermark opacity so it never competes with body/calculator text */
+.watermark-overlay {
+  opacity: 0.12 !important;
+}
+
+/* Fix masthead brand & responsive breakpoint override (line 3375 fix) */
+.masthead-brand {
+  flex-shrink: 0 !important;
+  white-space: nowrap !important;
+}
+.masthead-inner {
+  gap: 10px !important;
+}
+@media (max-width: 1220px) {
+  .masthead-nav {
+    display: none !important;
+  }
+  .btn-nav-trigger {
+    display: inline-flex !important;
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+    max-width: 100% !important;
+  }
+  .hero-bento {
+    padding: 22px 18px !important;
+  }
+  .metrics-grid, .pillars-grid, .cases-grid, .evidence-grid, .calc-grid,
+  .arch-hub-grid, .docs-grid, .uml-grid, .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr !important;
+  }
+  .filter-bar, .evidence-filters, .tabs, #dtabs, #ftabs, #ptabs {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+    gap: 8px;
+    padding-bottom: 6px;
+    scrollbar-width: none;
+  }
+  .filter-bar::-webkit-scrollbar, .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .filter-chip, .tab {
+    flex-shrink: 0 !important;
+    white-space: nowrap !important;
+  }
+  .brand-title {
+    display: none !important;
+  }
+  .lang-btn {
+    padding: 4px 7px !important;
+    font-size: 0.72rem !important;
+  }
+  .neon-icon-btn .btn-label-desk {
+    display: none !important;
+  }
+}
+@media (max-width: 560px) {
+  .masthead-inner {
+    gap: 6px !important;
+  }
+  .masthead-actions {
+    gap: 5px !important;
+  }
+  .masthead-actions .lang-switcher {
+    display: none !important;
+  }
+  .neon-icon-btn {
+    width: 34px !important;
+    padding: 0 !important;
+  }
+  .btn-nav-trigger {
+    display: inline-flex !important;
+    padding: 6px 11px !important;
+    font-size: 0.78rem !important;
+  }
+}
+
+/* Responsive Table Scroll Wrapper */
+.table-scroll-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  margin: 12px 0;
+  position: relative;
+}
+.table-scroll-hint {
+  display: none;
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: var(--accent-orange);
+  text-align: right;
+  padding: 0 4px 6px;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 900px) {
+  .table-scroll-hint {
+    display: block;
+  }
+}
+
+/* Reading Progress Bar */
+.neon-reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-rust), var(--accent-orange), var(--accent-gold));
+  z-index: 20050;
+  transition: width 0.08s linear;
+  pointer-events: none;
+}
+
+/* Header Action Icon Buttons (Search + Theme) */
+.neon-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  height: 34px;
+  padding: 0 11px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.neon-icon-btn:hover {
+  border-color: var(--accent-orange);
+  color: var(--accent-rust);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-sm);
+}
+.neon-kbd {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: rgba(168, 50, 18, 0.08);
+  color: var(--accent-rust);
+  border: 1px solid rgba(168, 50, 18, 0.16);
+}
+
+/* Theme Popover Menu */
+.neon-theme-wrap {
+  position: relative;
+}
+.neon-theme-popover {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  width: 244px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 16px;
+  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.18);
+  padding: 10px;
+  z-index: 15000;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+}
+.neon-theme-popover.open {
+  display: flex;
+}
+.neon-theme-title {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 4px 8px 6px;
+  border-bottom: 1px solid var(--border-main);
+  margin-bottom: 4px;
+}
+.neon-theme-opt {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-primary);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.15s ease;
+}
+.neon-theme-opt:hover {
+  background: var(--bg-card-subtle);
+}
+.neon-theme-opt.active {
+  border-color: var(--accent-orange);
+  background: var(--bg-card-subtle);
+  color: var(--accent-rust);
+}
+.neon-swatch {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 2px solid rgba(128,128,128,0.25);
+}
+
+/* Global Command Search Palette (Cmd+K) */
+.neon-cmd-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.58);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 25000;
+  display: none;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 10vh 16px 24px;
+}
+.neon-cmd-backdrop.open {
+  display: flex;
+}
+.neon-cmd-modal {
+  width: 100%;
+  max-width: 620px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.32);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-height: 76vh;
+}
+.neon-cmd-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-main);
+}
+.neon-cmd-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  font-family: inherit;
+}
+.neon-cmd-results {
+  overflow-y: auto;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.neon-cmd-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.14s ease;
+}
+.neon-cmd-item:hover, .neon-cmd-item.selected {
+  background: var(--bg-card-subtle);
+  border-color: var(--border-accent);
+}
+.neon-cmd-item-title {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.neon-cmd-item-sub {
+  font-size: 0.74rem;
+  color: var(--text-muted);
+}
+.neon-cmd-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(222, 88, 20, 0.12);
+  color: var(--accent-rust);
+  white-space: nowrap;
+}
+.neon-cmd-foot {
+  padding: 8px 14px;
+  border-top: 1px solid var(--border-main);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Floating Right Chapter Rail (Desktop >= 1360px) */
+.neon-chapter-rail {
+  position: fixed;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9000;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 10px 6px;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-main);
+  box-shadow: var(--shadow-md);
+  opacity: 0.88;
+  transition: opacity 0.2s ease;
+}
+.neon-chapter-rail:hover {
+  opacity: 1;
+}
+@media (max-width: 1360px) {
+  .neon-chapter-rail { display: none !important; }
+}
+.neon-rail-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--border-subtle);
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.neon-rail-dot:hover, .neon-rail-dot.active {
+  background: var(--accent-orange);
+  transform: scale(1.35);
+}
+.neon-rail-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--text-primary);
+  color: var(--bg-card);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.16s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+}
+.neon-rail-dot:hover::after {
+  opacity: 1;
+}
+
+/* Smart Back-to-Top FAB (auto clears Mobile Bottom Dock) */
+.neon-back-top {
+  position: fixed;
+  right: 18px;
+  bottom: 24px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-accent);
+  background: var(--bg-card);
+  color: var(--accent-rust);
+  font-size: 1.1rem;
+  font-weight: 800;
+  box-shadow: var(--shadow-md);
+  cursor: pointer;
+  z-index: 9500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(14px);
+  pointer-events: none;
+  transition: all 0.22s ease;
+}
+.neon-back-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.neon-back-top:hover {
+  background: var(--accent-rust);
+  color: #FFFFFF;
+}
+@media (max-width: 1024px) {
+  .neon-back-top {
+    bottom: 84px !important;
+    right: 14px !important;
+  }
+}
+
+/* Subtle section highlight pulse after jump */
+@keyframes neonPulse {
+  0% { box-shadow: 0 0 0 0 rgba(222, 88, 20, 0.35); }
+  100% { box-shadow: 0 0 0 18px rgba(222, 88, 20, 0); }
+}
+.neon-jump-highlight {
+  animation: neonPulse 0.9s ease-out;
+}
+
+/* ==========================================================================
+   6-THEME EXECUTIVE DESIGN SYSTEM OVERRIDES
+   ========================================================================== */
+
+/* Theme 2: Deep Obsidian (Cyber Tech Dark) */
+html[data-theme="obsidian"] {
+  --bg-base: #020617;
+  --bg-canvas: #070D1F;
+  --bg-surface: #0B1224;
+  --bg: #020617;
+  --card: #0F172A;
+  --bg-card: #0F172A;
+  --bg-card-subtle: #162038;
+  --bg-card-muted: #111C33;
+  --border-main: #1E293B;
+  --border-subtle: #334155;
+  --line: #1E293B;
+  --border-accent: #38BDF8;
+  --border-gold: #F59E0B;
+  --text-primary: #F8FAFC;
+  --ink: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --muted: #94A3B8;
+  --accent-rust: #38BDF8;
+  --accent-orange: #0EA5E9;
+  --accent-amber: #F59E0B;
+  --accent-gold: #FBBF24;
+  --green: #10B981;
+  --brick: #38BDF8;
+  --gold: #F59E0B;
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 18px 42px rgba(0, 0, 0, 0.55);
+}
+html[data-theme="obsidian"] .masthead {
+  background: rgba(2, 6, 23, 0.92) !important;
+  border-bottom-color: #1E293B !important;
+}
+html[data-theme="obsidian"] .masthead-nav,
+html[data-theme="obsidian"] .lang-switcher {
+  background: rgba(15, 23, 42, 0.9) !important;
+  border-color: #334155 !important;
+}
+html[data-theme="obsidian"] .nav-drop,
+html[data-theme="obsidian"] .nav-drawer,
+html[data-theme="obsidian"] .mobile-bottom-dock,
+html[data-theme="obsidian"] .hero-bento,
+html[data-theme="obsidian"] .metric-card,
+html[data-theme="obsidian"] .case-card,
+html[data-theme="obsidian"] .evidence-card,
+html[data-theme="obsidian"] .calc-card,
+html[data-theme="obsidian"] .faq-item,
+html[data-theme="obsidian"] .card,
+html[data-theme="obsidian"] .panel {
+  background: #0F172A !important;
+  border-color: #1E293B !important;
+  color: #F8FAFC !important;
+}
+html[data-theme="obsidian"] .nav-drop a {
+  color: #E2E8F0 !important;
+}
+html[data-theme="obsidian"] .nav-drop a:hover {
+  background: #1E293B !important;
+  color: #38BDF8 !important;
+}
+html[data-theme="obsidian"],
+html[data-theme="obsidian"] body,
+html[data-theme="obsidian"] main,
+html[data-theme="obsidian"] section,
+html[data-theme="obsidian"] .hero-section,
+html[data-theme="obsidian"] .metrics-section,
+html[data-theme="obsidian"] .calc-section,
+html[data-theme="obsidian"] .gates-section,
+html[data-theme="obsidian"] .pillars-section,
+html[data-theme="obsidian"] .stepper-section,
+html[data-theme="obsidian"] .strategic-section,
+html[data-theme="obsidian"] .arch-section,
+html[data-theme="obsidian"] .uml-section,
+html[data-theme="obsidian"] .timeline-section,
+html[data-theme="obsidian"] .cases-section,
+html[data-theme="obsidian"] .evidence-section,
+html[data-theme="obsidian"] .edu-section,
+html[data-theme="obsidian"] .faq-section,
+html[data-theme="obsidian"] .plan-section {
+  background: #020617 !important;
+  background-image: none !important;
+  color: #F8FAFC !important;
+}
+html[data-theme="obsidian"] .neon-icon-btn {
+  background: #0F172A !important;
+  color: #E2E8F0 !important;
+  border-color: #334155 !important;
+}
+html[data-theme="obsidian"] .neon-kbd {
+  background: rgba(56, 189, 248, 0.14) !important;
+  color: #38BDF8 !important;
+  border-color: rgba(56, 189, 248, 0.3) !important;
+}
+html[data-theme="obsidian"] .nav-pill.strategic-pill {
+  color: #38BDF8 !important;
+  background: rgba(56, 189, 248, 0.14) !important;
+  border-color: rgba(56, 189, 248, 0.35) !important;
+}
+html[data-theme="obsidian"] .btn-hero-secondary,
+html[data-theme="obsidian"] .btn-secondary {
+  background: #1E293B !important;
+  color: #F8FAFC !important;
+  border-color: #334155 !important;
+}
+html[data-theme="obsidian"] .watermark-overlay {
+  opacity: 0.04 !important;
+  filter: invert(1);
+}
+html[data-theme="obsidian"] table th {
+  background: #1E293B !important;
+  color: #F8FAFC !important;
+}
+html[data-theme="obsidian"] table td {
+  background: #0F172A !important;
+  color: #E2E8F0 !important;
+  border-color: #1E293B !important;
+}
+
+/* Theme 3: Egyptian Pharaoh (Pure White & Royal Gold/Amber) */
+html[data-theme="pharaoh"] {
+  --bg-base: #FFFFFF;
+  --bg-canvas: #FFFDF9;
+  --bg-surface: #FFF8EE;
+  --bg: #FFFFFF;
+  --card: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #FBE8D7;
+  --border-main: #F3D5B5;
+  --border-subtle: #E7BC91;
+  --border-accent: #E87524;
+  --border-gold: #E5B300;
+  --text-primary: #222222;
+  --ink: #222222;
+  --text-secondary: #444444;
+  --text-muted: #666666;
+  --accent-rust: #B6532D;
+  --accent-orange: #E87524;
+  --accent-amber: #D98B19;
+  --accent-gold: #E5B300;
+}
+
+/* Theme 4: Gustav Klimt (Deep Indigo & Gilded Gold) */
+html[data-theme="klimt"] {
+  --bg-base: #120F1D;
+  --bg-canvas: #181426;
+  --bg-surface: #1D182E;
+  --bg: #120F1D;
+  --card: #1E1930;
+  --bg-card: #1E1930;
+  --bg-card-subtle: #2A2340;
+  --bg-card-muted: #231D36;
+  --border-main: #3A3054;
+  --border-subtle: #504270;
+  --line: #3A3054;
+  --border-accent: #F59E0B;
+  --border-gold: #FBBF24;
+  --text-primary: #FEFCE8;
+  --ink: #FEFCE8;
+  --text-secondary: #E7E5D8;
+  --text-muted: #B8B2C8;
+  --accent-rust: #F59E0B;
+  --accent-orange: #D97706;
+  --accent-amber: #FBBF24;
+  --accent-gold: #FDE047;
+}
+html[data-theme="klimt"] .masthead {
+  background: rgba(18, 15, 29, 0.94) !important;
+  border-bottom-color: #3A3054 !important;
+}
+html[data-theme="klimt"] .masthead-nav,
+html[data-theme="klimt"] .lang-switcher {
+  background: rgba(30, 25, 48, 0.92) !important;
+  border-color: #504270 !important;
+}
+html[data-theme="klimt"] .nav-drop,
+html[data-theme="klimt"] .nav-drawer,
+html[data-theme="klimt"] .mobile-bottom-dock,
+html[data-theme="klimt"] .hero-bento,
+html[data-theme="klimt"] .metric-card,
+html[data-theme="klimt"] .case-card,
+html[data-theme="klimt"] .evidence-card,
+html[data-theme="klimt"] .calc-card,
+html[data-theme="klimt"] .faq-item,
+html[data-theme="klimt"] .card,
+html[data-theme="klimt"] .panel {
+  background: #1E1930 !important;
+  border-color: #3A3054 !important;
+  color: #FEFCE8 !important;
+}
+html[data-theme="klimt"],
+html[data-theme="klimt"] body,
+html[data-theme="klimt"] main,
+html[data-theme="klimt"] section {
+  background: #120F1D !important;
+  background-image: none !important;
+  color: #FEFCE8 !important;
+}
+html[data-theme="klimt"] .neon-icon-btn {
+  background: #1E1930 !important;
+  color: #FEFCE8 !important;
+  border-color: #504270 !important;
+}
+html[data-theme="klimt"] .nav-pill.strategic-pill {
+  color: #FBBF24 !important;
+  background: rgba(245, 158, 11, 0.16) !important;
+  border-color: rgba(245, 158, 11, 0.38) !important;
+}
+html[data-theme="klimt"] .watermark-overlay {
+  opacity: 0.04 !important;
+  filter: invert(1);
+}
+html[data-theme="klimt"] table th {
+  background: #2A2340 !important;
+  color: #FDE047 !important;
+}
+html[data-theme="klimt"] table td {
+  background: #1E1930 !important;
+  color: #FEFCE8 !important;
+  border-color: #3A3054 !important;
+}
+
+/* Theme 5: Mika Ninagawa (Vivid Floral Editorial) */
+html[data-theme="ninagawa"] {
+  --bg-base: #FFF5F7;
+  --bg-canvas: #FFF0F3;
+  --bg-surface: #FFE4EC;
+  --bg: #FFF5F7;
+  --card: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #FFE4EE;
+  --border-main: #FBCFE8;
+  --border-subtle: #F9A8D4;
+  --border-accent: #E11D48;
+  --border-gold: #A21CAF;
+  --text-primary: #1F1226;
+  --ink: #1F1226;
+  --text-secondary: #4A235A;
+  --text-muted: #7B4B7A;
+  --accent-rust: #BE123C;
+  --accent-orange: #E11D48;
+  --accent-amber: #A21CAF;
+  --accent-gold: #06B6D4;
+}
+
+/* Theme 6: Joan Miró (Bold Primary Modernism) */
+html[data-theme="miro"] {
+  --bg-base: #FAF7F2;
+  --bg-canvas: #F5F0E6;
+  --bg-surface: #EFE9DC;
+  --bg: #FAF7F2;
+  --card: #FFFFFF;
+  --bg-card: #FFFFFF;
+  --bg-card-subtle: #FEF9C3;
+  --border-main: #18181B;
+  --border-subtle: #D4D4D8;
+  --border-accent: #DC2626;
+  --border-gold: #2563EB;
+  --text-primary: #111111;
+  --ink: #111111;
+  --text-secondary: #27272A;
+  --text-muted: #52525B;
+  --accent-rust: #DC2626;
+  --accent-orange: #2563EB;
+  --accent-amber: #FBBF24;
+  --accent-gold: #EAB308;
+}
+
+  
+/* ==========================================================================
+   NEON INTERACTIVE GRAPHICAL DUTIES SECTION (#duties)
+   ========================================================================== */
+.nd-header-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+.nd-tour-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.nd-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.nd-ctrl-btn:hover, .nd-ctrl-btn.active {
+  border-color: var(--accent-orange);
+  background: var(--accent-rust);
+  color: #FFFFFF;
+}
+
+/* 6-Card Visual Mandate Selector Grid */
+.nd-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+@media (max-width: 960px) {
+  .nd-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .nd-grid {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 10px;
+    padding-bottom: 8px;
+    scrollbar-width: none;
+  }
+  .nd-grid::-webkit-scrollbar { display: none; }
+  .nd-card-btn {
+    min-width: 225px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
+.nd-card-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 15px 16px;
+  border-radius: 16px;
+  border: 1.5px solid var(--border-main);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+  overflow: hidden;
+}
+.nd-card-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent-rust), var(--accent-orange), var(--accent-gold));
+  opacity: 0;
+  transition: opacity 0.22s ease;
+}
+.nd-card-btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-orange);
+  box-shadow: var(--shadow-md);
+}
+.nd-card-btn.on {
+  border-color: var(--accent-rust);
+  background: var(--bg-card-subtle);
+  box-shadow: 0 10px 26px rgba(168, 50, 18, 0.14);
+}
+.nd-card-btn.on::before { opacity: 1; }
+.nd-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 8px;
+}
+.nd-num-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: rgba(168, 50, 18, 0.1);
+  color: var(--accent-rust);
+}
+.nd-card-btn.on .nd-num-badge {
+  background: var(--accent-rust);
+  color: #FFFFFF;
+}
+.nd-kpi-pill {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: rgba(217, 139, 25, 0.14);
+  color: var(--accent-amber);
+  white-space: nowrap;
+}
+.nd-card-title {
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1.38;
+  color: var(--text-primary);
+}
+.nd-card-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.35;
+}
+
+/* Split Interactive Stage (SVG Diagram + Executive Playbook) */
+.nd-stage {
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  gap: 18px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-main);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 28px;
+}
+@media (max-width: 960px) {
+  .nd-stage {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+}
+.nd-visual-pane {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--bg-canvas);
+  border: 1px solid var(--border-main);
+  border-radius: 16px;
+  padding: 16px;
+  min-height: 330px;
+  position: relative;
+  overflow: hidden;
+}
+.nd-visual-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.nd-visual-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-rust);
+  background: rgba(168, 50, 18, 0.09);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.nd-svg-host {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.nd-svg-host svg {
+  width: 100%;
+  height: auto;
+  max-height: 290px;
+  display: block;
+}
+.nd-visual-caption {
+  margin-top: 10px;
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-top: 1px dashed var(--border-subtle);
+  padding-top: 8px;
+}
+
+/* Right Executive Playbook */
+.nd-detail-pane {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.nd-detail-title {
+  font-size: 1.18rem;
+  font-weight: 900;
+  line-height: 1.35;
+  color: var(--text-primary);
+  margin: 0;
+}
+.nd-playbook-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+.nd-step-box {
+  padding: 13px 15px;
+  border-radius: 14px;
+  border: 1px solid var(--border-main);
+  background: var(--bg-canvas);
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.nd-step-box:hover {
+  border-color: var(--accent-orange);
+  transform: translateX(3px);
+}
+.nd-step-box.target-kpi {
+  border-color: var(--accent-orange);
+  background: linear-gradient(135deg, rgba(168, 50, 18, 0.08), rgba(217, 139, 25, 0.08));
+}
+.nd-step-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--accent-rust);
+  margin-bottom: 5px;
+}
+.nd-step-text {
+  font-size: 0.9rem;
+  line-height: 1.62;
+  color: var(--text-secondary);
+  margin: 0;
+}
+.nd-step-box.target-kpi .nd-step-text {
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.nd-stage-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-main);
+}
+
+/* Interactive Qualification Fit Scoreboard */
+.nd-fit-wrap {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-main);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: var(--shadow-sm);
+}
+.nd-fit-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 18px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border-main);
+}
+.nd-fit-score-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.nd-fit-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.nd-fit-chip {
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-canvas);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.18s ease;
+}
+.nd-fit-chip.on, .nd-fit-chip:hover {
+  background: var(--accent-rust);
+  border-color: var(--accent-rust);
+  color: #FFFFFF;
+}
+.nd-fit-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+@media (max-width: 820px) {
+  .nd-fit-grid { grid-template-columns: 1fr; }
+}
+.nd-fit-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px 16px;
+  border-radius: 14px;
+  border: 1px solid var(--border-main);
+  background: var(--bg-canvas);
+  transition: all 0.2s ease;
+}
+.nd-fit-card:hover {
+  border-color: var(--accent-orange);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+.nd-fit-card.hidden-card {
+  display: none;
+}
+.nd-fit-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.nd-fit-badge {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+}
+.nd-fit-badge.req {
+  background: rgba(168, 50, 18, 0.12);
+  color: var(--accent-rust);
+}
+.nd-fit-badge.bonus {
+  background: rgba(217, 139, 25, 0.16);
+  color: var(--accent-amber);
+}
+.nd-fit-pass {
+  font-size: 0.74rem;
+  font-weight: 800;
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.nd-fit-title {
+  font-size: 0.94rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+.nd-fit-proof {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.nd-fit-bar {
+  height: 5px;
+  border-radius: 999px;
+  background: var(--border-main);
+  overflow: hidden;
+  margin-top: 2px;
+}
+.nd-fit-bar i {
+  display: block;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent-rust), var(--accent-orange), #10B981);
+}
+
+/* SVG subtle pulse animation */
+@keyframes ndPulseFlow {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 1; }
+}
+.nd-pulse {
+  animation: ndPulseFlow 2.2s ease-in-out infinite;
+}
+
+/* Dark theme overrides for #duties */
+html[data-theme="obsidian"] .nd-stage,
+html[data-theme="obsidian"] .nd-fit-wrap,
+html[data-theme="obsidian"] .nd-card-btn {
+  background: #0F172A !important;
+  border-color: #1E293B !important;
+}
+html[data-theme="obsidian"] .nd-card-btn.on {
+  background: #162038 !important;
+  border-color: #38BDF8 !important;
+}
+html[data-theme="obsidian"] .nd-visual-pane,
+html[data-theme="obsidian"] .nd-step-box,
+html[data-theme="obsidian"] .nd-fit-card {
+  background: #070D1F !important;
+  border-color: #1E293B !important;
+}
+html[data-theme="klimt"] .nd-stage,
+html[data-theme="klimt"] .nd-fit-wrap,
+html[data-theme="klimt"] .nd-card-btn {
+  background: #1E1930 !important;
+  border-color: #3A3054 !important;
+}
+html[data-theme="klimt"] .nd-visual-pane,
+html[data-theme="klimt"] .nd-step-box,
+html[data-theme="klimt"] .nd-fit-card {
+  background: #120F1D !important;
+  border-color: #3A3054 !important;
+}
+
+</style>
 </head>
 <body>
+
+  <!-- Neon Reading Progress Bar -->
+  <div class="neon-reading-progress" id="neonReadingProgress" aria-hidden="true"></div>
 
   <!-- Micro Watermark -->
   <div class="watermark-overlay" aria-hidden="true"></div>
@@ -3816,8 +5003,25 @@ header.nav,.btns,.tabs,.tbtn,.calc {display:none}
         </div>
       </nav>
 
-      <!-- Masthead Action Bar (Language Switcher & Nav) -->
+      <!-- Masthead Action Bar (Search, 6-Theme Switcher, Language Switcher & Nav) -->
       <div class="masthead-actions">
+        <button class="neon-icon-btn" id="neonSearchBtn" onclick="openNeonSearch()" aria-label="全域快速檢索 (⌘K)" title="全域快速檢索 (⌘K)">
+          <span>🔍</span><span class="btn-label-desk">檢索</span><span class="neon-kbd btn-label-desk">⌘K</span>
+        </button>
+        <div class="neon-theme-wrap">
+          <button class="neon-icon-btn" id="neonThemeBtn" onclick="toggleThemePopover(event)" aria-label="切換 6 大設計主題" aria-expanded="false" title="切換 6 大設計主題">
+            <span>🎨</span><span class="btn-label-desk">主題</span>
+          </button>
+          <div class="neon-theme-popover" id="neonThemePopover" role="menu">
+            <div class="neon-theme-title">6-Theme Executive System</div>
+            <button class="neon-theme-opt active" data-theme-val="milan" onclick="setExecutiveTheme('milan')"><span class="neon-swatch" style="background:linear-gradient(135deg,#FDFBF7 45%,#A83212 55%)"></span>米蘭暖琥珀 (預設)</button>
+            <button class="neon-theme-opt" data-theme-val="obsidian" onclick="setExecutiveTheme('obsidian')"><span class="neon-swatch" style="background:linear-gradient(135deg,#020617 45%,#38BDF8 55%)"></span>曜石黑戰情 (Dark)</button>
+            <button class="neon-theme-opt" data-theme-val="pharaoh" onclick="setExecutiveTheme('pharaoh')"><span class="neon-swatch" style="background:linear-gradient(135deg,#FFFFFF 45%,#E87524 55%)"></span>埃及法老金</button>
+            <button class="neon-theme-opt" data-theme-val="klimt" onclick="setExecutiveTheme('klimt')"><span class="neon-swatch" style="background:linear-gradient(135deg,#120F1D 45%,#F59E0B 55%)"></span>克林姆金箔 (Dark)</button>
+            <button class="neon-theme-opt" data-theme-val="ninagawa" onclick="setExecutiveTheme('ninagawa')"><span class="neon-swatch" style="background:linear-gradient(135deg,#FFF5F7 45%,#E11D48 55%)"></span>蜷川實花美學</button>
+            <button class="neon-theme-opt" data-theme-val="miro" onclick="setExecutiveTheme('miro')"><span class="neon-swatch" style="background:linear-gradient(135deg,#DC2626 45%,#2563EB 55%)"></span>胡安・米羅現代</button>
+          </div>
+        </div>
         <div class="lang-switcher" role="group" aria-label="語言切換 Language Switcher">
           <button class="lang-btn active" id="btn-lang-zh" onclick="setLanguage('zh')">繁中</button>
           <button class="lang-btn" id="btn-lang-en" onclick="setLanguage('en')">EN</button>
@@ -4324,16 +5528,499 @@ header.nav,.btns,.tabs,.tbtn,.calc {display:none}
          ========================================================================== -->
     <section id="duties" class="strategic-section reveal" aria-label="企業級 AI 專區 - duties">
       <div class="container">
-<div class="eyebrow">02 · Mandate</div>
- <h2>職缺六項工作內容 × 我的做法與實績</h2><p class="sub">Six responsibilities, one operating model</p>
- <div class="tabs" id="dtabs"><button class="tab on" data-i="0">01</button><button class="tab" data-i="1">02</button><button class="tab" data-i="2">03</button><button class="tab" data-i="3">04</button><button class="tab" data-i="4">05</button><button class="tab" data-i="5">06</button></div>
- <div class="panel card on" data-p="0"><div class="duty"><div class="num">01</div><div><h3>與高階主管定義優先導入 AI 領域，規劃 AI 平台藍圖</h3><dl><dt>我的做法</dt><dd>以「經濟效益 × 可行性 × 可重用」三軸評分，與事業群主管共同排定投資組合；用一頁式決策表向經營層呈核。</dd><dt>做過的實績</dt><dd>曾為集團撰寫年度 IT 策略與投資計畫並呈報 CEO 與經管會，以策略支柱與 Run／Grow／Transform 預算框架落地。</dd><dt>到任指標</dt><dd><b>90 天內交出 AI 價值地圖與前 5 大用例財務假設</b></dd></dl></div></div></div><div class="panel card" data-p="1"><div class="duty"><div class="num">02</div><div><h3>把零散應用做成可重複使用的資料產品與平台</h3><dl><dt>我的做法</dt><dd>抽出模型閘道、知識庫、資料產品、Agent 編排與監控等共用元件；以黃金路徑讓新用例照範本上線。</dd><dt>做過的實績</dt><dd>隆中網絡（6542）把各專案自建環境改為平台提供標準元件，核心服務零停機、TCO −30%；設計多模型網關與企業任務中樞的參考架構。</dd><dt>到任指標</dt><dd><b>新用例上線時間由「月」縮短為「週」</b></dd></dl></div></div></div><div class="panel card" data-p="2"><div class="duty"><div class="num">03</div><div><h3>建立和 SAP、PLM、MES 互補的 AI stack</h3><dl><dt>我的做法</dt><dd>不動 SAP 核心、不重造 MES／PLM；以 API、CDC 與事件串流讀取資料，AI 產出「建議」回寫，經人員核可後執行。</dd><dt>做過的實績</dt><dd>泓晏科技以 SAP S/4HANA 串接 MES、PLM、APS，加上 Edge AIoT 與 AI 不良預測：良率 +15%、OEE +18%；規劃 PLM→SAP→MES 單一數據流的整合藍圖。</dd><dt>到任指標</dt><dd><b>S/4HANA 上線後 6 個月內首批供應鏈 AI 用例上線</b></dd></dl></div></div></div><div class="panel card" data-p="3"><div class="duty"><div class="num">04</div><div><h3>組建 AI 組織與人才梯隊，帶領 AI 技術主管與工程師</h3><dl><dt>我的做法</dt><dd>「中央平台＋事業群嵌入」雙軌組織；技術主管能力模型、九大技術發展路線與接班計畫。</dd><dt>做過的實績</dt><dd>跨國網路科技集團帶領高雄、台北、上海三地 30 人以上團隊；完成企劃、前端、後端與 DBA 從零到一的組織重整，建立職務說明與能力評核。</dd><dt>到任指標</dt><dd><b>每位技術主管至少一位可接手人選</b></dd></dl></div></div></div><div class="panel card" data-p="4"><div class="duty"><div class="num">05</div><div><h3>推動業務主導的平台團隊與企業內部 PO 培養，帶動 AI 原生的工作方式</h3><dl><dt>我的做法</dt><dd>PO 學院：業務主管學會寫用例財務假設與驗收標準；Champions 網絡；「主管先學、IT 先試、有成效再擴散」。</dd><dt>做過的實績</dt><dd>跨國網路科技集團開設主管 AI 工作流特訓，依 ISO 42001 建立使用規範；Agentic AI 工作流使流程自動化效率 +55%。</dd><dt>到任指標</dt><dd><b>第一年 30 位認證 PO</b></dd></dl></div></div></div><div class="panel card" data-p="5"><div class="duty"><div class="num">06</div><div><h3>定期向高階主管與事業單位主管報告成效</h3><dl><dt>我的做法</dt><dd>月度 AI 價值儀表板、季度 AI 投資委員會、半年向董事長報告；用 EBITDA、ROI、TCO 的語言。</dd><dt>做過的實績</dt><dd>直報董事會與 Global CIO 逾 10 年；以平衡計分卡與一頁式決策表每季報告里程碑。</dd><dt>到任指標</dt><dd><b>每季公開檢視效益，財務長確認金額</b></dd></dl></div></div></div>
- <h3 style="margin-top:28px">必要條件與加分條件</h3>
- <div class="tw"><table><tr><th>條件</th><th>我的證據</th><th>結果</th></tr>
- <tr><td class="lb">學歷、產業背景不限</td><td>資訊科技管理博士；電子製造、外商軟體、上市櫃平台三種產業</td><td>符合</td></tr><tr><td class="lb">10 年以上帶領 AI／資料團隊</td><td>2014 起任資訊科技副總帶 50 人以上研發與大數據團隊；2018 起任資訊長暨資安長帶 AIoT 與 AI 良率團隊；2022 起帶資料平台；2025 起帶 Agentic AI 團隊，累計逾 12 年</td><td>符合</td></tr><tr><td class="lb">主導 AI 平台或產品上線並交出可量化成果</td><td>AI 不良預測：良率 +15%、OEE +18%；Agentic AI：自動化效率 +55%</td><td>符合</td></tr>
- <tr><td class="lb">加分｜從零建立 AI／資料平台與團隊</td><td>泓晏科技 Edge AIoT 數據中台、跨國高科技企業 AI 治理與 Agent 平台，皆從零開始</td><td>符合</td></tr><tr><td class="lb">加分｜與 C-Level 或高階主管溝通</td><td>直報董事會與跨國高管；以 EBITDA、TCO、ROIC 報告</td><td>符合</td></tr><tr><td class="lb">加分｜CIO 或 IT 部門主管經驗</td><td>高階技術主管、資訊科技負責人、IT Director 與架構主管職涯逾 12 年</td><td>符合</td></tr><tr><td class="lb">加分｜國內大型企業數位轉型</td><td>多廠 S/4HANA 整併、全球核心服務遷移不停機、集團中央資訊架構</td><td>符合</td></tr>
- </table></div>
+        <div class="nd-header-row">
+          <div>
+            <div class="eyebrow">02 · Mandate · Interactive Operating Model</div>
+            <h2>職缺六項工作內容 × 我的做法與實績</h2>
+            <p class="sub" style="margin-bottom:0">Six responsibilities, one visual operating model — 點選任一職責切換互動架構圖與實績拆解</p>
+          </div>
+          <div class="nd-tour-controls">
+            <button type="button" class="nd-ctrl-btn" id="ndAutoTourBtn" onclick="window.toggleDutyTour()">▶ 自動導覽 6 大職責</button>
+            <button type="button" class="nd-ctrl-btn" onclick="window.stepDuty(-1)" aria-label="上一項">←</button>
+            <button type="button" class="nd-ctrl-btn" onclick="window.stepDuty(1)" aria-label="下一項">→</button>
+          </div>
+        </div>
+
+        <!-- 6 Interactive Visual Mandate Cards -->
+        <div class="nd-grid" id="ndGrid" role="tablist" aria-label="六項工作內容導覽">
+          <button type="button" class="nd-card-btn on" data-duty="0" role="tab" aria-selected="true" onclick="window.selectDuty(0)">
+            <div class="nd-card-top"><span class="nd-num-badge">🧭 01</span><span class="nd-kpi-pill">90 天前 5 用例</span></div>
+            <div class="nd-card-title">定義優先 AI 領域與平台藍圖</div>
+            <div class="nd-card-sub">三軸評分 × Run / Grow / Transform</div>
+          </button>
+          <button type="button" class="nd-card-btn" data-duty="1" role="tab" aria-selected="false" onclick="window.selectDuty(1)">
+            <div class="nd-card-top"><span class="nd-num-badge">🧱 02</span><span class="nd-kpi-pill">TCO −30%｜月→週</span></div>
+            <div class="nd-card-title">零散應用升級為共用資料產品平台</div>
+            <div class="nd-card-sub">模型閘道・知識庫・黃金路徑範本</div>
+          </button>
+          <button type="button" class="nd-card-btn" data-duty="2" role="tab" aria-selected="false" onclick="window.selectDuty(2)">
+            <div class="nd-card-top"><span class="nd-num-badge">🔗 03</span><span class="nd-kpi-pill">良率 +15%｜OEE +18%</span></div>
+            <div class="nd-card-title">建立與 SAP / PLM / MES 互補的 AI Stack</div>
+            <div class="nd-card-sub">Clean Core 不動核心・人工核可回寫</div>
+          </button>
+          <button type="button" class="nd-card-btn" data-duty="3" role="tab" aria-selected="false" onclick="window.selectDuty(3)">
+            <div class="nd-card-top"><span class="nd-num-badge">👥 04</span><span class="nd-kpi-pill">三地 30+ 人團隊</span></div>
+            <div class="nd-card-title">組建 AI 組織與人才梯隊</div>
+            <div class="nd-card-sub">中央平台＋事業群嵌入・1:1 接班</div>
+          </button>
+          <button type="button" class="nd-card-btn" data-duty="4" role="tab" aria-selected="false" onclick="window.selectDuty(4)">
+            <div class="nd-card-top"><span class="nd-num-badge">🎓 05</span><span class="nd-kpi-pill">自動化 +55%｜30 PO</span></div>
+            <div class="nd-card-title">業務主導 PO 培養與 AI 原生工作流</div>
+            <div class="nd-card-sub">PO 學院・ISO 42001・Champions 網絡</div>
+          </button>
+          <button type="button" class="nd-card-btn" data-duty="5" role="tab" aria-selected="false" onclick="window.selectDuty(5)">
+            <div class="nd-card-top"><span class="nd-num-badge">📊 06</span><span class="nd-kpi-pill">10+ 年直報董事會</span></div>
+            <div class="nd-card-title">定期向高階主管與事業單位報告成效</div>
+            <div class="nd-card-sub">EBITDA / ROI / TCO・財務長核認</div>
+          </button>
+        </div>
+
+        <!-- Split Interactive Stage: Live SVG Architecture Diagram + 3-Step Executive Playbook -->
+        <div class="nd-stage" id="ndStage">
+          <div class="nd-visual-pane">
+            <div class="nd-visual-head">
+              <span class="nd-visual-tag" id="ndVisualTag">BLUEPRINT 01 / 06</span>
+              <span style="font-size:0.75rem;font-weight:700;color:var(--text-muted)" id="ndVisualBadge">互動圖解模式</span>
+            </div>
+            <div class="nd-svg-host" id="ndSvgHost" aria-live="polite"></div>
+            <div class="nd-visual-caption">
+              <span id="ndVisualCaption">三軸決策模型：優先鎖定高經濟效益、高可行性與跨廠可重用場景</span>
+              <span style="font-family:var(--font-mono);font-weight:700;color:var(--accent-rust)" id="ndProgressText">1 / 6</span>
+            </div>
+          </div>
+
+          <div class="nd-detail-pane">
+            <h3 class="nd-detail-title" id="ndDetailTitle"></h3>
+            <div class="nd-playbook-list">
+              <div class="nd-step-box">
+                <div class="nd-step-label">🎯 我的做法｜Execution Playbook</div>
+                <p class="nd-step-text" id="ndMethod"></p>
+              </div>
+              <div class="nd-step-box">
+                <div class="nd-step-label">🏆 做過的實績｜Verified Track Record</div>
+                <p class="nd-step-text" id="ndProof"></p>
+              </div>
+              <div class="nd-step-box target-kpi">
+                <div class="nd-step-label">🚀 到任指標｜On-Boarding Deliverable</div>
+                <p class="nd-step-text" id="ndKpi"></p>
+              </div>
+            </div>
+            <div class="nd-stage-nav">
+              <span style="font-size:0.76rem;color:var(--text-muted)">可使用鍵盤 ← / → 或上方卡片快速切換</span>
+              <div style="display:flex;gap:8px">
+                <button type="button" class="nd-ctrl-btn" onclick="window.stepDuty(-1)">上一項</button>
+                <button type="button" class="nd-ctrl-btn active" onclick="window.stepDuty(1)">下一項 →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Graphical & Interactive Qualification Fit Scoreboard (7/7 100% Match) -->
+        <div class="nd-fit-wrap">
+          <div class="nd-fit-header">
+            <div class="nd-fit-score-box">
+              <svg width="64" height="64" viewBox="0 0 64 64" aria-label="條件符合度 100%">
+                <circle cx="32" cy="32" r="26" fill="none" stroke="var(--border-main)" stroke-width="6"></circle>
+                <circle cx="32" cy="32" r="26" fill="none" stroke="#10B981" stroke-width="6" stroke-dasharray="163.36" stroke-dashoffset="0" stroke-linecap="round" transform="rotate(-90 32 32)"></circle>
+                <text x="32" y="31" text-anchor="middle" font-size="13" font-weight="900" fill="var(--text-primary)">7 / 7</text>
+                <text x="32" y="43" text-anchor="middle" font-size="8.5" font-weight="800" fill="#10B981">100%</text>
+              </svg>
+              <div>
+                <h3 style="margin:0 0 4px;font-size:1.08rem">必要條件與加分條件｜實證對照儀表板</h3>
+                <div style="font-size:0.8rem;color:var(--text-muted)">3 項必要條件 ＋ 4 項加分條件全數具備可查核企業實績</div>
+              </div>
+            </div>
+            <div class="nd-fit-filters" id="ndFitFilters">
+              <button type="button" class="nd-fit-chip on" onclick="window.filterDutyFit('all', this)">全部條件 (7)</button>
+              <button type="button" class="nd-fit-chip" onclick="window.filterDutyFit('req', this)">必要條件 (3)</button>
+              <button type="button" class="nd-fit-chip" onclick="window.filterDutyFit('bonus', this)">加分條件 (4)</button>
+            </div>
+          </div>
+
+          <div class="nd-fit-grid" id="ndFitGrid">
+            <div class="nd-fit-card" data-cat="req">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge req">必要條件 01</span><span class="nd-fit-pass">✓ 100% 符合</span></div>
+              <div class="nd-fit-title">學歷、產業背景不限</div>
+              <div class="nd-fit-proof">資訊科技管理博士；橫跨電子製造、外商軟體、上市櫃平台三種產業實戰。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+            <div class="nd-fit-card" data-cat="req">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge req">必要條件 02</span><span class="nd-fit-pass">✓ 累計逾 12 年</span></div>
+              <div class="nd-fit-title">10 年以上帶領 AI／資料團隊</div>
+              <div class="nd-fit-proof">2014 起任資訊科技副總帶 50 人以上研發與大數據團隊；2018 起任 CIO 暨 CISO 帶 AIoT 與 AI 良率團隊；2022 起帶資料平台；2025 起帶 Agentic AI 團隊，累計逾 12 年。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+            <div class="nd-fit-card" data-cat="req">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge req">必要條件 03</span><span class="nd-fit-pass">✓ 量化落地</span></div>
+              <div class="nd-fit-title">主導 AI 平台或產品上線並交出可量化成果</div>
+              <div class="nd-fit-proof">AI 不良預測：良率 +15%、OEE +18%；Agentic AI：自動化效率 +55%。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+            <div class="nd-fit-card" data-cat="bonus">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge bonus">加分條件 01</span><span class="nd-fit-pass">✓ 0→1 實戰</span></div>
+              <div class="nd-fit-title">從零建立 AI／資料平台與團隊</div>
+              <div class="nd-fit-proof">泓晏科技 Edge AIoT 數據中台、跨國高科技企業 AI 治理與 Agent 平台，皆從零開始建置。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+            <div class="nd-fit-card" data-cat="bonus">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge bonus">加分條件 02</span><span class="nd-fit-pass">✓ 董事會層級</span></div>
+              <div class="nd-fit-title">與 C-Level 或高階主管溝通</div>
+              <div class="nd-fit-proof">直報董事會與跨國高管；以 EBITDA、TCO、ROIC 財務語言精準對齊商業價值。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+            <div class="nd-fit-card" data-cat="bonus">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge bonus">加分條件 03</span><span class="nd-fit-pass">✓ 逾 12 年資歷</span></div>
+              <div class="nd-fit-title">CIO 或 IT 部門主管經驗</div>
+              <div class="nd-fit-proof">高階技術主管、資訊科技負責人、IT Director 與架構主管職涯逾 12 年。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+            <div class="nd-fit-card" data-cat="bonus">
+              <div class="nd-fit-card-top"><span class="nd-fit-badge bonus">加分條件 04</span><span class="nd-fit-pass">✓ 大型跨廠轉型</span></div>
+              <div class="nd-fit-title">國內大型企業數位轉型</div>
+              <div class="nd-fit-proof">多廠 S/4HANA 整併、全球核心服務遷移不停機、集團中央資訊架構治理。</div>
+              <div class="nd-fit-bar"><i style="width:100%"></i></div>
+            </div>
+          </div>
+        </div>
       </div>
+
+      <script>
+      (function() {
+        const DUTIES_DATA = [
+          {
+            tag: 'BLUEPRINT 01 / 06 · 價值投資組合',
+            badge: '三軸評分 × 預算配置',
+            caption: '以「經濟效益 × 可行性 × 可重用」三軸鎖定前 5 大高回報 AI 用例',
+            title: '01｜與高階主管定義優先導入 AI 領域，規劃 AI 平台藍圖',
+            method: '以「經濟效益 × 可行性 × 可重用」三軸評分，與事業群主管共同排定投資組合；用一頁式決策表向經營層呈核。',
+            proof: '曾為集團撰寫年度 IT 策略與投資計畫並呈報 CEO 與經管會，以策略支柱與 Run／Grow／Transform 預算框架落地。',
+            kpi: '90 天內交出 AI 價值地圖與前 5 大用例財務假設',
+            svg: `<svg viewBox="0 0 520 280" role="img" aria-label="三軸評分與 Run Grow Transform 藍圖">
+              <defs>
+                <linearGradient id="ndG1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="var(--accent-rust)"/>
+                  <stop offset="100%" stop-color="var(--accent-gold)"/>
+                </linearGradient>
+              </defs>
+              <!-- Left: 3-Axis Value Matrix -->
+              <rect x="14" y="16" width="276" height="248" rx="14" fill="var(--bg-card)" stroke="var(--border-main)" stroke-width="1.5"/>
+              <text x="30" y="40" font-size="12" font-weight="800" fill="var(--text-primary)">AI 用例三軸評分矩陣（氣泡大小＝可重用度）</text>
+              <line x1="52" y1="226" x2="270" y2="226" stroke="var(--border-subtle)" stroke-width="1.5"/>
+              <line x1="52" y1="60" x2="52" y2="226" stroke="var(--border-subtle)" stroke-width="1.5"/>
+              <line x1="160" y1="60" x2="160" y2="226" stroke="var(--border-main)" stroke-dasharray="4 4"/>
+              <line x1="52" y1="142" x2="270" y2="142" stroke="var(--border-main)" stroke-dasharray="4 4"/>
+              <text x="160" y="248" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text-muted)">可行性 Feasibility →</text>
+              <text x="30" y="145" text-anchor="middle" font-size="10.5" font-weight="700" fill="var(--text-muted)" transform="rotate(-90 30 145)">經濟效益 Value →</text>
+              <!-- Priority Quadrant Highlight -->
+              <rect x="162" y="62" width="106" height="78" rx="8" fill="rgba(168,50,18,0.08)"/>
+              <text x="215" y="77" text-anchor="middle" font-size="9.5" font-weight="800" fill="var(--accent-rust)">優先投資 Top 5</text>
+              <circle cx="225" cy="102" r="20" fill="url(#ndG1)" opacity="0.92"/>
+              <text x="225" y="105" text-anchor="middle" font-size="9.5" font-weight="800" fill="#FFF">良率預測</text>
+              <circle cx="188" cy="118" r="15" fill="var(--accent-orange)" opacity="0.88"/>
+              <text x="188" y="121" text-anchor="middle" font-size="8.5" font-weight="800" fill="#FFF">缺料預警</text>
+              <circle cx="246" cy="128" r="12" fill="var(--accent-amber)" opacity="0.9"/>
+              <text x="246" y="131" text-anchor="middle" font-size="8" font-weight="800" fill="#FFF">8D</text>
+              <circle cx="112" cy="108" r="13" fill="var(--border-subtle)"/>
+              <text x="112" y="111" text-anchor="middle" font-size="8" font-weight="700" fill="var(--text-primary)">研發RAG</text>
+              <circle cx="194" cy="182" r="14" fill="#10B981" opacity="0.82"/>
+              <text x="194" y="185" text-anchor="middle" font-size="8" font-weight="800" fill="#FFF">快贏</text>
+              <!-- Right: Run / Grow / Transform Budget -->
+              <rect x="304" y="16" width="202" height="248" rx="14" fill="var(--bg-card)" stroke="var(--border-main)" stroke-width="1.5"/>
+              <text x="320" y="40" font-size="12" font-weight="800" fill="var(--text-primary)">Run / Grow / Transform</text>
+              <rect x="320" y="58" width="170" height="44" rx="10" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="332" y="76" font-size="10" font-weight="800" fill="var(--text-muted)">RUN 穩健維運</text>
+              <text x="332" y="92" font-size="10.5" font-weight="700" fill="var(--text-primary)">基礎設施與資安合規</text>
+              <rect x="320" y="112" width="170" height="44" rx="10" fill="var(--bg-canvas)" stroke="var(--accent-amber)"/>
+              <text x="332" y="130" font-size="10" font-weight="800" fill="var(--accent-amber)">GROW 效能倍增</text>
+              <text x="332" y="146" font-size="10.5" font-weight="700" fill="var(--text-primary)">共用平台 × 流程自動化</text>
+              <rect x="320" y="166" width="170" height="44" rx="10" fill="rgba(168,50,18,0.1)" stroke="var(--accent-rust)"/>
+              <text x="332" y="184" font-size="10" font-weight="800" fill="var(--accent-rust)">TRANSFORM 商業重塑</text>
+              <text x="332" y="200" font-size="10.5" font-weight="800" fill="var(--text-primary)">AI 決策中樞 × 新營收引擎</text>
+              <rect x="320" y="222" width="170" height="30" rx="8" fill="url(#ndG1)"/>
+              <text x="405" y="241" text-anchor="middle" font-size="10.5" font-weight="800" fill="#FFF">🎯 90 天一頁式決策表呈核</text>
+            </svg>`
+          },
+          {
+            tag: 'BLUEPRINT 02 / 06 · 平台化黃金路徑',
+            badge: '零散專案 → 共用元件',
+            caption: '抽出 5 大共用底座元件，讓每個事業群 AI 用例依黃金路徑快速上線',
+            title: '02｜把零散應用做成可重複使用的資料產品與平台',
+            method: '抽出模型閘道、知識庫、資料產品、Agent 編排與監控等共用元件；以黃金路徑讓新用例照範本上線。',
+            proof: '隆中網絡（6542）把各專案自建環境改為平台提供標準元件，核心服務零停機、TCO −30%；設計多模型網關與企業任務中樞的參考架構。',
+            kpi: '新用例上線時間由「月」縮短為「週」',
+            svg: `<svg viewBox="0 0 520 280" role="img" aria-label="從零散專案到共用平台黃金路徑">
+              <defs>
+                <linearGradient id="ndG2" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="var(--accent-rust)"/>
+                  <stop offset="100%" stop-color="var(--accent-orange)"/>
+                </linearGradient>
+              </defs>
+              <!-- Left: Silos -->
+              <rect x="14" y="22" width="118" height="236" rx="14" fill="var(--bg-card)" stroke="var(--border-main)" stroke-dasharray="5 4"/>
+              <text x="73" y="46" text-anchor="middle" font-size="11" font-weight="800" fill="var(--text-muted)">過去：煙囪專案</text>
+              <rect x="26" y="62" width="94" height="34" rx="8" fill="var(--bg-canvas)" stroke="var(--border-subtle)"/>
+              <text x="73" y="83" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">專案 A 自建</text>
+              <rect x="26" y="108" width="94" height="34" rx="8" fill="var(--bg-canvas)" stroke="var(--border-subtle)"/>
+              <text x="73" y="129" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">專案 B 重複造輪</text>
+              <rect x="26" y="154" width="94" height="34" rx="8" fill="var(--bg-canvas)" stroke="var(--border-subtle)"/>
+              <text x="73" y="175" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">專案 C 難維運</text>
+              <text x="73" y="224" text-anchor="middle" font-size="10" font-weight="800" fill="var(--accent-rust)">上線耗時：數月</text>
+              <!-- Arrow -->
+              <path d="M138 140 L166 140" stroke="var(--accent-orange)" stroke-width="3" marker-end="url(#arr)"/>
+              <polygon points="164,133 176,140 164,147" fill="var(--accent-orange)"/>
+              <!-- Center: Unified Platform Core -->
+              <rect x="180" y="16" width="184" height="248" rx="16" fill="var(--bg-card)" stroke="var(--accent-rust)" stroke-width="2"/>
+              <rect x="180" y="16" width="184" height="34" rx="14" fill="url(#ndG2)"/>
+              <text x="272" y="38" text-anchor="middle" font-size="11.5" font-weight="800" fill="#FFF">企業 AI 黃金路徑底座</text>
+              <rect x="194" y="62" width="156" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-accent)"/>
+              <text x="272" y="81" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)">① 多模型網關 (LiteLLM)</text>
+              <rect x="194" y="100" width="156" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-accent)"/>
+              <text x="272" y="119" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)">② 企業知識庫 (RAG)</text>
+              <rect x="194" y="138" width="156" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-accent)"/>
+              <text x="272" y="157" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)">③ 標準資料產品契約</text>
+              <rect x="194" y="176" width="156" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-accent)"/>
+              <text x="272" y="195" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)">④ Agent 任務編排中樞</text>
+              <rect x="194" y="214" width="156" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-accent)"/>
+              <text x="272" y="233" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--text-primary)">⑤ FinOps 與可觀測監控</text>
+              <!-- Arrow Right -->
+              <polygon points="374,133 386,140 374,147" fill="#10B981"/>
+              <!-- Right: Outcomes -->
+              <rect x="392" y="22" width="114" height="236" rx="14" fill="var(--bg-card)" stroke="#10B981" stroke-width="1.5"/>
+              <text x="449" y="46" text-anchor="middle" font-size="11" font-weight="800" fill="#10B981">量化成效</text>
+              <rect x="404" y="64" width="90" height="52" rx="10" fill="rgba(16,185,129,0.1)"/>
+              <text x="449" y="86" text-anchor="middle" font-size="16" font-weight="900" fill="#10B981">月 → 週</text>
+              <text x="449" y="104" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">新用例上線</text>
+              <rect x="404" y="128" width="90" height="52" rx="10" fill="rgba(168,50,18,0.1)"/>
+              <text x="449" y="150" text-anchor="middle" font-size="16" font-weight="900" fill="var(--accent-rust)">−30%</text>
+              <text x="449" y="168" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">總持有成本</text>
+              <rect x="404" y="192" width="90" height="52" rx="10" fill="rgba(217,139,25,0.12)"/>
+              <text x="449" y="214" text-anchor="middle" font-size="15" font-weight="900" fill="var(--accent-amber)">0 Outage</text>
+              <text x="449" y="232" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-secondary)">核心零停機</text>
+            </svg>`
+          },
+          {
+            tag: 'BLUEPRINT 03 / 06 · Clean Core 互補架構',
+            badge: '不動核心 × 人工核可回寫',
+            caption: '以 API / CDC / 事件串流讀取核心系統，AI 僅輸出建議，經人員核可後寫回',
+            title: '03｜建立和 SAP、PLM、MES 互補的 AI Stack',
+            method: '不動 SAP 核心、不重造 MES／PLM；以 API、CDC 與事件串流讀取資料，AI 產出「建議」回寫，經人員核可後執行。',
+            proof: '泓晏科技以 SAP S/4HANA 串接 MES、PLM、APS，加上 Edge AIoT 與 AI 不良預測：良率 +15%、OEE +18%；規劃 PLM→SAP→MES 單一數據流的整合藍圖。',
+            kpi: 'S/4HANA 上線後 6 個月內首批供應鏈 AI 用例上線',
+            svg: `<svg viewBox="0 0 520 280" role="img" aria-label="SAP PLM MES 互補 AI Stack">
+              <!-- Top: Core Systems -->
+              <rect x="16" y="16" width="488" height="72" rx="14" fill="var(--bg-card)" stroke="var(--border-main)" stroke-width="1.5"/>
+              <text x="32" y="36" font-size="10.5" font-weight="800" fill="var(--text-muted)">既有核心交易系統（Clean Core 原則：絕不侵入改寫核心）</text>
+              <rect x="32" y="46" width="136" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-subtle)"/>
+              <text x="100" y="65" text-anchor="middle" font-size="11" font-weight="800" fill="var(--text-primary)">PLM（BOM / ECN）</text>
+              <text x="180" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="var(--accent-orange)">→</text>
+              <rect x="192" y="46" width="144" height="30" rx="8" fill="rgba(168,50,18,0.1)" stroke="var(--accent-rust)"/>
+              <text x="264" y="65" text-anchor="middle" font-size="11" font-weight="900" fill="var(--accent-rust)">SAP S/4HANA</text>
+              <text x="348" y="65" text-anchor="middle" font-size="12" font-weight="900" fill="var(--accent-orange)">→</text>
+              <rect x="360" y="46" width="130" height="30" rx="8" fill="var(--bg-canvas)" stroke="var(--border-subtle)"/>
+              <text x="425" y="65" text-anchor="middle" font-size="11" font-weight="800" fill="var(--text-primary)">MES / Edge AIoT</text>
+              <!-- Middle Bus -->
+              <rect x="44" y="106" width="432" height="36" rx="18" fill="var(--accent-rust)"/>
+              <text x="260" y="128" text-anchor="middle" font-size="11" font-weight="800" fill="#FFF">⚡ 非侵入整合匯流排：Standard API ・ Kafka CDC ・ MQTT 事件串流</text>
+              <!-- Arrows down & up -->
+              <circle cx="150" cy="97" r="4" fill="var(--accent-gold)" class="nd-pulse"/>
+              <circle cx="260" cy="97" r="4" fill="var(--accent-gold)" class="nd-pulse"/>
+              <circle cx="370" cy="97" r="4" fill="var(--accent-gold)" class="nd-pulse"/>
+              <!-- Bottom: AI Augmentation + Human-in-the-Loop -->
+              <rect x="16" y="160" width="290" height="104" rx="14" fill="var(--bg-card)" stroke="var(--accent-orange)" stroke-width="1.8"/>
+              <text x="32" y="182" font-size="11" font-weight="900" fill="var(--accent-rust)">互補式 AI 預測與建議層（Augment Core）</text>
+              <rect x="32" y="194" width="122" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="93" y="212" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-primary)">缺料／替代料預警</text>
+              <rect x="166" y="194" width="126" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="229" y="212" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-primary)">AI 不良率與 OEE 預測</text>
+              <rect x="32" y="228" width="260" height="26" rx="7" fill="rgba(16,185,129,0.12)"/>
+              <text x="162" y="245" text-anchor="middle" font-size="10.5" font-weight="800" fill="#10B981">實績驗證：良率 +15% ｜ OEE +18%</text>
+              <!-- HITL Box -->
+              <rect x="320" y="160" width="184" height="104" rx="14" fill="var(--bg-card)" stroke="#10B981" stroke-width="1.8"/>
+              <text x="412" y="186" text-anchor="middle" font-size="11" font-weight="900" fill="#10B981">🛡️ Human-in-the-Loop</text>
+              <text x="412" y="208" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">AI 僅產出「決策建議」</text>
+              <text x="412" y="226" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">經主管／工程師簽核後</text>
+              <rect x="338" y="236" width="148" height="20" rx="6" fill="#10B981"/>
+              <text x="412" y="250" text-anchor="middle" font-size="9.5" font-weight="800" fill="#FFF">安全回寫 SAP / MES</text>
+            </svg>`
+          },
+          {
+            tag: 'BLUEPRINT 04 / 06 · 雙軌 AI 組織設計',
+            badge: '中央平台 × 事業群嵌入',
+            caption: '建立跨據點協作梯隊與 1:1 接班機制，避免技術斷層與單點依賴',
+            title: '04｜組建 AI 組織與人才梯隊，帶領 AI 技術主管與工程師',
+            method: '「中央平台＋事業群嵌入」雙軌組織；技術主管能力模型、九大技術發展路線與接班計畫。',
+            proof: '跨國網路科技集團帶領高雄、台北、上海三地 30 人以上團隊；完成企劃、前端、後端與 DBA 從零到一的組織重整，建立職務說明與能力評核。',
+            kpi: '每位技術主管至少一位可接手人選',
+            svg: `<svg viewBox="0 0 520 280" role="img" aria-label="雙軌 AI 組織與人才梯隊">
+              <!-- Top Leadership -->
+              <rect x="148" y="14" width="224" height="44" rx="12" fill="var(--accent-rust)"/>
+              <text x="260" y="34" text-anchor="middle" font-size="11.5" font-weight="900" fill="#FFF">AI 平台負責人（雙軌統籌）</text>
+              <text x="260" y="50" text-anchor="middle" font-size="9.5" font-weight="700" fill="rgba(255,255,255,0.88)">能力模型 × 九大技術發展路線</text>
+              <!-- Connector Lines -->
+              <path d="M260 58 L260 78 M136 78 L384 78 M136 78 L136 94 M384 78 L384 94" stroke="var(--accent-orange)" stroke-width="2" fill="none"/>
+              <!-- Left Track: Central Platform -->
+              <rect x="18" y="94" width="234" height="114" rx="14" fill="var(--bg-card)" stroke="var(--accent-rust)" stroke-width="1.6"/>
+              <text x="135" y="116" text-anchor="middle" font-size="11" font-weight="900" fill="var(--accent-rust)">🏛️ 軌道一：中央平台中樞</text>
+              <rect x="32" y="128" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="81" y="146" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">平台 / 架構師</text>
+              <rect x="140" y="128" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="189" y="146" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">MLOps / LLMOps</text>
+              <rect x="32" y="164" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="81" y="182" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">資料工程 / DBA</text>
+              <rect x="140" y="164" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="189" y="182" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">資安 / ISO 42001</text>
+              <!-- Right Track: BU Embedded -->
+              <rect x="268" y="94" width="234" height="114" rx="14" fill="var(--bg-card)" stroke="var(--accent-amber)" stroke-width="1.6"/>
+              <text x="385" y="116" text-anchor="middle" font-size="11" font-weight="900" fill="var(--accent-amber)">🚀 軌道二：事業群嵌入分隊</text>
+              <rect x="282" y="128" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="331" y="146" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">產線製造 AI</text>
+              <rect x="390" y="128" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="439" y="146" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">供應鏈預測</text>
+              <rect x="282" y="164" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="331" y="182" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">研發知識 RAG</text>
+              <rect x="390" y="164" width="98" height="28" rx="7" fill="var(--bg-canvas)" stroke="var(--border-main)"/>
+              <text x="439" y="182" text-anchor="middle" font-size="9.5" font-weight="700" fill="var(--text-primary)">事業群 PO 協作</text>
+              <!-- Bottom Proven Track Record Bar -->
+              <rect x="18" y="222" width="484" height="44" rx="12" fill="rgba(16,185,129,0.1)" stroke="#10B981"/>
+              <text x="260" y="241" text-anchor="middle" font-size="11" font-weight="900" fill="#10B981">實績：高雄・台北・上海三地 30+ 人跨地重整 ｜ JD 與能力評核 0→1</text>
+              <text x="260" y="257" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">接班指標：每位技術主管皆配置 ≥1 位可立即接手人選</text>
+            </svg>`
+          },
+          {
+            tag: 'BLUEPRINT 05 / 06 · AI 原生文化飛輪',
+            badge: 'PO 學院 × ISO 42001',
+            caption: '透過「主管先學 → IT 先試 → 有成效再擴散」三步飛輪建立內部 PO 生態',
+            title: '05｜推動業務主導的平台團隊與企業內部 PO 培養，帶動 AI 原生的工作方式',
+            method: 'PO 學院：業務主管學會寫用例財務假設與驗收標準；Champions 網絡；「主管先學、IT 先試、有成效再擴散」。',
+            proof: '跨國網路科技集團開設主管 AI 工作流特訓，依 ISO 42001 建立使用規範；Agentic AI 工作流使流程自動化效率 +55%。',
+            kpi: '第一年 30 位認證 PO',
+            svg: `<svg viewBox="0 0 520 280" role="img" aria-label="AI 原生文化飛輪與 PO 學院">
+              <!-- 3-Step Flywheel -->
+              <rect x="16" y="22" width="144" height="128" rx="14" fill="var(--bg-card)" stroke="var(--accent-rust)" stroke-width="1.6"/>
+              <text x="88" y="48" text-anchor="middle" font-size="11" font-weight="900" fill="var(--accent-rust)">STEP 1｜主管先學</text>
+              <text x="88" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-primary)">高階 AI 工作流特訓</text>
+              <text x="88" y="94" text-anchor="middle" font-size="9.5" fill="var(--text-secondary)">學會撰寫財務假設</text>
+              <text x="88" y="112" text-anchor="middle" font-size="9.5" fill="var(--text-secondary)">與量化驗收標準</text>
+              <rect x="34" y="122" width="108" height="20" rx="6" fill="rgba(168,50,18,0.1)"/>
+              <text x="88" y="136" text-anchor="middle" font-size="9" font-weight="800" fill="var(--accent-rust)">業務主導需求</text>
+              <polygon points="166,80 178,86 166,92" fill="var(--accent-orange)"/>
+              <rect x="184" y="22" width="148" height="128" rx="14" fill="var(--bg-card)" stroke="var(--accent-orange)" stroke-width="1.6"/>
+              <text x="258" y="48" text-anchor="middle" font-size="11" font-weight="900" fill="var(--accent-orange)">STEP 2｜IT 先試</text>
+              <text x="258" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-primary)">沙盒 PoC 與規範落地</text>
+              <text x="258" y="94" text-anchor="middle" font-size="9.5" fill="var(--text-secondary)">依 ISO 42001 制定</text>
+              <text x="258" y="112" text-anchor="middle" font-size="9.5" fill="var(--text-secondary)">安全使用與稽核準則</text>
+              <rect x="202" y="122" width="112" height="20" rx="6" fill="rgba(217,139,25,0.14)"/>
+              <text x="258" y="136" text-anchor="middle" font-size="9" font-weight="800" fill="var(--accent-amber)">可控風險驗證</text>
+              <polygon points="338,80 350,86 338,92" fill="#10B981"/>
+              <rect x="356" y="22" width="148" height="128" rx="14" fill="var(--bg-card)" stroke="#10B981" stroke-width="1.6"/>
+              <text x="430" y="48" text-anchor="middle" font-size="11" font-weight="900" fill="#10B981">STEP 3｜成效擴散</text>
+              <text x="430" y="74" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-primary)">Champions 跨廠複製</text>
+              <text x="430" y="94" text-anchor="middle" font-size="9.5" fill="var(--text-secondary)">建立內部 PO 學院</text>
+              <text x="430" y="112" text-anchor="middle" font-size="9.5" fill="var(--text-secondary)">帶動 AI 原生文化</text>
+              <rect x="374" y="122" width="112" height="20" rx="6" fill="rgba(16,185,129,0.14)"/>
+              <text x="430" y="136" text-anchor="middle" font-size="9" font-weight="800" fill="#10B981">全集團規模化</text>
+              <!-- Bottom KPI Cards -->
+              <rect x="16" y="168" width="236" height="92" rx="14" fill="var(--bg-card)" stroke="var(--border-main)"/>
+              <text x="34" y="196" font-size="10.5" font-weight="800" fill="var(--text-muted)">實績驗證｜Agentic AI 工作流</text>
+              <text x="34" y="236" font-size="30" font-weight="900" fill="var(--accent-rust)">+55%</text>
+              <text x="128" y="228" font-size="10.5" font-weight="700" fill="var(--text-secondary)">流程自動化效率提升</text>
+              <text x="128" y="244" font-size="9.5" fill="var(--text-muted)">合規對齊 ISO 42001</text>
+              <rect x="268" y="168" width="236" height="92" rx="14" fill="var(--bg-card)" stroke="#10B981"/>
+              <text x="286" y="196" font-size="10.5" font-weight="800" fill="var(--text-muted)">到任首年人才培育目標</text>
+              <text x="286" y="236" font-size="30" font-weight="900" fill="#10B981">30 位</text>
+              <text x="376" y="228" font-size="10.5" font-weight="700" fill="var(--text-secondary)">企業內部認證 PO</text>
+              <text x="376" y="244" font-size="9.5" fill="var(--text-muted)">覆蓋各事業群核心主管</text>
+            </svg>`
+          },
+          {
+            tag: 'BLUEPRINT 06 / 06 · 董事會價值治理',
+            badge: '月 / 季 / 半年三級節奏',
+            caption: '以 CFO 認可的 EBITDA、ROI、TCO 財務口徑透明追蹤每一筆 AI 投資回報',
+            title: '06｜定期向高階主管與事業單位主管報告成效',
+            method: '月度 AI 價值儀表板、季度 AI 投資委員會、半年向董事長報告；用 EBITDA、ROI、TCO 的語言。',
+            proof: '直報董事會與 Global CIO 逾 10 年；以平衡計分卡與一頁式決策表每季報告里程碑。',
+            kpi: '每季公開檢視效益，財務長確認金額',
+            svg: `<svg viewBox="0 0 520 280" role="img" aria-label="三級高階價值治理節奏">
+              <!-- 3-Tier Pyramid / Cadence -->
+              <rect x="120" y="16" width="280" height="58" rx="14" fill="var(--accent-rust)"/>
+              <text x="260" y="40" text-anchor="middle" font-size="12" font-weight="900" fill="#FFF">🏛️ 半年｜向董事長與董事會報告</text>
+              <text x="260" y="59" text-anchor="middle" font-size="10" font-weight="700" fill="rgba(255,255,255,0.9)">策略轉型成果・EBITDA 貢獻・下階段資本配置</text>
+              <rect x="66" y="88" width="388" height="58" rx="14" fill="var(--bg-card)" stroke="var(--accent-orange)" stroke-width="1.8"/>
+              <text x="260" y="112" text-anchor="middle" font-size="12" font-weight="900" fill="var(--accent-orange)">⚖️ 季度｜AI 投資委員會（4-Gate 審查）</text>
+              <text x="260" y="131" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">財務長核認實際金額・用例續投／擴散／止損裁示</text>
+              <rect x="16" y="160" width="488" height="58" rx="14" fill="var(--bg-card)" stroke="var(--border-main)" stroke-width="1.6"/>
+              <text x="260" y="184" text-anchor="middle" font-size="12" font-weight="900" fill="var(--text-primary)">📈 月度｜AI 價值戰情儀表板（事業群主管）</text>
+              <text x="260" y="203" text-anchor="middle" font-size="10" font-weight="700" fill="var(--text-secondary)">良率・OEE・Token 成本分攤 (Chargeback)・用例採用率追蹤</text>
+              <!-- Bottom Language Pills -->
+              <rect x="16" y="232" width="154" height="34" rx="10" fill="rgba(168,50,18,0.1)"/>
+              <text x="93" y="253" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--accent-rust)">EBITDA / ROIC 語言</text>
+              <rect x="183" y="232" width="154" height="34" rx="10" fill="rgba(217,139,25,0.12)"/>
+              <text x="260" y="253" text-anchor="middle" font-size="10.5" font-weight="800" fill="var(--accent-amber)">TCO 精準控管</text>
+              <rect x="350" y="232" width="154" height="34" rx="10" fill="rgba(16,185,129,0.12)"/>
+              <text x="427" y="253" text-anchor="middle" font-size="10.5" font-weight="800" fill="#10B981">10+ 年直報董事會</text>
+            </svg>`
+          }
+        ];
+
+        let curDuty = 0;
+        let tourTimer = null;
+
+        window.selectDuty = function(idx) {
+          curDuty = (idx + DUTIES_DATA.length) % DUTIES_DATA.length;
+          const d = DUTIES_DATA[curDuty];
+          document.querySelectorAll('#ndGrid .nd-card-btn').forEach((btn, i) => {
+            const on = i === curDuty;
+            btn.classList.toggle('on', on);
+            btn.setAttribute('aria-selected', String(on));
+          });
+          const tag = document.getElementById('ndVisualTag');
+          const badge = document.getElementById('ndVisualBadge');
+          const host = document.getElementById('ndSvgHost');
+          const cap = document.getElementById('ndVisualCaption');
+          const prog = document.getElementById('ndProgressText');
+          const title = document.getElementById('ndDetailTitle');
+          const method = document.getElementById('ndMethod');
+          const proof = document.getElementById('ndProof');
+          const kpi = document.getElementById('ndKpi');
+          if (tag) tag.textContent = d.tag;
+          if (badge) badge.textContent = d.badge;
+          if (host) host.innerHTML = d.svg;
+          if (cap) cap.textContent = d.caption;
+          if (prog) prog.textContent = `${curDuty + 1} / ${DUTIES_DATA.length}`;
+          if (title) title.textContent = d.title;
+          if (method) method.textContent = d.method;
+          if (proof) proof.textContent = d.proof;
+          if (kpi) kpi.textContent = d.kpi;
+        };
+
+        window.stepDuty = function(delta) {
+          window.selectDuty(curDuty + delta);
+        };
+
+        window.toggleDutyTour = function() {
+          const btn = document.getElementById('ndAutoTourBtn');
+          if (tourTimer) {
+            clearInterval(tourTimer);
+            tourTimer = null;
+            if (btn) { btn.classList.remove('active'); btn.textContent = '▶ 自動導覽 6 大職責'; }
+          } else {
+            if (btn) { btn.classList.add('active'); btn.textContent = '⏸ 暫停自動導覽'; }
+            tourTimer = setInterval(() => window.stepDuty(1), 4200);
+          }
+        };
+
+        window.filterDutyFit = function(cat, btnEl) {
+          document.querySelectorAll('#ndFitFilters .nd-fit-chip').forEach(c => c.classList.remove('on'));
+          if (btnEl) btnEl.classList.add('on');
+          document.querySelectorAll('#ndFitGrid .nd-fit-card').forEach(card => {
+            card.classList.toggle('hidden-card', cat !== 'all' && card.dataset.cat !== cat);
+          });
+        };
+
+        // Initialize Duty 01 immediately
+        window.selectDuty(0);
+      })();
+      </script>
     </section>
 
 
@@ -6940,6 +8627,282 @@ header.nav,.btns,.tabs,.tbtn,.calc {display:none}
       showLayer(3);
     });
 
+  </script>
+
+  <!-- Neon Command Palette Search Modal (Cmd+K) -->
+  <div class="neon-cmd-backdrop" id="neonCmdBackdrop" role="dialog" aria-modal="true" aria-label="全域快速檢索">
+    <div class="neon-cmd-modal">
+      <div class="neon-cmd-head">
+        <span style="font-size:1.1rem">🔍</span>
+        <input type="search" id="neonCmdInput" class="neon-cmd-input" placeholder="搜尋章節、案例、ISO 42001、SAP、FinOps、UML、PDF..." autocomplete="off">
+        <button class="neon-icon-btn" onclick="closeNeonSearch()" style="height:28px;padding:0 10px">ESC</button>
+      </div>
+      <div class="neon-cmd-results" id="neonCmdResults"></div>
+      <div class="neon-cmd-foot">
+        <span>↑↓ 移動 ｜ Enter 跳轉定位</span>
+        <span id="neonCmdCount"></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Neon Floating Chapter Rail (Desktop >= 1360px) -->
+  <nav class="neon-chapter-rail" id="neonChapterRail" aria-label="章節快速定位"></nav>
+
+  <!-- Neon Smart Back-to-Top FAB -->
+  <button class="neon-back-top" id="neonBackTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部" title="回到頂部">↑</button>
+
+  <script>
+    // =========================================================================
+    // NEON EXECUTIVE REFINEMENT RUNTIME
+    // =========================================================================
+    (function() {
+      const THEME_META_COLORS = {
+        milan: '#A83212',
+        obsidian: '#020617',
+        pharaoh: '#E87524',
+        klimt: '#120F1D',
+        ninagawa: '#E11D48',
+        miro: '#DC2626'
+      };
+
+      window.setExecutiveTheme = function(theme) {
+        if (!THEME_META_COLORS[theme]) theme = 'milan';
+        if (theme === 'milan') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        const meta = document.getElementById('metaThemeColor');
+        if (meta) meta.setAttribute('content', THEME_META_COLORS[theme]);
+        document.querySelectorAll('.neon-theme-opt').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.themeVal === theme);
+        });
+        try { localStorage.setItem('hl_exec_theme', theme); } catch(e) {}
+        const pop = document.getElementById('neonThemePopover');
+        if (pop) pop.classList.remove('open');
+      };
+
+      window.toggleThemePopover = function(ev) {
+        if (ev) ev.stopPropagation();
+        const pop = document.getElementById('neonThemePopover');
+        const btn = document.getElementById('neonThemeBtn');
+        if (!pop) return;
+        const isOpen = pop.classList.toggle('open');
+        if (btn) btn.setAttribute('aria-expanded', String(isOpen));
+      };
+
+      document.addEventListener('click', (e) => {
+        const pop = document.getElementById('neonThemePopover');
+        if (pop && pop.classList.contains('open') && !e.target.closest('.neon-theme-wrap')) {
+          pop.classList.remove('open');
+        }
+      });
+
+      // Restore saved theme
+      try {
+        const savedTheme = localStorage.getItem('hl_exec_theme');
+        if (savedTheme && THEME_META_COLORS[savedTheme]) {
+          window.setExecutiveTheme(savedTheme);
+        }
+      } catch(e) {}
+
+      // 1. Auto-wrap all naked <table> elements in .table-scroll-wrap for 0 mobile horizontal blowout
+      document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('table').forEach(tbl => {
+          if (tbl.closest('.table-scroll-wrap')) return;
+          const wrap = document.createElement('div');
+          wrap.className = 'table-scroll-wrap';
+          const hint = document.createElement('div');
+          hint.className = 'table-scroll-hint';
+          hint.textContent = '← 左右滑動檢視完整表格 →';
+          tbl.parentNode.insertBefore(wrap, tbl);
+          wrap.appendChild(hint);
+          wrap.appendChild(tbl);
+        });
+
+        // 2. Build Floating Chapter Rail & Command Search Index
+        const railTargets = [
+          { id: 'hero', label: '👤 高管總覽', tag: '核心' },
+          { id: 'metrics', label: '🏛️ 四大 C-Level 指標', tag: '指標' },
+          { id: 'calculators', label: '🧮 FinOps / 良率試算', tag: '互動' },
+          { id: 'gates', label: '🚪 4-Gate 投資決策', tag: '治理' },
+          { id: 'pillars', label: '🛡️ 三大董事會支柱', tag: '價值' },
+          { id: 'context', label: '📊 企業級 AI 策略脈絡', tag: 'AI策略' },
+          { id: 'duties', label: '🎯 核心六項職責', tag: 'AI策略' },
+          { id: 'stack', label: '🧱 AI 平台互補藍圖', tag: '架構' },
+          { id: 'arch', label: '🌐 企業架構全景', tag: '架構' },
+          { id: 'portfolio', label: '💡 價值鏈 12 大 AI 用例', tag: '用例' },
+          { id: 'hive', label: '🐝 蜂巢計畫藍圖', tag: '專案' },
+          { id: 'architecture', label: '⚙️ 四大 AI 中樞', tag: '中樞' },
+          { id: 'uml', label: '📐 UML 2.x 14 圖資', tag: '工程' },
+          { id: 'timeline', label: '🏢 27 年職涯歷練', tag: '履歷' },
+          { id: 'cases', label: '🏆 六大旗艦案例', tag: '實績' },
+          { id: 'evidence', label: '📜 20 筆媒體與證照', tag: '佐證' },
+          { id: 'faq', label: '💬 14 題預期問答', tag: 'Q&A' },
+          { id: 'docs', label: '📑 文件線上預覽下載', tag: 'PDF' }
+        ].filter(item => document.getElementById(item.id));
+
+        const railEl = document.getElementById('neonChapterRail');
+        if (railEl) {
+          railTargets.forEach(t => {
+            const btn = document.createElement('button');
+            btn.className = 'neon-rail-dot';
+            btn.dataset.target = t.id;
+            btn.dataset.label = t.label;
+            btn.setAttribute('aria-label', t.label);
+            btn.onclick = () => jumpToTarget(t.id);
+            railEl.appendChild(btn);
+          });
+        }
+
+        // Build full search index (sections + h3 cards)
+        const searchIndex = [];
+        railTargets.forEach(t => {
+          const sec = document.getElementById(t.id);
+          const snippet = sec ? sec.textContent.replace(/\s+/g, ' ').trim().slice(0, 140) : '';
+          searchIndex.push({ id: t.id, title: t.label, sub: snippet, tag: t.tag, el: sec });
+        });
+        document.querySelectorAll('section h3').forEach(h3 => {
+          const sec = h3.closest('section');
+          const title = h3.textContent.trim();
+          if (title.length > 3 && title.length < 90) {
+            searchIndex.push({
+              id: sec ? sec.id : '',
+              title: title,
+              sub: (h3.parentElement ? h3.parentElement.textContent.replace(/\s+/g, ' ').trim().slice(0, 110) : ''),
+              tag: '細項',
+              el: h3
+            });
+          }
+        });
+
+        let activeIdx = 0;
+        let currentItems = [];
+
+        function jumpToTarget(idOrEl) {
+          const target = typeof idOrEl === 'string' ? document.getElementById(idOrEl) : idOrEl;
+          if (!target) return;
+          const y = target.getBoundingClientRect().top + window.scrollY - 84;
+          window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+          target.classList.remove('neon-jump-highlight');
+          void target.offsetWidth;
+          target.classList.add('neon-jump-highlight');
+        }
+
+        function renderSearch(q) {
+          const resEl = document.getElementById('neonCmdResults');
+          const cntEl = document.getElementById('neonCmdCount');
+          if (!resEl) return;
+          const query = (q || '').trim().toLowerCase();
+          currentItems = !query
+            ? searchIndex.slice(0, 14)
+            : searchIndex.filter(it => (it.title + ' ' + it.sub + ' ' + it.tag).toLowerCase().includes(query)).slice(0, 16);
+          activeIdx = 0;
+          if (cntEl) cntEl.textContent = `共 ${currentItems.length} 筆匹配`;
+          if (!currentItems.length) {
+            resEl.innerHTML = '<div style="padding:20px;text-align:center;color:var(--text-muted);font-size:0.88rem">查無符合項目，請嘗試搜尋：FinOps、SAP、ISO 42001、UML、PDF</div>';
+            return;
+          }
+          resEl.innerHTML = currentItems.map((it, idx) => `
+            <div class="neon-cmd-item ${idx === 0 ? 'selected' : ''}" data-idx="${idx}">
+              <div style="min-width:0;flex:1">
+                <div class="neon-cmd-item-title">${it.title.replace(/</g,'&lt;')}</div>
+                <div class="neon-cmd-item-sub" style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${it.sub.replace(/</g,'&lt;')}</div>
+              </div>
+              <span class="neon-cmd-tag">${it.tag}</span>
+            </div>
+          `).join('');
+          resEl.querySelectorAll('.neon-cmd-item').forEach(row => {
+            row.onclick = () => {
+              const item = currentItems[parseInt(row.dataset.idx, 10)];
+              closeNeonSearch();
+              if (item) jumpToTarget(item.el || item.id);
+            };
+          });
+        }
+
+        window.openNeonSearch = function() {
+          const bd = document.getElementById('neonCmdBackdrop');
+          const inp = document.getElementById('neonCmdInput');
+          if (!bd) return;
+          bd.classList.add('open');
+          if (inp) { inp.value = ''; inp.focus(); }
+          renderSearch('');
+        };
+
+        window.closeNeonSearch = function() {
+          const bd = document.getElementById('neonCmdBackdrop');
+          if (bd) bd.classList.remove('open');
+        };
+
+        const bd = document.getElementById('neonCmdBackdrop');
+        const inp = document.getElementById('neonCmdInput');
+        if (bd) bd.addEventListener('click', (e) => { if (e.target === bd) closeNeonSearch(); });
+        if (inp) {
+          inp.addEventListener('input', (e) => renderSearch(e.target.value));
+          inp.addEventListener('keydown', (e) => {
+            if (!currentItems.length) return;
+            if (e.key === 'ArrowDown') {
+              e.preventDefault();
+              activeIdx = (activeIdx + 1) % currentItems.length;
+            } else if (e.key === 'ArrowUp') {
+              e.preventDefault();
+              activeIdx = (activeIdx - 1 + currentItems.length) % currentItems.length;
+            } else if (e.key === 'Enter') {
+              e.preventDefault();
+              const item = currentItems[activeIdx];
+              closeNeonSearch();
+              if (item) jumpToTarget(item.el || item.id);
+              return;
+            } else { return; }
+            document.querySelectorAll('.neon-cmd-item').forEach((el, i) => el.classList.toggle('selected', i === activeIdx));
+            const sel = document.querySelector('.neon-cmd-item.selected');
+            if (sel) sel.scrollIntoView({ block: 'nearest' });
+          });
+        }
+
+        window.addEventListener('keydown', (e) => {
+          if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+            e.preventDefault();
+            const isOpen = bd && bd.classList.contains('open');
+            isOpen ? closeNeonSearch() : openNeonSearch();
+          } else if (e.key === 'Escape' && bd && bd.classList.contains('open')) {
+            closeNeonSearch();
+          }
+        });
+
+        // 3. Reading Progress Bar + Back-to-Top + Chapter Rail Active Tracking
+        const progBar = document.getElementById('neonReadingProgress');
+        const backBtn = document.getElementById('neonBackTop');
+        const railDots = Array.from(document.querySelectorAll('.neon-rail-dot'));
+
+        function onScroll() {
+          const scrollTop = window.scrollY;
+          const docH = document.documentElement.scrollHeight - window.innerHeight;
+          if (progBar && docH > 0) {
+            progBar.style.width = Math.min(100, Math.max(0, (scrollTop / docH) * 100)).toFixed(2) + '%';
+          }
+          if (backBtn) {
+            backBtn.classList.toggle('visible', scrollTop > 420);
+          }
+          if (railDots.length) {
+            let currentId = railTargets[0]?.id;
+            for (const t of railTargets) {
+              const el = document.getElementById(t.id);
+              if (el && el.getBoundingClientRect().top <= 180) currentId = t.id;
+            }
+            railDots.forEach(d => d.classList.toggle('active', d.dataset.target === currentId));
+          }
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+
+        // 4. Register Service Worker for PWA Offline Support
+        if ('serviceWorker' in navigator && location.protocol.startsWith('http')) {
+          navigator.serviceWorker.register('./sw.js').catch(() => {});
+        }
+      });
+    })();
   </script>
 </body>
 </html>

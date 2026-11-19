@@ -1,0 +1,25 @@
+{
+  "name": "Howard Liao, Ph.D. — Executive Portfolio & AI Architecture Dossier",
+  "short_name": "Howard Liao Ph.D.",
+  "description": "廖倫豪 博士 (CIO / Group CISO / VP of Technology) 27 年跨國 IT 治理、企業級 AI 雙中樞與高可用雲原生轉型實戰數位履歷。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FDFBF7",
+  "theme_color": "#A83212",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
