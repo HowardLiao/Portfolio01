@@ -3552,20 +3552,145 @@ details>div {padding:0 16px 14px}
 .codes {display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
 .codes div {border:1px solid var(--line);padding:8px 10px;background:var(--card);font-size:13px}
 .codes b {color:var(--green);display:block}
-.kpi .v {font-size:30px}
-.hero,.grid2,.grid3,.stack,.phase {grid-template-columns:1fr}
-.kpis {grid-template-columns:repeat(2,1fr)}
-.codes {grid-template-columns:1fr 1fr}
-.comp {grid-template-columns:1fr 50px}
-.comp .bar {grid-column:1/-1;order:3}
-.duty {grid-template-columns:1fr}
-.duty .num {font-size:44px}
-.duty dl {grid-template-columns:1fr}
+@media (max-width: 860px) {
+  .kpi .v {font-size:30px}
+  .hero,.grid2,.grid3,.stack,.phase {grid-template-columns:1fr}
+  .kpis {grid-template-columns:repeat(2,1fr)}
+  .codes {grid-template-columns:1fr 1fr}
+  .comp {grid-template-columns:1fr 50px}
+  .comp .bar {grid-column:1/-1;order:3}
+  .duty {grid-template-columns:1fr}
+  .duty .num {font-size:44px}
+  .duty dl {grid-template-columns:1fr}
+}
 .viewer .wm2 {position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='260'%3E%3Ctext x='210' y='140' text-anchor='middle' font-family='Georgia,serif' font-size='22' font-weight='700' fill='%23C8A96A' fill-opacity='0.30' transform='rotate(-28 210 130)'%3EHoward Liao Ph.D.%3C/text%3E%3C/svg%3E");background-repeat:repeat}
-.doc {display:flex;flex-direction:column;gap:6px;text-align:left;background:var(--card);border:1px solid var(--line);padding:14px;cursor:pointer;font:inherit;color:var(--ink)}
-.doc img {width:100%;height:220px;object-fit:contain;background:var(--alt);border:1px solid var(--label);pointer-events:none;user-select:none}
-.docw {display:flex;flex-direction:column;gap:8px}
-.doc:hover {border-color:var(--gold)}
+/* #docs: Balanced 2+3 Bento Executive Document Shelf (Zero Empty Slots) */
+#docs .grid3 {
+  display:grid;
+  grid-template-columns:repeat(6, 1fr);
+  gap:20px;
+  margin-top:20px;
+  align-items:stretch;
+}
+#docs .docw {
+  grid-column:span 2;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:16px;
+  padding:16px;
+  gap:14px;
+  box-shadow:0 4px 16px rgba(15, 23, 42, 0.05);
+  transition:transform .24s ease, border-color .24s ease, box-shadow .24s ease;
+}
+#docs .docw:nth-child(-n+2) {
+  grid-column:span 3;
+}
+#docs .docw:hover {
+  transform:translateY(-4px);
+  border-color:var(--gold);
+  box-shadow:0 14px 30px rgba(15, 23, 42, 0.11);
+}
+.doc {
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  text-align:left;
+  background:transparent;
+  border:none;
+  padding:0;
+  cursor:pointer;
+  font:inherit;
+  color:var(--ink);
+  flex:1;
+}
+#docs .docw:nth-child(-n+2) .doc {
+  display:grid;
+  grid-template-columns:210px 1fr;
+  grid-template-rows:auto 1fr;
+  column-gap:18px;
+  row-gap:8px;
+  align-content:start;
+}
+#docs .docw:nth-child(-n+2) .doc img {
+  grid-row:1 / span 2;
+  height:180px;
+}
+.doc img {
+  width:100%;
+  height:188px;
+  object-fit:contain;
+  background:linear-gradient(145deg, var(--alt), var(--label));
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:10px;
+  box-sizing:border-box;
+  pointer-events:none;
+  user-select:none;
+  transition:transform .24s ease;
+}
+#docs .docw:hover .doc img {
+  transform:scale(1.02);
+}
+.doc b {
+  font-size:17px;
+  font-weight:700;
+  color:var(--ink);
+  line-height:1.35;
+}
+.doc .mute {
+  font-size:13.5px;
+  line-height:1.6;
+  color:var(--mute);
+}
+#docs .docw .btn.p.dl {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  width:100%;
+  padding:10px 16px;
+  border-radius:10px;
+  background:var(--green);
+  color:#FFFFFF !important;
+  border:1px solid var(--green);
+  font-size:14px;
+  font-weight:700;
+  text-decoration:none;
+  letter-spacing:.04em;
+  box-sizing:border-box;
+  transition:opacity .2s ease, transform .2s ease, background .2s ease, border-color .2s ease;
+}
+[data-theme="obsidian"] #docs .docw .btn.p.dl,
+[data-theme="klimt"] #docs .docw .btn.p.dl,
+[data-theme="ninagawa"] #docs .docw .btn.p.dl {
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#0B1120 !important;
+}
+#docs .docw .btn.p.dl::before {
+  content:"↓";
+  font-weight:700;
+}
+#docs .docw .btn.p.dl:hover {
+  background:var(--gold);
+  border-color:var(--gold);
+  color:#fff;
+  transform:translateY(-1px);
+}
+@media (max-width: 960px) {
+  #docs .grid3 {grid-template-columns:repeat(2, 1fr);gap:16px}
+  #docs .docw, #docs .docw:nth-child(-n+2) {grid-column:span 1}
+  #docs .docw:nth-child(-n+2) .doc {display:flex;flex-direction:column}
+  #docs .docw:nth-child(-n+2) .doc img {height:188px}
+  #docs .docw:last-child:nth-child(odd) {grid-column:span 2}
+}
+@media (max-width: 600px) {
+  #docs .grid3 {grid-template-columns:1fr;gap:14px}
+  #docs .docw, #docs .docw:nth-child(-n+2), #docs .docw:last-child:nth-child(odd) {grid-column:span 1}
+}
 .viewer {position:fixed;inset:0;z-index:50;background:#1C211E;display:flex;flex-direction:column}
 .viewer[hidden] {display:none}
 .vbar {display:flex;align-items:center;gap:14px;padding:12px 16px;color:#FAF7F2}
@@ -3575,8 +3700,10 @@ details>div {padding:0 16px 14px}
 .vimg {position:relative;max-width:100%;max-height:100%;display:flex}
 .vimg img {max-width:min(1400px,calc(100vw - 120px));max-height:calc(100vh - 90px);object-fit:contain;user-select:none;-webkit-user-drag:none;-webkit-touch-callout:none;background:#FAF7F2}
 .vnav {background:transparent;border:1px solid #6B6459;color:#FAF7F2;font-size:30px;width:44px;height:64px;cursor:pointer}
-.vimg img {max-width:calc(100vw - 20px)}
-.vnav {position:absolute;bottom:18px;width:52px;height:44px}
+@media (max-width: 860px) {
+  .vimg img {max-width:calc(100vw - 20px)}
+  .vnav {position:absolute;bottom:18px;width:52px;height:44px}
+}
 .pf-stats {display:flex;gap:28px;flex-wrap:wrap;margin:10px 0 22px}
 .pf-stats b {font-family:"Cormorant Garamond",serif;font-size:40px;color:var(--green);line-height:1;display:block}
 .pf-stats span {font-size:13px;color:var(--mute)}
