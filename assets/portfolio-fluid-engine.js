@@ -101,14 +101,14 @@
     }
   }[LANG];
 
-  // Theme-aware hydrodynamic + electric palettes
+  // Theme-aware hydrodynamic + electric palettes (light vs dark tuned for clear visibility)
   const THEME_PALETTES = {
-    default:  { primary: [222, 88, 20],  secondary: [245, 158, 11], tertiary: [168, 50, 18],  arc: [245, 158, 11], bgFade: 0.08 },
-    pharaoh:  { primary: [217, 119, 6],  secondary: [245, 158, 11], tertiary: [180, 83, 9],   arc: [251, 191, 36], bgFade: 0.08 },
-    obsidian: { primary: [245, 158, 11], secondary: [56, 189, 248], tertiary: [234, 88, 12],  arc: [56, 189, 248], bgFade: 0.11 },
-    klimt:    { primary: [212, 175, 55], secondary: [250, 204, 21], tertiary: [180, 130, 30], arc: [253, 224, 71], bgFade: 0.10 },
-    ninagawa: { primary: [236, 72, 153], secondary: [168, 85, 247], tertiary: [56, 189, 248], arc: [244, 114, 182], bgFade: 0.10 },
-    miro:     { primary: [220, 38, 38],  secondary: [29, 78, 216],  tertiary: [234, 179, 8],  arc: [37, 99, 235],  bgFade: 0.08 }
+    default:  { dark: false, primary: [222, 88, 20],  secondary: [245, 158, 11], tertiary: [180, 62, 18],  arc: [234, 88, 12],  core: [255, 237, 213], bgFade: 0.08 },
+    pharaoh:  { dark: false, primary: [217, 119, 6],  secondary: [245, 158, 11], tertiary: [180, 83, 9],   arc: [217, 119, 6],  core: [254, 243, 199], bgFade: 0.08 },
+    obsidian: { dark: true,  primary: [245, 158, 11], secondary: [56, 189, 248], tertiary: [234, 88, 12],  arc: [56, 189, 248], core: [240, 249, 255], bgFade: 0.11 },
+    klimt:    { dark: true,  primary: [212, 175, 55], secondary: [250, 204, 21], tertiary: [180, 130, 30], arc: [253, 224, 71], core: [254, 252, 232], bgFade: 0.10 },
+    ninagawa: { dark: true,  primary: [236, 72, 153], secondary: [168, 85, 247], tertiary: [56, 189, 248], arc: [244, 114, 182],core: [253, 242, 248], bgFade: 0.10 },
+    miro:     { dark: false, primary: [220, 38, 38],  secondary: [29, 78, 216],  tertiary: [234, 179, 8],  arc: [37, 99, 235],  core: [239, 246, 255], bgFade: 0.08 }
   };
 
   function getCurrentPalette() {
@@ -144,12 +144,13 @@
       this.particles = [];
       this.rafId = null;
       this.paused = false;
+      this.lastTs = 0;
 
       this.resize();
       this.seedParticles();
       this.seedCircuits();
       this.bindEvents();
-      this.loop();
+      this.loop(0);
     }
 
     seedCircuits() {
@@ -241,7 +242,7 @@
     }
 
     seedParticles() {
-      const baseCount = IS_TOUCH ? 26 : (this.w < 900 ? 34 : 62);
+      const baseCount = IS_TOUCH ? 18 : (this.w < 900 ? 24 : 32);
       this.particles = [];
       for (let i = 0; i < baseCount; i++) {
         this.particles.push(this.createParticle(true));
@@ -323,15 +324,17 @@
       };
     }
 
-    loop() {
-      this.rafId = requestAnimationFrame(() => this.loop());
+    loop(now) {
+      this.rafId = requestAnimationFrame((ts) => this.loop(ts));
       if (this.paused || REDUCED_MOTION) return;
+      if (now && now - this.lastTs < 32) return; // ~30fps guard for zero main-thread stalls
+      this.lastTs = now || performance.now();
 
       const ctx = this.ctx;
       const pal = getCurrentPalette();
       const speedMult = fluidMode === 'turbo' ? 1.75 : (fluidMode === 'calm' ? 0.42 : 1.0);
-      this.t += 0.012 * speedMult;
-      this.scrollVel *= 0.92;
+      this.t += 0.022 * speedMult;
+      this.scrollVel *= 0.90;
 
       ctx.clearRect(0, 0, this.w, this.h);
 
@@ -341,8 +344,8 @@
         const col = r === 0 ? pal.primary : (r === 1 ? pal.secondary : pal.tertiary);
         ctx.beginPath();
         const baseY = (this.h / (ribbonCount + 1)) * (r + 1);
-        const amp = (fluidMode === 'turbo' ? 54 : 32) + r * 10;
-        const step = 48;
+        const amp = (fluidMode === 'turbo' ? 54 : 34) + r * 10;
+        const step = 56;
         for (let x = -step; x <= this.w + step; x += step) {
           const wave =
             Math.sin(x * 0.0026 + this.t * (0.9 + r * 0.25) + r * 1.7) * amp +
@@ -351,8 +354,9 @@
           if (this.pointer.active) {
             const dx = x - this.pointer.x;
             const dy = py - this.pointer.y;
-            const dist = Math.hypot(dx, dy);
-            if (dist < 220) {
+            const d2 = dx * dx + dy * dy;
+            if (d2 < 48400) {
+              const dist = Math.sqrt(d2);
               const push = (1 - dist / 220) * (fluidMode === 'turbo' ? 38 : 22);
               py += (dy >= 0 ? push : -push);
             }
@@ -360,18 +364,19 @@
           if (x === -step) ctx.moveTo(x, py);
           else ctx.lineTo(x, py);
         }
-        ctx.strokeStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, ${fluidMode === 'turbo' ? 0.14 : 0.085})`;
-        ctx.lineWidth = fluidMode === 'turbo' ? 2.2 : 1.5;
+        ctx.strokeStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, ${fluidMode === 'turbo' ? 0.22 : (fluidMode === 'calm' ? 0.08 : 0.14)})`;
+        ctx.lineWidth = fluidMode === 'turbo' ? 2.4 : 1.7;
         ctx.stroke();
       }
 
       // Update & draw curl-flow energy particles + soft constellation links
-      const linkDist = fluidMode === 'turbo' ? 145 : (fluidMode === 'calm' ? 85 : 115);
+      const linkDist = fluidMode === 'turbo' ? 150 : (fluidMode === 'calm' ? 85 : 120);
+      const linkDistSq = linkDist * linkDist;
       for (let i = 0; i < this.particles.length; i++) {
         const p = this.particles[i];
         const f = this.curl(p.x, p.y, this.t);
-        p.vx = p.vx * 0.92 + f.fx * 0.18 * speedMult;
-        p.vy = p.vy * 0.92 + f.fy * 0.18 * speedMult - this.scrollVel * 0.025;
+        p.vx = p.vx * 0.92 + f.fx * 0.22 * speedMult;
+        p.vy = p.vy * 0.92 + f.fy * 0.22 * speedMult - this.scrollVel * 0.028;
 
         // Pointer vortex swirl
         if (this.pointer.active) {
@@ -381,8 +386,7 @@
           const rad = fluidMode === 'turbo' ? 210 : 145;
           if (d2 > 4 && d2 < rad * rad) {
             const d = Math.sqrt(d2);
-            const force = (1 - d / rad) * (fluidMode === 'turbo' ? 0.85 : 0.42);
-            // Tangential swirl + gentle outward drift
+            const force = (1 - d / rad) * (fluidMode === 'turbo' ? 0.9 : 0.48);
             p.vx += (-dy / d) * force + (dx / d) * force * 0.25;
             p.vy += (dx / d) * force + (dy / d) * force * 0.25;
           }
@@ -401,22 +405,23 @@
         const pulse = 0.78 + 0.22 * Math.sin(this.t * 2.5 + p.phase);
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.r * pulse, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, ${p.alpha})`;
+        ctx.fillStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, ${Math.min(0.65, p.alpha * 1.35)})`;
         ctx.fill();
 
-        // Nearby fluid filament connections
+        // Nearby fluid filament connections (squared distance fast-path)
         for (let j = i + 1; j < this.particles.length; j++) {
           const q = this.particles[j];
           const dx = p.x - q.x;
           const dy = p.y - q.y;
-          const dist = Math.hypot(dx, dy);
-          if (dist < linkDist) {
-            const la = (1 - dist / linkDist) * (fluidMode === 'turbo' ? 0.16 : 0.09);
+          const d2 = dx * dx + dy * dy;
+          if (d2 < linkDistSq) {
+            const dist = Math.sqrt(d2);
+            const la = (1 - dist / linkDist) * (fluidMode === 'turbo' ? 0.22 : 0.13);
             ctx.beginPath();
             ctx.moveTo(p.x, p.y);
             ctx.lineTo(q.x, q.y);
             ctx.strokeStyle = `rgba(${pal.primary[0]}, ${pal.primary[1]}, ${pal.primary[2]}, ${la})`;
-            ctx.lineWidth = 0.85;
+            ctx.lineWidth = 0.9;
             ctx.stroke();
           }
         }
@@ -425,12 +430,12 @@
       // Draw click vortex ripples
       for (let i = this.ripples.length - 1; i >= 0; i--) {
         const rp = this.ripples[i];
-        rp.r += fluidMode === 'turbo' ? 5.2 : 3.6;
-        rp.alpha *= 0.94;
+        rp.r += fluidMode === 'turbo' ? 6.4 : 4.6;
+        rp.alpha *= 0.92;
         ctx.beginPath();
         ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
         ctx.strokeStyle = `rgba(${pal.primary[0]}, ${pal.primary[1]}, ${pal.primary[2]}, ${rp.alpha})`;
-        ctx.lineWidth = 1.6;
+        ctx.lineWidth = 1.8;
         ctx.stroke();
         if (rp.r >= rp.maxR || rp.alpha < 0.015) {
           this.ripples.splice(i, 1);
@@ -439,13 +444,14 @@
 
       // === ELECTRIC LAYER: Orthogonal Circuit Traces + Current Pulses ===
       const arcCol = pal.arc || pal.secondary;
-      const traceAlpha = fluidMode === 'turbo' ? 0.13 : (fluidMode === 'calm' ? 0.045 : 0.08);
+      const coreCol = pal.dark ? [255, 252, 240] : arcCol;
+      const traceAlpha = fluidMode === 'turbo' ? 0.26 : (fluidMode === 'calm' ? 0.09 : 0.17);
       for (let tIdx = 0; tIdx < this.traces.length; tIdx++) {
         const tr = this.traces[tIdx];
         ctx.beginPath();
         tr.pts.forEach((pt, idx) => idx === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y));
         ctx.strokeStyle = `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${traceAlpha})`;
-        ctx.lineWidth = 1;
+        ctx.lineWidth = fluidMode === 'turbo' ? 1.45 : 1.15;
         ctx.stroke();
 
         // Via pads at endpoints
@@ -454,15 +460,15 @@
         const viaPulse = 0.55 + 0.45 * Math.sin(this.t * 3.1 + tr.phase);
         [startPt, endPt].forEach((vp) => {
           ctx.beginPath();
-          ctx.arc(vp.x, vp.y, 2.3, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${traceAlpha * 2.4 * viaPulse})`;
-          ctx.lineWidth = 1.1;
+          ctx.arc(vp.x, vp.y, 2.8, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${Math.min(0.85, traceAlpha * 2.5 * viaPulse)})`;
+          ctx.lineWidth = 1.3;
           ctx.stroke();
         });
       }
 
       // Moving Current Packets along circuit traces
-      const pulseSpeedMult = fluidMode === 'turbo' ? 2.1 : (fluidMode === 'calm' ? 0.45 : 1.15);
+      const pulseSpeedMult = fluidMode === 'turbo' ? 3.2 : (fluidMode === 'calm' ? 0.75 : 1.85);
       for (let pIdx = 0; pIdx < this.pulses.length; pIdx++) {
         const pu = this.pulses[pIdx];
         const tr = this.traces[pu.traceIdx];
@@ -475,20 +481,25 @@
         const tail = this.sampleTrace(tr, pu.dist - pu.dir * pu.len);
         const grad = ctx.createLinearGradient(tail.x, tail.y, head.x, head.y);
         grad.addColorStop(0, `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, 0)`);
-        grad.addColorStop(0.75, `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${fluidMode === 'turbo' ? 0.65 : 0.42})`);
-        grad.addColorStop(1, `rgba(255, 252, 240, ${fluidMode === 'turbo' ? 0.92 : 0.68})`);
+        grad.addColorStop(0.7, `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${fluidMode === 'turbo' ? 0.88 : 0.65})`);
+        grad.addColorStop(1, `rgba(${coreCol[0]}, ${coreCol[1]}, ${coreCol[2]}, ${fluidMode === 'turbo' ? 0.98 : 0.88})`);
 
         ctx.beginPath();
         ctx.moveTo(tail.x, tail.y);
         ctx.lineTo(head.x, head.y);
         ctx.strokeStyle = grad;
-        ctx.lineWidth = fluidMode === 'turbo' ? 2.4 : 1.7;
+        ctx.lineWidth = fluidMode === 'turbo' ? 3.0 : 2.3;
         ctx.stroke();
 
-        // Glowing head packet
+        // Glowing head packet (visible on both light and dark themes)
         ctx.beginPath();
-        ctx.arc(head.x, head.y, fluidMode === 'turbo' ? 2.8 : 2.1, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 252, 240, ${fluidMode === 'calm' ? 0.45 : 0.88})`;
+        ctx.arc(head.x, head.y, fluidMode === 'turbo' ? 5.2 : 3.8, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${fluidMode === 'calm' ? 0.2 : 0.34})`;
+        ctx.fill();
+
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, fluidMode === 'turbo' ? 2.8 : 2.2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${coreCol[0]}, ${coreCol[1]}, ${coreCol[2]}, ${fluidMode === 'calm' ? 0.6 : 0.95})`;
         ctx.fill();
       }
 
@@ -525,16 +536,27 @@
   }
 
   /* ========================================================================
-     MODULE 2: Hero Liquid Aura Injection
+     MODULE 2: Hero Liquid Aura + High-Voltage Scan Bar & Avatar Pulse Ring
      ======================================================================== */
   function injectHeroAura() {
     if (REDUCED_MOTION) return;
-    const hero = document.querySelector('.hero-card, .hero');
-    if (!hero || hero.querySelector('.pf-hero-aura')) return;
-    const aura = document.createElement('div');
-    aura.className = 'pf-hero-aura';
-    aura.setAttribute('aria-hidden', 'true');
-    hero.prepend(aura);
+    const hero = document.querySelector('.hero-bento, .hero-card, .hero');
+    if (hero && !hero.querySelector('.pf-hero-aura')) {
+      const aura = document.createElement('div');
+      aura.className = 'pf-hero-aura';
+      aura.setAttribute('aria-hidden', 'true');
+      hero.prepend(aura);
+    }
+    if (hero && !hero.querySelector('.pf-hero-electric-bar')) {
+      const bar = document.createElement('div');
+      bar.className = 'pf-hero-electric-bar';
+      bar.setAttribute('aria-hidden', 'true');
+      hero.prepend(bar);
+    }
+    const avatarWrap = document.querySelector('.portrait-wrapper, .portrait-ring, .hero-portrait-frame, .hero-avatar-wrap');
+    if (avatarWrap) {
+      avatarWrap.classList.add('pf-avatar-electric');
+    }
   }
 
   /* ========================================================================
@@ -614,12 +636,23 @@
   }
 
   /* ========================================================================
-     MODULE 5: Staggered Spring Reveal
+     MODULE 5: Staggered Spring Reveal (Anti-Blank-Viewport Guarded)
      ======================================================================== */
   function initSpringReveals() {
     if (REDUCED_MOTION || !('IntersectionObserver' in window)) return;
-    const targets = document.querySelectorAll('section .metric-card, section .pillar-card, section .case-card, section .gate-card, section .tri-lane');
+    const targets = Array.from(document.querySelectorAll('section .metric-card, section .pillar-card, section .case-card, section .gate-card, section .tri-lane'));
     if (!targets.length) return;
+
+    function revealVisibleNow() {
+      const vh = window.innerHeight;
+      targets.forEach((el) => {
+        if (!el.classList.contains('pf-reveal') || el.classList.contains('pf-revealed')) return;
+        const r = el.getBoundingClientRect();
+        if (r.top < vh + 140 && r.bottom > -140) {
+          el.classList.add('pf-revealed');
+        }
+      });
+    }
 
     const io = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
@@ -628,15 +661,18 @@
           io.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.08, rootMargin: '0px 0px -24px 0px' });
+    }, { threshold: 0, rootMargin: '140px 0px 140px 0px' });
 
     targets.forEach((el, idx) => {
       const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight * 0.95) return; // Already in view
+      if (rect.top < window.innerHeight + 120) return; // Already in/near view
       el.classList.add('pf-reveal');
-      el.style.transitionDelay = ((idx % 4) * 55) + 'ms';
+      el.style.transitionDelay = ((idx % 4) * 45) + 'ms';
       io.observe(el);
     });
+
+    window.addEventListener('scroll', revealVisibleNow, { passive: true });
+    window.addEventListener('hashchange', () => setTimeout(revealVisibleNow, 60));
   }
 
   /* ========================================================================
@@ -975,9 +1011,12 @@
 
     if (!scopes.length) return;
 
-    function tickScopes() {
+    let lastScopeTs = 0;
+    function tickScopes(now) {
       requestAnimationFrame(tickScopes);
       if (document.hidden) return;
+      if (now && now - lastScopeTs < 34) return; // ~30fps guard
+      lastScopeTs = now || performance.now();
       const pal = getCurrentPalette();
       const col = pal.arc || pal.primary;
       const modeMult = fluidMode === 'turbo' ? 1.6 : (fluidMode === 'calm' ? 0.45 : 1.0);

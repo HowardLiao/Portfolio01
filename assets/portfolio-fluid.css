@@ -698,7 +698,68 @@ header, main, section, footer, .hero-card, .hero, .wrap, .container {
 .pf-electric-card:hover::after,
 .pf-electric-card:focus-within::after,
 .pf-electric-card.active::after {
-  opacity: 0.92;
+  opacity: 0.95;
+}
+
+/* Always-on subtle electric border beam on flagship metric & case cards */
+.metric-card.pf-electric-card::after,
+.gate-card.pf-electric-card::after {
+  opacity: 0.52;
+}
+
+[data-pf-fluid="turbo"] .pf-electric-card::after {
+  opacity: 0.68;
+}
+
+/* Hero Top High-Voltage Electric Scan Bar */
+.pf-hero-electric-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  border-radius: inherit;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 4;
+  background: linear-gradient(90deg, rgba(222, 88, 20, 0.25), rgba(245, 158, 11, 0.25));
+}
+
+.pf-hero-electric-bar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -35%;
+  width: 35%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--pf-electric-core), #FFFFFF, var(--pf-electric-core), transparent);
+  box-shadow: 0 0 14px 3px var(--pf-electric-glow);
+  animation: pfHeroScan 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+[data-pf-fluid="turbo"] .pf-hero-electric-bar::after {
+  animation-duration: 1.45s;
+}
+
+[data-pf-fluid="calm"] .pf-hero-electric-bar::after {
+  animation-duration: 6.5s;
+  opacity: 0.45;
+}
+
+@keyframes pfHeroScan {
+  0%   { left: -38%; }
+  100% { left: 108%; }
+}
+
+/* Hero Portrait Electric Pulse Halo */
+.pf-avatar-electric {
+  box-shadow: 0 0 0 2px var(--pf-electric-core), 0 0 22px var(--pf-electric-glow) !important;
+  animation: pfAvatarHalo 3.2s ease-in-out infinite;
+}
+
+@keyframes pfAvatarHalo {
+  0%, 100% { box-shadow: 0 0 0 2px var(--pf-electric-core), 0 0 16px var(--pf-electric-glow); }
+  50%      { box-shadow: 0 0 0 4px var(--pf-electric-core), 0 0 32px var(--pf-electric-glow); }
 }
 
 [data-pf-fluid="calm"] .pf-electric-card::after {
