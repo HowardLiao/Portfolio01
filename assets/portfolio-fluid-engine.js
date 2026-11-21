@@ -1,15 +1,19 @@
 /* ==========================================================================
-   Portfolio01 — Executive Hydrodynamic Fluid & Hyper-Interactive Engine JS
-   Version: 1.0.0
+   Portfolio01 — Executive Hydrodynamic Fluid × Electric Current Engine JS
+   Version: 2.0.0
    Modules:
-     1. Ambient Hydrodynamic Curl-Flow & Pointer Vortex Canvas (#pfFluidCanvas)
+     1. Ambient Hydrodynamic Curl-Flow + Orthogonal Circuit Pulses + Cursor Arcs (#pfFluidCanvas)
      2. Hero Liquid Morphing Aura Injection
      3. Liquid-Glass 3D Spring Tilt + Cursor Specular Highlight
      4. Magnetic Fluid Buttons + Viscous Click Ripples
      5. Staggered Spring Viewport Reveal + Scroll Velocity Coupling
      6. Live Architecture Data-Flow Telemetry Ribbon (#stack / #arch)
      7. Executive Slide-Over Detail Drawer (#pfExecDrawer) w/ Keyboard Nav
-     8. Live Fluid Mode Switcher (Calm / Standard / Turbo) + Theme Sync
+     8. Live Fluid×Current Mode Switcher (Calm / Standard / Turbo) + Theme Sync
+     9. Electric Border Beam Cards + High-Voltage Reading Progress Tip
+    10. 4-Gate Physical Electric Interlock Busbar (#pfGateCircuit)
+    11. Live Calculator Current Oscilloscope (.pf-osc-wrap)
+    12. Architecture & Route SVG Live Electric Current Pulse Overlay
    ========================================================================== */
 (function () {
   'use strict';
@@ -24,10 +28,10 @@
 
   const I18N = {
     zh: {
-      fluidLabel: '流體',
+      fluidLabel: '流體×電流',
       calm: '靜謐',
       standard: '平衡',
-      turbo: '渦流',
+      turbo: '高壓',
       inspect: '點擊展開詳情',
       drawerEyebrow: '高管戰情細節檢視',
       copyBtn: '複製摘要',
@@ -36,6 +40,10 @@
       next: '下一項 →',
       flowTitle: '即時資料流狀態',
       flowStatus: 'Clean Core 非侵入式雙環串流 · 99.99% SLA · 零核心改碼',
+      gateTitle: '4-Gate 實體電流聯鎖匯流排',
+      gatePass: '⚡ 全鏈路通電放行（4/4 導通）',
+      gateTrip: (g) => `⚠ GATE 0${g} 斷路阻斷 — 下游失電保護`,
+      oscLabel: '即時算力電流示波',
       flowNodes: [
         { id: 's4', label: 'SAP S/4HANA', detail: 'OData / RFC 唯讀事件流，不動核心代碼，2027 切換零干擾。' },
         { id: 'cdc', label: 'Hive CDC 匯流排', detail: 'Debezium + Kafka 毫秒級雙環事件匯流排，對生產 DB 零查詢負載。' },
@@ -44,10 +52,10 @@
       ]
     },
     en: {
-      fluidLabel: 'Fluid',
+      fluidLabel: 'Fluid×Arc',
       calm: 'Calm',
       standard: 'Flow',
-      turbo: 'Vortex',
+      turbo: 'Surge',
       inspect: 'Inspect Details',
       drawerEyebrow: 'Executive Dossier Deep-Dive',
       copyBtn: 'Copy Summary',
@@ -56,6 +64,10 @@
       next: 'Next →',
       flowTitle: 'Live Architecture Telemetry',
       flowStatus: 'Clean Core Non-Invasive Dual-Bus · 99.99% SLA · Zero Core Mod',
+      gateTitle: '4-Gate Electric Interlock Busbar',
+      gatePass: '⚡ All Circuits Live (4/4 Energized)',
+      gateTrip: (g) => `⚠ GATE 0${g} Open Circuit — Downstream De-energized`,
+      oscLabel: 'Live Load Current Waveform',
       flowNodes: [
         { id: 's4', label: 'SAP S/4HANA', detail: 'Read-only OData/RFC event stream — zero core modification for 2027 go-live.' },
         { id: 'cdc', label: 'Hive CDC Bus', detail: 'Debezium + Kafka millisecond dual-ring streaming with zero load on production DB.' },
@@ -64,10 +76,10 @@
       ]
     },
     ja: {
-      fluidLabel: '流体',
+      fluidLabel: '流体×電流',
       calm: '静謐',
       standard: '標準',
-      turbo: '渦流',
+      turbo: '高圧',
       inspect: '詳細を表示',
       drawerEyebrow: 'エグゼクティブ詳細ビュー',
       copyBtn: '要約をコピー',
@@ -76,6 +88,10 @@
       next: '次へ →',
       flowTitle: 'リアルタイムデータフロー',
       flowStatus: 'Clean Core 非侵襲デュアルバス · 99.99% SLA · コア無改変',
+      gateTitle: '4-Gate 物理電流インターロック',
+      gatePass: '⚡ 全系統通電クリア（4/4 導通）',
+      gateTrip: (g) => `⚠ GATE 0${g} 遮断検知 — 下流ライン停電保護`,
+      oscLabel: 'リアルタイム電流波形',
       flowNodes: [
         { id: 's4', label: 'SAP S/4HANA', detail: 'OData/RFC 読み取り専用ストリーム。コア無改変で2027年移行に完全対応。' },
         { id: 'cdc', label: 'Hive CDC バス', detail: 'Debezium + Kafka ミリ秒級ストリーミング。基幹DBへの負荷ゼロ。' },
@@ -85,14 +101,14 @@
     }
   }[LANG];
 
-  // Theme-aware hydrodynamic palettes
+  // Theme-aware hydrodynamic + electric palettes
   const THEME_PALETTES = {
-    default:  { primary: [222, 88, 20],  secondary: [245, 158, 11], tertiary: [168, 50, 18],  bgFade: 0.08 },
-    pharaoh:  { primary: [217, 119, 6],  secondary: [245, 158, 11], tertiary: [180, 83, 9],   bgFade: 0.08 },
-    obsidian: { primary: [245, 158, 11], secondary: [56, 189, 248], tertiary: [234, 88, 12],  bgFade: 0.11 },
-    klimt:    { primary: [212, 175, 55], secondary: [250, 204, 21], tertiary: [180, 130, 30], bgFade: 0.10 },
-    ninagawa: { primary: [236, 72, 153], secondary: [168, 85, 247], tertiary: [56, 189, 248], bgFade: 0.10 },
-    miro:     { primary: [220, 38, 38],  secondary: [29, 78, 216],  tertiary: [234, 179, 8],  bgFade: 0.08 }
+    default:  { primary: [222, 88, 20],  secondary: [245, 158, 11], tertiary: [168, 50, 18],  arc: [245, 158, 11], bgFade: 0.08 },
+    pharaoh:  { primary: [217, 119, 6],  secondary: [245, 158, 11], tertiary: [180, 83, 9],   arc: [251, 191, 36], bgFade: 0.08 },
+    obsidian: { primary: [245, 158, 11], secondary: [56, 189, 248], tertiary: [234, 88, 12],  arc: [56, 189, 248], bgFade: 0.11 },
+    klimt:    { primary: [212, 175, 55], secondary: [250, 204, 21], tertiary: [180, 130, 30], arc: [253, 224, 71], bgFade: 0.10 },
+    ninagawa: { primary: [236, 72, 153], secondary: [168, 85, 247], tertiary: [56, 189, 248], arc: [244, 114, 182], bgFade: 0.10 },
+    miro:     { primary: [220, 38, 38],  secondary: [29, 78, 216],  tertiary: [234, 179, 8],  arc: [37, 99, 235],  bgFade: 0.08 }
   };
 
   function getCurrentPalette() {
@@ -122,14 +138,98 @@
       this.lastScrollY = window.scrollY;
       this.pointer = { x: -999, y: -999, vx: 0, vy: 0, active: false };
       this.ripples = [];
+      this.sparks = [];
+      this.traces = [];
+      this.pulses = [];
       this.particles = [];
       this.rafId = null;
       this.paused = false;
 
       this.resize();
       this.seedParticles();
+      this.seedCircuits();
       this.bindEvents();
       this.loop();
+    }
+
+    seedCircuits() {
+      const traceCount = IS_TOUCH ? 7 : (this.w < 900 ? 10 : 16);
+      const grid = 64;
+      this.traces = [];
+      this.pulses = [];
+      for (let i = 0; i < traceCount; i++) {
+        const pts = [];
+        let x = Math.round((Math.random() * this.w) / grid) * grid;
+        let y = Math.round((Math.random() * this.h) / grid) * grid;
+        pts.push({ x, y });
+        const segs = 3 + Math.floor(Math.random() * 4);
+        let horiz = Math.random() > 0.5;
+        let totalLen = 0;
+        for (let s = 0; s < segs; s++) {
+          const step = (1 + Math.floor(Math.random() * 3)) * grid * (Math.random() > 0.5 ? 1 : -1);
+          const nx = horiz ? Math.max(24, Math.min(this.w - 24, x + step)) : x;
+          const ny = horiz ? y : Math.max(24, Math.min(this.h - 24, y + step));
+          totalLen += Math.hypot(nx - x, ny - y);
+          x = nx; y = ny;
+          pts.push({ x, y });
+          horiz = !horiz;
+        }
+        if (totalLen > 60) {
+          this.traces.push({ pts, totalLen, phase: Math.random() * Math.PI * 2 });
+          this.pulses.push({
+            traceIdx: this.traces.length - 1,
+            dist: Math.random() * totalLen,
+            speed: 1.4 + Math.random() * 1.9,
+            dir: Math.random() > 0.5 ? 1 : -1,
+            len: 28 + Math.random() * 36
+          });
+        }
+      }
+    }
+
+    sampleTrace(trace, dist) {
+      let rem = Math.max(0, Math.min(trace.totalLen, dist));
+      for (let i = 0; i < trace.pts.length - 1; i++) {
+        const a = trace.pts[i], b = trace.pts[i + 1];
+        const segLen = Math.hypot(b.x - a.x, b.y - a.y);
+        if (rem <= segLen || i === trace.pts.length - 2) {
+          const t = segLen > 0 ? rem / segLen : 0;
+          return { x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t };
+        }
+        rem -= segLen;
+      }
+      return trace.pts[0];
+    }
+
+    drawArc(ctx, x1, y1, x2, y2, col, alpha, jitter) {
+      const steps = 6;
+      const dx = x2 - x1;
+      const dy = y2 - y1;
+      const dist = Math.hypot(dx, dy) || 1;
+      const nx = -dy / dist;
+      const ny = dx / dist;
+      const pts = [{ x: x1, y: y1 }];
+      for (let i = 1; i < steps; i++) {
+        const t = i / steps;
+        const env = Math.sin(t * Math.PI);
+        const off = (Math.random() - 0.5) * 2 * jitter * env;
+        pts.push({ x: x1 + dx * t + nx * off, y: y1 + dy * t + ny * off });
+      }
+      pts.push({ x: x2, y: y2 });
+
+      // Outer electric glow
+      ctx.beginPath();
+      pts.forEach((p, idx) => idx === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+      ctx.strokeStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, ${alpha * 0.45})`;
+      ctx.lineWidth = 3.2;
+      ctx.stroke();
+
+      // Inner hot core
+      ctx.beginPath();
+      pts.forEach((p, idx) => idx === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+      ctx.strokeStyle = `rgba(255, 252, 240, ${Math.min(0.95, alpha * 0.85)})`;
+      ctx.lineWidth = 1.05;
+      ctx.stroke();
     }
 
     resize() {
@@ -165,6 +265,7 @@
       window.addEventListener('resize', () => {
         this.resize();
         this.seedParticles();
+        this.seedCircuits();
       }, { passive: true });
 
       window.addEventListener('scroll', () => {
@@ -191,6 +292,19 @@
             maxR: fluidMode === 'turbo' ? 210 : 140,
             alpha: 0.36
           });
+          // Spawn radial transient electric sparks
+          const sparkCount = fluidMode === 'turbo' ? 7 : 4;
+          for (let s = 0; s < sparkCount; s++) {
+            const ang = (Math.PI * 2 * s) / sparkCount + (Math.random() - 0.5) * 0.5;
+            const len = (fluidMode === 'turbo' ? 58 : 38) + Math.random() * 28;
+            this.sparks.push({
+              x1: e.clientX,
+              y1: e.clientY,
+              x2: e.clientX + Math.cos(ang) * len,
+              y2: e.clientY + Math.sin(ang) * len,
+              life: 1.0
+            });
+          }
         }, { passive: true });
       }
 
@@ -321,6 +435,91 @@
         if (rp.r >= rp.maxR || rp.alpha < 0.015) {
           this.ripples.splice(i, 1);
         }
+      }
+
+      // === ELECTRIC LAYER: Orthogonal Circuit Traces + Current Pulses ===
+      const arcCol = pal.arc || pal.secondary;
+      const traceAlpha = fluidMode === 'turbo' ? 0.13 : (fluidMode === 'calm' ? 0.045 : 0.08);
+      for (let tIdx = 0; tIdx < this.traces.length; tIdx++) {
+        const tr = this.traces[tIdx];
+        ctx.beginPath();
+        tr.pts.forEach((pt, idx) => idx === 0 ? ctx.moveTo(pt.x, pt.y) : ctx.lineTo(pt.x, pt.y));
+        ctx.strokeStyle = `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${traceAlpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Via pads at endpoints
+        const startPt = tr.pts[0];
+        const endPt = tr.pts[tr.pts.length - 1];
+        const viaPulse = 0.55 + 0.45 * Math.sin(this.t * 3.1 + tr.phase);
+        [startPt, endPt].forEach((vp) => {
+          ctx.beginPath();
+          ctx.arc(vp.x, vp.y, 2.3, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${traceAlpha * 2.4 * viaPulse})`;
+          ctx.lineWidth = 1.1;
+          ctx.stroke();
+        });
+      }
+
+      // Moving Current Packets along circuit traces
+      const pulseSpeedMult = fluidMode === 'turbo' ? 2.1 : (fluidMode === 'calm' ? 0.45 : 1.15);
+      for (let pIdx = 0; pIdx < this.pulses.length; pIdx++) {
+        const pu = this.pulses[pIdx];
+        const tr = this.traces[pu.traceIdx];
+        if (!tr) continue;
+        pu.dist += pu.speed * pu.dir * pulseSpeedMult;
+        if (pu.dist > tr.totalLen) { pu.dist = tr.totalLen; pu.dir = -1; }
+        else if (pu.dist < 0) { pu.dist = 0; pu.dir = 1; }
+
+        const head = this.sampleTrace(tr, pu.dist);
+        const tail = this.sampleTrace(tr, pu.dist - pu.dir * pu.len);
+        const grad = ctx.createLinearGradient(tail.x, tail.y, head.x, head.y);
+        grad.addColorStop(0, `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, 0)`);
+        grad.addColorStop(0.75, `rgba(${arcCol[0]}, ${arcCol[1]}, ${arcCol[2]}, ${fluidMode === 'turbo' ? 0.65 : 0.42})`);
+        grad.addColorStop(1, `rgba(255, 252, 240, ${fluidMode === 'turbo' ? 0.92 : 0.68})`);
+
+        ctx.beginPath();
+        ctx.moveTo(tail.x, tail.y);
+        ctx.lineTo(head.x, head.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = fluidMode === 'turbo' ? 2.4 : 1.7;
+        ctx.stroke();
+
+        // Glowing head packet
+        ctx.beginPath();
+        ctx.arc(head.x, head.y, fluidMode === 'turbo' ? 2.8 : 2.1, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 252, 240, ${fluidMode === 'calm' ? 0.45 : 0.88})`;
+        ctx.fill();
+      }
+
+      // Cursor-induced micro electric arcs to nearby circuit vias
+      if (!IS_TOUCH && this.pointer.active && fluidMode !== 'calm') {
+        const arcRadius = fluidMode === 'turbo' ? 165 : 115;
+        let arcsDrawn = 0;
+        const maxArcs = fluidMode === 'turbo' ? 3 : 2;
+        for (let tIdx = 0; tIdx < this.traces.length && arcsDrawn < maxArcs; tIdx++) {
+          const pts = this.traces[tIdx].pts;
+          for (let k = 0; k < pts.length && arcsDrawn < maxArcs; k += Math.max(1, pts.length - 1)) {
+            const vp = pts[k];
+            const dist = Math.hypot(vp.x - this.pointer.x, vp.y - this.pointer.y);
+            if (dist < arcRadius && dist > 14) {
+              const alpha = (1 - dist / arcRadius) * (fluidMode === 'turbo' ? 0.72 : 0.46);
+              this.drawArc(ctx, this.pointer.x, this.pointer.y, vp.x, vp.y, arcCol, alpha, fluidMode === 'turbo' ? 12 : 7);
+              arcsDrawn++;
+            }
+          }
+        }
+      }
+
+      // Click transient electric sparks
+      for (let i = this.sparks.length - 1; i >= 0; i--) {
+        const sp = this.sparks[i];
+        sp.life -= 0.085;
+        if (sp.life <= 0) {
+          this.sparks.splice(i, 1);
+          continue;
+        }
+        this.drawArc(ctx, sp.x1, sp.y1, sp.x2, sp.y2, arcCol, sp.life * 0.78, 9);
       }
     }
   }
@@ -622,7 +821,7 @@
     dock.setAttribute('role', 'group');
     dock.setAttribute('aria-label', 'Fluid motion intensity');
     dock.innerHTML = `
-      <span class="pf-dock-label">🌊 ${I18N.fluidLabel}</span>
+      <span class="pf-dock-label">⚡ ${I18N.fluidLabel}</span>
       <button type="button" class="pf-mode-btn" data-pf-mode="calm">${I18N.calm}</button>
       <button type="button" class="pf-mode-btn" data-pf-mode="standard">${I18N.standard}</button>
       <button type="button" class="pf-mode-btn" data-pf-mode="turbo">${I18N.turbo}</button>
@@ -642,6 +841,219 @@
   }
 
   /* ========================================================================
+     MODULE 9: Electric Border Beam Cards & High-Voltage Progress Tip
+     ======================================================================== */
+  function initElectricCardsAndProgress() {
+    const cards = document.querySelectorAll(
+      '.metric-card, .calc-card, .case-card, .evidence-card, .gate-card, .nd-card-btn, .nd-fit-card, .tri-lane, .tri-routes-card, .pillar-card'
+    );
+    cards.forEach((c) => c.classList.add('pf-electric-card'));
+
+    const prog = document.getElementById('neonReadingProgress');
+    if (prog) prog.classList.add('pf-electric-progress');
+  }
+
+  /* ========================================================================
+     MODULE 10: 4-Gate Physical Electric Interlock Busbar (#pfGateCircuit)
+     ======================================================================== */
+  function initGateElectricInterlock() {
+    const chks = [1, 2, 3, 4].map((i) => document.getElementById('gateChk' + i)).filter(Boolean);
+    const grid = document.querySelector('.gates-grid');
+    if (chks.length !== 4 || !grid || document.getElementById('pfGateCircuit')) return;
+
+    const wrap = document.createElement('div');
+    wrap.id = 'pfGateCircuit';
+    wrap.className = 'pf-gate-circuit';
+    wrap.innerHTML = `
+      <div class="pf-gate-circuit-head">
+        <span class="pf-gate-circuit-title">⚡ ${I18N.gateTitle}</span>
+        <span class="pf-gate-circuit-badge" id="pfGateBadge">${I18N.gatePass}</span>
+      </div>
+      <svg class="pf-gate-svg" viewBox="0 0 800 44" preserveAspectRatio="none" aria-hidden="true">
+        <line class="pf-bus-base" x1="60" y1="18" x2="740" y2="18"/>
+        <line class="pf-bus-live" id="pfBusSeg0" x1="60"  y1="18" x2="230" y2="18"/>
+        <line class="pf-bus-live" id="pfBusSeg1" x1="230" y1="18" x2="400" y2="18"/>
+        <line class="pf-bus-live" id="pfBusSeg2" x1="400" y1="18" x2="570" y2="18"/>
+        <line class="pf-bus-live" id="pfBusSeg3" x1="570" y1="18" x2="740" y2="18"/>
+        <circle class="pf-bus-node is-on" id="pfBusNode0" cx="60"  cy="18" r="6"/>
+        <circle class="pf-bus-node is-on" id="pfBusNode1" cx="230" cy="18" r="7"/>
+        <circle class="pf-bus-node is-on" id="pfBusNode2" cx="400" cy="18" r="7"/>
+        <circle class="pf-bus-node is-on" id="pfBusNode3" cx="570" cy="18" r="7"/>
+        <circle class="pf-bus-node is-on" id="pfBusNode4" cx="740" cy="18" r="7"/>
+        <text class="pf-bus-label" x="60"  y="39">IN</text>
+        <text class="pf-bus-label" x="230" y="39">GATE 01</text>
+        <text class="pf-bus-label" x="400" y="39">GATE 02</text>
+        <text class="pf-bus-label" x="570" y="39">GATE 03</text>
+        <text class="pf-bus-label" x="740" y="39">GATE 04 · RELEASE</text>
+      </svg>
+    `;
+    grid.insertAdjacentElement('beforebegin', wrap);
+
+    const badge = wrap.querySelector('#pfGateBadge');
+    const segs = [0, 1, 2, 3].map((i) => wrap.querySelector('#pfBusSeg' + i));
+    const nodes = [1, 2, 3, 4].map((i) => wrap.querySelector('#pfBusNode' + i));
+
+    function syncCircuit() {
+      let firstFail = -1;
+      for (let i = 0; i < 4; i++) {
+        if (!chks[i].checked) {
+          firstFail = i;
+          break;
+        }
+      }
+      if (firstFail === -1) {
+        wrap.classList.remove('is-tripped');
+        badge.textContent = I18N.gatePass;
+        segs.forEach((s) => s.classList.remove('is-off'));
+        nodes.forEach((n) => { n.className.baseVal = 'pf-bus-node is-on'; });
+      } else {
+        wrap.classList.add('is-tripped');
+        badge.textContent = I18N.gateTrip(firstFail + 1);
+        for (let i = 0; i < 4; i++) {
+          segs[i].classList.toggle('is-off', i > firstFail);
+          if (i < firstFail) nodes[i].className.baseVal = 'pf-bus-node is-on';
+          else if (i === firstFail) nodes[i].className.baseVal = 'pf-bus-node is-fault';
+          else nodes[i].className.baseVal = 'pf-bus-node is-dead';
+        }
+      }
+    }
+
+    grid.addEventListener('click', () => setTimeout(syncCircuit, 20));
+    chks.forEach((chk) => chk.addEventListener('change', syncCircuit));
+    syncCircuit();
+  }
+
+  /* ========================================================================
+     MODULE 11: Live Calculator Current Oscilloscope (.pf-osc-wrap)
+     ======================================================================== */
+  function initCalculatorOscilloscopes() {
+    if (REDUCED_MOTION) return;
+    const calcCards = Array.from(document.querySelectorAll('.calc-card'));
+    if (!calcCards.length) return;
+
+    const scopes = [];
+    calcCards.forEach((card, idx) => {
+      const sliders = Array.from(card.querySelectorAll('input[type="range"]'));
+      if (!sliders.length || card.querySelector('.pf-osc-wrap')) return;
+
+      const wrap = document.createElement('div');
+      wrap.className = 'pf-osc-wrap';
+      wrap.innerHTML = `
+        <div class="pf-osc-meta">
+          <span>⚡ ${I18N.oscLabel}</span>
+          <span class="pf-osc-readout" id="pfOscVal${idx}">48.0 A · 60 Hz</span>
+        </div>
+        <canvas class="pf-osc-canvas" width="420" height="44" aria-hidden="true"></canvas>
+      `;
+      card.appendChild(wrap);
+
+      const canvas = wrap.querySelector('canvas');
+      const ctx = canvas.getContext('2d');
+      const readout = wrap.querySelector('.pf-osc-readout');
+
+      const state = { canvas, ctx, readout, sliders, load: 0.45, surge: 0, phase: idx * 1.3 };
+
+      function computeLoad(triggerSurge) {
+        let sum = 0;
+        sliders.forEach((sl) => {
+          const min = parseFloat(sl.min) || 0;
+          const max = parseFloat(sl.max) || 100;
+          const val = parseFloat(sl.value) || 0;
+          sum += max > min ? (val - min) / (max - min) : 0.5;
+        });
+        state.load = Math.max(0.12, Math.min(1.0, sum / sliders.length));
+        if (triggerSurge) state.surge = 1.0;
+        const amps = (18 + state.load * 102).toFixed(1);
+        const hz = Math.round(50 + state.load * 70);
+        readout.textContent = `${amps} A · ${hz} Hz`;
+      }
+
+      sliders.forEach((sl) => sl.addEventListener('input', () => computeLoad(true)));
+      computeLoad(false);
+      scopes.push(state);
+    });
+
+    if (!scopes.length) return;
+
+    function tickScopes() {
+      requestAnimationFrame(tickScopes);
+      if (document.hidden) return;
+      const pal = getCurrentPalette();
+      const col = pal.arc || pal.primary;
+      const modeMult = fluidMode === 'turbo' ? 1.6 : (fluidMode === 'calm' ? 0.45 : 1.0);
+
+      scopes.forEach((sc) => {
+        sc.phase += (0.06 + sc.load * 0.14) * modeMult;
+        sc.surge *= 0.91;
+        const w = sc.canvas.width;
+        const h = sc.canvas.height;
+        const mid = h / 2;
+        const ctx = sc.ctx;
+
+        ctx.clearRect(0, 0, w, h);
+
+        // Subtle oscilloscope center grid line
+        ctx.beginPath();
+        ctx.moveTo(0, mid);
+        ctx.lineTo(w, mid);
+        ctx.strokeStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, 0.16)`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        // Live electric current waveform
+        const amp = (5 + sc.load * 11 + sc.surge * 7) * (fluidMode === 'calm' ? 0.6 : 1);
+        const freq = 0.025 + sc.load * 0.045;
+        ctx.beginPath();
+        for (let x = 0; x <= w; x += 4) {
+          const env = Math.sin((x / w) * Math.PI);
+          const harmonic = Math.sin(x * freq * 2.4 - sc.phase * 1.7) * 0.35;
+          const jitter = sc.surge > 0.08 ? (Math.random() - 0.5) * 6 * sc.surge : 0;
+          const y = mid + (Math.sin(x * freq + sc.phase) + harmonic) * amp * env + jitter;
+          if (x === 0) ctx.moveTo(x, y);
+          else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = `rgba(${col[0]}, ${col[1]}, ${col[2]}, 0.88)`;
+        ctx.lineWidth = 1.9;
+        ctx.stroke();
+      });
+    }
+    tickScopes();
+  }
+
+  /* ========================================================================
+     MODULE 12: Architecture & Route SVG Live Electric Current Pulse Overlay
+     ======================================================================== */
+  function initSvgCurrentPulses() {
+    if (REDUCED_MOTION) return;
+    const svgs = Array.from(document.querySelectorAll('svg')).filter(
+      (s) => !s.closest('#pfGateCircuit') && !s.closest('#pfFluidDock')
+    );
+    let delayIdx = 0;
+    svgs.forEach((svg) => {
+      const shapes = svg.querySelectorAll('path, line, polyline');
+      shapes.forEach((el) => {
+        if (el.dataset.pfPulseDone || el.closest('defs') || el.closest('marker')) return;
+        const stroke = el.getAttribute('stroke') || getComputedStyle(el).stroke;
+        if (!stroke || stroke === 'none') return;
+        // Skip tiny icon paths
+        try {
+          const len = typeof el.getTotalLength === 'function' ? el.getTotalLength() : 0;
+          if (len > 0 && len < 42) return;
+        } catch (_) {}
+
+        el.dataset.pfPulseDone = '1';
+        const clone = el.cloneNode(false);
+        clone.removeAttribute('id');
+        clone.removeAttribute('marker-end');
+        clone.removeAttribute('marker-start');
+        clone.classList.add('pf-svg-current-overlay');
+        clone.style.animationDelay = ((delayIdx++ % 7) * -0.42).toFixed(2) + 's';
+        el.insertAdjacentElement('afterend', clone);
+      });
+    });
+  }
+
+  /* ========================================================================
      Bootstrap
      ======================================================================== */
   function boot() {
@@ -655,6 +1067,10 @@
     initFlowTelemetryRibbon();
     initExecutiveDrawer();
     initFluidModeDock();
+    initElectricCardsAndProgress();
+    initGateElectricInterlock();
+    initCalculatorOscilloscopes();
+    initSvgCurrentPulses();
   }
 
   if (document.readyState === 'loading') {

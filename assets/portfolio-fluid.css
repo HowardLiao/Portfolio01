@@ -596,6 +596,316 @@ header, main, section, footer, .hero-card, .hero, .wrap, .container {
   }
 }
 
+/* ==========================================================================
+   Portfolio01 — Executive Hydrodynamic Fluid × Electric Current CSS v2.0.0
+   ========================================================================== */
+@property --pf-beam-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes pfElectricSpin {
+  to { --pf-beam-angle: 360deg; }
+}
+
+@keyframes pfCurrentDash {
+  from { stroke-dashoffset: 48; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes pfSvgPulse {
+  from { stroke-dashoffset: 160; }
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes pfFaultBlink {
+  0%, 100% { opacity: 1; filter: drop-shadow(0 0 6px rgba(239, 68, 68, 0.85)); }
+  50% { opacity: 0.45; filter: drop-shadow(0 0 2px rgba(239, 68, 68, 0.35)); }
+}
+
+@keyframes pfTipPulse {
+  0%, 100% { transform: translateY(-50%) scale(1); opacity: 0.95; }
+  50% { transform: translateY(-50%) scale(1.45); opacity: 1; }
+}
+
+:root {
+  --pf-electric-core: #F59E0B;
+  --pf-electric-glow: rgba(222, 88, 20, 0.55);
+  --pf-electric-ok: #10B981;
+  --pf-electric-fault: #EF4444;
+  --pf-beam-speed: 4.2s;
+}
+
+[data-theme="obsidian"] {
+  --pf-electric-core: #38BDF8;
+  --pf-electric-glow: rgba(56, 189, 248, 0.65);
+}
+
+[data-theme="klimt"] {
+  --pf-electric-core: #FACC15;
+  --pf-electric-glow: rgba(212, 175, 55, 0.6);
+}
+
+[data-theme="ninagawa"] {
+  --pf-electric-core: #EC4899;
+  --pf-electric-glow: rgba(168, 85, 247, 0.62);
+}
+
+[data-theme="miro"] {
+  --pf-electric-core: #2563EB;
+  --pf-electric-glow: rgba(220, 38, 38, 0.52);
+}
+
+[data-theme="pharaoh"] {
+  --pf-electric-core: #F59E0B;
+  --pf-electric-glow: rgba(217, 119, 6, 0.58);
+}
+
+[data-pf-fluid="turbo"] { --pf-beam-speed: 2.1s; }
+[data-pf-fluid="calm"]  { --pf-beam-speed: 9.5s; }
+
+/* 1. Electric Border Beam on Interactive Cards (Hover / Active) */
+.pf-electric-card {
+  position: relative;
+  isolation: isolate;
+}
+
+.pf-electric-card::after {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+  background: conic-gradient(
+    from var(--pf-beam-angle),
+    transparent 0deg,
+    transparent 265deg,
+    var(--pf-electric-core) 315deg,
+    var(--pf-fluid-accent, #DE5814) 345deg,
+    transparent 360deg
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
+  transition: opacity 0.28s ease;
+  animation: pfElectricSpin var(--pf-beam-speed) linear infinite;
+}
+
+.pf-electric-card:hover::after,
+.pf-electric-card:focus-within::after,
+.pf-electric-card.active::after {
+  opacity: 0.92;
+}
+
+[data-pf-fluid="calm"] .pf-electric-card::after {
+  opacity: 0 !important;
+  animation: none !important;
+}
+
+/* 2. High-Voltage Reading Progress Bar Tip */
+.neon-reading-progress.pf-electric-progress {
+  overflow: visible !important;
+  box-shadow: 0 0 12px var(--pf-electric-glow);
+}
+
+.neon-reading-progress.pf-electric-progress::after {
+  content: '';
+  position: absolute;
+  right: -3px;
+  top: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #FFFFFF;
+  box-shadow: 0 0 8px 2px var(--pf-electric-core), 0 0 16px 4px var(--pf-electric-glow);
+  animation: pfTipPulse 1.4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* 3. 4-Gate Physical Electric Interlock Busbar (#pfGateCircuit) */
+.pf-gate-circuit {
+  margin: 0 0 18px 0;
+  padding: 12px 16px 10px;
+  border-radius: 14px;
+  background: var(--pf-glass-bg, rgba(255, 255, 255, 0.72));
+  border: 1px solid var(--pf-glass-border, rgba(222, 88, 20, 0.22));
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.05);
+}
+
+.pf-gate-circuit-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.pf-gate-circuit-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--pf-drawer-text, #1E293B);
+}
+
+.pf-gate-circuit-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 800;
+  background: rgba(16, 185, 129, 0.14);
+  color: #059669;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  transition: all 0.25s ease;
+}
+
+[data-theme="obsidian"] .pf-gate-circuit-badge,
+[data-theme="klimt"] .pf-gate-circuit-badge,
+[data-theme="ninagawa"] .pf-gate-circuit-badge {
+  color: #34D399;
+}
+
+.pf-gate-circuit.is-tripped .pf-gate-circuit-badge {
+  background: rgba(239, 68, 68, 0.14);
+  color: #DC2626;
+  border-color: rgba(239, 68, 68, 0.42);
+}
+
+[data-theme="obsidian"] .pf-gate-circuit.is-tripped .pf-gate-circuit-badge {
+  color: #FCA5A5;
+}
+
+.pf-gate-svg {
+  width: 100%;
+  height: 44px;
+  display: block;
+  overflow: visible;
+}
+
+.pf-bus-base {
+  fill: none;
+  stroke: rgba(148, 163, 184, 0.35);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.pf-bus-live {
+  fill: none;
+  stroke: var(--pf-electric-ok);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+  stroke-dasharray: 10 8;
+  animation: pfCurrentDash 0.85s linear infinite;
+  filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.65));
+  transition: opacity 0.25s ease, stroke 0.25s ease;
+}
+
+.pf-bus-live.is-off {
+  opacity: 0.12;
+  stroke: #94A3B8;
+  animation: none;
+  filter: none;
+}
+
+.pf-bus-node {
+  transition: all 0.25s ease;
+}
+
+.pf-bus-node.is-on {
+  fill: var(--pf-electric-ok);
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.8));
+}
+
+.pf-bus-node.is-fault {
+  fill: var(--pf-electric-fault);
+  animation: pfFaultBlink 0.9s ease-in-out infinite;
+}
+
+.pf-bus-node.is-dead {
+  fill: #94A3B8;
+  opacity: 0.45;
+}
+
+.pf-bus-label {
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--pf-drawer-muted, #64748B);
+  text-anchor: middle;
+}
+
+/* 4. Live Calculator Current Oscilloscope */
+.pf-osc-wrap {
+  margin-top: 12px;
+  padding: 8px 10px 6px;
+  border-radius: 10px;
+  background: rgba(15, 23, 42, 0.045);
+  border: 1px solid var(--pf-glass-border, rgba(222, 88, 20, 0.18));
+}
+
+[data-theme="obsidian"] .pf-osc-wrap,
+[data-theme="klimt"] .pf-osc-wrap,
+[data-theme="ninagawa"] .pf-osc-wrap {
+  background: rgba(2, 6, 23, 0.42);
+}
+
+.pf-osc-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--pf-drawer-muted, #64748B);
+  margin-bottom: 4px;
+}
+
+.pf-osc-readout {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--pf-fluid-accent, #DE5814);
+  font-weight: 800;
+}
+
+.pf-osc-canvas {
+  width: 100%;
+  height: 44px;
+  display: block;
+}
+
+/* 5. Architecture & Route SVG Live Electric Current Pulses */
+.pf-svg-current-overlay {
+  fill: none !important;
+  stroke: var(--pf-electric-core) !important;
+  stroke-width: 2.2px !important;
+  stroke-linecap: round;
+  stroke-dasharray: 12 148;
+  stroke-dashoffset: 160;
+  opacity: 0.85;
+  pointer-events: none;
+  filter: drop-shadow(0 0 4px var(--pf-electric-glow));
+  animation: pfSvgPulse 2.8s linear infinite;
+}
+
+[data-pf-fluid="turbo"] .pf-svg-current-overlay {
+  animation-duration: 1.5s;
+  opacity: 0.96;
+}
+
+[data-pf-fluid="calm"] .pf-svg-current-overlay {
+  animation-duration: 6.5s;
+  opacity: 0.42;
+}
+
 /* Print Isolation */
 @media print {
   #pfFluidCanvas,
@@ -604,7 +914,11 @@ header, main, section, footer, .hero-card, .hero, .wrap, .container {
   #pfExecDrawer,
   .pf-hero-aura,
   .pf-inspect-hint,
-  .pf-flow-ribbon {
+  .pf-flow-ribbon,
+  .pf-gate-circuit,
+  .pf-osc-wrap,
+  .pf-svg-current-overlay,
+  .pf-electric-card::after {
     display: none !important;
   }
   .pf-reveal {
@@ -622,7 +936,10 @@ header, main, section, footer, .hero-card, .hero, .wrap, .container {
     scroll-behavior: auto !important;
   }
   #pfFluidCanvas,
-  .pf-hero-aura {
+  .pf-hero-aura,
+  .pf-svg-current-overlay,
+  .pf-electric-card::after,
+  .neon-reading-progress.pf-electric-progress::after {
     display: none !important;
   }
   .pf-reveal {
