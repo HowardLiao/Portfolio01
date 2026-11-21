@@ -1,11 +1,13 @@
-const CACHE_NAME = 'portfolio01-neon-v1';
+const CACHE_NAME = 'portfolio01-neon-v2';
 const CORE_ASSETS = [
   './',
   './index.html',
   './manifest.json',
   './assets/icon-192.png',
   './assets/icon-512.png',
-  './assets/og_howard_liao.jpg'
+  './assets/og_howard_liao.jpg',
+  './assets/portfolio-fluid.css',
+  './assets/portfolio-fluid-engine.js'
 ];
 
 self.addEventListener('install', (event) => {
